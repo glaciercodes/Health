@@ -1,1 +1,175 @@
-hi
+import React, { useEffect, useState } from "react"; import { initializeApp } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js"; import { getFirestore, collection, doc, getDoc, getDocs, setDoc, updateDoc, onSnapshot, increment, addDoc, serverTimestamp, } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-firestore.js";
+
+// ------------------------ // Firebase config (from user snippet) // ------------------------ const firebaseConfig = { apiKey: "AIzaSyDnq2364tMuRPbrjjHmUfFUTjWZC2BmIS4", authDomain: "dollar-survey-60fe7.firebaseapp.com", projectId: "dollar-survey-60fe7", storageBucket: "dollar-survey-60fe7.firebasestorage.app", messagingSenderId: "293471697208", appId: "1:293471697208:web:664863f09e830e420c69cd", measurementId: "G-RCZ7SQJHPZ", };
+
+const app = initializeApp(firebaseConfig); const db = getFirestore(app);
+
+// ------------------------ // Top 100 topics (aggregated from the PDF analysis) // The topics are stored as an array of strings. Each article will be seeded with a short human-writeable description (approx 50 words) // ------------------------ const TOPICS = [ "Headache / Causes of headache", "Fever / How long does fever last", "Fatigue / Chronic fatigue causes", "Hair loss / sudden hair loss", "Memory loss / brain fog", "Chest pain / when to seek help", "Shortness of breath / causes", "Lightheadedness / sudden dizziness", "Abdominal pain / common causes", "Back pain / lower back remedies", "Joint pain / arthritis symptoms", "Skin rash / causes and treatment", "Swelling (edema)", "Nausea & vomiting", "Diarrhea / causes and treatment", "Constipation / relief tips", "Cough / how long does cough last", "Sore throat / strep throat vs viral", "Loss of taste or smell", "Sleep problems / insomnia", "Diabetes (type 1 & 2) management", "High blood pressure (hypertension)", "High cholesterol / how to lower", "Heart disease / heart attack signs", "Stroke symptoms / FAST", "Asthma management", "Chronic obstructive pulmonary disease (COPD)", "Kidney stones / causes and prevention", "Lupus / what is lupus", "Autoimmune disorders (general)", "Thyroid problems (hypo/hyperthyroid)", "Cancer (breast, prostate, skin)", "Alzheimer's disease / dementia", "Arthritis types (OA, RA)", "IBS (irritable bowel syndrome)", "GERD / acid reflux", "Anemia / iron deficiency", "PCOS (polycystic ovary syndrome)", "Osteoporosis / bone health", "Allergies / hay fever and allergic reactions", "Depression signs & treatment", "Anxiety disorders / panic attacks", "Stress management techniques", "PTSD / trauma-related care", "ADHD in adults and children", "Autism spectrum overview", "Insomnia & sleep hygiene", "Migraine causes and relief", "Substance use & addiction help", "Suicidal ideation resources (crisis help)", "Mindfulness & meditation benefits", "Therapy types (CBT, DBT)", "Social isolation & loneliness", "Brain fog / cognitive clarity", "Weight loss strategies / dieting", "Keto diet questions / safety", "Intermittent fasting guides", "Plant-based diets / vegan nutrition", "High-protein diets / best foods", "Supplements (vitamin D, B12, magnesium)", "Hydration / how much water to drink", "Meal planning / healthy meal prep", "Probiotics & gut health", "Fiber intake / digestive health", "Low-carb vs low-fat debates", "Healthy snacks / sugar-free options", "Food allergies & intolerances", "Detox myths & facts", "Child nutrition / picky eaters", "Home workouts / 15-minute routines", "HIIT vs steady-state cardio", "Strength training basics", "Posture correction exercises", "Running tips / beginner guides", "Walking 10k steps benefits", "Stretching & mobility routines", "Exercise for seniors", "Pre/postnatal exercise safety", "Recovery & foam rolling", "Yoga & Pilates for beginners", "Fitness trackers & wearables", "Pregnancy questions / trimester guides", "Fertility basics / trying to conceive", "Menopause symptoms & relief", "Sexual health / STI symptoms", "Testosterone and men's health", "Erectile dysfunction causes & treatments", "Birth control options", "PCOS & menstrual irregularities", "Breast health & self-exams", "Prostate health basics", "Mental wellness trends (digital detox)", "Sleep optimization & circadian health", "Longevity & anti-aging topics", "Skin care routines & acne", "Cold exposure / cryotherapy", "Red light therapy claims", "CBD & adaptogens (ashwagandha)", "Mind-body practices (breathwork, tai chi)", "Telehealth and remote care", "Workplace wellness tips", "Immune system support", "Vaccinations and boosters", "Pediatric common illnesses", "Oral health / gum disease", "Vision health and eye strain", "Hearing loss / tinnitus", "Hormone replacement therapy overview", "Weight gain and underweight causes", "Healthy aging and sarcopenia prevention", "First aid basics and wound care", "Ortho & sports injury basics", ];
+
+// Utility: create a natural ~50-word human-editable description template for each topic. function generateDescription(topic) { // ~50 words: crafted template that reads naturally and is easy for a human to edit later return ( This article explores ${topic}. We cover causes, common symptoms, practical self-care steps, and when to seek professional help. The piece gives clear, evidence-aware tips and actionable next steps readers can apply today. It is written for general audiences and avoids medical jargon. ); }
+
+// ------------------------ // Helper: shuffle array // ------------------------ function shuffle(array) { const a = array.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+
+// ------------------------ // Main React Component // ------------------------ export default function HealthHomePage() { const [articles, setArticles] = useState([]); // local article objects {id, title, desc, likes, comments} const [query, setQuery] = useState(""); const [loading, setLoading] = useState(true);
+
+useEffect(() => { // On first load: seed Firestore collection "articles" if empty. // Then subscribe to real-time updates so likes/comments show live.
+
+const articlesCol = collection(db, "articles");
+
+// First check if documents exist
+getDocs(articlesCol)
+  .then((snap) => {
+    if (snap.empty) {
+      // seed all 100 topics
+      const seeds = TOPICS.map((t, i) => ({
+        id: `a${i + 1}`,
+        title: t,
+        desc: generateDescription(t),
+        likes: 0,
+        createdAt: new Date(),
+      }));
+
+      // batch set (simple sequential setDoc to keep compatibility)
+      Promise.all(
+        seeds.map((s) => setDoc(doc(db, "articles", s.id), {
+          title: s.title,
+          desc: s.desc,
+          likes: 0,
+          createdAt: serverTimestamp(),
+        }))
+      )
+        .then(() => subscribeToArticles())
+        .catch((e) => {
+          console.error("Seeding error:", e);
+          subscribeToArticles();
+        });
+    } else {
+      subscribeToArticles();
+    }
+  })
+  .catch((err) => {
+    console.error("Error loading articles collection:", err);
+    subscribeToArticles();
+  });
+
+function subscribeToArticles() {
+  // Real-time listener
+  const unsub = onSnapshot(articlesCol, (snapshot) => {
+    const arr = [];
+    snapshot.forEach((d) => {
+      arr.push({ id: d.id, ...d.data() });
+    });
+    // shuffle for each visitor (per requirement)
+    const shuffled = shuffle(arr);
+    setArticles(shuffled);
+    setLoading(false);
+  });
+
+  return () => unsub();
+}
+
+}, []);
+
+// Like an article (increment in Firestore) async function handleLike(articleId) { try { const aDoc = doc(db, "articles", articleId); await updateDoc(aDoc, { likes: increment(1) }); } catch (e) { console.error("Like error:", e); } }
+
+// Add a comment to article's subcollection 'comments' async function handleAddComment(articleId, text, clearFn) { if (!text || text.trim().length === 0) return; try { const commentsCol = collection(db, "articles", articleId, "comments"); await addDoc(commentsCol, { text: text.trim(), createdAt: serverTimestamp(), }); clearFn(); } catch (e) { console.error("Add comment error:", e); } }
+
+// Share article function handleShare(article) { const shareData = { title: article.title, text: article.desc, url: ${window.location.href}#article-${article.id}, }; if (navigator.share) { navigator.share(shareData).catch((e) => console.error(e)); } else { // fallback: copy to clipboard navigator.clipboard .writeText(shareData.url) .then(() => alert("Article link copied to clipboard")) .catch(() => alert("Unable to copy link")); } }
+
+// Filtered articles by search const filtered = articles.filter((a) => a.title.toLowerCase().includes(query.toLowerCase()) || a.desc.toLowerCase().includes(query.toLowerCase()) );
+
+return ( <div className="min-h-screen bg-gray-50 text-gray-900"> {/* Top nav /} <header className="w-full bg-white shadow-sm sticky top-0 z-40"> <div className="max-w-6xl mx-auto px-4 py-3 flex items-center gap-4"> {/ Logo + Menu on top-left as requested */} <div className="flex items-center gap-3"> <a href="#" className="flex items-center gap-2"> <img src="#" alt="logo" className="w-10 h-10 bg-gray-200 rounded" /> <span className="font-semibold">HealthPulse</span> </a> <nav className="hidden md:flex items-center gap-3 ml-4"> <a href="#" className="text-sm hover:underline">Home</a> <a href="#" className="text-sm hover:underline">Nutrition</a> <a href="#" className="text-sm hover:underline">Fitness</a> <a href="#" className="text-sm hover:underline">Mental Health</a> <a href="#" className="text-sm hover:underline">Women's Health</a> </nav> </div>
+
+{/* Search bar (center) */}
+      <div className="flex-1">
+        <input
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="Search health topics, symptoms, or articles..."
+          className="w-full border rounded-lg px-4 py-2 shadow-sm focus:outline-none"
+        />
+      </div>
+
+      {/* Right side (optional) */}
+      <div className="flex items-center gap-3">
+        <button className="text-sm px-3 py-2 border rounded">Sign in</button>
+      </div>
+    </div>
+  </header>
+
+  <main className="max-w-6xl mx-auto px-4 py-6">
+    <h1 className="text-2xl font-bold mb-4">Top Health Topics — Explore and Share</h1>
+
+    {loading ? (
+      <div>Loading articles…</div>
+    ) : (
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {filtered.map((a) => (
+          <ArticleCard
+            key={a.id}
+            article={a}
+            onLike={() => handleLike(a.id)}
+            onShare={() => handleShare(a)}
+            onAddComment={(text, clearFn) => handleAddComment(a.id, text, clearFn)}
+          />
+        ))}
+      </div>
+    )}
+  </main>
+
+  <footer className="w-full py-8 bg-white mt-8">
+    <div className="max-w-6xl mx-auto px-4 text-sm text-gray-600">© {new Date().getFullYear()} HealthPulse — Built for clarity and trust.</div>
+  </footer>
+</div>
+
+); }
+
+// ------------------------ // ArticleCard component: displays image placeholder (#), title (link), description (~50 words), likes, share, comments. // It subscribes to the "comments" subcollection for live comments display // ------------------------ function ArticleCard({ article, onLike, onShare, onAddComment }) { const [comments, setComments] = useState([]); const [commentText, setCommentText] = useState("");
+
+useEffect(() => { // subscribe to comments subcollection for this article const commentsCol = collection(db, "articles", article.id, "comments"); const unsub = onSnapshot(commentsCol, (snap) => { const arr = []; snap.forEach((d) => arr.push({ id: d.id, ...d.data() })); // sort by createdAt if present arr.sort((x, y) => { const tx = x.createdAt ? x.createdAt.seconds || 0 : 0; const ty = y.createdAt ? y.createdAt.seconds || 0 : 0; return ty - tx; }); setComments(arr); }); return () => unsub(); }, [article.id]);
+
+// human-editable desc shown; the title is link text (href '#') return ( <article id={article-${article.id}} className="bg-white rounded-lg shadow p-4 flex flex-col"> <a href="#" className="block h-40 bg-gray-100 rounded overflow-hidden mb-3"> <img src="#" alt={article.title} className="w-full h-full object-cover" /> </a> <a href="#" className="text-lg font-semibold hover:underline mb-2"> {article.title} </a> <p className="text-sm text-gray-700 flex-1">{article.desc}</p>
+
+<div className="mt-3 flex items-center justify-between gap-2">
+    <div className="flex items-center gap-2">
+      <button onClick={onLike} className="px-3 py-1 border rounded">Like ({article.likes || 0})</button>
+      <button onClick={onShare} className="px-3 py-1 border rounded">Share</button>
+    </div>
+  </div>
+
+  {/* Comments area */}
+  <div className="mt-3">
+    <div className="space-y-2 max-h-40 overflow-auto py-1">
+      {comments.length === 0 ? (
+        <div className="text-xs text-gray-500">No comments yet — be the first to share a helpful tip.</div>
+      ) : (
+        comments.map((c) => (
+          <div key={c.id} className="text-sm bg-gray-50 rounded p-2">
+            <div className="text-xs text-gray-500">{c.createdAt ? new Date(c.createdAt.seconds * 1000).toLocaleString() : "recent"}</div>
+            <div>{c.text}</div>
+          </div>
+        ))
+      )}
+    </div>
+
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        const clear = () => setCommentText("");
+        onAddComment(commentText, clear);
+      }}
+      className="mt-2 flex gap-2"
+    >
+      <input
+        value={commentText}
+        onChange={(e) => setCommentText(e.target.value)}
+        placeholder="Write a comment (be helpful and kind)"
+        className="flex-1 border rounded px-3 py-2 text-sm"
+      />
+      <button type="submit" className="px-3 py-2 border rounded text-sm">Comment</button>
+    </form>
+  </div>
+</article>
+
+); }
+
