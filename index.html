@@ -3,1033 +3,489 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Health-Hubs | Your Trusted Health Resource</title>
+    <title>Health-Hubs | Your Health Resource</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --primary: #2a9d8f;
-            --secondary: #e9c46a;
-            --dark: #1d3557;
-            --darker: #0d1b2a;
-            --light: #f1faee;
-            --gray: #8d99ae;
-            --card-bg: #2b2d42;
+            --secondary: #264653;
+            --accent: #e9c46a;
+            --text: #f1faee;
+            --background: #1d3557;
+            --card-bg: #2a3d5f;
+            --hover: #457b9d;
         }
-
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
+        
         body {
-            background-color: var(--darker);
-            color: var(--light);
+            background-color: var(--background);
+            color: var(--text);
             line-height: 1.6;
         }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-
-        /* Header Styles */
+        
         header {
-            background-color: var(--dark);
-            padding: 20px 0;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 1rem 2rem;
+            background-color: var(--secondary);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
-
+        
         .logo {
             display: flex;
             align-items: center;
             gap: 10px;
         }
-
-        .logo-icon {
-            font-size: 2rem;
-            color: var(--primary);
+        
+        .logo img {
+            height: 40px;
         }
-
-        .logo-text {
+        
+        .logo h1 {
             font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--light);
+            color: var(--accent);
         }
-
+        
         .search-bar {
-            display: flex;
-            width: 40%;
+            flex: 1;
+            max-width: 500px;
+            margin: 0 2rem;
         }
-
+        
         .search-bar input {
             width: 100%;
-            padding: 12px 15px;
+            padding: 0.8rem 1rem;
+            border-radius: 30px;
             border: none;
-            border-radius: 30px 0 0 30px;
             background-color: var(--card-bg);
-            color: var(--light);
+            color: var(--text);
             font-size: 1rem;
         }
-
-        .search-bar button {
-            padding: 0 20px;
-            border: none;
-            border-radius: 0 30px 30px 0;
-            background-color: var(--primary);
-            color: var(--light);
+        
+        .search-bar input:focus {
+            outline: 2px solid var(--primary);
+        }
+        
+        .menu-icon {
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--accent);
+        }
+        
+        .modal-menu {
+            display: none;
+            position: absolute;
+            top: 70px;
+            right: 20px;
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            z-index: 100;
+            width: 200px;
+            overflow: hidden;
+        }
+        
+        .modal-menu.active {
+            display: block;
+        }
+        
+        .modal-menu ul {
+            list-style: none;
+        }
+        
+        .modal-menu li {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             cursor: pointer;
             transition: background-color 0.3s;
         }
-
-        .search-bar button:hover {
-            background-color: #21867a;
+        
+        .modal-menu li:hover {
+            background-color: var(--hover);
         }
-
-        /* Navigation Styles */
-        nav {
-            background-color: var(--card-bg);
-            padding: 15px 0;
-            margin-top: 10px;
+        
+        .modal-menu li:last-child {
+            border-bottom: none;
         }
-
-        .menu {
-            display: flex;
-            list-style: none;
-            justify-content: center;
-            gap: 30px;
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
         }
-
-        .menu li a {
-            color: var(--light);
-            text-decoration: none;
-            font-weight: 500;
-            padding: 8px 15px;
-            border-radius: 20px;
-            transition: all 0.3s;
-        }
-
-        .menu li a:hover, .menu li a.active {
-            background-color: var(--primary);
-            color: var(--darker);
-        }
-
-        /* Main Content Styles */
-        main {
-            padding: 40px 0;
-        }
-
-        .page-title {
-            text-align: center;
-            margin-bottom: 30px;
-            color: var(--secondary);
-        }
-
+        
         .articles-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
+            gap: 2rem;
         }
-
+        
         .article-card {
             background-color: var(--card-bg);
             border-radius: 10px;
             overflow: hidden;
             transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
-
+        
         .article-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
         }
-
+        
         .article-image {
             width: 100%;
             height: 180px;
-            background-color: var(--dark);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .article-image img {
-            width: 100%;
-            height: 100%;
             object-fit: cover;
-            transition: transform 0.5s;
         }
-
-        .article-card:hover .article-image img {
-            transform: scale(1.05);
-        }
-
+        
         .article-content {
-            padding: 20px;
+            padding: 1.5rem;
         }
-
+        
         .article-meta {
             display: flex;
             justify-content: space-between;
             font-size: 0.8rem;
-            color: var(--gray);
-            margin-bottom: 10px;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
         }
-
+        
         .article-title {
             font-size: 1.2rem;
-            margin-bottom: 10px;
+            margin-bottom: 1rem;
+            color: var(--primary);
         }
-
+        
         .article-title a {
-            color: var(--light);
+            color: inherit;
             text-decoration: none;
             transition: color 0.3s;
         }
-
+        
         .article-title a:hover {
-            color: var(--secondary);
+            color: var(--accent);
         }
-
+        
         .article-intro {
+            margin-bottom: 1rem;
             font-size: 0.95rem;
-            color: var(--gray);
-            margin-bottom: 15px;
             line-height: 1.5;
         }
-
+        
+        .article-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
         .read-more {
             color: var(--primary);
             text-decoration: none;
             font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            transition: gap 0.3s;
+            transition: color 0.3s;
         }
-
+        
         .read-more:hover {
-            gap: 10px;
+            color: var(--accent);
         }
-
-        /* Article Detail Styles */
-        .article-detail {
-            display: none;
+        
+        .share-btn {
+            background: none;
+            border: none;
+            color: var(--accent);
+            cursor: pointer;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+        
+        .share-btn:hover {
+            color: var(--primary);
+        }
+        
+        .no-results {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 3rem;
+            font-size: 1.2rem;
+            color: var(--accent);
+        }
+        
+        footer {
+            background-color: var(--secondary);
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
             max-width: 800px;
             margin: 0 auto;
         }
-
-        .article-header {
-            margin-bottom: 30px;
-        }
-
-        .article-detail-title {
-            font-size: 2.2rem;
-            color: var(--secondary);
-            margin-bottom: 15px;
-        }
-
-        .article-detail-meta {
-            display: flex;
-            gap: 20px;
-            color: var(--gray);
-            margin-bottom: 20px;
-        }
-
-        .article-detail-image {
-            width: 100%;
-            height: 350px;
-            background-color: var(--dark);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 10px;
-            margin-bottom: 25px;
-            overflow: hidden;
-        }
-
-        .article-detail-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .article-body {
-            font-size: 1.1rem;
-            line-height: 1.7;
-        }
-
-        .article-body h3 {
-            color: var(--primary);
-            margin: 25px 0 15px;
-        }
-
-        .article-body p {
-            margin-bottom: 15px;
-        }
-
-        .article-body ul, .article-body ol {
-            margin-left: 20px;
-            margin-bottom: 20px;
-        }
-
-        .article-body li {
-            margin-bottom: 8px;
-        }
-
-        .share-section {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin: 30px 0;
-            padding: 20px;
-            background-color: var(--card-bg);
-            border-radius: 10px;
-        }
-
-        .share-text {
-            font-weight: 600;
-        }
-
-        .share-buttons {
-            display: flex;
-            gap: 10px;
-        }
-
-        .share-btn {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-decoration: none;
-            transition: transform 0.3s;
-        }
-
-        .share-btn:hover {
-            transform: scale(1.1);
-        }
-
-        .facebook {
-            background-color: #3b5998;
-        }
-
-        .twitter {
-            background-color: #1da1f2;
-        }
-
-        .linkedin {
-            background-color: #0077b5;
-        }
-
-        .whatsapp {
-            background-color: #25d366;
-        }
-
-        .back-to-articles {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-            margin-bottom: 30px;
-            transition: gap 0.3s;
-        }
-
-        .back-to-articles:hover {
-            gap: 12px;
-        }
-
-        /* Footer Styles */
-        footer {
-            background-color: var(--dark);
-            padding: 40px 0 20px;
-            margin-top: 50px;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-
-        .footer-section {
-            flex: 1;
-            min-width: 250px;
-        }
-
-        .footer-section h3 {
-            color: var(--secondary);
-            margin-bottom: 20px;
-            font-size: 1.3rem;
-        }
-
+        
         .footer-links {
-            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1.5rem 0;
         }
-
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-
+        
         .footer-links a {
-            color: var(--gray);
+            color: var(--text);
             text-decoration: none;
             transition: color 0.3s;
         }
-
+        
         .footer-links a:hover {
             color: var(--primary);
         }
-
+        
         .copyright {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid var(--card-bg);
-            color: var(--gray);
+            color: var(--accent);
             font-size: 0.9rem;
         }
-
-        /* Pagination Styles */
-        .pagination {
-            display: flex;
-            justify-content: center;
-            margin-top: 40px;
-            gap: 10px;
-        }
-
-        .pagination button {
-            background-color: var(--card-bg);
-            border: none;
-            color: var(--light);
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .pagination button:hover {
-            background-color: var(--primary);
-        }
-
-        .pagination button.active {
-            background-color: var(--primary);
-        }
-
-        /* Responsive Styles */
+        
         @media (max-width: 768px) {
-            .header-content {
+            header {
                 flex-direction: column;
-                gap: 20px;
+                gap: 1rem;
             }
             
             .search-bar {
+                margin: 0;
                 width: 100%;
             }
             
-            .menu {
-                flex-wrap: wrap;
-                gap: 10px;
-            }
-            
             .articles-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            }
-            
-            .article-detail-title {
-                font-size: 1.8rem;
-            }
-            
-            .article-detail-image {
-                height: 250px;
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header Section -->
     <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <i class="fas fa-heartbeat logo-icon"></i>
-                    <span class="logo-text">Health-Hubs</span>
-                </div>
-                <div class="search-bar">
-                    <input type="text" id="searchInput" placeholder="Search health tips...">
-                    <button id="searchButton"><i class="fas fa-search"></i></button>
-                </div>
-            </div>
+        <div class="logo">
+            <i class="fas fa-heartbeat"></i>
+            <h1>Health-Hubs</h1>
         </div>
-    </header>
-
-    <!-- Navigation Menu -->
-    <nav>
-        <div class="container">
-            <ul class="menu">
-                <li><a href="#" class="active">Home</a></li>
-                <li><a href="#">Nutrition</a></li>
-                <li><a href="#">Fitness</a></li>
-                <li><a href="#">Mental Health</a></li>
-                <li><a href="#">Preventive Care</a></li>
-                <li><a href="#">Healthy Living</a></li>
+        
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search health articles...">
+        </div>
+        
+        <div class="menu-icon" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </div>
+        
+        <div class="modal-menu" id="modalMenu">
+            <ul>
+                <li><i class="fas fa-home"></i> Home</li>
+                <li><i class="fas fa-book-medical"></i> Health Topics</li>
+                <li><i class="fas fa-user-md"></i> Expert Advice</li>
+                <li><i class="fas fa-newspaper"></i> Latest News</li>
+                <li><i class="fas fa-info-circle"></i> About Us</li>
+                <li><i class="fas fa-envelope"></i> Contact</li>
             </ul>
         </div>
-    </nav>
-
-    <!-- Main Content -->
-    <main class="container">
-        <h1 class="page-title">Top 100 Health Tips for Better Living</h1>
-        
-        <!-- Back to Articles Link (Hidden by default) -->
-        <a href="#" class="back-to-articles" id="backToArticles" style="display: none;">
-            <i class="fas fa-arrow-left"></i> Back to All Articles
-        </a>
-        
-        <!-- Articles Grid -->
+    </header>
+    
+    <div class="container">
         <div class="articles-grid" id="articlesGrid">
-            <!-- Article cards will be dynamically generated here -->
+            <!-- Articles will be dynamically generated here -->
         </div>
-
-        <!-- Pagination -->
-        <div class="pagination" id="pagination">
-            <!-- Pagination buttons will be dynamically generated here -->
-        </div>
-        
-        <!-- Article Detail View -->
-        <div class="article-detail" id="articleDetail">
-            <!-- Article content will be dynamically generated here -->
-        </div>
-    </main>
-
-    <!-- Footer -->
+    </div>
+    
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>About Health-Hubs</h3>
-                    <p>Your trusted source for evidence-based health information and wellness tips to help you live your healthiest life.</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Nutrition</a></li>
-                        <li><a href="#">Fitness</a></li>
-                        <li><a href="#">Mental Health</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Contact Us</h3>
-                    <ul class="footer-links">
-                        <li><a href="#"><i class="fas fa-envelope"></i> info@health-hubs.com</a></li>
-                        <li><a href="#"><i class="fas fa-phone"></i> +1 (555) 123-4567</a></li>
-                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> 123 Wellness St, Health City</a></li>
-                    </ul>
-                </div>
+        <div class="footer-content">
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i>
+                <h2>Health-Hubs</h2>
             </div>
-            <div class="copyright">
-                <p>&copy; 2023 Health-Hubs. All rights reserved.</p>
+            <p>Your trusted source for health and wellness information</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact Us</a>
+                <a href="#">About</a>
             </div>
+            <p class="copyright">&copy; 2023 Health-Hubs. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        // Complete health articles data with 100 entries
+        // Health articles data
         const healthArticles = [
             {
                 id: 1,
-                title: "10 Simple Ways to Boost Your Immune System Naturally",
+                title: "10 Ways to Improve Your Sleep Quality",
+                image: "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+                date: "June 15, 2023",
                 author: "Dr. Sarah Johnson",
-                date: "March 15, 2023",
-                image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
-                intro: "Your immune system is your body's defense against infections. Discover these 10 natural methods to strengthen your immunity and stay healthy year-round. From dietary changes to lifestyle adjustments...",
-                content: `
-                    <p>Your immune system is a complex network of cells, tissues, and organs that work together to defend your body against harmful pathogens. While no single food or supplement can prevent illness, certain lifestyle choices can significantly strengthen your immune response.</p>
-                    
-                    <h3>What Exactly Is the Immune System?</h3>
-                    <p>The immune system is your body's defense mechanism against infections and diseases. It consists of white blood cells, antibodies, and other components that identify and neutralize foreign invaders like bacteria, viruses, and toxins.</p>
-                    
-                    <h3>How Can You Naturally Strengthen Your Immunity?</h3>
-                    <p>Here are 10 evidence-based ways to boost your immune system naturally:</p>
-                    <ol>
-                        <li><strong>Eat a balanced diet rich in fruits and vegetables:</strong> These provide essential vitamins, minerals, and antioxidants that support immune function.</li>
-                        <li><strong>Get adequate sleep:</strong> During sleep, your body produces and distributes key immune cells.</li>
-                        <li><strong>Exercise regularly:</strong> Moderate physical activity can boost the circulation of immune cells.</li>
-                        <li><strong>Manage stress levels:</strong> Chronic stress suppresses immune function.</li>
-                        <li><strong>Stay hydrated:</strong> Proper hydration helps your body naturally eliminate toxins.</li>
-                        <li><strong>Limit alcohol consumption:</strong> Excessive alcohol can impair immune function.</li>
-                        <li><strong>Don't smoke:</strong> Smoking undermines basic immune defenses.</li>
-                        <li><strong>Spend time outdoors:</strong> Sunlight helps your body produce vitamin D, crucial for immunity.</li>
-                        <li><strong>Maintain a healthy weight:</strong> Obesity can affect the ability of white blood cells to multiply and produce antibodies.</li>
-                        <li><strong>Practice good hygiene:</strong> Simple habits like regular handwashing can prevent infections.</li>
-                    </ol>
-                    
-                    <h3>Which Foods Are Best for Immune Health?</h3>
-                    <p>Certain foods are particularly beneficial for immune function. Citrus fruits provide vitamin C, which increases white blood cell production. Red bell peppers contain even more vitamin C than citrus fruits. Broccoli is packed with vitamins A, C, and E, plus fiber. Garlic's immune-boosting properties come from its sulfur-containing compounds. Ginger may help decrease inflammation. Spinach is rich in vitamin C and antioxidants. Yogurt with live and active cultures can stimulate your immune system. Almonds provide vitamin E, which is key to a healthy immune system.</p>
-                    
-                    <h3>How Much Sleep Do You Really Need?</h3>
-                    <p>Most adults need 7-9 hours of quality sleep per night for optimal immune function. During sleep, your body produces proteins called cytokines that target infection and inflammation. Lack of sleep decreases the production of these protective cytokines.</p>
-                    
-                    <p>By incorporating these strategies into your daily routine, you can give your immune system the support it needs to function at its best. Remember that consistency is key - these habits work best when practiced regularly over time.</p>
-                `
+                intro: "Struggling with sleep? Discover 10 science-backed methods to enhance your sleep quality and wake up refreshed. From optimizing your bedroom environment to establishing a consistent sleep schedule, these tips can transform your nights."
             },
             {
                 id: 2,
-                title: "5 Effective Strategies for Better Sleep Tonight",
-                author: "Dr. Michael Chen",
-                date: "April 2, 2023",
-                image: "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?ixlib=rb-4.0.3&auto=format&fit=crop&w=1460&q=80",
-                intro: "Struggling with sleepless nights? These 5 science-backed techniques can help you fall asleep faster and enjoy more restorative sleep. Transform your bedtime routine starting tonight...",
-                content: `
-                    <p>Quality sleep is essential for physical health, mental clarity, and emotional well-being. Yet many people struggle with falling asleep or staying asleep through the night. The good news is that simple changes to your routine can significantly improve your sleep quality.</p>
-                    
-                    <h3>Why Is Sleep So Important for Health?</h3>
-                    <p>During sleep, your body repairs itself, consolidates memories, and regulates hormones. Chronic sleep deprivation has been linked to numerous health problems, including obesity, heart disease, diabetes, and impaired immune function.</p>
-                    
-                    <h3>What Are the Most Effective Sleep Strategies?</h3>
-                    <p>Here are 5 proven techniques for better sleep:</p>
-                    <ol>
-                        <li><strong>Establish a consistent sleep schedule:</strong> Go to bed and wake up at the same time every day, even on weekends.</li>
-                        <li><strong>Create a relaxing bedtime routine:</strong> This signals to your body that it's time to wind down.</li>
-                        <li><strong>Optimize your sleep environment:</strong> Keep your bedroom cool, dark, and quiet.</li>
-                        <li><strong>Limit exposure to screens before bed:</strong> The blue light from devices can disrupt melatonin production.</li>
-                        <li><strong>Avoid caffeine and large meals close to bedtime:</strong> These can interfere with your ability to fall asleep.</li>
-                    </ol>
-                    
-                    <h3>How Does Light Exposure Affect Sleep?</h3>
-                    <p>Your body's internal clock (circadian rhythm) is heavily influenced by light exposure. Natural sunlight during the day helps maintain a healthy circadian rhythm, while exposure to bright artificial light in the evening can disrupt it. Try to get at least 30 minutes of natural sunlight exposure during the day, and dim the lights in your home during the evening hours.</p>
-                    
-                    <h3>What Role Does Temperature Play in Sleep Quality?</h3>
-                    <p>Your body temperature naturally drops during sleep, and a cooler room environment supports this process. The ideal bedroom temperature for sleep is between 60-67°F (15-19°C). Consider using a fan or adjusting your thermostat to create optimal sleeping conditions.</p>
-                    
-                    <p>Implementing even one or two of these strategies can make a noticeable difference in your sleep quality. Be patient with yourself as you develop new habits - it can take several weeks for changes to become automatic and for your sleep to improve consistently.</p>
-                `
+                title: "5 Foods That Boost Your Immune System",
+                image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+                date: "June 12, 2023",
+                author: "Nutritionist Mark Davis",
+                intro: "Strengthen your body's natural defenses with these powerful immune-boosting foods. Learn which nutrients are essential for immune function and how to incorporate them into your daily diet for optimal health protection."
             },
             {
                 id: 3,
-                title: "The Ultimate Guide to Stress Management Techniques",
-                author: "Dr. Emily Rodriguez",
-                date: "February 28, 2023",
-                image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
-                intro: "Chronic stress can take a serious toll on your health. Learn these proven techniques to manage stress effectively and improve your overall wellbeing. From mindfulness to physical activity...",
-                content: `
-                    <p>Stress is an inevitable part of life, but chronic stress can have serious consequences for both physical and mental health. Learning to manage stress effectively is crucial for maintaining overall wellbeing and preventing stress-related health issues.</p>
-                    
-                    <h3>What Happens to Your Body During Stress?</h3>
-                    <p>When you encounter a perceived threat, your hypothalamus sets off an alarm system in your body. Through a combination of nerve and hormonal signals, this system prompts your adrenal glands to release a surge of hormones, including adrenaline and cortisol. These hormones increase your heart rate, elevate your blood pressure, and boost energy supplies.</p>
-                    
-                    <h3>Which Stress Management Techniques Are Most Effective?</h3>
-                    <p>Here are several evidence-based stress management techniques:</p>
-                    <ul>
-                        <li><strong>Mindfulness meditation:</strong> Regular practice can change your brain's response to stress.</li>
-                        <li><strong>Deep breathing exercises:</strong> These activate the parasympathetic nervous system, promoting relaxation.</li>
-                        <li><strong>Regular physical activity:</strong> Exercise reduces stress hormones and stimulates endorphin production.</li>
-                        <li><strong>Progressive muscle relaxation:</strong> This involves tensing and then relaxing different muscle groups.</li>
-                        <li><strong>Time management strategies:</strong> Better organization can reduce feeling overwhelmed.</li>
-                        <li><strong>Social support:</strong> Connecting with others can provide emotional support and practical help.</li>
-                    </ul>
-                    
-                    <h3>How Does Mindfulness Reduce Stress?</h3>
-                    <p>Mindfulness involves paying attention to the present moment without judgment. Research shows that mindfulness meditation can reduce the production of cortisol, the primary stress hormone. Regular practice can also decrease activity in the amygdala (the brain's fear center) and increase connections between the amygdala and prefrontal cortex, which helps regulate emotional responses.</p>
-                    
-                    <h3>Can Diet Affect Stress Levels?</h3>
-                    <p>What you eat can influence how your body responds to stress. A diet rich in whole foods, including fruits, vegetables, whole grains, and lean protein, provides the nutrients your body needs to cope with stress. On the other hand, highly processed foods, excessive caffeine, and alcohol can exacerbate stress responses.</p>
-                    
-                    <p>Remember that different techniques work for different people, so it's worth experimenting to find what works best for you. The key is consistency - regular practice of stress management techniques makes them more effective when you need them most.</p>
-                `
+                title: "7 Effective Stress Management Techniques",
+                image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+                date: "June 10, 2023",
+                author: "Psychologist Lisa Chen",
+                intro: "Chronic stress can harm your health. Discover seven proven techniques to manage stress effectively, from mindfulness practices to physical activity. Implement these strategies to improve your mental wellbeing."
             },
             {
                 id: 4,
-                title: "7-Day Healthy Eating Plan for Beginners",
-                author: "Nutritionist Lisa Wang",
-                date: "May 10, 2023",
-                image: "https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
-                intro: "Starting a healthy eating journey can feel overwhelming. This simple 7-day plan takes the guesswork out of meal planning with delicious, nutritious options for every meal...",
-                content: `
-                    <p>Transitioning to a healthier diet doesn't have to be complicated or restrictive. This 7-day meal plan is designed to introduce you to balanced, nutritious eating with foods that are both good for you and satisfying.</p>
-                    
-                    <h3>Why Is Meal Planning Important for Healthy Eating?</h3>
-                    <p>Meal planning helps you make intentional food choices, reduces impulse eating, saves time and money, and ensures you have healthy options available when hunger strikes. It's one of the most effective strategies for maintaining a nutritious diet long-term.</p>
-                    
-                    <h3>What Does the 7-Day Plan Include?</h3>
-                    <p>This plan focuses on whole foods, balanced macronutrients, and appropriate portion sizes:</p>
-                    <ul>
-                        <li><strong>Day 1:</strong> Oatmeal with berries for breakfast, quinoa salad for lunch, baked salmon with roasted vegetables for dinner</li>
-                        <li><strong>Day 2:</strong> Greek yogurt with nuts and honey, lentil soup, chicken stir-fry with brown rice</li>
-                        <li><strong>Day 3:</strong> Scrambled eggs with spinach, chickpea salad wrap, turkey meatballs with zucchini noodles</li>
-                        <li><strong>Day 4:</strong> Smoothie with spinach and banana, tuna salad sandwich on whole grain, vegetable curry with quinoa</li>
-                        <li><strong>Day 5:</strong> Whole grain toast with avocado, black bean burger, baked cod with sweet potato</li>
-                        <li><strong>Day 6:</strong> Chia seed pudding, Mediterranean bowl, lean steak with asparagus</li>
-                        <li><strong>Day 7:</strong> Breakfast burrito with eggs and vegetables, leftover steak salad, mushroom risotto</li>
-                    </ul>
-                    
-                    <h3>How Can You Customize This Plan?</h3>
-                    <p>This meal plan is flexible and can be adapted based on your dietary preferences, allergies, or specific health goals. Vegetarian? Swap animal proteins for plant-based alternatives like tofu, tempeh, or legumes. Need more calories? Increase portion sizes or add healthy snacks between meals. The key is finding an approach that works for your lifestyle while prioritizing whole, nutrient-dense foods.</p>
-                    
-                    <h3>What About Snacks and Hydration?</h3>
-                    <p>Don't forget about snacks and hydration! Healthy snack options include fresh fruit, raw vegetables with hummus, a handful of nuts, or Greek yogurt. Aim to drink at least 8 glasses of water throughout the day, and limit sugary beverages.</p>
-                    
-                    <p>Remember that this plan is a starting point - feel free to modify it based on what works for you. The goal is to establish healthy eating patterns that you can maintain long-term, not perfection.</p>
-                `
+                title: "The Ultimate Guide to Hydration",
+                image: "https://images.unsplash.com/photo-1548839149-8c5a3b6d8b5c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+                date: "June 8, 2023",
+                author: "Dr. Michael Roberts",
+                intro: "Water is essential for life, but are you drinking enough? Learn about the signs of dehydration, how much water you really need, and creative ways to stay hydrated throughout your busy day."
             },
             {
                 id: 5,
-                title: "10-Minute Daily Exercises for Busy People",
-                author: "Fitness Coach James Wilson",
+                title: "8 Exercises for Better Posture",
+                image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
                 date: "June 5, 2023",
-                image: "https://images.unsplash.com/photo-1571019614286-6e9fcc2844b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
-                intro: "No time for the gym? These efficient 10-minute workouts can be done anywhere and provide significant health benefits. Perfect for fitting exercise into even the busiest schedule...",
-                content: `
-                    <p>Regular physical activity is essential for health, but finding time for exercise can be challenging. The good news is that you don't need hours at the gym to reap the benefits of exercise. Short, focused workouts can be highly effective when done consistently.</p>
-                    
-                    <h3>Why Are Short Workouts Effective?</h3>
-                    <p>Research shows that multiple short bouts of exercise throughout the day can provide similar health benefits to one longer session. Short workouts are more manageable for busy schedules, reduce the barrier to starting, and can be more sustainable long-term.</p>
-                    
-                    <h3>What Exercises Can You Do in 10 Minutes?</h3>
-                    <p>Here are several 10-minute workout options:</p>
-                    <ul>
-                        <li><strong>Full-body circuit:</strong> 30 seconds each of squats, push-ups, planks, jumping jacks, and lunges. Repeat twice.</li>
-                        <li><strong>Cardio blast:</strong> 1 minute each of high knees, butt kicks, mountain climbers, and burpees. Repeat 2-3 times.</li>
-                        <li><strong>Strength focus:</strong> 3 sets of 10-12 reps of dumbbell exercises like shoulder presses, rows, and curls.</li>
-                        <li><strong>Yoga flow:</strong> A series of sun salutations and basic yoga poses to improve flexibility and reduce stress.</li>
-                    </ul>
-                    
-                    <h3>How Can You Maximize a 10-Minute Workout?</h3>
-                    <p>To get the most out of short workouts, focus on compound exercises that work multiple muscle groups simultaneously. Maintain good form to prevent injury, and push yourself appropriately during the short time you have. Consider incorporating high-intensity interval training (HIIT) principles, alternating between periods of intense effort and brief recovery.</p>
-                    
-                    <h3>When Is the Best Time for These Mini-Workouts?</h3>
-                    <p>You can schedule 10-minute workouts at various times throughout your day:</p>
-                    <ul>
-                        <li>First thing in the morning to boost energy</li>
-                        <li>During your lunch break to break up sedentary time</li>
-                        <li>In the evening to relieve stress from the day</li>
-                        <li>As a "movement snack" between tasks</li>
-                    </ul>
-                    
-                    <p>Remember that consistency is more important than duration when it comes to exercise. Doing something active every day, even for just 10 minutes, creates a habit and contributes significantly to your overall health and fitness over time.</p>
-                `
+                author: "Physical Therapist Emma Wilson",
+                intro: "Poor posture can lead to various health issues. Discover eight simple exercises that can help correct your posture, reduce back pain, and improve your overall body alignment in just minutes a day."
             },
             {
                 id: 6,
-                title: "5 Ways to Improve Your Gut Health Naturally",
-                author: "Dr. Amanda Roberts",
-                date: "July 12, 2023",
-                image: "https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
-                intro: "Your gut health impacts everything from digestion to immunity. Discover these 5 natural approaches to support a healthy gut microbiome and improve your overall wellness...",
-                content: `
-                    <p>The health of your gastrointestinal system, often referred to as gut health, plays a crucial role in your overall wellbeing. A balanced gut microbiome supports not only digestion but also immune function, mental health, and even skin condition.</p>
-                    
-                    <h3>Why Is Gut Health So Important?</h3>
-                    <p>Your gut is home to trillions of microorganisms collectively known as the gut microbiome. These bacteria, fungi, and other microbes help digest food, produce certain vitamins, regulate the immune system, and protect against harmful pathogens. An imbalance in this microbial community has been linked to various health issues.</p>
-                    
-                    <h3>What Are the Best Ways to Support Gut Health?</h3>
-                    <p>Here are 5 effective strategies for improving your gut health naturally:</p>
-                    <ol>
-                        <li><strong>Eat a diverse range of foods:</strong> Different types of fiber feed different beneficial bacteria.</li>
-                        <li><strong>Include fermented foods:</strong> Yogurt, kefir, sauerkraut, and kimchi contain probiotics.</li>
-                        <li><strong>Consume prebiotic foods:</strong> Garlic, onions, bananas, and asparagus feed good bacteria.</li>
-                        <li><strong>Limit artificial sweeteners:</strong> Some studies suggest they may negatively affect gut bacteria.</li>
-                        <li><strong>Manage stress:</strong> Chronic stress can disrupt the gut-brain axis and alter gut microbiota.</li>
-                    </ol>
-                    
-                    <h3>How Does Fiber Benefit Gut Health?</h3>
-                    <p>Dietary fiber, particularly prebiotic fiber, serves as food for beneficial gut bacteria. When these bacteria ferment fiber, they produce short-chain fatty acids that nourish colon cells, reduce inflammation, and may help prevent digestive disorders. Aim for at least 25-30 grams of fiber daily from a variety of plant sources.</p>
-                    
-                    <h3>What Role Do Probiotics Play?</h3>
-                    <p>Probiotics are live microorganisms that can provide health benefits when consumed in adequate amounts. They can help restore balance to the gut microbiome, especially after antibiotic use or digestive upset. While supplements are available, fermented foods often provide a wider variety of probiotic strains.</p>
-                    
-                    <p>Improving gut health is a gradual process that requires consistency. Start by incorporating one or two of these strategies into your routine, and gradually add more as they become habits. Pay attention to how your body responds, as individual needs can vary significantly.</p>
-                `
+                title: "How to Build a Healthy Gut Microbiome",
+                image: "https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+                date: "June 3, 2023",
+                author: "Gastroenterologist Dr. James Lee",
+                intro: "Your gut health impacts your entire body. Learn which foods promote a healthy gut microbiome, which to avoid, and lifestyle changes that can significantly improve your digestive health and overall wellbeing."
             },
-            // Additional articles would continue here with unique content and images
-            // For demonstration, I'll add placeholder articles with generic content
-            // In a real implementation, all 100 articles would have unique content
+            {
+                id: 7,
+                title: "5 Natural Ways to Lower Blood Pressure",
+                image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+                date: "June 1, 2023",
+                author: "Cardiologist Dr. Amanda Patel",
+                intro: "High blood pressure is a silent killer. Discover five natural approaches to lower your numbers without medication, including dietary changes, stress reduction techniques, and specific exercises that benefit heart health."
+            },
+            {
+                id: 8,
+                title: "Tips to Prevent Night Paralysis",
+                image: "https://images.unsplash.com/photo-1516585427167-9f4af9627e6c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+                date: "May 28, 2023",
+                author: "Sleep Specialist Dr. Robert Kim",
+                intro: "Sleep paralysis can be frightening. Learn about its causes and practical strategies to reduce episodes, including sleep position adjustments, stress management, and establishing healthy sleep hygiene practices."
+            },
+            // Additional articles would continue here in a real implementation
+            // For this example, we'll duplicate some to reach 100
         ];
 
-        // Generate the remaining 94 articles with placeholder content
-        for (let i = 7; i <= 100; i++) {
-            const categories = [
-                "Nutrition", "Fitness", "Mental Health", "Preventive Care", 
-                "Sleep", "Stress Management", "Weight Management", "Heart Health",
-                "Brain Health", "Skin Care", "Digestive Health", "Immune System"
-            ];
-            
-            const authors = [
-                "Dr. Sarah Johnson", "Dr. Michael Chen", "Dr. Emily Rodriguez", 
-                "Nutritionist Lisa Wang", "Fitness Coach James Wilson", "Dr. Amanda Roberts",
-                "Dr. Robert Kim", "Dr. Jennifer Lopez", "Dr. David Miller", "Yoga Instructor Maria Garcia"
-            ];
-            
-            const randomCategory = categories[Math.floor(Math.random() * categories.length)];
-            const randomAuthor = authors[Math.floor(Math.random() * authors.length)];
-            
-            // Generate random date within the last year
-            const randomDate = new Date(2023, Math.floor(Math.random() * 12), Math.floor(Math.random() * 28) + 1);
-            const formattedDate = randomDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-            
-            healthArticles.push({
-                id: i,
-                title: `${Math.floor(Math.random() * 10) + 5} Ways to Improve Your ${randomCategory}`,
-                author: randomAuthor,
-                date: formattedDate,
-                image: `https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80&${i}`,
-                intro: `Discover effective strategies to enhance your ${randomCategory.toLowerCase()} with these practical tips. From simple lifestyle changes to evidence-based approaches, learn how to optimize your wellbeing...`,
-                content: `
-                    <p>Maintaining good ${randomCategory.toLowerCase()} is essential for overall health and wellbeing. Whether you're looking to prevent health issues or improve existing conditions, these strategies can help you achieve your wellness goals.</p>
-                    
-                    <h3>Why Is ${randomCategory} Important?</h3>
-                    <p>Proper attention to ${randomCategory.toLowerCase()} can significantly impact your quality of life. Research shows that individuals who prioritize this aspect of health tend to experience better energy levels, improved mood, and reduced risk of chronic diseases.</p>
-                    
-                    <h3>What Are the Most Effective Strategies?</h3>
-                    <p>Here are several evidence-based approaches to improve your ${randomCategory.toLowerCase()}:</p>
-                    <ul>
-                        <li><strong>Establish consistent habits:</strong> Regular practice is more effective than occasional intense efforts.</li>
-                        <li><strong>Focus on nutrition:</strong> A balanced diet provides essential nutrients for optimal function.</li>
-                        <li><strong>Incorporate physical activity:</strong> Movement supports various bodily systems and processes.</li>
-                        <li><strong>Prioritize sleep and recovery:</strong> Rest allows your body to repair and regenerate.</li>
-                        <li><strong>Manage stress effectively:</strong> Chronic stress can undermine other health efforts.</li>
-                    </ul>
-                    
-                    <h3>How Can You Measure Progress?</h3>
-                    <p>Tracking your ${randomCategory.toLowerCase()} improvements can help maintain motivation. Consider keeping a journal, using health apps, or working with a professional to monitor relevant metrics. Remember that progress isn't always linear, and small consistent changes often lead to significant long-term results.</p>
-                    
-                    <h3>What Common Mistakes Should You Avoid?</h3>
-                    <p>When working on ${randomCategory.toLowerCase()}, people often make these common errors:</p>
-                    <ul>
-                        <li>Expecting immediate results instead of recognizing it as a long-term process</li>
-                        <li>Following extreme approaches that are difficult to maintain</li>
-                        <li>Comparing their progress to others instead of focusing on personal improvement</li>
-                        <li>Neglecting other aspects of health while focusing exclusively on one area</li>
-                    </ul>
-                    
-                    <p>Remember that sustainable health improvements come from consistent, manageable changes to your lifestyle. Start with one or two strategies that resonate with you, and gradually incorporate others as they become habits. Be patient with yourself and celebrate small victories along the way.</p>
-                `
+        // Duplicate articles to reach 100 (in a real implementation, these would be unique)
+        const allArticles = [];
+        for (let i = 0; i < 12; i++) {
+            healthArticles.forEach(article => {
+                const newArticle = {...article};
+                newArticle.id = allArticles.length + 1;
+                allArticles.push(newArticle);
             });
-        }
-
-        // Pagination variables
-        let currentPage = 1;
-        const articlesPerPage = 12;
-
-        // Function to generate article cards for a specific page
-        function generateArticleCards(articles, page = 1) {
-            const articlesGrid = document.getElementById('articlesGrid');
-            articlesGrid.innerHTML = '';
-            
-            const startIndex = (page - 1) * articlesPerPage;
-            const endIndex = startIndex + articlesPerPage;
-            const paginatedArticles = articles.slice(startIndex, endIndex);
-            
-            paginatedArticles.forEach(article => {
-                const articleCard = document.createElement('div');
-                articleCard.className = 'article-card';
-                articleCard.innerHTML = `
-                    <div class="article-image">
-                        <img src="${article.image}" alt="${article.title}">
-                    </div>
-                    <div class="article-content">
-                        <div class="article-meta">
-                            <span>${article.date}</span>
-                            <span>By ${article.author}</span>
-                        </div>
-                        <h2 class="article-title">
-                            <a href="#" class="article-link" data-id="${article.id}">${article.title}</a>
-                        </h2>
-                        <p class="article-intro">${article.intro} <a href="#" class="read-more article-link" data-id="${article.id}">Read more <i class="fas fa-arrow-right"></i></a></p>
-                    </div>
-                `;
-                articlesGrid.appendChild(articleCard);
-            });
-            
-            // Add event listeners to article links
-            document.querySelectorAll('.article-link').forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const articleId = parseInt(this.getAttribute('data-id'));
-                    showArticleDetail(articleId);
-                });
-            });
-        }
-
-        // Function to generate pagination buttons
-        function generatePagination(totalArticles, currentPage) {
-            const totalPages = Math.ceil(totalArticles / articlesPerPage);
-            const paginationContainer = document.getElementById('pagination');
-            paginationContainer.innerHTML = '';
-            
-            // Previous button
-            if (currentPage > 1) {
-                const prevButton = document.createElement('button');
-                prevButton.innerHTML = '<i class="fas fa-chevron-left"></i>';
-                prevButton.addEventListener('click', () => {
-                    currentPage--;
-                    generateArticleCards(healthArticles, currentPage);
-                    generatePagination(healthArticles.length, currentPage);
-                });
-                paginationContainer.appendChild(prevButton);
-            }
-            
-            // Page buttons
-            for (let i = 1; i <= totalPages; i++) {
-                const pageButton = document.createElement('button');
-                pageButton.textContent = i;
-                if (i === currentPage) {
-                    pageButton.classList.add('active');
-                }
-                pageButton.addEventListener('click', () => {
-                    currentPage = i;
-                    generateArticleCards(healthArticles, currentPage);
-                    generatePagination(healthArticles.length, currentPage);
-                });
-                paginationContainer.appendChild(pageButton);
-            }
-            
-            // Next button
-            if (currentPage < totalPages) {
-                const nextButton = document.createElement('button');
-                nextButton.innerHTML = '<i class="fas fa-chevron-right"></i>';
-                nextButton.addEventListener('click', () => {
-                    currentPage++;
-                    generateArticleCards(healthArticles, currentPage);
-                    generatePagination(healthArticles.length, currentPage);
-                });
-                paginationContainer.appendChild(nextButton);
-            }
-        }
-
-        // Function to show article detail
-        function showArticleDetail(articleId) {
-            const article = healthArticles.find(a => a.id === articleId);
-            if (!article) return;
-            
-            const articleDetail = document.getElementById('articleDetail');
-            const articlesGrid = document.getElementById('articlesGrid');
-            const backToArticles = document.getElementById('backToArticles');
-            const pagination = document.getElementById('pagination');
-            
-            // Hide grid and pagination, show detail and back button
-            articlesGrid.style.display = 'none';
-            pagination.style.display = 'none';
-            articleDetail.style.display = 'block';
-            backToArticles.style.display = 'inline-flex';
-            
-            // Populate article detail
-            articleDetail.innerHTML = `
-                <div class="article-header">
-                    <h1 class="article-detail-title">${article.title}</h1>
-                    <div class="article-detail-meta">
-                        <span><i class="far fa-calendar"></i> ${article.date}</span>
-                        <span><i class="far fa-user"></i> By ${article.author}</span>
-                    </div>
-                </div>
-                <div class="article-detail-image">
-                    <img src="${article.image}" alt="${article.title}">
-                </div>
-                <div class="article-body">
-                    ${article.content}
-                </div>
-                <div class="share-section">
-                    <span class="share-text">Share this article:</span>
-                    <div class="share-buttons">
-                        <a href="#" class="share-btn facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="share-btn twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="share-btn linkedin"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="share-btn whatsapp"><i class="fab fa-whatsapp"></i></a>
-                    </div>
-                </div>
-            `;
-            
-            // Add event listeners to share buttons
-            document.querySelectorAll('.share-btn').forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    // In a real implementation, this would open share dialogs
-                    alert('Share functionality would be implemented here!');
-                });
-            });
-            
-            // Scroll to top of article
-            window.scrollTo({top: 0, behavior: 'smooth'});
-        }
-
-        // Function to handle search
-        function handleSearch() {
-            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-            
-            if (searchTerm.trim() === '') {
-                generateArticleCards(healthArticles, currentPage);
-                generatePagination(healthArticles.length, currentPage);
-                return;
-            }
-            
-            const filteredArticles = healthArticles.filter(article => 
-                article.title.toLowerCase().includes(searchTerm) ||
-                article.intro.toLowerCase().includes(searchTerm) ||
-                article.author.toLowerCase().includes(searchTerm)
-            );
-            
-            currentPage = 1;
-            generateArticleCards(filteredArticles, currentPage);
-            generatePagination(filteredArticles.length, currentPage);
-        }
-
-        // Function to go back to articles grid
-        function backToArticlesGrid() {
-            const articleDetail = document.getElementById('articleDetail');
-            const articlesGrid = document.getElementById('articlesGrid');
-            const backToArticles = document.getElementById('backToArticles');
-            const pagination = document.getElementById('pagination');
-            
-            articlesGrid.style.display = 'grid';
-            pagination.style.display = 'flex';
-            articleDetail.style.display = 'none';
-            backToArticles.style.display = 'none';
-            
-            // Reset search
-            document.getElementById('searchInput').value = '';
-            currentPage = 1;
-            generateArticleCards(healthArticles, currentPage);
-            generatePagination(healthArticles.length, currentPage);
         }
 
         // Initialize the page
         document.addEventListener('DOMContentLoaded', function() {
-            // Generate initial article cards and pagination
-            generateArticleCards(healthArticles, currentPage);
-            generatePagination(healthArticles.length, currentPage);
+            const articlesGrid = document.getElementById('articlesGrid');
+            const searchInput = document.getElementById('searchInput');
+            const menuToggle = document.getElementById('menuToggle');
+            const modalMenu = document.getElementById('modalMenu');
             
-            // Add event listener to search button
-            document.getElementById('searchButton').addEventListener('click', handleSearch);
+            // Display all articles initially
+            displayArticles(allArticles);
             
-            // Add event listener to search input for Enter key
-            document.getElementById('searchInput').addEventListener('keyup', function(e) {
-                if (e.key === 'Enter') {
-                    handleSearch();
+            // Search functionality
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                const filteredArticles = allArticles.filter(article => 
+                    article.title.toLowerCase().includes(searchTerm) ||
+                    article.intro.toLowerCase().includes(searchTerm) ||
+                    article.author.toLowerCase().includes(searchTerm)
+                );
+                displayArticles(filteredArticles);
+            });
+            
+            // Modal menu functionality
+            menuToggle.addEventListener('click', function() {
+                modalMenu.classList.toggle('active');
+            });
+            
+            // Close modal when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!menuToggle.contains(event.target) && !modalMenu.contains(event.target)) {
+                    modalMenu.classList.remove('active');
                 }
             });
             
-            // Add event listener to back button
-            document.getElementById('backToArticles').addEventListener('click', function(e) {
-                e.preventDefault();
-                backToArticlesGrid();
-            });
+            // Function to display articles
+            function displayArticles(articles) {
+                articlesGrid.innerHTML = '';
+                
+                if (articles.length === 0) {
+                    articlesGrid.innerHTML = '<div class="no-results">No articles found matching your search.</div>';
+                    return;
+                }
+                
+                articles.forEach(article => {
+                    const articleCard = document.createElement('div');
+                    articleCard.className = 'article-card';
+                    
+                    articleCard.innerHTML = `
+                        <img src="${article.image}" alt="${article.title}" class="article-image">
+                        <div class="article-content">
+                            <div class="article-meta">
+                                <span>${article.date}</span>
+                                <span>By ${article.author}</span>
+                            </div>
+                            <h3 class="article-title">
+                                <a href="homepage.html?article=${article.id}">${article.title}</a>
+                            </h3>
+                            <p class="article-intro">${article.intro} <a href="homepage.html?article=${article.id}" class="read-more">Read more...</a></p>
+                            <div class="article-footer">
+                                <a href="homepage.html?article=${article.id}" class="read-more">Read Full Article</a>
+                                <button class="share-btn" onclick="shareArticle(${article.id})">
+                                    <i class="fas fa-share-alt"></i> Share
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                    
+                    articlesGrid.appendChild(articleCard);
+                });
+            }
         });
+        
+        // Share article function
+        function shareArticle(articleId) {
+            const article = allArticles.find(a => a.id === articleId);
+            if (navigator.share) {
+                navigator.share({
+                    title: article.title,
+                    text: article.intro,
+                    url: `homepage.html?article=${articleId}`
+                })
+                .catch(error => console.log('Error sharing:', error));
+            } else {
+                // Fallback for browsers that don't support Web Share API
+                alert(`Share this article: ${article.title}`);
+            }
+        }
     </script>
 </body>
 </html>
