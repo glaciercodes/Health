@@ -3,754 +3,1033 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HealthHub - Your Health Questions Answered</title>
-    <script type="module">
-        // Import the functions you need from the SDKs you need            
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js";            
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-analytics.js";            
-        import { getFirestore, collection, doc, getDocs, updateDoc, increment, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-firestore.js";
-        
-        // Your web app's Firebase configuration            
-        const firebaseConfig = {            
-            apiKey: "AIzaSyDnq2364tMuRPbrjjHmUfFUTjWZC2BmIS4",            
-            authDomain: "dollar-survey-60fe7.firebaseapp.com",            
-            projectId: "dollar-survey-60fe7",            
-            storageBucket: "dollar-survey-60fe7.firebasestorage.app",            
-            messagingSenderId: "293471697208",            
-            appId: "1:293471697208:web:664863f09e830e420c69cd",            
-            measurementId: "G-RCZ7SQJHPZ"            
-        };            
-        
-        // Initialize Firebase            
-        const app = initializeApp(firebaseConfig);            
-        const analytics = getAnalytics(app);
-        const db = getFirestore(app);
-        
-        // Make Firebase accessible globally
-        window.firebaseApp = app;
-        window.firebaseDb = db;
-    </script>
+    <title>Health-Hubs | Your Trusted Health Resource</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --primary: #2a9d8f;
-            --secondary: #264653;
-            --accent: #e9c46a;
-            --text: #f1faee;
-            --background: #1a1a2e;
-            --card-bg: #16213e;
-            --border: #0f3460;
-            --danger: #e63946;
+            --secondary: #e9c46a;
+            --dark: #1d3557;
+            --darker: #0d1b2a;
+            --light: #f1faee;
+            --gray: #8d99ae;
+            --card-bg: #2b2d42;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         body {
-            background-color: var(--background);
-            color: var(--text);
+            background-color: var(--darker);
+            color: var(--light);
             line-height: 1.6;
         }
-        
+
         .container {
+            width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 15px;
         }
-        
+
+        /* Header Styles */
         header {
+            background-color: var(--dark);
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
-            border-bottom: 1px solid var(--border);
         }
-        
+
         .logo {
-            font-size: 28px;
-            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
             color: var(--primary);
-            text-decoration: none;
         }
-        
-        .logo span {
-            color: var(--accent);
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--light);
         }
-        
+
         .search-bar {
             display: flex;
             width: 40%;
         }
-        
+
         .search-bar input {
-            flex: 1;
+            width: 100%;
             padding: 12px 15px;
-            background: var(--card-bg);
-            border: 1px solid var(--border);
+            border: none;
             border-radius: 30px 0 0 30px;
-            color: var(--text);
-            outline: none;
+            background-color: var(--card-bg);
+            color: var(--light);
+            font-size: 1rem;
         }
-        
+
         .search-bar button {
-            padding: 12px 20px;
-            background: var(--primary);
+            padding: 0 20px;
             border: none;
             border-radius: 0 30px 30px 0;
-            color: white;
+            background-color: var(--primary);
+            color: var(--light);
             cursor: pointer;
-            transition: background 0.3s;
+            transition: background-color 0.3s;
         }
-        
+
         .search-bar button:hover {
-            background: #21867a;
+            background-color: #21867a;
         }
-        
+
+        /* Navigation Styles */
+        nav {
+            background-color: var(--card-bg);
+            padding: 15px 0;
+            margin-top: 10px;
+        }
+
+        .menu {
+            display: flex;
+            list-style: none;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .menu li a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: all 0.3s;
+        }
+
+        .menu li a:hover, .menu li a.active {
+            background-color: var(--primary);
+            color: var(--darker);
+        }
+
+        /* Main Content Styles */
+        main {
+            padding: 40px 0;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--secondary);
+        }
+
         .articles-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 25px;
-            margin: 40px 0;
         }
-        
+
         .article-card {
-            background: var(--card-bg);
+            background-color: var(--card-bg);
             border-radius: 10px;
             overflow: hidden;
             transition: transform 0.3s, box-shadow 0.3s;
-            border: 1px solid var(--border);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
-        
+
         .article-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
-        
+
         .article-image {
+            width: 100%;
             height: 180px;
-            background-color: var(--secondary);
+            background-color: var(--dark);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--accent);
-            font-size: 14px;
+            overflow: hidden;
         }
-        
+
+        .article-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .article-card:hover .article-image img {
+            transform: scale(1.05);
+        }
+
         .article-content {
             padding: 20px;
         }
-        
-        .article-title {
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-        
-        .article-title a {
-            color: var(--primary);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .article-title a:hover {
-            color: var(--accent);
-        }
-        
-        .article-intro {
-            font-size: 14px;
-            margin-bottom: 15px;
-            color: #b8c2cc;
-        }
-        
+
         .article-meta {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            font-size: 14px;
+            font-size: 0.8rem;
+            color: var(--gray);
+            margin-bottom: 10px;
         }
-        
-        .like-btn {
-            background: none;
-            border: none;
-            color: var(--danger);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 5px;
+
+        .article-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .article-title a {
+            color: var(--light);
+            text-decoration: none;
             transition: color 0.3s;
-            padding: 5px 10px;
-            border-radius: 20px;
         }
-        
-        .like-btn:hover {
-            background: rgba(230, 57, 70, 0.1);
+
+        .article-title a:hover {
+            color: var(--secondary);
         }
-        
-        .like-btn.liked {
-            color: #ff6b7a;
+
+        .article-intro {
+            font-size: 0.95rem;
+            color: var(--gray);
+            margin-bottom: 15px;
+            line-height: 1.5;
         }
-        
-        .share-btn {
-            background: none;
-            border: none;
-            color: var(--accent);
-            cursor: pointer;
-            display: flex;
+
+        .read-more {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
             align-items: center;
             gap: 5px;
-            padding: 5px 10px;
-            border-radius: 20px;
-            transition: background 0.3s;
+            transition: gap 0.3s;
         }
-        
-        .share-btn:hover {
-            background: rgba(233, 196, 106, 0.1);
+
+        .read-more:hover {
+            gap: 10px;
         }
-        
+
+        /* Article Detail Styles */
         .article-detail {
+            display: none;
             max-width: 800px;
-            margin: 40px auto;
-            background: var(--card-bg);
-            border-radius: 10px;
-            padding: 30px;
-            border: 1px solid var(--border);
+            margin: 0 auto;
         }
-        
-        .article-detail h1 {
-            color: var(--primary);
+
+        .article-header {
+            margin-bottom: 30px;
+        }
+
+        .article-detail-title {
+            font-size: 2.2rem;
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+
+        .article-detail-meta {
+            display: flex;
+            gap: 20px;
+            color: var(--gray);
             margin-bottom: 20px;
-            font-size: 32px;
         }
-        
+
         .article-detail-image {
-            height: 300px;
-            background-color: var(--secondary);
+            width: 100%;
+            height: 350px;
+            background-color: var(--dark);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--accent);
+            border-radius: 10px;
             margin-bottom: 25px;
-            border-radius: 8px;
+            overflow: hidden;
         }
-        
-        .article-detail-content h2 {
-            color: var(--accent);
-            margin: 25px 0 15px;
-            font-size: 24px;
+
+        .article-detail-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
-        
-        .article-detail-content h3 {
+
+        .article-body {
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .article-body h3 {
             color: var(--primary);
-            margin: 20px 0 10px;
-            font-size: 20px;
+            margin: 25px 0 15px;
         }
-        
-        .article-detail-content p {
+
+        .article-body p {
             margin-bottom: 15px;
         }
-        
-        .article-detail-content ul, .article-detail-content ol {
+
+        .article-body ul, .article-body ol {
             margin-left: 20px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
-        
-        .back-btn {
+
+        .article-body li {
+            margin-bottom: 8px;
+        }
+
+        .share-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 30px 0;
+            padding: 20px;
+            background-color: var(--card-bg);
+            border-radius: 10px;
+        }
+
+        .share-text {
+            font-weight: 600;
+        }
+
+        .share-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .share-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+
+        .share-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .facebook {
+            background-color: #3b5998;
+        }
+
+        .twitter {
+            background-color: #1da1f2;
+        }
+
+        .linkedin {
+            background-color: #0077b5;
+        }
+
+        .whatsapp {
+            background-color: #25d366;
+        }
+
+        .back-to-articles {
             display: inline-flex;
             align-items: center;
-            margin-bottom: 20px;
+            gap: 8px;
             color: var(--primary);
             text-decoration: none;
-            font-weight: 500;
-            gap: 5px;
-            transition: color 0.3s;
+            font-weight: 600;
+            margin-bottom: 30px;
+            transition: gap 0.3s;
         }
-        
-        .back-btn:hover {
-            color: var(--accent);
+
+        .back-to-articles:hover {
+            gap: 12px;
         }
-        
-        .detail-meta {
+
+        /* Footer Styles */
+        footer {
+            background-color: var(--dark);
+            padding: 40px 0 20px;
+            margin-top: 50px;
+        }
+
+        .footer-content {
             display: flex;
             justify-content: space-between;
-            margin: 20px 0;
-            padding-bottom: 15px;
-            border-bottom: 1px solid var(--border);
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 30px;
         }
-        
-        .hidden {
-            display: none;
+
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
         }
-        
-        footer {
+
+        .footer-section h3 {
+            color: var(--secondary);
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .copyright {
             text-align: center;
-            padding: 30px 0;
-            margin-top: 50px;
-            border-top: 1px solid var(--border);
-            color: #b8c2cc;
-            font-size: 14px;
+            padding-top: 20px;
+            border-top: 1px solid var(--card-bg);
+            color: var(--gray);
+            font-size: 0.9rem;
         }
-        
-        .loading {
-            text-align: center;
-            padding: 40px;
-            color: var(--accent);
+
+        /* Pagination Styles */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+            gap: 10px;
         }
-        
+
+        .pagination button {
+            background-color: var(--card-bg);
+            border: none;
+            color: var(--light);
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .pagination button:hover {
+            background-color: var(--primary);
+        }
+
+        .pagination button.active {
+            background-color: var(--primary);
+        }
+
+        /* Responsive Styles */
         @media (max-width: 768px) {
-            header {
+            .header-content {
                 flex-direction: column;
-                gap: 15px;
+                gap: 20px;
             }
             
             .search-bar {
                 width: 100%;
             }
             
+            .menu {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            
             .articles-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .article-detail-title {
+                font-size: 1.8rem;
+            }
+            
+            .article-detail-image {
+                height: 250px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <a href="#" class="logo">Health<span>Hub</span></a>
-            <div class="search-bar">
-                <input type="text" placeholder="Search health topics...">
-                <button>Search</button>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-heartbeat logo-icon"></i>
+                    <span class="logo-text">Health-Hubs</span>
+                </div>
+                <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="Search health tips...">
+                    <button id="searchButton"><i class="fas fa-search"></i></button>
+                </div>
             </div>
-        </header>
+        </div>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav>
+        <div class="container">
+            <ul class="menu">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">Nutrition</a></li>
+                <li><a href="#">Fitness</a></li>
+                <li><a href="#">Mental Health</a></li>
+                <li><a href="#">Preventive Care</a></li>
+                <li><a href="#">Healthy Living</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        <h1 class="page-title">Top 100 Health Tips for Better Living</h1>
         
-        <main>
-            <section id="articles-section">
-                <div class="articles-grid" id="articles-container">
-                    <div class="loading">Loading articles...</div>
-                </div>
-            </section>
-            
-            <section id="article-detail-section" class="hidden">
-                <a href="#" class="back-btn" id="back-btn">← Back to Articles</a>
-                <div class="article-detail" id="article-detail">
-                    <!-- Article detail will be dynamically inserted here -->
-                </div>
-            </section>
-        </main>
+        <!-- Back to Articles Link (Hidden by default) -->
+        <a href="#" class="back-to-articles" id="backToArticles" style="display: none;">
+            <i class="fas fa-arrow-left"></i> Back to All Articles
+        </a>
         
-        <footer>
-            <p>HealthHub - Your trusted source for health information</p>
-            <p>&copy; 2023 All rights reserved</p>
-        </footer>
-    </div>
+        <!-- Articles Grid -->
+        <div class="articles-grid" id="articlesGrid">
+            <!-- Article cards will be dynamically generated here -->
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination" id="pagination">
+            <!-- Pagination buttons will be dynamically generated here -->
+        </div>
+        
+        <!-- Article Detail View -->
+        <div class="article-detail" id="articleDetail">
+            <!-- Article content will be dynamically generated here -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Health-Hubs</h3>
+                    <p>Your trusted source for evidence-based health information and wellness tips to help you live your healthiest life.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Nutrition</a></li>
+                        <li><a href="#">Fitness</a></li>
+                        <li><a href="#">Mental Health</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-envelope"></i> info@health-hubs.com</a></li>
+                        <li><a href="#"><i class="fas fa-phone"></i> +1 (555) 123-4567</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> 123 Wellness St, Health City</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Health-Hubs. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
     <script>
-        // Health articles data based on the PDF
+        // Complete health articles data with 100 entries
         const healthArticles = [
             {
                 id: 1,
-                title: "5 Common Causes of Headaches and How to Relieve Them",
-                intro: "Headaches affect millions daily, but understanding their root causes can help you find relief. Discover the five most common triggers and effective strategies to alleviate pain without medication. Learn when a headache might signal something more serious.",
+                title: "10 Simple Ways to Boost Your Immune System Naturally",
+                author: "Dr. Sarah Johnson",
+                date: "March 15, 2023",
+                image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+                intro: "Your immune system is your body's defense against infections. Discover these 10 natural methods to strengthen your immunity and stay healthy year-round. From dietary changes to lifestyle adjustments...",
                 content: `
-                    <h2>What Are the Most Common Types of Headaches?</h2>
-                    <p>Headaches come in various forms, each with distinct characteristics and triggers. Tension headaches often feel like a tight band around your head, while migraines typically cause throbbing pain on one side. Cluster headaches are less common but extremely painful, occurring in cyclical patterns.</p>
+                    <p>Your immune system is a complex network of cells, tissues, and organs that work together to defend your body against harmful pathogens. While no single food or supplement can prevent illness, certain lifestyle choices can significantly strengthen your immune response.</p>
                     
-                    <h2>What Are the 5 Most Common Headache Triggers?</h2>
-                    <h3>1. Stress and Muscle Tension</h3>
-                    <p>When you're stressed, muscles in your neck, shoulders, and scalp tense up, leading to tension headaches. These often feel like constant pressure around your head. Regular relaxation techniques, proper posture, and stretching can help prevent these headaches.</p>
+                    <h3>What Exactly Is the Immune System?</h3>
+                    <p>The immune system is your body's defense mechanism against infections and diseases. It consists of white blood cells, antibodies, and other components that identify and neutralize foreign invaders like bacteria, viruses, and toxins.</p>
                     
-                    <h3>2. Dehydration and Dietary Factors</h3>
-                    <p>Even mild dehydration can trigger headaches in some people. Additionally, certain foods and additives like aged cheeses, processed meats, and artificial sweeteners may act as triggers for sensitive individuals.</p>
+                    <h3>How Can You Naturally Strengthen Your Immunity?</h3>
+                    <p>Here are 10 evidence-based ways to boost your immune system naturally:</p>
+                    <ol>
+                        <li><strong>Eat a balanced diet rich in fruits and vegetables:</strong> These provide essential vitamins, minerals, and antioxidants that support immune function.</li>
+                        <li><strong>Get adequate sleep:</strong> During sleep, your body produces and distributes key immune cells.</li>
+                        <li><strong>Exercise regularly:</strong> Moderate physical activity can boost the circulation of immune cells.</li>
+                        <li><strong>Manage stress levels:</strong> Chronic stress suppresses immune function.</li>
+                        <li><strong>Stay hydrated:</strong> Proper hydration helps your body naturally eliminate toxins.</li>
+                        <li><strong>Limit alcohol consumption:</strong> Excessive alcohol can impair immune function.</li>
+                        <li><strong>Don't smoke:</strong> Smoking undermines basic immune defenses.</li>
+                        <li><strong>Spend time outdoors:</strong> Sunlight helps your body produce vitamin D, crucial for immunity.</li>
+                        <li><strong>Maintain a healthy weight:</strong> Obesity can affect the ability of white blood cells to multiply and produce antibodies.</li>
+                        <li><strong>Practice good hygiene:</strong> Simple habits like regular handwashing can prevent infections.</li>
+                    </ol>
                     
-                    <h3>3. Sleep Disturbances</h3>
-                    <p>Both lack of sleep and oversleeping can cause headaches. Maintaining consistent sleep patterns and ensuring 7-9 hours of quality sleep nightly can significantly reduce headache frequency.</p>
+                    <h3>Which Foods Are Best for Immune Health?</h3>
+                    <p>Certain foods are particularly beneficial for immune function. Citrus fruits provide vitamin C, which increases white blood cell production. Red bell peppers contain even more vitamin C than citrus fruits. Broccoli is packed with vitamins A, C, and E, plus fiber. Garlic's immune-boosting properties come from its sulfur-containing compounds. Ginger may help decrease inflammation. Spinach is rich in vitamin C and antioxidants. Yogurt with live and active cultures can stimulate your immune system. Almonds provide vitamin E, which is key to a healthy immune system.</p>
                     
-                    <h3>4. Environmental Factors</h3>
-                    <p>Bright lights, loud noises, strong smells, and weather changes can trigger headaches in many people. Identifying and minimizing exposure to these environmental triggers can provide relief.</p>
+                    <h3>How Much Sleep Do You Really Need?</h3>
+                    <p>Most adults need 7-9 hours of quality sleep per night for optimal immune function. During sleep, your body produces proteins called cytokines that target infection and inflammation. Lack of sleep decreases the production of these protective cytokines.</p>
                     
-                    <h3>5. Hormonal Changes</h3>
-                    <p>Fluctuations in estrogen levels often cause headaches in women. These may occur around menstruation, pregnancy, or menopause. Tracking your cycle can help identify patterns and prepare accordingly.</p>
-                    
-                    <h2>When Should You Seek Medical Attention for Headaches?</h2>
-                    <p>While most headaches are harmless, some symptoms warrant immediate medical attention. Seek help if you experience a sudden, severe headache unlike any you've had before; headache accompanied by fever, stiff neck, confusion, or vision changes; or headache following a head injury.</p>
-                    
-                    <h2>What Are Effective Natural Relief Methods?</h2>
-                    <p>Several natural approaches can help alleviate headache pain. Applying cold or warm compresses to your neck and head, practicing relaxation techniques like deep breathing, ensuring proper hydration, and gentle massage can all provide relief. For chronic headaches, keeping a headache diary to identify patterns may help you avoid triggers.</p>
-                `,
-                likes: 0
+                    <p>By incorporating these strategies into your daily routine, you can give your immune system the support it needs to function at its best. Remember that consistency is key - these habits work best when practiced regularly over time.</p>
+                `
             },
             {
                 id: 2,
-                title: "Understanding Fever: When to Worry and How to Treat It",
-                intro: "Fevers are your body's natural defense mechanism, but knowing when they're dangerous is crucial. Learn about different fever patterns, effective home treatments, and red flags that require medical attention. Discover how to properly monitor and manage fever in adults and children.",
+                title: "5 Effective Strategies for Better Sleep Tonight",
+                author: "Dr. Michael Chen",
+                date: "April 2, 2023",
+                image: "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?ixlib=rb-4.0.3&auto=format&fit=crop&w=1460&q=80",
+                intro: "Struggling with sleepless nights? These 5 science-backed techniques can help you fall asleep faster and enjoy more restorative sleep. Transform your bedtime routine starting tonight...",
                 content: `
-                    <h2>What Exactly Is a Fever and Why Does It Occur?</h2>
-                    <p>A fever is a temporary increase in your body temperature, often due to an illness. It's a sign that your body is fighting off an infection. For adults, a fever is generally considered to be a temperature of 100.4°F (38°C) or higher.</p>
+                    <p>Quality sleep is essential for physical health, mental clarity, and emotional well-being. Yet many people struggle with falling asleep or staying asleep through the night. The good news is that simple changes to your routine can significantly improve your sleep quality.</p>
                     
-                    <h2>How Long Do Fevers Typically Last?</h2>
-                    <p>The duration of a fever depends on its cause. Most viral fevers last 3-4 days, while bacterial infections might cause longer-lasting fevers. If a fever persists beyond 3 days in adults or 24 hours in children under 2, medical evaluation is recommended.</p>
+                    <h3>Why Is Sleep So Important for Health?</h3>
+                    <p>During sleep, your body repairs itself, consolidates memories, and regulates hormones. Chronic sleep deprivation has been linked to numerous health problems, including obesity, heart disease, diabetes, and impaired immune function.</p>
                     
-                    <h2>What Are the Different Types of Fever Patterns?</h2>
-                    <h3>Intermittent Fever</h3>
-                    <p>This type fluctuates between normal and elevated temperatures throughout the day. It's common with certain infections like malaria or urinary tract infections.</p>
+                    <h3>What Are the Most Effective Sleep Strategies?</h3>
+                    <p>Here are 5 proven techniques for better sleep:</p>
+                    <ol>
+                        <li><strong>Establish a consistent sleep schedule:</strong> Go to bed and wake up at the same time every day, even on weekends.</li>
+                        <li><strong>Create a relaxing bedtime routine:</strong> This signals to your body that it's time to wind down.</li>
+                        <li><strong>Optimize your sleep environment:</strong> Keep your bedroom cool, dark, and quiet.</li>
+                        <li><strong>Limit exposure to screens before bed:</strong> The blue light from devices can disrupt melatonin production.</li>
+                        <li><strong>Avoid caffeine and large meals close to bedtime:</strong> These can interfere with your ability to fall asleep.</li>
+                    </ol>
                     
-                    <h3>Remittent Fever</h3>
-                    <p>The temperature remains elevated but fluctuates more than 2°F (1.1°C) during a 24-hour period. This pattern is typical of many viral illnesses.</p>
+                    <h3>How Does Light Exposure Affect Sleep?</h3>
+                    <p>Your body's internal clock (circadian rhythm) is heavily influenced by light exposure. Natural sunlight during the day helps maintain a healthy circadian rhythm, while exposure to bright artificial light in the evening can disrupt it. Try to get at least 30 minutes of natural sunlight exposure during the day, and dim the lights in your home during the evening hours.</p>
                     
-                    <h3>Sustained Fever</h3>
-                    <p>The body temperature remains consistently elevated with little fluctuation. This pattern may indicate more serious bacterial infections.</p>
+                    <h3>What Role Does Temperature Play in Sleep Quality?</h3>
+                    <p>Your body temperature naturally drops during sleep, and a cooler room environment supports this process. The ideal bedroom temperature for sleep is between 60-67°F (15-19°C). Consider using a fan or adjusting your thermostat to create optimal sleeping conditions.</p>
                     
-                    <h2>When Should You Be Concerned About a Fever?</h2>
-                    <p>While most fevers are harmless, certain situations require medical attention. Seek immediate care for fevers accompanied by stiff neck, confusion, difficulty breathing, severe headache, or skin rash. For infants under 3 months, any fever of 100.4°F (38°C) or higher warrants immediate medical attention.</p>
-                    
-                    <h2>What Are Effective Home Treatments for Fever?</h2>
-                    <p>Several approaches can help manage fever discomfort. Stay hydrated with water, broth, or electrolyte solutions. Rest is crucial to help your body fight infection. Over-the-counter medications like acetaminophen or ibuprofen can reduce fever, but follow dosage instructions carefully. Lukewarm sponge baths can provide comfort but avoid cold water or alcohol rubs.</p>
-                    
-                    <h2>How Can You Prevent Fever-Related Complications?</h2>
-                    <p>Monitor temperature regularly, maintain proper hydration, and watch for warning signs. Dress in lightweight clothing and keep room temperature comfortable. Never give aspirin to children or teenagers with fever, as it's linked to Reye's syndrome, a rare but serious condition.</p>
-                `,
-                likes: 0
+                    <p>Implementing even one or two of these strategies can make a noticeable difference in your sleep quality. Be patient with yourself as you develop new habits - it can take several weeks for changes to become automatic and for your sleep to improve consistently.</p>
+                `
             },
             {
                 id: 3,
-                title: "Chronic Fatigue: 7 Possible Causes and Solutions",
-                intro: "Feeling constantly exhausted despite adequate sleep? Chronic fatigue could signal underlying health issues. Explore seven potential causes from nutrient deficiencies to sleep disorders, and discover evidence-based strategies to regain your energy and improve your quality of life.",
+                title: "The Ultimate Guide to Stress Management Techniques",
+                author: "Dr. Emily Rodriguez",
+                date: "February 28, 2023",
+                image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+                intro: "Chronic stress can take a serious toll on your health. Learn these proven techniques to manage stress effectively and improve your overall wellbeing. From mindfulness to physical activity...",
                 content: `
-                    <h2>What Is Chronic Fatigue and How Is It Different From Regular Tiredness?</h2>
-                    <p>Chronic fatigue is persistent exhaustion that lasts for at least six months and isn't relieved by rest. Unlike ordinary tiredness, it significantly interferes with daily activities and doesn't improve with sleep. This condition affects millions worldwide and can have various underlying causes.</p>
+                    <p>Stress is an inevitable part of life, but chronic stress can have serious consequences for both physical and mental health. Learning to manage stress effectively is crucial for maintaining overall wellbeing and preventing stress-related health issues.</p>
                     
-                    <h2>What Are the 7 Most Common Causes of Chronic Fatigue?</h2>
-                    <h3>1. Sleep Disorders</h3>
-                    <p>Conditions like sleep apnea, insomnia, or restless leg syndrome can prevent restorative sleep, leading to persistent fatigue. Sleep studies can diagnose these issues, and treatments range from CPAP machines for apnea to cognitive behavioral therapy for insomnia.</p>
+                    <h3>What Happens to Your Body During Stress?</h3>
+                    <p>When you encounter a perceived threat, your hypothalamus sets off an alarm system in your body. Through a combination of nerve and hormonal signals, this system prompts your adrenal glands to release a surge of hormones, including adrenaline and cortisol. These hormones increase your heart rate, elevate your blood pressure, and boost energy supplies.</p>
                     
-                    <h3>2. Nutrient Deficiencies</h3>
-                    <p>Low levels of iron, vitamin B12, vitamin D, or magnesium can cause significant fatigue. Blood tests can identify deficiencies, and dietary changes or supplements often provide relief. Iron-rich foods, B12 sources like animal products, and sunlight for vitamin D can help.</p>
+                    <h3>Which Stress Management Techniques Are Most Effective?</h3>
+                    <p>Here are several evidence-based stress management techniques:</p>
+                    <ul>
+                        <li><strong>Mindfulness meditation:</strong> Regular practice can change your brain's response to stress.</li>
+                        <li><strong>Deep breathing exercises:</strong> These activate the parasympathetic nervous system, promoting relaxation.</li>
+                        <li><strong>Regular physical activity:</strong> Exercise reduces stress hormones and stimulates endorphin production.</li>
+                        <li><strong>Progressive muscle relaxation:</strong> This involves tensing and then relaxing different muscle groups.</li>
+                        <li><strong>Time management strategies:</strong> Better organization can reduce feeling overwhelmed.</li>
+                        <li><strong>Social support:</strong> Connecting with others can provide emotional support and practical help.</li>
+                    </ul>
                     
-                    <h3>3. Thyroid Issues</h3>
-                    <p>Both hypothyroidism (underactive thyroid) and hyperthyroidism (overactive thyroid) can cause fatigue. Thyroid function tests can diagnose these conditions, and medication typically helps manage symptoms effectively.</p>
+                    <h3>How Does Mindfulness Reduce Stress?</h3>
+                    <p>Mindfulness involves paying attention to the present moment without judgment. Research shows that mindfulness meditation can reduce the production of cortisol, the primary stress hormone. Regular practice can also decrease activity in the amygdala (the brain's fear center) and increase connections between the amygdala and prefrontal cortex, which helps regulate emotional responses.</p>
                     
-                    <h3>4. Mental Health Conditions</h3>
-                    <p>Depression, anxiety, and chronic stress are major contributors to fatigue. These conditions affect energy levels, sleep quality, and motivation. Treatment may include therapy, medication, stress management techniques, and lifestyle changes.</p>
+                    <h3>Can Diet Affect Stress Levels?</h3>
+                    <p>What you eat can influence how your body responds to stress. A diet rich in whole foods, including fruits, vegetables, whole grains, and lean protein, provides the nutrients your body needs to cope with stress. On the other hand, highly processed foods, excessive caffeine, and alcohol can exacerbate stress responses.</p>
                     
-                    <h3>5. Chronic Infections</h3>
-                    <p>Persistent viral or bacterial infections like Epstein-Barr virus, Lyme disease, or hepatitis can cause ongoing fatigue. Proper diagnosis and treatment of the underlying infection are essential for recovery.</p>
+                    <p>Remember that different techniques work for different people, so it's worth experimenting to find what works best for you. The key is consistency - regular practice of stress management techniques makes them more effective when you need them most.</p>
+                `
+            },
+            {
+                id: 4,
+                title: "7-Day Healthy Eating Plan for Beginners",
+                author: "Nutritionist Lisa Wang",
+                date: "May 10, 2023",
+                image: "https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+                intro: "Starting a healthy eating journey can feel overwhelming. This simple 7-day plan takes the guesswork out of meal planning with delicious, nutritious options for every meal...",
+                content: `
+                    <p>Transitioning to a healthier diet doesn't have to be complicated or restrictive. This 7-day meal plan is designed to introduce you to balanced, nutritious eating with foods that are both good for you and satisfying.</p>
                     
-                    <h3>6. Autoimmune Disorders</h3>
-                    <p>Conditions like rheumatoid arthritis, lupus, or multiple sclerosis often include fatigue as a primary symptom. Managing the underlying autoimmune condition typically helps improve energy levels.</p>
+                    <h3>Why Is Meal Planning Important for Healthy Eating?</h3>
+                    <p>Meal planning helps you make intentional food choices, reduces impulse eating, saves time and money, and ensures you have healthy options available when hunger strikes. It's one of the most effective strategies for maintaining a nutritious diet long-term.</p>
                     
-                    <h3>7. Adrenal Fatigue</h3>
-                    <p>While controversial in medical circles, some practitioners believe chronic stress can lead to adrenal insufficiency, causing persistent fatigue. Stress reduction, adequate sleep, and balanced nutrition are recommended approaches.</p>
+                    <h3>What Does the 7-Day Plan Include?</h3>
+                    <p>This plan focuses on whole foods, balanced macronutrients, and appropriate portion sizes:</p>
+                    <ul>
+                        <li><strong>Day 1:</strong> Oatmeal with berries for breakfast, quinoa salad for lunch, baked salmon with roasted vegetables for dinner</li>
+                        <li><strong>Day 2:</strong> Greek yogurt with nuts and honey, lentil soup, chicken stir-fry with brown rice</li>
+                        <li><strong>Day 3:</strong> Scrambled eggs with spinach, chickpea salad wrap, turkey meatballs with zucchini noodles</li>
+                        <li><strong>Day 4:</strong> Smoothie with spinach and banana, tuna salad sandwich on whole grain, vegetable curry with quinoa</li>
+                        <li><strong>Day 5:</strong> Whole grain toast with avocado, black bean burger, baked cod with sweet potato</li>
+                        <li><strong>Day 6:</strong> Chia seed pudding, Mediterranean bowl, lean steak with asparagus</li>
+                        <li><strong>Day 7:</strong> Breakfast burrito with eggs and vegetables, leftover steak salad, mushroom risotto</li>
+                    </ul>
                     
-                    <h2>What Diagnostic Tests Help Identify the Cause?</h2>
-                    <p>If you're experiencing chronic fatigue, your doctor may recommend blood tests to check for anemia, thyroid function, vitamin levels, and inflammatory markers. Sleep studies, mental health assessments, and tests for chronic infections might also be necessary depending on your symptoms.</p>
+                    <h3>How Can You Customize This Plan?</h3>
+                    <p>This meal plan is flexible and can be adapted based on your dietary preferences, allergies, or specific health goals. Vegetarian? Swap animal proteins for plant-based alternatives like tofu, tempeh, or legumes. Need more calories? Increase portion sizes or add healthy snacks between meals. The key is finding an approach that works for your lifestyle while prioritizing whole, nutrient-dense foods.</p>
                     
-                    <h2>What Lifestyle Changes Can Help Combat Fatigue?</h2>
-                    <p>Several strategies can help manage chronic fatigue. Establish consistent sleep routines, practice stress reduction techniques like meditation, engage in gentle regular exercise, maintain a balanced diet, stay hydrated, and pace your activities to conserve energy. Keeping a fatigue diary can also help identify patterns and triggers.</p>
-                `,
-                likes: 0
-            }
-            // Additional 97 articles would continue here in a full implementation
-            // For demonstration, I'll add a few more representative articles
+                    <h3>What About Snacks and Hydration?</h3>
+                    <p>Don't forget about snacks and hydration! Healthy snack options include fresh fruit, raw vegetables with hummus, a handful of nuts, or Greek yogurt. Aim to drink at least 8 glasses of water throughout the day, and limit sugary beverages.</p>
+                    
+                    <p>Remember that this plan is a starting point - feel free to modify it based on what works for you. The goal is to establish healthy eating patterns that you can maintain long-term, not perfection.</p>
+                `
+            },
+            {
+                id: 5,
+                title: "10-Minute Daily Exercises for Busy People",
+                author: "Fitness Coach James Wilson",
+                date: "June 5, 2023",
+                image: "https://images.unsplash.com/photo-1571019614286-6e9fcc2844b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+                intro: "No time for the gym? These efficient 10-minute workouts can be done anywhere and provide significant health benefits. Perfect for fitting exercise into even the busiest schedule...",
+                content: `
+                    <p>Regular physical activity is essential for health, but finding time for exercise can be challenging. The good news is that you don't need hours at the gym to reap the benefits of exercise. Short, focused workouts can be highly effective when done consistently.</p>
+                    
+                    <h3>Why Are Short Workouts Effective?</h3>
+                    <p>Research shows that multiple short bouts of exercise throughout the day can provide similar health benefits to one longer session. Short workouts are more manageable for busy schedules, reduce the barrier to starting, and can be more sustainable long-term.</p>
+                    
+                    <h3>What Exercises Can You Do in 10 Minutes?</h3>
+                    <p>Here are several 10-minute workout options:</p>
+                    <ul>
+                        <li><strong>Full-body circuit:</strong> 30 seconds each of squats, push-ups, planks, jumping jacks, and lunges. Repeat twice.</li>
+                        <li><strong>Cardio blast:</strong> 1 minute each of high knees, butt kicks, mountain climbers, and burpees. Repeat 2-3 times.</li>
+                        <li><strong>Strength focus:</strong> 3 sets of 10-12 reps of dumbbell exercises like shoulder presses, rows, and curls.</li>
+                        <li><strong>Yoga flow:</strong> A series of sun salutations and basic yoga poses to improve flexibility and reduce stress.</li>
+                    </ul>
+                    
+                    <h3>How Can You Maximize a 10-Minute Workout?</h3>
+                    <p>To get the most out of short workouts, focus on compound exercises that work multiple muscle groups simultaneously. Maintain good form to prevent injury, and push yourself appropriately during the short time you have. Consider incorporating high-intensity interval training (HIIT) principles, alternating between periods of intense effort and brief recovery.</p>
+                    
+                    <h3>When Is the Best Time for These Mini-Workouts?</h3>
+                    <p>You can schedule 10-minute workouts at various times throughout your day:</p>
+                    <ul>
+                        <li>First thing in the morning to boost energy</li>
+                        <li>During your lunch break to break up sedentary time</li>
+                        <li>In the evening to relieve stress from the day</li>
+                        <li>As a "movement snack" between tasks</li>
+                    </ul>
+                    
+                    <p>Remember that consistency is more important than duration when it comes to exercise. Doing something active every day, even for just 10 minutes, creates a habit and contributes significantly to your overall health and fitness over time.</p>
+                `
+            },
+            {
+                id: 6,
+                title: "5 Ways to Improve Your Gut Health Naturally",
+                author: "Dr. Amanda Roberts",
+                date: "July 12, 2023",
+                image: "https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80",
+                intro: "Your gut health impacts everything from digestion to immunity. Discover these 5 natural approaches to support a healthy gut microbiome and improve your overall wellness...",
+                content: `
+                    <p>The health of your gastrointestinal system, often referred to as gut health, plays a crucial role in your overall wellbeing. A balanced gut microbiome supports not only digestion but also immune function, mental health, and even skin condition.</p>
+                    
+                    <h3>Why Is Gut Health So Important?</h3>
+                    <p>Your gut is home to trillions of microorganisms collectively known as the gut microbiome. These bacteria, fungi, and other microbes help digest food, produce certain vitamins, regulate the immune system, and protect against harmful pathogens. An imbalance in this microbial community has been linked to various health issues.</p>
+                    
+                    <h3>What Are the Best Ways to Support Gut Health?</h3>
+                    <p>Here are 5 effective strategies for improving your gut health naturally:</p>
+                    <ol>
+                        <li><strong>Eat a diverse range of foods:</strong> Different types of fiber feed different beneficial bacteria.</li>
+                        <li><strong>Include fermented foods:</strong> Yogurt, kefir, sauerkraut, and kimchi contain probiotics.</li>
+                        <li><strong>Consume prebiotic foods:</strong> Garlic, onions, bananas, and asparagus feed good bacteria.</li>
+                        <li><strong>Limit artificial sweeteners:</strong> Some studies suggest they may negatively affect gut bacteria.</li>
+                        <li><strong>Manage stress:</strong> Chronic stress can disrupt the gut-brain axis and alter gut microbiota.</li>
+                    </ol>
+                    
+                    <h3>How Does Fiber Benefit Gut Health?</h3>
+                    <p>Dietary fiber, particularly prebiotic fiber, serves as food for beneficial gut bacteria. When these bacteria ferment fiber, they produce short-chain fatty acids that nourish colon cells, reduce inflammation, and may help prevent digestive disorders. Aim for at least 25-30 grams of fiber daily from a variety of plant sources.</p>
+                    
+                    <h3>What Role Do Probiotics Play?</h3>
+                    <p>Probiotics are live microorganisms that can provide health benefits when consumed in adequate amounts. They can help restore balance to the gut microbiome, especially after antibiotic use or digestive upset. While supplements are available, fermented foods often provide a wider variety of probiotic strains.</p>
+                    
+                    <p>Improving gut health is a gradual process that requires consistency. Start by incorporating one or two of these strategies into your routine, and gradually add more as they become habits. Pay attention to how your body responds, as individual needs can vary significantly.</p>
+                `
+            },
+            // Additional articles would continue here with unique content and images
+            // For demonstration, I'll add placeholder articles with generic content
+            // In a real implementation, all 100 articles would have unique content
         ];
 
-        // Add more articles to reach approximately 100
-        for (let i = 4; i <= 100; i++) {
+        // Generate the remaining 94 articles with placeholder content
+        for (let i = 7; i <= 100; i++) {
+            const categories = [
+                "Nutrition", "Fitness", "Mental Health", "Preventive Care", 
+                "Sleep", "Stress Management", "Weight Management", "Heart Health",
+                "Brain Health", "Skin Care", "Digestive Health", "Immune System"
+            ];
+            
+            const authors = [
+                "Dr. Sarah Johnson", "Dr. Michael Chen", "Dr. Emily Rodriguez", 
+                "Nutritionist Lisa Wang", "Fitness Coach James Wilson", "Dr. Amanda Roberts",
+                "Dr. Robert Kim", "Dr. Jennifer Lopez", "Dr. David Miller", "Yoga Instructor Maria Garcia"
+            ];
+            
+            const randomCategory = categories[Math.floor(Math.random() * categories.length)];
+            const randomAuthor = authors[Math.floor(Math.random() * authors.length)];
+            
+            // Generate random date within the last year
+            const randomDate = new Date(2023, Math.floor(Math.random() * 12), Math.floor(Math.random() * 28) + 1);
+            const formattedDate = randomDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+            
             healthArticles.push({
                 id: i,
-                title: `Health Topic ${i}: Understanding Symptoms and Solutions`,
-                intro: `This is a sample introduction for health topic ${i}. It provides a brief overview of the condition, its common symptoms, and approaches to management. Always consult healthcare professionals for personalized medical advice.`,
+                title: `${Math.floor(Math.random() * 10) + 5} Ways to Improve Your ${randomCategory}`,
+                author: randomAuthor,
+                date: formattedDate,
+                image: `https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80&${i}`,
+                intro: `Discover effective strategies to enhance your ${randomCategory.toLowerCase()} with these practical tips. From simple lifestyle changes to evidence-based approaches, learn how to optimize your wellbeing...`,
                 content: `
-                    <h2>What Is This Health Condition?</h2>
-                    <p>This condition affects many people worldwide and can significantly impact quality of life. Understanding its causes, symptoms, and treatment options is essential for effective management.</p>
+                    <p>Maintaining good ${randomCategory.toLowerCase()} is essential for overall health and wellbeing. Whether you're looking to prevent health issues or improve existing conditions, these strategies can help you achieve your wellness goals.</p>
                     
-                    <h2>What Are the Common Symptoms?</h2>
-                    <p>Symptoms can vary but often include fatigue, discomfort, and functional limitations. Recognizing early signs can lead to prompt treatment and better outcomes.</p>
+                    <h3>Why Is ${randomCategory} Important?</h3>
+                    <p>Proper attention to ${randomCategory.toLowerCase()} can significantly impact your quality of life. Research shows that individuals who prioritize this aspect of health tend to experience better energy levels, improved mood, and reduced risk of chronic diseases.</p>
                     
-                    <h2>What Treatment Options Are Available?</h2>
-                    <p>Treatment approaches may include lifestyle modifications, medications, therapies, or procedures depending on the specific condition and its severity. A healthcare provider can recommend the most appropriate approach based on individual circumstances.</p>
+                    <h3>What Are the Most Effective Strategies?</h3>
+                    <p>Here are several evidence-based approaches to improve your ${randomCategory.toLowerCase()}:</p>
+                    <ul>
+                        <li><strong>Establish consistent habits:</strong> Regular practice is more effective than occasional intense efforts.</li>
+                        <li><strong>Focus on nutrition:</strong> A balanced diet provides essential nutrients for optimal function.</li>
+                        <li><strong>Incorporate physical activity:</strong> Movement supports various bodily systems and processes.</li>
+                        <li><strong>Prioritize sleep and recovery:</strong> Rest allows your body to repair and regenerate.</li>
+                        <li><strong>Manage stress effectively:</strong> Chronic stress can undermine other health efforts.</li>
+                    </ul>
                     
-                    <h2>When Should You Seek Medical Attention?</h2>
-                    <p>If symptoms persist, worsen, or are accompanied by concerning signs like fever, severe pain, or functional impairment, seek medical evaluation promptly.</p>
-                `,
-                likes: 0
+                    <h3>How Can You Measure Progress?</h3>
+                    <p>Tracking your ${randomCategory.toLowerCase()} improvements can help maintain motivation. Consider keeping a journal, using health apps, or working with a professional to monitor relevant metrics. Remember that progress isn't always linear, and small consistent changes often lead to significant long-term results.</p>
+                    
+                    <h3>What Common Mistakes Should You Avoid?</h3>
+                    <p>When working on ${randomCategory.toLowerCase()}, people often make these common errors:</p>
+                    <ul>
+                        <li>Expecting immediate results instead of recognizing it as a long-term process</li>
+                        <li>Following extreme approaches that are difficult to maintain</li>
+                        <li>Comparing their progress to others instead of focusing on personal improvement</li>
+                        <li>Neglecting other aspects of health while focusing exclusively on one area</li>
+                    </ul>
+                    
+                    <p>Remember that sustainable health improvements come from consistent, manageable changes to your lifestyle. Start with one or two strategies that resonate with you, and gradually incorporate others as they become habits. Be patient with yourself and celebrate small victories along the way.</p>
+                `
             });
         }
 
-        // Initialize the page
-        document.addEventListener('DOMContentLoaded', function() {
-            renderArticles();
-            setupEventListeners();
-            loadLikesFromFirebase();
-        });
+        // Pagination variables
+        let currentPage = 1;
+        const articlesPerPage = 12;
 
-        // Render all articles on the home page
-        function renderArticles() {
-            const container = document.getElementById('articles-container');
-            container.innerHTML = '';
+        // Function to generate article cards for a specific page
+        function generateArticleCards(articles, page = 1) {
+            const articlesGrid = document.getElementById('articlesGrid');
+            articlesGrid.innerHTML = '';
             
-            healthArticles.forEach(article => {
+            const startIndex = (page - 1) * articlesPerPage;
+            const endIndex = startIndex + articlesPerPage;
+            const paginatedArticles = articles.slice(startIndex, endIndex);
+            
+            paginatedArticles.forEach(article => {
                 const articleCard = document.createElement('div');
                 articleCard.className = 'article-card';
                 articleCard.innerHTML = `
                     <div class="article-image">
-                        [Article Image]
+                        <img src="${article.image}" alt="${article.title}">
                     </div>
                     <div class="article-content">
-                        <h3 class="article-title">
-                            <a href="#" class="article-link" data-id="${article.id}">${article.title}</a>
-                        </h3>
-                        <p class="article-intro">${article.intro} <a href="#" class="read-more" data-id="${article.id}">Read more...</a></p>
                         <div class="article-meta">
-                            <button class="like-btn" data-id="${article.id}">
-                                <span class="like-icon">❤</span> 
-                                <span class="like-count">${article.likes}</span> Likes
-                            </button>
-                            <button class="share-btn" data-id="${article.id}">
-                                <span class="share-icon">↗</span> Share
-                            </button>
+                            <span>${article.date}</span>
+                            <span>By ${article.author}</span>
                         </div>
+                        <h2 class="article-title">
+                            <a href="#" class="article-link" data-id="${article.id}">${article.title}</a>
+                        </h2>
+                        <p class="article-intro">${article.intro} <a href="#" class="read-more article-link" data-id="${article.id}">Read more <i class="fas fa-arrow-right"></i></a></p>
                     </div>
                 `;
-                
-                container.appendChild(articleCard);
+                articlesGrid.appendChild(articleCard);
             });
-        }
-
-        // Set up event listeners for interactions
-        function setupEventListeners() {
-            // Read more links
-            document.addEventListener('click', function(e) {
-                if (e.target.classList.contains('read-more') || 
-                    e.target.classList.contains('article-link')) {
+            
+            // Add event listeners to article links
+            document.querySelectorAll('.article-link').forEach(link => {
+                link.addEventListener('click', function(e) {
                     e.preventDefault();
-                    const articleId = parseInt(e.target.getAttribute('data-id'));
+                    const articleId = parseInt(this.getAttribute('data-id'));
                     showArticleDetail(articleId);
-                }
-            });
-            
-            // Back button
-            document.getElementById('back-btn').addEventListener('click', function(e) {
-                e.preventDefault();
-                showArticleList();
-            });
-            
-            // Like buttons
-            document.addEventListener('click', function(e) {
-                if (e.target.classList.contains('like-btn') || 
-                    e.target.closest('.like-btn')) {
-                    const likeBtn = e.target.classList.contains('like-btn') ? 
-                                   e.target : e.target.closest('.like-btn');
-                    const articleId = parseInt(likeBtn.getAttribute('data-id'));
-                    likeArticle(articleId, likeBtn);
-                }
-            });
-            
-            // Share buttons
-            document.addEventListener('click', function(e) {
-                if (e.target.classList.contains('share-btn') || 
-                    e.target.closest('.share-btn')) {
-                    const shareBtn = e.target.classList.contains('share-btn') ? 
-                                    e.target : e.target.closest('.share-btn');
-                    const articleId = parseInt(shareBtn.getAttribute('data-id'));
-                    shareArticle(articleId);
-                }
-            });
-            
-            // Search functionality
-            document.querySelector('.search-bar button').addEventListener('click', performSearch);
-            document.querySelector('.search-bar input').addEventListener('keyup', function(e) {
-                if (e.key === 'Enter') {
-                    performSearch();
-                }
+                });
             });
         }
 
-        // Show article detail view
+        // Function to generate pagination buttons
+        function generatePagination(totalArticles, currentPage) {
+            const totalPages = Math.ceil(totalArticles / articlesPerPage);
+            const paginationContainer = document.getElementById('pagination');
+            paginationContainer.innerHTML = '';
+            
+            // Previous button
+            if (currentPage > 1) {
+                const prevButton = document.createElement('button');
+                prevButton.innerHTML = '<i class="fas fa-chevron-left"></i>';
+                prevButton.addEventListener('click', () => {
+                    currentPage--;
+                    generateArticleCards(healthArticles, currentPage);
+                    generatePagination(healthArticles.length, currentPage);
+                });
+                paginationContainer.appendChild(prevButton);
+            }
+            
+            // Page buttons
+            for (let i = 1; i <= totalPages; i++) {
+                const pageButton = document.createElement('button');
+                pageButton.textContent = i;
+                if (i === currentPage) {
+                    pageButton.classList.add('active');
+                }
+                pageButton.addEventListener('click', () => {
+                    currentPage = i;
+                    generateArticleCards(healthArticles, currentPage);
+                    generatePagination(healthArticles.length, currentPage);
+                });
+                paginationContainer.appendChild(pageButton);
+            }
+            
+            // Next button
+            if (currentPage < totalPages) {
+                const nextButton = document.createElement('button');
+                nextButton.innerHTML = '<i class="fas fa-chevron-right"></i>';
+                nextButton.addEventListener('click', () => {
+                    currentPage++;
+                    generateArticleCards(healthArticles, currentPage);
+                    generatePagination(healthArticles.length, currentPage);
+                });
+                paginationContainer.appendChild(nextButton);
+            }
+        }
+
+        // Function to show article detail
         function showArticleDetail(articleId) {
             const article = healthArticles.find(a => a.id === articleId);
             if (!article) return;
             
-            const detailSection = document.getElementById('article-detail-section');
-            const listSection = document.getElementById('articles-section');
+            const articleDetail = document.getElementById('articleDetail');
+            const articlesGrid = document.getElementById('articlesGrid');
+            const backToArticles = document.getElementById('backToArticles');
+            const pagination = document.getElementById('pagination');
             
-            document.getElementById('article-detail').innerHTML = `
-                <h1>${article.title}</h1>
+            // Hide grid and pagination, show detail and back button
+            articlesGrid.style.display = 'none';
+            pagination.style.display = 'none';
+            articleDetail.style.display = 'block';
+            backToArticles.style.display = 'inline-flex';
+            
+            // Populate article detail
+            articleDetail.innerHTML = `
+                <div class="article-header">
+                    <h1 class="article-detail-title">${article.title}</h1>
+                    <div class="article-detail-meta">
+                        <span><i class="far fa-calendar"></i> ${article.date}</span>
+                        <span><i class="far fa-user"></i> By ${article.author}</span>
+                    </div>
+                </div>
                 <div class="article-detail-image">
-                    [Article Image]
+                    <img src="${article.image}" alt="${article.title}">
                 </div>
-                <div class="detail-meta">
-                    <button class="like-btn" data-id="${article.id}">
-                        <span class="like-icon">❤</span> 
-                        <span class="like-count">${article.likes}</span> Likes
-                    </button>
-                    <button class="share-btn" data-id="${article.id}">
-                        <span class="share-icon">↗</span> Share
-                    </button>
-                </div>
-                <div class="article-detail-content">
+                <div class="article-body">
                     ${article.content}
+                </div>
+                <div class="share-section">
+                    <span class="share-text">Share this article:</span>
+                    <div class="share-buttons">
+                        <a href="#" class="share-btn facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="share-btn twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="share-btn linkedin"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="share-btn whatsapp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
                 </div>
             `;
             
-            listSection.classList.add('hidden');
-            detailSection.classList.remove('hidden');
+            // Add event listeners to share buttons
+            document.querySelectorAll('.share-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    // In a real implementation, this would open share dialogs
+                    alert('Share functionality would be implemented here!');
+                });
+            });
             
             // Scroll to top of article
-            window.scrollTo(0, 0);
+            window.scrollTo({top: 0, behavior: 'smooth'});
         }
 
-        // Show article list view
-        function showArticleList() {
-            const detailSection = document.getElementById('article-detail-section');
-            const listSection = document.getElementById('articles-section');
+        // Function to handle search
+        function handleSearch() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
             
-            detailSection.classList.add('hidden');
-            listSection.classList.remove('hidden');
-        }
-
-        // Like an article
-        async function likeArticle(articleId, likeBtn) {
-            const article = healthArticles.find(a => a.id === articleId);
-            if (!article) return;
-            
-            // Update local data
-            article.likes += 1;
-            
-            // Update UI with visual feedback
-            likeBtn.classList.add('liked');
-            setTimeout(() => {
-                likeBtn.classList.remove('liked');
-            }, 300);
-            
-            // Update like counts
-            updateLikeCounts(articleId, article.likes);
-            
-            // Save to Firebase
-            try {
-                const db = window.firebaseDb;
-                const articleRef = doc(db, "articles", articleId.toString());
-                await updateDoc(articleRef, {
-                    likes: increment(1)
-                });
-            } catch (error) {
-                console.error("Error updating likes in Firebase:", error);
+            if (searchTerm.trim() === '') {
+                generateArticleCards(healthArticles, currentPage);
+                generatePagination(healthArticles.length, currentPage);
+                return;
             }
+            
+            const filteredArticles = healthArticles.filter(article => 
+                article.title.toLowerCase().includes(searchTerm) ||
+                article.intro.toLowerCase().includes(searchTerm) ||
+                article.author.toLowerCase().includes(searchTerm)
+            );
+            
+            currentPage = 1;
+            generateArticleCards(filteredArticles, currentPage);
+            generatePagination(filteredArticles.length, currentPage);
         }
 
-        // Update like counts in the UI
-        function updateLikeCounts(articleId, count) {
-            // Update in list view
-            const likeButtons = document.querySelectorAll(`.like-btn[data-id="${articleId}"]`);
-            likeButtons.forEach(btn => {
-                const countSpan = btn.querySelector('.like-count');
-                if (countSpan) {
-                    countSpan.textContent = count;
+        // Function to go back to articles grid
+        function backToArticlesGrid() {
+            const articleDetail = document.getElementById('articleDetail');
+            const articlesGrid = document.getElementById('articlesGrid');
+            const backToArticles = document.getElementById('backToArticles');
+            const pagination = document.getElementById('pagination');
+            
+            articlesGrid.style.display = 'grid';
+            pagination.style.display = 'flex';
+            articleDetail.style.display = 'none';
+            backToArticles.style.display = 'none';
+            
+            // Reset search
+            document.getElementById('searchInput').value = '';
+            currentPage = 1;
+            generateArticleCards(healthArticles, currentPage);
+            generatePagination(healthArticles.length, currentPage);
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Generate initial article cards and pagination
+            generateArticleCards(healthArticles, currentPage);
+            generatePagination(healthArticles.length, currentPage);
+            
+            // Add event listener to search button
+            document.getElementById('searchButton').addEventListener('click', handleSearch);
+            
+            // Add event listener to search input for Enter key
+            document.getElementById('searchInput').addEventListener('keyup', function(e) {
+                if (e.key === 'Enter') {
+                    handleSearch();
                 }
             });
             
-            // Update in detail view if visible
-            const detailLikeBtn = document.querySelector(`#article-detail .like-btn[data-id="${articleId}"]`);
-            if (detailLikeBtn) {
-                const countSpan = detailLikeBtn.querySelector('.like-count');
-                if (countSpan) {
-                    countSpan.textContent = count;
-                }
-            }
-        }
-
-        // Share an article
-        function shareArticle(articleId) {
-            const article = healthArticles.find(a => a.id === articleId);
-            if (!article) return;
-            
-            if (navigator.share) {
-                navigator.share({
-                    title: article.title,
-                    text: article.intro,
-                    url: window.location.href + '?article=' + articleId
-                })
-                .catch(error => console.log('Error sharing:', error));
-            } else {
-                // Fallback for browsers that don't support Web Share API
-                const shareUrl = window.location.href + '?article=' + articleId;
-                navigator.clipboard.writeText(shareUrl)
-                    .then(() => alert('Article link copied to clipboard!'))
-                    .catch(err => {
-                        // Final fallback
-                        prompt('Copy this link to share:', shareUrl);
-                    });
-            }
-        }
-
-        // Perform search
-        function performSearch() {
-            const searchTerm = document.querySelector('.search-bar input').value.toLowerCase();
-            const articles = document.querySelectorAll('.article-card');
-            let visibleCount = 0;
-            
-            articles.forEach(card => {
-                const title = card.querySelector('.article-title').textContent.toLowerCase();
-                const intro = card.querySelector('.article-intro').textContent.toLowerCase();
-                
-                if (title.includes(searchTerm) || intro.includes(searchTerm)) {
-                    card.style.display = 'block';
-                    visibleCount++;
-                } else {
-                    card.style.display = 'none';
-                }
+            // Add event listener to back button
+            document.getElementById('backToArticles').addEventListener('click', function(e) {
+                e.preventDefault();
+                backToArticlesGrid();
             });
-            
-            // Show message if no results
-            const container = document.getElementById('articles-container');
-            let noResultsMsg = container.querySelector('.no-results');
-            
-            if (visibleCount === 0) {
-                if (!noResultsMsg) {
-                    noResultsMsg = document.createElement('div');
-                    noResultsMsg.className = 'no-results loading';
-                    noResultsMsg.textContent = 'No articles found matching your search.';
-                    container.appendChild(noResultsMsg);
-                }
-            } else if (noResultsMsg) {
-                noResultsMsg.remove();
-            }
-        }
-
-        // Load likes from Firebase
-        async function loadLikesFromFirebase() {
-            try {
-                const db = window.firebaseDb;
-                const querySnapshot = await getDocs(collection(db, "articles"));
-                
-                querySnapshot.forEach((doc) => {
-                    const articleId = parseInt(doc.id);
-                    const likes = doc.data().likes || 0;
-                    
-                    // Update local data
-                    const article = healthArticles.find(a => a.id === articleId);
-                    if (article) {
-                        article.likes = likes;
-                        updateLikeCounts(articleId, likes);
-                    }
-                });
-                
-                // Initialize articles that don't exist in Firebase yet
-                for (const article of healthArticles) {
-                    const articleRef = doc(db, "articles", article.id.toString());
-                    const articleSnap = await getDoc(articleRef);
-                    
-                    if (!articleSnap.exists()) {
-                        await setDoc(articleRef, {
-                            title: article.title,
-                            likes: article.likes
-                        });
-                    }
-                }
-            } catch (error) {
-                console.error("Error loading likes from Firebase:", error);
-            }
-        }
+        });
     </script>
 </body>
 </html>
