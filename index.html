@@ -3,266 +3,381 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Health-Hubs | Your Health Resource</title>
+    <title>Health-Hubs - Your Ultimate Health Resource</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #2a9d8f;
-            --secondary: #264653;
-            --accent: #e9c46a;
-            --text: #f1faee;
-            --background: #1d3557;
-            --card-bg: #2a3d5f;
-            --hover: #457b9d;
+            --primary: #1a73e8;
+            --secondary: #34a853;
+            --accent: #ea4335;
+            --dark-bg: #121212;
+            --darker-bg: #0a0a0a;
+            --card-bg: #1e1e1e;
+            --text: #e8eaed;
+            --text-secondary: #9aa0a6;
+            --border: #3c4043;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         body {
-            background-color: var(--background);
+            background-color: var(--dark-bg);
             color: var(--text);
             line-height: 1.6;
         }
-        
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
-            background-color: var(--secondary);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .logo img {
-            height: 40px;
-        }
-        
-        .logo h1 {
-            font-size: 1.8rem;
-            color: var(--accent);
-        }
-        
-        .search-bar {
-            flex: 1;
-            max-width: 500px;
-            margin: 0 2rem;
-        }
-        
-        .search-bar input {
-            width: 100%;
-            padding: 0.8rem 1rem;
-            border-radius: 30px;
-            border: none;
-            background-color: var(--card-bg);
-            color: var(--text);
-            font-size: 1rem;
-        }
-        
-        .search-bar input:focus {
-            outline: 2px solid var(--primary);
-        }
-        
-        .menu-icon {
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--accent);
-        }
-        
-        .modal-menu {
-            display: none;
-            position: absolute;
-            top: 70px;
-            right: 20px;
-            background-color: var(--card-bg);
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            z-index: 100;
-            width: 200px;
-            overflow: hidden;
-        }
-        
-        .modal-menu.active {
-            display: block;
-        }
-        
-        .modal-menu ul {
-            list-style: none;
-        }
-        
-        .modal-menu li {
-            padding: 1rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        
-        .modal-menu li:hover {
-            background-color: var(--hover);
-        }
-        
-        .modal-menu li:last-child {
-            border-bottom: none;
-        }
-        
+
         .container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 0 20px;
         }
-        
+
+        /* Header Styles */
+        header {
+            background-color: var(--darker-bg);
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .logo h1 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            color: var(--text-secondary);
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: var(--primary);
+        }
+
+        .search-bar {
+            display: flex;
+            margin-bottom: 15px;
+        }
+
+        .search-bar input {
+            flex: 1;
+            padding: 12px 15px;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 4px 0 0 4px;
+            color: var(--text);
+            font-size: 16px;
+        }
+
+        .search-bar button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0 20px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .search-bar button:hover {
+            background-color: #0d5bb7;
+        }
+
+        .sub-topic {
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 18px;
+            color: var(--text-secondary);
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Modal Menu */
+        .modal-menu {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 300px;
+            height: 100%;
+            background-color: var(--darker-bg);
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.5);
+            transition: right 0.3s ease;
+            z-index: 1000;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .modal-menu.active {
+            right: 0;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .close-menu {
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .modal-links {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .modal-links a {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .modal-links a:hover {
+            background-color: var(--card-bg);
+        }
+
+        .modal-links i {
+            width: 24px;
+            text-align: center;
+        }
+
+        /* Main Content */
+        main {
+            padding: 40px 0;
+        }
+
         .articles-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
+            gap: 30px;
         }
-        
+
         .article-card {
             background-color: var(--card-bg);
-            border-radius: 10px;
+            border-radius: 8px;
             overflow: hidden;
             transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
-        
+
         .article-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
-        
+
         .article-image {
             width: 100%;
             height: 180px;
             object-fit: cover;
         }
-        
+
         .article-content {
-            padding: 1.5rem;
+            padding: 20px;
         }
-        
+
         .article-meta {
             display: flex;
             justify-content: space-between;
-            font-size: 0.8rem;
-            color: var(--accent);
-            margin-bottom: 0.5rem;
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: var(--text-secondary);
         }
-        
+
         .article-title {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
+            margin-bottom: 15px;
         }
-        
+
         .article-title a {
-            color: inherit;
+            color: var(--text);
             text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
             transition: color 0.3s;
         }
-        
+
         .article-title a:hover {
-            color: var(--accent);
+            color: var(--primary);
         }
-        
+
         .article-intro {
-            margin-bottom: 1rem;
-            font-size: 0.95rem;
+            margin-bottom: 15px;
+            color: var(--text-secondary);
             line-height: 1.5;
         }
-        
+
         .article-footer {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .read-more {
             color: var(--primary);
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 500;
             transition: color 0.3s;
         }
-        
+
         .read-more:hover {
-            color: var(--accent);
+            color: var(--secondary);
         }
-        
+
         .share-btn {
             background: none;
             border: none;
-            color: var(--accent);
+            color: var(--text-secondary);
             cursor: pointer;
-            font-size: 1rem;
             transition: color 0.3s;
         }
-        
+
         .share-btn:hover {
             color: var(--primary);
         }
-        
-        .no-results {
-            grid-column: 1 / -1;
-            text-align: center;
-            padding: 3rem;
-            font-size: 1.2rem;
-            color: var(--accent);
-        }
-        
+
+        /* Footer */
         footer {
-            background-color: var(--secondary);
-            padding: 2rem;
-            text-align: center;
-            margin-top: 3rem;
+            background-color: var(--darker-bg);
+            padding: 40px 0 20px;
+            border-top: 1px solid var(--border);
         }
-        
+
         .footer-content {
-            max-width: 800px;
-            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
         }
-        
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin: 1.5rem 0;
-        }
-        
-        .footer-links a {
+
+        .footer-column h3 {
+            margin-bottom: 20px;
             color: var(--text);
+            font-size: 18px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
             text-decoration: none;
             transition: color 0.3s;
         }
-        
+
         .footer-links a:hover {
             color: var(--primary);
         }
-        
+
         .copyright {
-            color: var(--accent);
-            font-size: 0.9rem;
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 14px;
         }
-        
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .articles-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+        }
+
         @media (max-width: 768px) {
-            header {
+            .nav-links {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .header-top {
                 flex-direction: column;
-                gap: 1rem;
+                gap: 15px;
             }
-            
-            .search-bar {
-                margin: 0;
-                width: 100%;
+
+            .social-icons {
+                margin-top: 10px;
             }
-            
+        }
+
+        @media (max-width: 576px) {
             .articles-grid {
                 grid-template-columns: 1fr;
             }
@@ -270,222 +385,427 @@
     </style>
 </head>
 <body>
+    <!-- Header Section -->
     <header>
-        <div class="logo">
-            <i class="fas fa-heartbeat"></i>
-            <h1>Health-Hubs</h1>
-        </div>
-        
-        <div class="search-bar">
-            <input type="text" id="searchInput" placeholder="Search health articles...">
-        </div>
-        
-        <div class="menu-icon" id="menuToggle">
-            <i class="fas fa-bars"></i>
-        </div>
-        
-        <div class="modal-menu" id="modalMenu">
-            <ul>
-                <li><i class="fas fa-home"></i> Home</li>
-                <li><i class="fas fa-book-medical"></i> Health Topics</li>
-                <li><i class="fas fa-user-md"></i> Expert Advice</li>
-                <li><i class="fas fa-newspaper"></i> Latest News</li>
-                <li><i class="fas fa-info-circle"></i> About Us</li>
-                <li><i class="fas fa-envelope"></i> Contact</li>
-            </ul>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 0C8.954 0 0 8.954 0 20C0 31.046 8.954 40 20 40C31.046 40 40 31.046 40 20C40 8.954 31.046 0 20 0Z" fill="#1a73e8"/>
+                        <path d="M26.5 15.5H22V11C22 10.448 21.552 10 21 10H19C18.448 10 18 10.448 18 11V15.5H13.5C12.948 15.5 12.5 15.948 12.5 16.5V18.5C12.5 19.052 12.948 19.5 13.5 19.5H18V24C18 24.552 18.448 25 19 25H21C21.552 25 22 24.552 22 24V19.5H26.5C27.052 19.5 27.5 19.052 27.5 18.5V16.5C27.5 15.948 27.052 15.5 26.5 15.5Z" fill="white"/>
+                        <path d="M28 22H26C25.448 22 25 22.448 25 23V25C25 25.552 25.448 26 26 26H28C28.552 26 29 25.552 29 25V23C29 22.448 28.552 22 28 22Z" fill="white"/>
+                        <path d="M14 26H12C11.448 26 11 25.552 11 25V23C11 22.448 11.448 22 12 22H14C14.552 22 15 22.448 15 23V25C15 25.552 14.552 26 14 26Z" fill="white"/>
+                    </svg>
+                    <h1>Health-Hubs</h1>
+                </div>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            
+            <div class="search-bar">
+                <input type="text" placeholder="Search health tips, articles, and more...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            
+            <p class="sub-topic">Your trusted source for 100+ evidence-based health tips and wellness advice</p>
+            
+            <nav>
+                <div class="nav-links">
+                    <a href="#">Home</a>
+                    <a href="#">Nutrition</a>
+                    <a href="#">Fitness</a>
+                    <a href="#">Mental Health</a>
+                    <a href="#">Preventive Care</a>
+                    <a href="#">Lifestyle</a>
+                </div>
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
         </div>
     </header>
-    
-    <div class="container">
-        <div class="articles-grid" id="articlesGrid">
-            <!-- Articles will be dynamically generated here -->
+
+    <!-- Modal Menu -->
+    <div class="modal-menu" id="modalMenu">
+        <div class="modal-header">
+            <h2>Menu</h2>
+            <button class="close-menu" id="closeMenu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="modal-links">
+            <a href="#"><i class="fas fa-home"></i> Home</a>
+            <a href="#"><i class="fas fa-info-circle"></i> About Us</a>
+            <a href="#"><i class="fas fa-envelope"></i> Contact Us</a>
+            <a href="#"><i class="fas fa-newspaper"></i> Blog</a>
+            <a href="#"><i class="fas fa-user-md"></i> Experts</a>
+            <a href="#"><i class="fas fa-book"></i> Resources</a>
+            <a href="#"><i class="fas fa-question-circle"></i> FAQ</a>
+            <a href="#"><i class="fas fa-shield-alt"></i> Privacy Policy</a>
         </div>
     </div>
-    
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <div class="articles-grid" id="articlesGrid">
+                <!-- Articles will be dynamically generated here -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <div class="logo">
-                <i class="fas fa-heartbeat"></i>
-                <h2>Health-Hubs</h2>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Health-Hubs</h3>
+                    <p>Your trusted partner in health and wellness. We provide evidence-based information to help you make informed decisions about your health.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Health Categories</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Nutrition</a></li>
+                        <li><a href="#">Fitness</a></li>
+                        <li><a href="#">Mental Health</a></li>
+                        <li><a href="#">Preventive Care</a></li>
+                        <li><a href="#">Lifestyle</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Subscribe</h3>
+                    <p>Stay updated with our latest health tips and articles.</p>
+                    <div class="search-bar" style="margin-top: 15px;">
+                        <input type="email" placeholder="Your email address">
+                        <button><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
             </div>
-            <p>Your trusted source for health and wellness information</p>
-            <div class="footer-links">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-                <a href="#">Contact Us</a>
-                <a href="#">About</a>
+            <div class="copyright">
+                <p>&copy; 2023 Health-Hubs. All rights reserved.</p>
             </div>
-            <p class="copyright">&copy; 2023 Health-Hubs. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        // Health articles data
+        // Sample health articles data
         const healthArticles = [
             {
                 id: 1,
-                title: "10 Ways to Improve Your Sleep Quality",
-                image: "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+                title: "10 Ways to Boost Your Immune System Naturally",
+                image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
                 date: "June 15, 2023",
                 author: "Dr. Sarah Johnson",
-                intro: "Struggling with sleep? Discover 10 science-backed methods to enhance your sleep quality and wake up refreshed. From optimizing your bedroom environment to establishing a consistent sleep schedule, these tips can transform your nights."
+                intro: "Discover natural methods to strengthen your immune system and protect against illnesses. From dietary changes to lifestyle adjustments, these evidence-based tips will help you stay healthy year-round. Read more..."
             },
             {
                 id: 2,
-                title: "5 Foods That Boost Your Immune System",
-                image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+                title: "5 Effective Exercises to Relieve Back Pain",
+                image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
                 date: "June 12, 2023",
-                author: "Nutritionist Mark Davis",
-                intro: "Strengthen your body's natural defenses with these powerful immune-boosting foods. Learn which nutrients are essential for immune function and how to incorporate them into your daily diet for optimal health protection."
+                author: "Michael Roberts",
+                intro: "Struggling with back pain? These simple exercises can help alleviate discomfort and improve your posture. Learn proper techniques to strengthen your core and support your spine. Read more..."
             },
             {
                 id: 3,
-                title: "7 Effective Stress Management Techniques",
-                image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+                title: "The Ultimate Guide to Better Sleep: 7 Science-Backed Tips",
+                image: "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
                 date: "June 10, 2023",
-                author: "Psychologist Lisa Chen",
-                intro: "Chronic stress can harm your health. Discover seven proven techniques to manage stress effectively, from mindfulness practices to physical activity. Implement these strategies to improve your mental wellbeing."
+                author: "Dr. Emily Chen",
+                intro: "Improve your sleep quality with these evidence-based strategies. From optimizing your bedroom environment to establishing a relaxing bedtime routine, discover how to wake up refreshed. Read more..."
             },
             {
                 id: 4,
-                title: "The Ultimate Guide to Hydration",
-                image: "https://images.unsplash.com/photo-1548839149-8c5a3b6d8b5c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+                title: "How to Manage Stress: 8 Practical Techniques",
+                image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
                 date: "June 8, 2023",
-                author: "Dr. Michael Roberts",
-                intro: "Water is essential for life, but are you drinking enough? Learn about the signs of dehydration, how much water you really need, and creative ways to stay hydrated throughout your busy day."
+                author: "Lisa Thompson",
+                intro: "Chronic stress can impact your health in numerous ways. Learn effective techniques to manage stress levels and improve your overall wellbeing with these practical approaches. Read more..."
             },
             {
                 id: 5,
-                title: "8 Exercises for Better Posture",
-                image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+                title: "Healthy Eating on a Budget: 12 Smart Strategies",
+                image: "https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
                 date: "June 5, 2023",
-                author: "Physical Therapist Emma Wilson",
-                intro: "Poor posture can lead to various health issues. Discover eight simple exercises that can help correct your posture, reduce back pain, and improve your overall body alignment in just minutes a day."
+                author: "Nutritionist Amy Wilson",
+                intro: "Eating healthy doesn't have to break the bank. Discover budget-friendly shopping tips, meal planning strategies, and nutritious recipes that will save you money while boosting your health. Read more..."
             },
             {
                 id: 6,
-                title: "How to Build a Healthy Gut Microbiome",
-                image: "https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+                title: "The Benefits of Intermittent Fasting: What Science Says",
+                image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
                 date: "June 3, 2023",
-                author: "Gastroenterologist Dr. James Lee",
-                intro: "Your gut health impacts your entire body. Learn which foods promote a healthy gut microbiome, which to avoid, and lifestyle changes that can significantly improve your digestive health and overall wellbeing."
+                author: "Dr. James Miller",
+                intro: "Explore the science behind intermittent fasting and its potential health benefits. Learn about different fasting methods and how to implement them safely for optimal results. Read more..."
             },
             {
                 id: 7,
-                title: "5 Natural Ways to Lower Blood Pressure",
-                image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+                title: "7 Morning Habits for a Productive Day",
+                image: "https://images.unsplash.com/photo-1490730141103-6cac27aaab94?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
                 date: "June 1, 2023",
-                author: "Cardiologist Dr. Amanda Patel",
-                intro: "High blood pressure is a silent killer. Discover five natural approaches to lower your numbers without medication, including dietary changes, stress reduction techniques, and specific exercises that benefit heart health."
+                author: "Productivity Coach Mark Davis",
+                intro: "Start your day right with these morning rituals that boost energy, focus, and productivity. Small changes to your morning routine can have a significant impact on your entire day. Read more..."
             },
             {
                 id: 8,
-                title: "Tips to Prevent Night Paralysis",
-                image: "https://images.unsplash.com/photo-1516585427167-9f4af9627e6c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+                title: "Understanding Gut Health: Why It Matters",
+                image: "https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
                 date: "May 28, 2023",
-                author: "Sleep Specialist Dr. Robert Kim",
-                intro: "Sleep paralysis can be frightening. Learn about its causes and practical strategies to reduce episodes, including sleep position adjustments, stress management, and establishing healthy sleep hygiene practices."
-            },
-            // Additional articles would continue here in a real implementation
-            // For this example, we'll duplicate some to reach 100
+                author: "Dr. Rebecca Taylor",
+                intro: "Your gut health influences more than just digestion. Discover how your microbiome affects your immune system, mood, and overall health, and learn ways to improve it naturally. Read more..."
+            }
+            // Additional articles would continue here to reach 100
         ];
 
-        // Duplicate articles to reach 100 (in a real implementation, these would be unique)
-        const allArticles = [];
-        for (let i = 0; i < 12; i++) {
-            healthArticles.forEach(article => {
-                const newArticle = {...article};
-                newArticle.id = allArticles.length + 1;
-                allArticles.push(newArticle);
+        // Generate more articles to reach 100
+        for (let i = 9; i <= 100; i++) {
+            const titles = [
+                "5 Ways to Improve Your Posture While Working",
+                "The Truth About Detox Diets: What Really Works",
+                "How to Stay Hydrated: Beyond Drinking Water",
+                "Benefits of Meditation for Mental Clarity",
+                "10 Superfoods You Should Add to Your Diet",
+                "Understanding Blood Pressure: A Complete Guide",
+                "The Power of Positive Thinking on Health",
+                "Exercises to Strengthen Your Core Muscles",
+                "How to Read Nutrition Labels Correctly",
+                "Natural Remedies for Common Cold Symptoms",
+                "The Importance of Vitamin D for Overall Health",
+                "Tips for Maintaining Healthy Skin",
+                "Ways to Reduce Sugar Intake Without Sacrifice",
+                "The Connection Between Sleep and Weight Loss",
+                "How to Build a Balanced Meal Plate",
+                "Benefits of Regular Walking for Health",
+                "Managing Anxiety Through Breathing Techniques",
+                "Foods That Boost Brain Function",
+                "Understanding Cholesterol: The Good and Bad",
+                "Yoga Poses for Stress Relief",
+                "The Role of Fiber in Digestive Health",
+                "How to Create an Effective Workout Routine",
+                "Natural Ways to Lower Blood Pressure",
+                "The Impact of Technology on Sleep Quality",
+                "Healthy Snack Ideas for Busy Days",
+                "Benefits of Strength Training for Women",
+                "How to Improve Your Lung Capacity",
+                "Understanding Food Allergies and Intolerances",
+                "Tips for Better Dental Health",
+                "The Benefits of Drinking Green Tea",
+                "How to Stay Motivated to Exercise",
+                "Foods That Fight Inflammation",
+                "Understanding the Different Types of Fats",
+                "The Importance of Stretching Daily",
+                "How to Boost Your Metabolism Naturally",
+                "Ways to Improve Your Memory and Focus",
+                "The Connection Between Diet and Acne",
+                "Benefits of Outdoor Exercise",
+                "How to Manage Chronic Pain Naturally",
+                "Understanding Heart Rate Zones for Exercise",
+                "Foods to Eat for Healthy Hair",
+                "The Role of Probiotics in Gut Health",
+                "How to Reduce Eye Strain from Screens",
+                "Benefits of Journaling for Mental Health",
+                "Understanding Body Mass Index (BMI)",
+                "Tips for Healthy Aging",
+                "The Importance of Regular Health Check-ups",
+                "How to Build Healthy Habits That Last",
+                "Foods That Help with Digestion",
+                "The Benefits of Cold Showers",
+                "How to Improve Your Balance and Coordination",
+                "Understanding Macronutrients: Carbs, Proteins, Fats",
+                "Tips for Eating Mindfully",
+                "The Connection Between Exercise and Mood",
+                "How to Prevent Sports Injuries",
+                "Benefits of Herbal Teas for Health",
+                "Understanding Food Cravings and How to Manage Them",
+                "The Role of Antioxidants in Health",
+                "How to Create a Sleep-Friendly Environment",
+                "Benefits of Swimming for Overall Fitness",
+                "Understanding Food Portion Sizes",
+                "Tips for Staying Active During Winter",
+                "The Importance of Sun Protection",
+                "How to Build Strong Bones Naturally",
+                "Benefits of Laughter for Health",
+                "Understanding the Glycemic Index",
+                "Tips for Healthy Meal Prep",
+                "The Connection Between Hydration and Energy",
+                "How to Improve Your Flexibility",
+                "Benefits of Dark Chocolate for Health",
+                "Understanding Food Additives and Preservatives",
+                "Tips for Reducing Salt Intake",
+                "The Role of Iron in the Body",
+                "How to Boost Your Energy Levels Naturally",
+                "Benefits of Cycling for Cardiovascular Health",
+                "Understanding Food Sensitivities",
+                "Tips for Healthy Grilling",
+                "The Connection Between Diet and Depression",
+                "How to Improve Your Posture While Sleeping",
+                "Benefits of Apple Cider Vinegar",
+                "Understanding the Placebo Effect",
+                "Tips for Healthy Travel",
+                "The Importance of Omega-3 Fatty Acids",
+                "How to Manage Seasonal Allergies",
+                "Benefits of High-Intensity Interval Training",
+                "Understanding Foodborne Illnesses",
+                "Tips for Reducing Processed Food Consumption",
+                "The Connection Between Gut Health and Immunity",
+                "How to Improve Your Running Form",
+                "Benefits of Magnesium for Health",
+                "Understanding the Circadian Rhythm",
+                "Tips for Healthy Picnics and BBQs",
+                "The Role of Potassium in the Body",
+                "How to Stay Healthy While Traveling",
+                "Benefits of Pilates for Core Strength",
+                "Understanding Food Labels: Organic vs Natural",
+                "Tips for Healthy Dessert Alternatives"
+            ];
+            
+            const authors = [
+                "Dr. Sarah Johnson", "Michael Roberts", "Dr. Emily Chen", "Lisa Thompson", 
+                "Nutritionist Amy Wilson", "Dr. James Miller", "Productivity Coach Mark Davis", 
+                "Dr. Rebecca Taylor", "Dr. Kevin Lee", "Fitness Expert Maria Garcia",
+                "Wellness Coach David Brown", "Nutritionist Jessica White", "Dr. Andrew Clark",
+                "Mental Health Specialist Rachel Green", "Physical Therapist Robert Wilson"
+            ];
+            
+            const images = [
+                "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+                "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+                "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+                "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+                "https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+                "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+                "https://images.unsplash.com/photo-1490730141103-6cac27aaab94?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+                "https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+                "https://images.unsplash.com/photo-1505576399279-565b52d4ac71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
+                "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+            ];
+            
+            const randomTitle = titles[Math.floor(Math.random() * titles.length)];
+            const randomImage = images[Math.floor(Math.random() * images.length)];
+            const randomAuthor = authors[Math.floor(Math.random() * authors.length)];
+            
+            // Generate a random date in the past 6 months
+            const randomDate = new Date();
+            randomDate.setDate(randomDate.getDate() - Math.floor(Math.random() * 180));
+            const formattedDate = randomDate.toLocaleDateString('en-US', { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            });
+            
+            healthArticles.push({
+                id: i,
+                title: randomTitle,
+                image: randomImage,
+                date: formattedDate,
+                author: randomAuthor,
+                intro: `Discover valuable insights about ${randomTitle.toLowerCase()}. This comprehensive guide provides evidence-based information to help you make informed decisions about your health and wellbeing. Learn practical tips and strategies that you can implement today for better results. Read more...`
             });
         }
 
-        // Initialize the page
-        document.addEventListener('DOMContentLoaded', function() {
+        // Function to display articles
+        function displayArticles(articles) {
             const articlesGrid = document.getElementById('articlesGrid');
-            const searchInput = document.getElementById('searchInput');
-            const menuToggle = document.getElementById('menuToggle');
-            const modalMenu = document.getElementById('modalMenu');
+            articlesGrid.innerHTML = '';
             
-            // Display all articles initially
-            displayArticles(allArticles);
-            
-            // Search functionality
-            searchInput.addEventListener('input', function() {
-                const searchTerm = this.value.toLowerCase();
-                const filteredArticles = allArticles.filter(article => 
-                    article.title.toLowerCase().includes(searchTerm) ||
-                    article.intro.toLowerCase().includes(searchTerm) ||
-                    article.author.toLowerCase().includes(searchTerm)
-                );
-                displayArticles(filteredArticles);
-            });
-            
-            // Modal menu functionality
-            menuToggle.addEventListener('click', function() {
-                modalMenu.classList.toggle('active');
-            });
-            
-            // Close modal when clicking outside
-            document.addEventListener('click', function(event) {
-                if (!menuToggle.contains(event.target) && !modalMenu.contains(event.target)) {
-                    modalMenu.classList.remove('active');
-                }
-            });
-            
-            // Function to display articles
-            function displayArticles(articles) {
-                articlesGrid.innerHTML = '';
-                
-                if (articles.length === 0) {
-                    articlesGrid.innerHTML = '<div class="no-results">No articles found matching your search.</div>';
-                    return;
-                }
-                
-                articles.forEach(article => {
-                    const articleCard = document.createElement('div');
-                    articleCard.className = 'article-card';
-                    
-                    articleCard.innerHTML = `
-                        <img src="${article.image}" alt="${article.title}" class="article-image">
-                        <div class="article-content">
-                            <div class="article-meta">
-                                <span>${article.date}</span>
-                                <span>By ${article.author}</span>
-                            </div>
-                            <h3 class="article-title">
-                                <a href="homepage.html?article=${article.id}">${article.title}</a>
-                            </h3>
-                            <p class="article-intro">${article.intro} <a href="homepage.html?article=${article.id}" class="read-more">Read more...</a></p>
-                            <div class="article-footer">
-                                <a href="homepage.html?article=${article.id}" class="read-more">Read Full Article</a>
-                                <button class="share-btn" onclick="shareArticle(${article.id})">
-                                    <i class="fas fa-share-alt"></i> Share
-                                </button>
-                            </div>
+            articles.forEach(article => {
+                const articleCard = document.createElement('div');
+                articleCard.className = 'article-card';
+                articleCard.innerHTML = `
+                    <img src="${article.image}" alt="${article.title}" class="article-image">
+                    <div class="article-content">
+                        <div class="article-meta">
+                            <span>${article.date}</span>
+                            <span>By ${article.author}</span>
                         </div>
-                    `;
-                    
-                    articlesGrid.appendChild(articleCard);
-                });
-            }
-        });
-        
-        // Share article function
+                        <div class="article-title">
+                            <a href="homepage.html?id=${article.id}">${article.title}</a>
+                        </div>
+                        <p class="article-intro">${article.intro}</p>
+                        <div class="article-footer">
+                            <a href="homepage.html?id=${article.id}" class="read-more">Read More</a>
+                            <button class="share-btn" onclick="shareArticle(${article.id})">
+                                <i class="fas fa-share-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                articlesGrid.appendChild(articleCard);
+            });
+        }
+
+        // Function to share article
         function shareArticle(articleId) {
-            const article = allArticles.find(a => a.id === articleId);
+            const article = healthArticles.find(a => a.id === articleId);
             if (navigator.share) {
                 navigator.share({
                     title: article.title,
                     text: article.intro,
-                    url: `homepage.html?article=${articleId}`
+                    url: `https://health-hubs.com/article/${articleId}`
                 })
-                .catch(error => console.log('Error sharing:', error));
+                .then(() => console.log('Successful share'))
+                .catch((error) => console.log('Error sharing', error));
             } else {
                 // Fallback for browsers that don't support Web Share API
-                alert(`Share this article: ${article.title}`);
+                alert(`Share this article: ${article.title}\n\n${article.intro}\n\nhttps://health-hubs.com/article/${articleId}`);
             }
         }
+
+        // Function to filter articles based on search
+        function filterArticles() {
+            const searchTerm = document.querySelector('.search-bar input').value.toLowerCase();
+            const filteredArticles = healthArticles.filter(article => 
+                article.title.toLowerCase().includes(searchTerm) || 
+                article.intro.toLowerCase().includes(searchTerm) ||
+                article.author.toLowerCase().includes(searchTerm)
+            );
+            displayArticles(filteredArticles);
+        }
+
+        // Modal menu functionality
+        const menuToggle = document.getElementById('menuToggle');
+        const closeMenu = document.getElementById('closeMenu');
+        const modalMenu = document.getElementById('modalMenu');
+
+        menuToggle.addEventListener('click', () => {
+            modalMenu.classList.add('active');
+        });
+
+        closeMenu.addEventListener('click', () => {
+            modalMenu.classList.remove('active');
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === modalMenu) {
+                modalMenu.classList.remove('active');
+            }
+        });
+
+        // Search functionality
+        document.querySelector('.search-bar button').addEventListener('click', filterArticles);
+        document.querySelector('.search-bar input').addEventListener('keyup', (e) => {
+            if (e.key === 'Enter') {
+                filterArticles();
+            }
+        });
+
+        // Initial display of articles
+        displayArticles(healthArticles);
     </script>
 </body>
 </html>
