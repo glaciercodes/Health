@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10 Superfoods That Boost Your Immune System Naturally | Health-Hubs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2e8b57; /* Green */
+            --secondary: #ffd700; /* Yellow */
+            --dark: #121212; /* Black */
+            --light: #f8f8f8;
+            --accent: #ff69b4; /* Pink */
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--light);
+            background-color: var(--dark);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #333;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--accent);
+        }
+        
+        .logo i {
+            font-size: 2rem;
+            animation: heartbeat 1.5s ease-in-out infinite both;
+        }
+        
+        @keyframes heartbeat {
+            from {
+                transform: scale(1);
+                transform-origin: center center;
+                animation-timing-function: ease-out;
+            }
+            10% {
+                transform: scale(0.91);
+                animation-timing-function: ease-in;
+            }
+            17% {
+                transform: scale(0.98);
+                animation-timing-function: ease-out;
+            }
+            33% {
+                transform: scale(0.87);
+                animation-timing-function: ease-in;
+            }
+            45% {
+                transform: scale(1);
+                animation-timing-function: ease-out;
+            }
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            color: var(--secondary);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icons a {
+            color: var(--light);
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--secondary);
+        }
+        
+        nav {
+            padding: 15px 0;
+            border-bottom: 1px solid #333;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        nav a:hover {
+            color: var(--secondary);
+        }
+        
+        .article-header {
+            text-align: center;
+            padding: 40px 0 20px;
+        }
+        
+        .article-header h1 {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+        
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            color: #aaa;
+            margin-bottom: 30px;
+        }
+        
+        .article-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .content {
+            padding: 30px 0;
+        }
+        
+        .intro {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--light);
+            line-height: 1.8;
+        }
+        
+        .superfoods-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .superfood {
+            background: #1e1e1e;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .superfood h3 {
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+        
+        .superfood p {
+            color: #ddd;
+        }
+        
+        .faq-section {
+            margin: 50px 0;
+            background: #1e1e1e;
+            padding: 30px;
+            border-radius: 8px;
+        }
+        
+        .faq-section h2 {
+            color: var(--secondary);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .faq {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 20px;
+        }
+        
+        .faq:last-child {
+            border-bottom: none;
+        }
+        
+        .faq-question {
+            color: var(--light);
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .faq-question i {
+            color: var(--accent);
+        }
+        
+        .faq-answer {
+            color: #ddd;
+            margin-left: 25px;
+        }
+        
+        .user-name {
+            color: var(--secondary);
+            font-weight: 500;
+        }
+        
+        .share-section {
+            text-align: center;
+            margin: 40px 0;
+            padding: 20px;
+            background: #1e1e1e;
+            border-radius: 8px;
+        }
+        
+        .share-section p {
+            margin-bottom: 15px;
+            color: var(--light);
+        }
+        
+        .share-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+        
+        .share-btn:hover {
+            background: #267349;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            border-top: 1px solid #333;
+            color: #aaa;
+            margin-top: 50px;
+        }
+        
+        @media (max-width: 768px) {
+            .header-top {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+            
+            .article-header h1 {
+                font-size: 2rem;
+            }
+            
+            .superfoods-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i>
+                <h1>Health-Hubs</h1>
+            </div>
+            <div class="social-icons">
+                <a href="index.html"><i class="fab fa-facebook"></i></a>
+                <a href="index.html"><i class="fab fa-telegram"></i></a>
+                <a href="index.html"><i class="fab fa-whatsapp"></i></a>
+                <a href="index.html"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="con.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="con.html"><i class="fas fa-blog"></i> Blog</a></li>
+                <li><a href="con.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
+                <li><a href="con.html"><i class="fas fa-question-circle"></i> FAQs</a></li>
+                <li><a href="con.html"><i class="fas fa-users"></i> About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <article>
+            <div class="article-header">
+                <h1>10 Superfoods That Boost Your Immune System Naturally</h1>
+                <div class="article-meta">
+                    <span>By Dr. Sarah Johnson</span>
+                    <span>June 12, 2023</span>
+                </div>
+            </div>
+            
+            <img src="images/001.jpg" alt="Colorful assortment of superfoods" class="article-image">
+            
+            <div class="content">
+                <p class="intro">
+                    Have you ever wondered why some people seem to breeze through cold and flu season unscathed, while others catch every bug that comes their way? The secret might be in their diet. As a nutrition specialist with over 15 years of clinical experience, I've witnessed firsthand how strategic dietary choices can transform immune health. Today, I'm sharing the top 10 scientifically-backed superfoods that can significantly enhance your body's natural defenses.
+                </p>
+                
+                <p>
+                    In our modern world, we're constantly exposed to pathogens, pollutants, and stressors that challenge our immune systems. While supplements have their place, nothing compares to the power of whole foods. These nutritional powerhouses contain a complex matrix of vitamins, minerals, antioxidants, and phytochemicals that work synergistically to strengthen your immune defenses in ways that isolated nutrients simply can't replicate.
+                </p>
+                
+                <h2>The Immune-Boosting Superfoods</h2>
+                
+                <div class="superfoods-list">
+                    <div class="superfood">
+                        <h3>1. Citrus Fruits</h3>
+                        <p>Oranges, grapefruits, lemons, and limes are packed with vitamin C, which increases the production of white blood cells, key to fighting infections. Your body doesn't produce or store vitamin C, so you need daily intake for continued health.</p>
+                    </div>
+                    
+                    <div class="superfood">
+                        <h3>2. Red Bell Peppers</h3>
+                        <p>Surprisingly, red bell peppers contain twice as much vitamin C as citrus fruits. They're also a rich source of beta carotene, which your body converts into vitamin A to help maintain healthy skin and mucous membranes - your first line of defense against pathogens.</p>
+                    </div>
+                    
+                    <div class="superfood">
+                        <h3>3. Broccoli</h3>
+                        <p>This vegetable is supercharged with vitamins A, C, and E, as well as fiber and many antioxidants. The key to preserving its power is to cook it as little as possible - or better yet, not at all.</p>
+                    </div>
+                    
+                    <div class="superfood">
+                        <h3>4. Garlic</h3>
+                        <p>Garlic's immune-boosting properties come from its sulfur-containing compounds, such as allicin. These compounds appear to enhance the disease-fighting response of white blood cells when they encounter viruses.</p>
+                    </div>
+                    
+                    <div class="superfood">
+                        <h3>5. Ginger</h3>
+                        <p>Ginger may help decrease inflammation, which can help reduce sore throat and other inflammatory illnesses. It may also help decrease chronic pain and might even possess cholesterol-lowering properties.</p>
+                    </div>
+                    
+                    <div class="superfood">
+                        <h3>6. Spinach</h3>
+                        <p>Rich in vitamin C and packed with numerous antioxidants and beta carotene, spinach may increase the infection-fighting ability of our immune systems. Similar to broccoli, it's best cooked as little as possible to retain its nutrients.</p>
+                    </div>
+                    
+                    <div class="superfood">
+                        <h3>7. Yogurt</h3>
+                        <p>Look for yogurts that have "live and active cultures" printed on the label, like Greek yogurt. These cultures may stimulate your immune system to help fight diseases. Yogurt is also a great source of vitamin D.</p>
+                    </div>
+                    
+                    <div class="superfood">
+                        <h3>8. Almonds</h3>
+                        <p>When it comes to preventing and fighting off colds, vitamin E tends to take a backseat to vitamin C. However, this powerful antioxidant is key to a healthy immune system. A half-cup serving of almonds provides nearly 100% of the recommended daily amount of vitamin E.</p>
+                    </div>
+                    
+                    <div class="superfood">
+                        <h3>9. Turmeric</h3>
+                        <p>This bright yellow, bitter spice has been used for years as an anti-inflammatory in treating both osteoarthritis and rheumatoid arthritis. High concentrations of curcumin, which gives turmeric its distinctive color, can help decrease exercise-induced muscle damage.</p>
+                    </div>
+                    
+                    <div class="superfood">
+                        <h3>10. Green Tea</h3>
+                        <p>Both green and black teas are packed with flavonoids, a type of antioxidant. Where green tea really excels is in its levels of epigallocatechin gallate (EGCG), another powerful antioxidant that has been shown to enhance immune function.</p>
+                    </div>
+                </div>
+                
+                <img src="images/002.png" alt="Healthy immune-boosting foods arranged beautifully" class="article-image">
+                
+                <h2>How to Incorporate These Superfoods Into Your Diet</h2>
+                
+                <p>
+                    Incorporating these immune-boosting foods into your daily routine doesn't require a complete diet overhaul. Start by adding one or two to your meals each day. For breakfast, try Greek yogurt with a handful of almonds and some citrus segments. For lunch, a spinach salad with red bell peppers and broccoli florets makes a powerful immune-boosting meal. Dinner could include garlic and ginger in your stir-fry or soup, accompanied by a cup of green tea.
+                </p>
+                
+                <p>
+                    Remember that variety is key - no single food contains all the nutrients your immune system needs. By regularly consuming a diverse range of these superfoods, you're providing your body with the comprehensive nutritional support it needs to maintain robust immune defenses year-round.
+                </p>
+                
+                <div class="faq-section">
+                    <h2>Frequently Asked Questions</h2>
+                    
+                    <div class="faq">
+                        <div class="faq-question">
+                            <i class="fas fa-question-circle"></i>
+                            <span>Can these superfoods prevent me from getting sick entirely?</span>
+                        </div>
+                        <div class="faq-answer">
+                            <span class="user-name">Michael T.:</span> While these superfoods significantly strengthen your immune system, they can't provide 100% protection against illnesses. Think of them as reinforcing your body's natural defenses. A strong immune system is better equipped to fight off pathogens and may reduce the severity and duration of illnesses, but it's not an impenetrable shield. Proper hygiene, adequate sleep, and stress management are also crucial components of staying healthy.
+                        </div>
+                    </div>
+                    
+                    <div class="faq">
+                        <div class="faq-question">
+                            <i class="fas fa-question-circle"></i>
+                            <span>How quickly will I see results after adding these foods to my diet?</span>
+                        </div>
+                        <div class="faq-answer">
+                            <span class="user-name">Sarah L.:</span> The timeline varies depending on your baseline nutritional status and overall health. Some benefits, like improved energy levels, might be noticeable within a few weeks. However, significant changes to your immune function typically take longer - generally 2-3 months of consistent dietary improvements. Remember, nutrition works cumulatively, so consistency is more important than perfection.
+                        </div>
+                    </div>
+                    
+                    <div class="faq">
+                        <div class="faq-question">
+                            <i class="fas fa-question-circle"></i>
+                            <span>Are organic versions of these foods significantly better for immune health?</span>
+                        </div>
+                        <div class="faq-answer">
+                            <span class="user-name">David K.:</span> While organic produce may have lower pesticide residues, the nutritional differences between organic and conventional foods are generally minimal. The most important factor is simply eating these nutrient-dense foods regularly, regardless of their farming method. If budget is a concern, prioritize buying organic for the "Dirty Dozen" - produce with the highest pesticide residues - but don't let the organic label prevent you from consuming these healthful foods.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="share-section">
+                    <p>Found this article helpful? Share it with friends and family!</p>
+                    <button class="share-btn" onclick="shareArticle()">
+                        <i class="fas fa-share-alt"></i> Share This Article
+                    </button>
+                </div>
+            </div>
+        </article>
+    </main>
+    
+    <footer>
+        <p>&copy; 2023 Health-Hubs. All rights reserved. | Written by Dr. Sarah Johnson</p>
+        <p>Disclaimer: This article is for informational purposes only and does not constitute medical advice.</p>
+    </footer>
+    
+    <script>
+        function shareArticle() {
+            if (navigator.share) {
+                navigator.share({
+                    title: '10 Superfoods That Boost Your Immune System Naturally',
+                    text: 'Discover powerful foods that can strengthen your immune defenses naturally.',
+                    url: 'https://health-hubs.netlify.app'
+                })
+                .then(() => console.log('Successful share'))
+                .catch((error) => console.log('Error sharing', error));
+            } else {
+                // Fallback for browsers that don't support the Web Share API
+                alert('Share this article using the URL: https://health-hubs.netlify.app');
+            }
+        }
+    </script>
+</body>
+  </html>
