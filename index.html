@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Health Hubs - Your Guide to Healthy Living</title>
+    <title>Health Hub - Your Wellness Destination</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -13,48 +13,44 @@
             --text: #e9ecef;
             --background: #1a1a2e;
             --card-bg: #16213e;
-            --hover: #3a86ff;
+            --hover: #3a506b;
         }
-
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
+        
         body {
             background-color: var(--background);
             color: var(--text);
             line-height: 1.6;
         }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-
+        
         /* Header Styles */
         header {
-            background-color: var(--secondary);
-            padding: 15px 0;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .header-content {
+            background: linear-gradient(to right, var(--secondary), var(--primary));
+            padding: 15px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
-
-        .logo {
+        
+        .logo-container {
             display: flex;
             align-items: center;
-            animation: heartbeat 2s infinite;
+            gap: 10px;
         }
-
+        
+        .logo {
+            font-size: 2.5rem;
+            color: var(--accent);
+            animation: heartbeat 1.5s infinite;
+        }
+        
         @keyframes heartbeat {
             0% { transform: scale(1); }
             5% { transform: scale(1.1); }
@@ -63,146 +59,115 @@
             20% { transform: scale(1); }
             100% { transform: scale(1); }
         }
-
-        .logo i {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-right: 10px;
-        }
-
-        .logo h1 {
+        
+        .logo-text {
             font-size: 1.8rem;
-            color: var(--text);
+            font-weight: 700;
+            color: white;
         }
-
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+        
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--accent);
+        }
+        
+        /* Search and Social Section */
         .search-social-container {
             display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            gap: 10px;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background-color: var(--secondary);
         }
-
+        
+        .search-container {
+            flex: 1;
+            max-width: 600px;
+        }
+        
         .search-bar {
             display: flex;
             width: 100%;
-            max-width: 400px;
         }
-
+        
         .search-bar input {
-            width: 100%;
-            padding: 10px 15px;
+            flex: 1;
+            padding: 12px 15px;
             border: none;
-            border-radius: 25px 0 0 25px;
+            border-radius: 30px 0 0 30px;
             background-color: var(--card-bg);
             color: var(--text);
-            outline: none;
+            font-size: 1rem;
         }
-
+        
         .search-bar button {
-            padding: 10px 20px;
+            padding: 12px 20px;
             border: none;
-            border-radius: 0 25px 25px 0;
+            border-radius: 0 30px 30px 0;
             background-color: var(--primary);
             color: white;
             cursor: pointer;
             transition: background-color 0.3s;
         }
-
+        
         .search-bar button:hover {
-            background-color: var(--hover);
+            background-color: var(--accent);
+            color: var(--secondary);
         }
-
+        
         .social-icons {
             display: flex;
             gap: 15px;
         }
-
+        
         .social-icons a {
             color: white;
-            font-size: 2rem;
+            font-size: 1.5rem;
             transition: transform 0.3s;
         }
-
+        
         .social-icons a:hover {
             transform: translateY(-3px);
         }
-
+        
         .fa-facebook { color: #3b5998; }
         .fa-whatsapp { color: #25D366; }
         .fa-telegram { color: #0088cc; }
         .fa-twitter { color: #1DA1F2; }
-
-        .menu-icon {
-            font-size: 1.5rem;
-            cursor: pointer;
-            margin-left: 20px;
-        }
-
-        .nav-menu {
-            position: absolute;
-            top: 70px;
-            right: 20px;
-            background-color: var(--card-bg);
-            border-radius: 5px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            display: none;
-            z-index: 100;
-        }
-
-        .nav-menu.active {
-            display: block;
-        }
-
-        .nav-menu ul {
-            list-style: none;
-            padding: 10px 0;
-        }
-
-        .nav-menu ul li {
-            padding: 10px 20px;
-        }
-
-        .nav-menu ul li a {
-            color: var(--text);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: color 0.3s;
-        }
-
-        .nav-menu ul li a:hover {
-            color: var(--primary);
-        }
-
+        
         /* Main Content */
         main {
-            padding: 40px 0;
+            padding: 30px 5%;
         }
-
-        .sub-topic {
+        
+        .subtopic {
             text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .sub-topic h2 {
-            font-size: 2rem;
+            margin-bottom: 30px;
+            font-size: 1.2rem;
             color: var(--accent);
-            margin-bottom: 10px;
         }
-
-        .sub-topic p {
-            font-size: 1.1rem;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
+        
         .articles-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
+            gap: 25px;
         }
-
+        
         .article-card {
             background-color: var(--card-bg);
             border-radius: 10px;
@@ -210,682 +175,679 @@
             transition: transform 0.3s, box-shadow 0.3s;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
-
+        
         .article-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
-
+        
         .article-image {
             width: 100%;
-            height: 200px;
-            background-color: #555;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
-            font-size: 0.9rem;
+            height: 180px;
+            object-fit: cover;
         }
-
+        
         .article-content {
             padding: 20px;
         }
-
-        .article-content h3 {
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-        }
-
-        .article-content h3 a {
-            color: var(--text);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .article-content h3 a:hover {
-            color: var(--primary);
-        }
-
+        
         .article-meta {
             display: flex;
             justify-content: space-between;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: #aaa;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
-
-        .article-excerpt {
+        
+        .article-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--accent);
+        }
+        
+        .article-title a {
+            color: inherit;
+            text-decoration: none;
+        }
+        
+        .article-title a:hover {
+            text-decoration: underline;
+        }
+        
+        .article-intro {
             margin-bottom: 15px;
             font-size: 0.95rem;
             line-height: 1.5;
         }
-
+        
         .read-more {
+            display: inline-block;
             color: var(--primary);
             text-decoration: none;
             font-weight: 600;
-            display: inline-block;
-            margin-bottom: 15px;
             transition: color 0.3s;
         }
-
+        
         .read-more:hover {
             color: var(--accent);
         }
-
-        .share-options {
+        
+        .article-share {
             display: flex;
+            justify-content: flex-end;
+            margin-top: 15px;
             gap: 10px;
-            border-top: 1px solid #333;
-            padding-top: 15px;
         }
-
-        .share-options a {
-            color: #aaa;
-            text-decoration: none;
-            font-size: 0.9rem;
+        
+        .share-btn {
+            background: none;
+            border: none;
+            color: var(--text);
+            cursor: pointer;
+            font-size: 1rem;
             transition: color 0.3s;
         }
-
-        .share-options a:hover {
-            color: var(--primary);
+        
+        .share-btn:hover {
+            color: var(--accent);
         }
-
+        
         /* Footer */
         footer {
             background-color: var(--secondary);
-            padding: 30px 0;
+            padding: 30px 5%;
             text-align: center;
             margin-top: 50px;
         }
-
+        
         .footer-content {
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 20px;
         }
-
-        .footer-logo {
-            display: flex;
-            align-items: center;
-        }
-
-        .footer-logo i {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-right: 10px;
-        }
-
+        
         .footer-links {
             display: flex;
             gap: 20px;
             flex-wrap: wrap;
             justify-content: center;
         }
-
+        
         .footer-links a {
             color: var(--text);
             text-decoration: none;
             transition: color 0.3s;
         }
-
+        
         .footer-links a:hover {
-            color: var(--primary);
+            color: var(--accent);
         }
-
+        
         .copyright {
             margin-top: 20px;
-            font-size: 0.9rem;
             color: #aaa;
+            font-size: 0.9rem;
         }
-
+        
         /* Responsive Design */
         @media (max-width: 768px) {
-            .header-content {
+            header {
                 flex-direction: column;
                 gap: 15px;
             }
-
+            
             .search-social-container {
-                align-items: center;
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .search-container {
                 width: 100%;
             }
-
-            .search-bar {
-                max-width: 100%;
-            }
-
-            .articles-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header Section -->
     <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <i class="fas fa-heartbeat"></i>
-                    <h1>Health Hubs</h1>
-                </div>
-                <div class="search-social-container">
-                    <div class="search-bar">
-                        <input type="text" id="searchInput" placeholder="Search health articles...">
-                        <button id="searchButton"><i class="fas fa-search"></i></button>
-                    </div>
-                    <div class="social-icons">
-                        <a href="health.html" title="Join us on Facebook"><i class="fab fa-facebook"></i></a>
-                        <a href="health.html" title="Join us on WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                        <a href="health.html" title="Join us on Telegram"><i class="fab fa-telegram"></i></a>
-                        <a href="health.html" title="Join us on Twitter"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
-                <div class="menu-icon" id="menuToggle">
-                    <i class="fas fa-bars"></i>
-                </div>
-                <nav class="nav-menu" id="navMenu">
-                    <ul>
-                        <li><a href="cont.html"><i class="fas fa-home"></i> Home</a></li>
-                        <li><a href="cont.html"><i class="fas fa-blog"></i> Blog</a></li>
-                        <li><a href="cont.html"><i class="fas fa-users"></i> About Us</a></li>
-                        <li><a href="cont.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
-                        <li><a href="cont.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
-                        <li><a href="cont.html"><i class="fas fa-question-circle"></i> FAQs</a></li>
-                    </ul>
-                </nav>
+        <div class="logo-container">
+            <i class="fas fa-heartbeat logo"></i>
+            <span class="logo-text">Health Hub</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="cont.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="cont.html"><i class="fas fa-blog"></i> Blog</a></li>
+                <li><a href="cont.html"><i class="fas fa-users"></i> About Us</a></li>
+                <li><a href="cont.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
+                <li><a href="cont.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
+                <li><a href="cont.html"><i class="fas fa-question-circle"></i> FAQs</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="search-social-container">
+        <div class="search-container">
+            <div class="search-bar">
+                <input type="text" id="search-input" placeholder="Search for health topics, tips, and more...">
+                <button id="search-btn"><i class="fas fa-search"></i></button>
             </div>
         </div>
-    </header>
-
-    <!-- Main Content -->
+        <div class="social-icons">
+            <a href="health.html" title="Join us on Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="health.html" title="Join us on WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="health.html" title="Join us on Telegram"><i class="fab fa-telegram"></i></a>
+            <a href="health.html" title="Join us on Twitter"><i class="fab fa-twitter"></i></a>
+        </div>
+    </div>
+    
     <main>
-        <div class="container">
-            <div class="sub-topic">
-                <h2>Your Ultimate Health & Wellness Resource</h2>
-                <p>Discover expert advice, practical tips, and evidence-based information to help you live your healthiest life.</p>
-            </div>
-
-            <div class="articles-grid" id="articlesContainer">
-                <!-- Articles will be dynamically inserted here -->
-            </div>
+        <h2 class="subtopic">Discover 50 Evidence-Based Health Tips for a Better Life</h2>
+        
+        <div class="articles-grid" id="articles-container">
+            <!-- Articles will be dynamically inserted here -->
         </div>
     </main>
-
-    <!-- Footer -->
+    
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <i class="fas fa-heartbeat"></i>
-                    <h2>Health Hubs</h2>
-                </div>
-                <div class="footer-links">
-                    <a href="cont.html">Home</a>
-                    <a href="cont.html">Blog</a>
-                    <a href="cont.html">About Us</a>
-                    <a href="cont.html">Contact Us</a>
-                    <a href="cont.html">Privacy Policy</a>
-                    <a href="cont.html">FAQs</a>
-                </div>
-                <div class="copyright">
-                    <p>&copy; 2023 Health Hubs. All rights reserved. | health-hubs.netlify.app</p>
-                </div>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="cont.html">Home</a>
+                <a href="cont.html">Blog</a>
+                <a href="cont.html">About Us</a>
+                <a href="cont.html">Contact Us</a>
+                <a href="cont.html">Privacy Policy</a>
+                <a href="cont.html">FAQs</a>
             </div>
+            <p class="copyright">&copy; 2023 Health Hub. All rights reserved. | health-hubs.netlify.app</p>
         </div>
     </footer>
-
+    
     <script>
-        // Menu toggle functionality
-        document.getElementById('menuToggle').addEventListener('click', function() {
-            document.getElementById('navMenu').classList.toggle('active');
-        });
-
-        // Close menu when clicking outside
-        document.addEventListener('click', function(event) {
-            const menu = document.getElementById('navMenu');
-            const menuToggle = document.getElementById('menuToggle');
-            
-            if (!menu.contains(event.target) && !menuToggle.contains(event.target)) {
-                menu.classList.remove('active');
-            }
-        });
-
-        // Sample health articles data
-        const healthArticles = [
+        // Sample article data
+        const articles = [
             {
                 id: 1,
-                title: "10 Superfoods You Should Eat Every Day",
+                title: "10 Simple Ways to Boost Your Metabolism Naturally",
+                image: "images/001.jpg",
+                intro: "Discover natural methods to rev up your metabolism without supplements or extreme diets. Learn how hydration, protein intake, and specific exercises can help your body burn more calories throughout the day. These science-backed strategies are easy to implement...",
                 author: "Dr. Sarah Johnson",
-                date: "2023-10-15",
-                excerpt: "Discover the top 10 superfoods that can transform your health. These nutrient-packed foods can boost immunity, improve digestion, and increase energy levels. From blueberries to kale, learn how to incorporate these powerhouses into your daily diet for maximum benefits. Start your journey to better health today with these simple dietary additions that make a big impact."
+                date: "2023-10-15"
             },
             {
                 id: 2,
-                title: "5 Ways to Improve Your Sleep Quality Naturally",
+                title: "5 Foods That Fight Inflammation in Your Body",
+                image: "images/002.jpg",
+                intro: "Chronic inflammation is linked to numerous health issues. Explore five powerful anti-inflammatory foods that can help reduce inflammation markers in your body. From turmeric to fatty fish, learn how to incorporate these ingredients into your daily meals...",
                 author: "Michael Chen",
-                date: "2023-10-12",
-                excerpt: "Struggling with sleepless nights? Learn five effective strategies to enhance your sleep without medication. We explore the impact of blue light, bedtime routines, and sleep environment on your rest quality. Discover how simple changes to your evening habits can lead to more restorative sleep and better overall health. Wake up feeling refreshed and energized every morning."
+                date: "2023-10-12"
             },
             {
                 id: 3,
-                title: "The Ultimate Guide to Intermittent Fasting",
+                title: "The Ultimate Guide to Better Sleep: 7 Science-Backed Tips",
+                image: "images/001.jpg",
+                intro: "Struggling with sleep? Discover seven evidence-based strategies to improve your sleep quality starting tonight. Learn about the impact of blue light, optimal bedroom temperature, and relaxation techniques that can help you fall asleep faster and stay asleep longer...",
                 author: "Dr. Emily Rodriguez",
-                date: "2023-10-10",
-                excerpt: "Intermittent fasting has gained popularity for weight loss and health benefits. But is it right for you? This comprehensive guide explains different fasting methods, potential benefits, and who should avoid this approach. Learn how to safely implement intermittent fasting into your lifestyle and maximize results while maintaining proper nutrition and energy levels."
+                date: "2023-10-10"
             },
             {
                 id: 4,
-                title: "7 Morning Habits of Highly Healthy People",
-                author: "James Wilson",
-                date: "2023-10-08",
-                excerpt: "How you start your day sets the tone for everything that follows. Discover the seven morning rituals that healthy individuals swear by. From hydration and movement to mindfulness practices, these simple habits can transform your health and productivity. Learn how to create a morning routine that energizes your body and focuses your mind for optimal daily performance."
+                title: "How to Build a Balanced Plate: Nutritionist's Guide",
+                image: "images/002.jpg",
+                intro: "Confused about portion sizes and meal composition? This comprehensive guide breaks down how to create perfectly balanced meals for optimal nutrition. Learn the right ratios of protein, carbohydrates, and healthy fats to support your health goals...",
+                author: "Lisa Thompson",
+                date: "2023-10-08"
             },
             {
                 id: 5,
-                title: "Understanding and Managing Stress Effectively",
-                author: "Dr. Lisa Thompson",
-                date: "2023-10-05",
-                excerpt: "Chronic stress can wreak havoc on your physical and mental health. Learn to identify stress triggers and implement practical coping strategies. This article explores mindfulness techniques, physical activity, and lifestyle adjustments that can help manage stress levels. Discover how to build resilience and maintain balance in today's fast-paced world for long-term wellbeing."
+                title: "15-Minute Home Workouts for Busy People",
+                image: "images/001.jpg",
+                intro: "No time for the gym? These efficient 15-minute workouts can be done at home with minimal equipment. Discover high-intensity interval training routines and bodyweight exercises that deliver maximum results in minimal time...",
+                author: "James Wilson",
+                date: "2023-10-05"
             },
             {
                 id: 6,
-                title: "The Truth About Plant-Based Diets",
+                title: "Mindful Eating: How to Transform Your Relationship with Food",
+                image: "images/002.jpg",
+                intro: "Learn the principles of mindful eating to develop a healthier relationship with food. Discover techniques to recognize hunger cues, reduce emotional eating, and savor every bite for better digestion and satisfaction...",
                 author: "Dr. Sarah Johnson",
-                date: "2023-10-03",
-                excerpt: "Plant-based diets are trending, but are they truly beneficial for everyone? Explore the science behind plant-based nutrition, potential health benefits, and common pitfalls to avoid. Learn how to transition to a plant-focused diet while ensuring you get all essential nutrients. Whether you're going fully vegan or simply adding more plants, this guide has you covered."
+                date: "2023-10-03"
             },
             {
                 id: 7,
-                title: "10-Minute Workouts for Busy People",
+                title: "The Truth About Intermittent Fasting: Benefits and Risks",
+                image: "images/001.jpg",
+                intro: "Explore the science behind intermittent fasting and whether it's right for you. Learn about different fasting methods, potential benefits for weight loss and cellular repair, and important considerations before starting...",
                 author: "Michael Chen",
-                date: "2023-10-01",
-                excerpt: "No time for the gym? These efficient 10-minute workouts deliver maximum results in minimal time. Discover high-intensity interval training routines, bodyweight exercises, and quick yoga flows that fit into even the busiest schedules. Learn how to incorporate movement throughout your day and maintain fitness without sacrificing hours at the gym. Perfect for office workers and parents alike."
+                date: "2023-10-01"
             },
             {
                 id: 8,
-                title: "Gut Health: Why Your Microbiome Matters",
+                title: "10 Superfoods You Should Add to Your Diet Today",
+                image: "images/002.jpg",
+                intro: "Superfoods are nutrient powerhouses that pack large doses of antioxidants, polyphenols, vitamins, and minerals. Discover ten readily available superfoods that can boost your health and how to easily incorporate them into your meals...",
                 author: "Dr. Emily Rodriguez",
-                date: "2023-09-28",
-                excerpt: "Your gut health influences everything from immunity to mental wellbeing. Learn about the microbiome and how to support it through diet and lifestyle. Discover which foods promote healthy gut bacteria and which to avoid. This article explores the connection between digestive health and overall wellness, providing practical tips for optimizing your gut for better health."
+                date: "2023-09-28"
             },
             {
                 id: 9,
-                title: "Meditation for Beginners: A Step-by-Step Guide",
-                author: "James Wilson",
-                date: "2023-09-25",
-                excerpt: "Meditation doesn't have to be complicated. This beginner-friendly guide breaks down meditation into simple, manageable steps. Learn different meditation techniques, how to establish a consistent practice, and common challenges beginners face. Discover how just a few minutes of daily meditation can reduce stress, improve focus, and enhance overall mental clarity and emotional balance."
+                title: "Stress Management Techniques That Actually Work",
+                image: "images/001.jpg",
+                intro: "Chronic stress can wreak havoc on your health. Learn evidence-based techniques to manage stress effectively, from breathing exercises and meditation to lifestyle changes that can help you build resilience...",
+                author: "Lisa Thompson",
+                date: "2023-09-25"
             },
             {
                 id: 10,
-                title: "Healthy Snacks That Actually Satisfy",
-                author: "Dr. Lisa Thompson",
-                date: "2023-09-22",
-                excerpt: "Tired of healthy snacks that leave you hungry? Discover delicious, nutrient-dense options that keep you full and energized between meals. From protein-packed bites to fiber-rich munchies, these snacks are easy to prepare and perfect for on-the-go lifestyles. Learn how to make smart snack choices that support your health goals without sacrificing flavor or satisfaction."
+                title: "The Beginner's Guide to Plant-Based Eating",
+                image: "images/002.jpg",
+                intro: "Considering a plant-based diet? This comprehensive guide covers everything you need to know to get started. Learn about essential nutrients, meal planning, and simple swaps to transition to a more plant-focused way of eating...",
+                author: "James Wilson",
+                date: "2023-09-22"
             },
             {
                 id: 11,
-                title: "The Benefits of Strength Training for Women",
+                title: "7 Signs You're Not Drinking Enough Water",
+                image: "images/001.jpg",
+                intro: "Dehydration can manifest in surprising ways beyond just thirst. Discover seven subtle signs that indicate you need to increase your water intake and learn strategies to stay properly hydrated throughout the day...",
                 author: "Dr. Sarah Johnson",
-                date: "2023-09-20",
-                excerpt: "Strength training offers incredible benefits for women beyond just muscle tone. Learn how resistance exercise supports bone health, boosts metabolism, and improves functional fitness. This article debunks common myths about women and weightlifting while providing a safe starting guide. Discover how to incorporate strength training into your routine for lifelong health benefits."
+                date: "2023-09-20"
             },
             {
                 id: 12,
-                title: "Hydration: Are You Drinking Enough Water?",
+                title: "How to Strengthen Your Immune System Naturally",
+                image: "images/002.jpg",
+                intro: "Support your body's natural defenses with these evidence-based strategies. From sleep optimization to specific nutrients, learn how to build a resilient immune system through lifestyle choices and dietary habits...",
                 author: "Michael Chen",
-                date: "2023-09-18",
-                excerpt: "Proper hydration is crucial for every bodily function, yet many people don't drink enough water. Learn to recognize signs of dehydration and discover creative ways to increase your water intake. This article explores the benefits of proper hydration for skin, energy, digestion, and cognitive function. Get practical tips for making hydration a consistent habit."
+                date: "2023-09-18"
             },
             {
                 id: 13,
-                title: "Managing Anxiety Through Lifestyle Changes",
+                title: "The Benefits of Yoga for Mental and Physical Health",
+                image: "images/001.jpg",
+                intro: "Explore the science behind yoga's numerous health benefits. From improved flexibility and strength to reduced anxiety and better sleep, discover how incorporating yoga into your routine can transform your wellbeing...",
                 author: "Dr. Emily Rodriguez",
-                date: "2023-09-15",
-                excerpt: "Anxiety doesn't always require medication. Discover lifestyle adjustments that can significantly reduce anxiety symptoms. This article explores the connection between nutrition, exercise, sleep, and mental health. Learn practical techniques for managing anxious thoughts and creating a lifestyle that supports calm and resilience. Take control of your mental wellbeing with these evidence-based strategies."
+                date: "2023-09-15"
             },
             {
                 id: 14,
-                title: "The Power of Walking for Overall Health",
-                author: "James Wilson",
-                date: "2023-09-12",
-                excerpt: "Walking is one of the most underrated forms of exercise. Discover the numerous health benefits of regular walking, from cardiovascular improvement to mental clarity. Learn how to maximize your walking routine with proper technique, varying intensity, and incorporating hills. This guide shows how something as simple as a daily walk can transform your health without expensive equipment or gym memberships."
+                title: "Healthy Snack Ideas for Weight Loss",
+                image: "images/002.jpg",
+                intro: "Satisfy cravings without derailing your weight loss goals with these nutritious snack ideas. Discover combinations of protein, fiber, and healthy fats that keep you full between meals and support your metabolism...",
+                author: "Lisa Thompson",
+                date: "2023-09-12"
             },
             {
                 id: 15,
-                title: "Nutrition Myths Debunked by Science",
-                author: "Dr. Lisa Thompson",
-                date: "2023-09-10",
-                excerpt: "Separate nutrition fact from fiction with this evidence-based guide. We debunk common diet myths about carbs, fats, meal timing, and superfoods. Learn what scientific research actually says about popular nutrition claims and how to make informed dietary choices. This article empowers you to navigate the confusing world of nutrition advice with confidence and clarity."
+                title: "Understanding Gut Health: Why Your Microbiome Matters",
+                image: "images/001.jpg",
+                intro: "Your gut health influences everything from digestion to mood and immunity. Learn about the microbiome, signs of an unhealthy gut, and practical steps you can take to support your digestive health through diet and lifestyle...",
+                author: "James Wilson",
+                date: "2023-09-10"
             },
             {
                 id: 16,
-                title: "Building Healthy Habits That Last",
+                title: "5 Ways to Reduce Sugar Intake Without Feeling Deprived",
+                image: "images/002.jpg",
+                intro: "Reducing sugar is challenging but crucial for health. Discover five practical strategies to cut back on added sugars while still enjoying sweet flavors. Learn about healthy alternatives and how to retrain your taste buds...",
                 author: "Dr. Sarah Johnson",
-                date: "2023-09-08",
-                excerpt: "Why do most New Year's resolutions fail by February? Learn the science of habit formation and how to create lasting healthy changes. This article explores practical strategies for making new behaviors stick, from starting small to creating effective cues and rewards. Discover how to overcome common obstacles and build a lifestyle that supports your long-term health goals."
+                date: "2023-09-08"
             },
             {
                 id: 17,
-                title: "The Mediterranean Diet: A Complete Guide",
+                title: "The Power of Walking: Simple Exercise with Big Benefits",
+                image: "images/001.jpg",
+                intro: "Walking is one of the most underrated forms of exercise. Discover the surprising health benefits of regular walking, from improved cardiovascular health to better mental clarity, and learn how to maximize your walking routine...",
                 author: "Michael Chen",
-                date: "2023-09-05",
-                excerpt: "Consistently ranked as one of the healthiest eating patterns, the Mediterranean diet offers both delicious food and proven health benefits. Learn the principles of this eating style, including which foods to emphasize and how to incorporate them into your routine. Discover why this approach is associated with longevity, heart health, and reduced inflammation. Get started with simple, flavorful recipes."
+                date: "2023-09-05"
             },
             {
                 id: 18,
-                title: "Yoga for Stress Relief and Flexibility",
+                title: "Meditation for Beginners: A Step-by-Step Guide",
+                image: "images/002.jpg",
+                intro: "Interested in meditation but not sure where to start? This beginner-friendly guide breaks down different meditation techniques, common challenges, and how to establish a consistent practice that reduces stress and improves focus...",
                 author: "Dr. Emily Rodriguez",
-                date: "2023-09-02",
-                excerpt: "Yoga offers benefits beyond physical flexibility. Learn how specific poses and breathing techniques can reduce stress, improve sleep, and enhance mental clarity. This beginner-friendly guide introduces basic yoga sequences you can do at home with minimal equipment. Discover how incorporating just a few minutes of yoga daily can transform both your physical and mental wellbeing."
+                date: "2023-09-02"
             },
             {
                 id: 19,
-                title: "The Connection Between Diet and Skin Health",
-                author: "James Wilson",
-                date: "2023-08-30",
-                excerpt: "Your skin reflects what you eat. Discover how specific nutrients support skin health and which dietary patterns can help combat common skin issues. This article explores the connection between hydration, antioxidants, healthy fats, and glowing skin. Learn which foods to incorporate for a radiant complexion and which to limit for reduced inflammation and breakouts."
+                title: "Healthy Meal Prep Ideas for the Week",
+                image: "images/001.jpg",
+                intro: "Save time and eat healthier with these practical meal prep strategies. Discover how to plan, prepare, and store meals for the week ahead, including balanced recipes that keep well and make healthy eating convenient...",
+                author: "Lisa Thompson",
+                date: "2023-08-30"
             },
             {
                 id: 20,
-                title: "Boosting Your Immune System Naturally",
-                author: "Dr. Lisa Thompson",
-                date: "2023-08-28",
-                excerpt: "A strong immune system is your best defense against illness. Learn how to support your immune health through nutrition, lifestyle, and stress management. This article explores the role of sleep, exercise, and specific nutrients in immune function. Discover practical strategies for creating an immune-supportive lifestyle that helps you stay healthy year-round."
+                title: "The Link Between Sleep and Weight Loss",
+                image: "images/002.jpg",
+                intro: "Discover how sleep quality and duration impact your weight loss efforts. Learn about the hormonal changes that occur with sleep deprivation and practical tips for improving both sleep and metabolism...",
+                author: "James Wilson",
+                date: "2023-08-27"
             },
             {
                 id: 21,
-                title: "Healthy Meal Prep for Busy Weekdays",
+                title: "10 Anti-Aging Foods for Youthful Skin",
+                image: "images/001.jpg",
+                intro: "Nourish your skin from the inside out with these powerful anti-aging foods. Discover which nutrients support collagen production, fight oxidative stress, and promote radiant, youthful-looking skin at any age...",
                 author: "Dr. Sarah Johnson",
-                date: "2023-08-25",
-                excerpt: "Meal prep can transform your eating habits and save time during busy weeks. Learn efficient strategies for planning, preparing, and storing healthy meals. This guide covers everything from grocery lists to container choices, helping you create nutritious meals that actually get eaten. Discover how a few hours of weekend prep can set you up for healthy eating success all week long."
+                date: "2023-08-25"
             },
             {
                 id: 22,
-                title: "The Benefits of Digital Detox for Mental Health",
+                title: "How to Read Nutrition Labels Like a Pro",
+                image: "images/002.jpg",
+                intro: "Confused by nutrition labels? Learn how to decipher packaging claims and understand what matters most for your health. This guide will help you make informed choices at the grocery store in just seconds...",
                 author: "Michael Chen",
-                date: "2023-08-22",
-                excerpt: "Constant connectivity takes a toll on mental health. Discover the benefits of regularly unplugging from digital devices and how to implement a digital detox. This article explores the impact of screen time on sleep, focus, and anxiety levels. Learn practical strategies for creating healthier relationships with technology while reclaiming time for offline activities that nourish your wellbeing."
+                date: "2023-08-22"
             },
             {
                 id: 23,
-                title: "Understanding Food Labels: A Consumer Guide",
+                title: "The Benefits of Strength Training for Women",
+                image: "images/001.jpg",
+                intro: "Dispelling myths about women and strength training, this article explores why lifting weights is crucial for female health. Discover benefits for bone density, metabolism, and body composition, plus beginner-friendly routines...",
                 author: "Dr. Emily Rodriguez",
-                date: "2023-08-20",
-                excerpt: "Food labels can be confusing with marketing claims and complex ingredient lists. Learn to decipher nutrition facts panels and identify truly healthy choices. This guide explains serving sizes, daily values, and how to spot hidden sugars and unhealthy fats. Become an empowered consumer who can navigate the grocery store with confidence and make informed decisions about the food you buy."
+                date: "2023-08-20"
             },
             {
                 id: 24,
-                title: "The Science of Weight Loss Plateaus",
-                author: "James Wilson",
-                date: "2023-08-18",
-                excerpt: "Hitting a weight loss plateau is frustrating but common. Understand why plateaus happen and learn evidence-based strategies to break through them. This article explores metabolic adaptation, the role of muscle mass, and how to adjust your approach when progress stalls. Discover how to stay motivated and make effective adjustments to continue your weight loss journey successfully."
+                title: "Healthy Alternatives to Your Favorite Junk Foods",
+                image: "images/002.jpg",
+                intro: "Craving pizza, chips, or ice cream? Discover healthier versions of popular comfort foods that satisfy cravings without the guilt. These recipes use whole food ingredients to create nutritious alternatives...",
+                author: "Lisa Thompson",
+                date: "2023-08-17"
             },
             {
                 id: 25,
-                title: "Heart-Healthy Foods You Should Be Eating",
-                author: "Dr. Lisa Thompson",
-                date: "2023-08-15",
-                excerpt: "Cardiovascular health is crucial for longevity and quality of life. Discover the top foods that support heart function and reduce disease risk. This article explores the science behind omega-3s, fiber, antioxidants, and other heart-protective nutrients. Learn how to incorporate these foods into delicious meals that benefit your cardiovascular system while satisfying your taste buds."
+                title: "The Dangers of Sitting Too Much and How to Combat Them",
+                image: "images/001.jpg",
+                intro: "Prolonged sitting has been called 'the new smoking' for its health risks. Learn about the negative effects of sedentary behavior and practical strategies to incorporate more movement into your day, even with a desk job...",
+                author: "James Wilson",
+                date: "2023-08-15"
             },
             {
                 id: 26,
-                title: "The Benefits of Outdoor Exercise",
+                title: "Natural Remedies for Common Digestive Issues",
+                image: "images/002.jpg",
+                intro: "From bloating to indigestion, discover natural approaches to common digestive problems. Learn about herbs, dietary changes, and lifestyle adjustments that can soothe your gut without relying on medications...",
                 author: "Dr. Sarah Johnson",
-                date: "2023-08-12",
-                excerpt: "Taking your workout outside offers benefits beyond physical fitness. Discover how outdoor exercise boosts mood, reduces stress, and enhances vitamin D levels. This article explores different ways to move your fitness routine into nature, from trail running to outdoor yoga. Learn how connecting with natural environments during exercise can amplify both physical and mental health benefits."
+                date: "2023-08-12"
             },
             {
                 id: 27,
-                title: "Managing Sugar Cravings Effectively",
+                title: "How to Stay Motivated on Your Fitness Journey",
+                image: "images/001.jpg",
+                intro: "Struggling to maintain your exercise routine? Discover psychological strategies to stay motivated long-term. Learn how to set effective goals, track progress, and overcome common obstacles that derail fitness efforts...",
                 author: "Michael Chen",
-                date: "2023-08-10",
-                excerpt: "Sugar cravings can derail even the most dedicated healthy eaters. Understand the causes of sugar cravings and learn practical strategies to manage them. This article explores the connection between blood sugar balance, gut health, and cravings. Discover healthy alternatives to satisfy your sweet tooth while reducing added sugar intake for better energy, weight management, and overall health."
+                date: "2023-08-10"
             },
             {
                 id: 28,
-                title: "The Importance of Posture for Overall Health",
+                title: "The Health Benefits of Dark Chocolate",
+                image: "images/002.jpg",
+                intro: "Good news for chocolate lovers! Discover the science behind dark chocolate's health benefits, from improved heart health to enhanced brain function. Learn how to choose the right type and incorporate it healthfully...",
                 author: "Dr. Emily Rodriguez",
-                date: "2023-08-08",
-                excerpt: "Poor posture affects more than just your appearance. Discover how posture impacts digestion, breathing, energy levels, and chronic pain. This article provides simple exercises and adjustments to improve your posture throughout the day. Learn ergonomic tips for workstations and daily activities that support spinal health and prevent the negative consequences of prolonged sitting and screen time."
+                date: "2023-08-07"
             },
             {
                 id: 29,
-                title: "Plant-Based Protein Sources for Vegans",
-                author: "James Wilson",
-                date: "2023-08-05",
-                excerpt: "Getting enough protein on a plant-based diet is easier than you think. Discover diverse sources of plant protein that provide all essential amino acids. This guide explores legumes, whole grains, nuts, seeds, and specialized plant proteins. Learn how to combine foods for complete protein profiles and get practical meal ideas that deliver adequate protein for active lifestyles without animal products."
+                title: "5 Breathing Techniques to Reduce Anxiety Instantly",
+                image: "images/001.jpg",
+                intro: "When anxiety strikes, your breath can be your greatest tool. Learn five simple breathing techniques that can calm your nervous system in minutes. These evidence-based methods are easy to learn and highly effective...",
+                author: "Lisa Thompson",
+                date: "2023-08-05"
             },
             {
                 id: 30,
-                title: "The Link Between Sleep and Weight Management",
-                author: "Dr. Lisa Thompson",
-                date: "2023-08-02",
-                excerpt: "Sleep quality directly impacts your ability to manage weight effectively. Discover how insufficient sleep affects hunger hormones, metabolism, and food choices. This article explores the science behind the sleep-weight connection and provides practical tips for improving both sleep duration and quality. Learn how prioritizing rest can become a powerful tool in your weight management strategy."
+                title: "How to Build Healthy Habits That Last",
+                image: "images/002.jpg",
+                intro: "Transform your health by building sustainable habits. Discover the science of habit formation and practical strategies to make healthy behaviors automatic. Learn how to start small and create lasting change...",
+                author: "James Wilson",
+                date: "2023-08-02"
             },
             {
                 id: 31,
-                title: "Healthy Fats: Friends or Foes?",
+                title: "The Truth About Detox Diets and Cleanses",
+                image: "images/001.jpg",
+                intro: "Detox products and cleanses are popular but are they effective or safe? Explore what science says about detoxification and learn how to support your body's natural detox systems through healthy lifestyle choices...",
                 author: "Dr. Sarah Johnson",
-                date: "2023-07-30",
-                excerpt: "The low-fat era is over, but confusion about dietary fats remains. Learn to distinguish between healthy and unhealthy fats and how to incorporate them wisely. This article explores the different types of fats, their effects on health, and optimal intake levels. Discover why certain fats are essential for hormone production, brain function, and nutrient absorption while others should be limited."
+                date: "2023-07-30"
             },
             {
                 id: 32,
-                title: "Building Resilience Through Mindfulness",
+                title: "Essential Nutrients Often Missing in Vegetarian Diets",
+                image: "images/002.jpg",
+                intro: "Vegetarian diets offer many health benefits but may lack certain nutrients. Discover which essential vitamins and minerals vegetarians need to pay attention to and how to obtain them from plant-based sources...",
                 author: "Michael Chen",
-                date: "2023-07-28",
-                excerpt: "Resilience isn't an innate trait—it's a skill you can develop. Discover how mindfulness practices build emotional resilience and help navigate life's challenges. This article explores specific techniques for cultivating present-moment awareness and non-judgmental acceptance. Learn how regular mindfulness practice can rewire your brain's response to stress and enhance your ability to bounce back from difficulties."
+                date: "2023-07-27"
             },
             {
                 id: 33,
-                title: "The Dangers of Sitting: How to Combat Sedentary Lifestyle",
+                title: "How to Improve Your Posture at Work",
+                image: "images/001.jpg",
+                intro: "Poor posture can lead to pain and reduced productivity. Learn simple exercises and ergonomic adjustments to improve your posture while working. Discover how proper alignment can boost energy and prevent chronic issues...",
                 author: "Dr. Emily Rodriguez",
-                date: "2023-07-25",
-                excerpt: "Sitting has been called 'the new smoking' for its health risks. Understand why prolonged sitting is harmful and learn practical strategies to move more throughout your day. This article explores the impact of sedentary behavior on metabolism, circulation, and back health. Discover simple adjustments to incorporate more movement into workdays and leisure time for better long-term health."
+                date: "2023-07-25"
             },
             {
                 id: 34,
-                title: "Fermented Foods for Gut Health",
-                author: "James Wilson",
-                date: "2023-07-22",
-                excerpt: "Fermented foods offer natural probiotics that support digestive health and immunity. Discover various fermented options from different cultures and how to incorporate them into your diet. This guide explains the fermentation process, potential health benefits, and simple recipes for making your own fermented foods at home. Learn how these traditional foods can transform your gut microbiome."
+                title: "The Benefits of Drinking Green Tea Daily",
+                image: "images/002.jpg",
+                intro: "Explore the numerous health benefits associated with regular green tea consumption. From antioxidants that fight aging to compounds that boost brain function, discover why this beverage deserves a place in your daily routine...",
+                author: "Lisa Thompson",
+                date: "2023-07-22"
             },
             {
                 id: 35,
-                title: "The Benefits of Strength Training as You Age",
-                author: "Dr. Lisa Thompson",
-                date: "2023-07-20",
-                excerpt: "Strength training becomes increasingly important with age for maintaining mobility and independence. Discover how resistance exercise preserves muscle mass, bone density, and metabolic rate. This article provides safe, effective strength training guidelines for older adults, including modifications for common age-related conditions. Learn how staying strong supports vitality and quality of life in later years."
+                title: "How to Manage Food Cravings Effectively",
+                image: "images/001.jpg",
+                intro: "Food cravings can derail even the most determined healthy eater. Learn the difference between emotional and physical hunger, and discover evidence-based strategies to manage cravings without feeling deprived...",
+                author: "James Wilson",
+                date: "2023-07-20"
             },
             {
                 id: 36,
-                title: "Natural Remedies for Common Ailments",
+                title: "The Connection Between Mental and Physical Health",
+                image: "images/002.jpg",
+                intro: "Your mind and body are deeply interconnected. Explore the science behind how mental health impacts physical wellbeing and vice versa. Learn practical strategies to support both for optimal overall health...",
                 author: "Dr. Sarah Johnson",
-                date: "2023-07-18",
-                excerpt: "Many everyday health issues can be addressed with natural approaches before reaching for medication. Discover evidence-based natural remedies for headaches, digestive discomfort, seasonal allergies, and more. This article explores the science behind popular natural treatments and provides guidance on when to use them safely. Learn how to build a natural medicine cabinet for common health concerns."
+                date: "2023-07-17"
             },
             {
                 id: 37,
-                title: "The Power of Breathing Exercises for Stress",
+                title: "Healthy Breakfast Ideas to Start Your Day Right",
+                image: "images/001.jpg",
+                intro: "Breakfast sets the tone for your entire day. Discover nutritious breakfast options that provide sustained energy, support metabolism, and keep you full until lunch. These ideas are quick to prepare and delicious...",
                 author: "Michael Chen",
-                date: "2023-07-15",
-                excerpt: "Your breath is a powerful tool for managing stress and anxiety. Learn simple breathing techniques that can calm your nervous system in minutes. This guide explores different breathing patterns and their specific effects on the body and mind. Discover how to incorporate breathwork into your daily routine for improved stress resilience, better sleep, and enhanced mental clarity throughout your day."
+                date: "2023-07-15"
             },
             {
                 id: 38,
-                title: "Healthy Eating on a Budget",
+                title: "The Benefits of Outdoor Exercise vs. Indoor Workouts",
+                image: "images/002.jpg",
+                intro: "Is exercising outdoors better for you? Compare the benefits of outdoor and indoor workouts, from vitamin D exposure to mental health advantages. Learn how to incorporate both for a well-rounded fitness routine...",
                 author: "Dr. Emily Rodriguez",
-                date: "2023-07-12",
-                excerpt: "Eating healthy doesn't have to break the bank. Discover practical strategies for nutritious eating while sticking to a budget. This article explores smart shopping tips, affordable nutrient-dense foods, and meal planning strategies that save money. Learn how to prioritize your food budget for maximum health impact while reducing food waste and making the most of inexpensive, wholesome ingredients."
+                date: "2023-07-12"
             },
             {
                 id: 39,
-                title: "The Benefits of Journaling for Mental Health",
-                author: "James Wilson",
-                date: "2023-07-10",
-                excerpt: "Putting pen to paper offers surprising benefits for mental and emotional wellbeing. Discover different journaling techniques and how they can reduce stress, clarify thinking, and improve self-awareness. This guide explores gratitude journaling, stream-of-consciousness writing, and problem-solving approaches. Learn how a simple daily writing practice can become a powerful tool for mental health maintenance."
+                title: "How to Reduce Your Risk of Heart Disease",
+                image: "images/001.jpg",
+                intro: "Heart disease remains a leading cause of death worldwide. Discover evidence-based lifestyle changes that can significantly reduce your risk. Learn about diet, exercise, and other factors that support cardiovascular health...",
+                author: "Lisa Thompson",
+                date: "2023-07-10"
             },
             {
                 id: 40,
-                title: "Understanding Food Intolerances and Allergies",
-                author: "Dr. Lisa Thompson",
-                date: "2023-07-08",
-                excerpt: "Food reactions are increasingly common, but confusion remains about intolerances versus allergies. Learn to identify symptoms, understand testing options, and implement elimination diets safely. This article explores the most common food triggers and provides guidance on working with healthcare providers to identify problematic foods. Discover how to navigate dietary restrictions while maintaining nutritional adequacy."
+                title: "The Role of Fiber in Digestive Health",
+                image: "images/002.jpg",
+                intro: "Fiber is crucial for digestive health but many people don't get enough. Learn about different types of fiber, their specific benefits, and how to increase your intake through delicious, fiber-rich foods...",
+                author: "James Wilson",
+                date: "2023-07-07"
             },
             {
                 id: 41,
-                title: "The Role of Fiber in Digestive Health",
+                title: "5 Ways to Boost Your Energy Levels Naturally",
+                image: "images/001.jpg",
+                intro: "Tired of feeling tired? Discover natural strategies to increase your energy levels without relying on caffeine or sugar. From sleep optimization to specific nutrients, learn how to feel more vibrant throughout the day...",
                 author: "Dr. Sarah Johnson",
-                date: "2023-07-05",
-                excerpt: "Fiber is crucial for digestive health but often overlooked in modern diets. Discover the different types of fiber and their specific benefits for gut function. This article explores how fiber supports healthy digestion, regulates blood sugar, and promotes satiety. Learn which foods are richest in fiber and practical ways to increase your intake for better digestive regularity and overall health."
+                date: "2023-07-05"
             },
             {
                 id: 42,
-                title: "Creating an Effective Home Workout Space",
+                title: "Understanding Food Allergies and Intolerances",
+                image: "images/002.jpg",
+                intro: "Food reactions are increasingly common but often misunderstood. Learn the difference between allergies and intolerances, common triggers, and how to identify and manage food sensitivities for better health...",
                 author: "Michael Chen",
-                date: "2023-07-02",
-                excerpt: "You don't need a gym membership to get fit—just a well-designed home workout area. Learn how to create an effective exercise space with minimal equipment and budget. This guide explores essential versus optional equipment, space-saving solutions, and motivation strategies. Discover how to design a home fitness area that inspires regular use and supports your specific health and fitness goals."
+                date: "2023-07-02"
             },
             {
                 id: 43,
-                title: "The Mind-Gut Connection: How Emotions Affect Digestion",
+                title: "The Benefits of High-Intensity Interval Training (HIIT)",
+                image: "images/001.jpg",
+                intro: "HIIT workouts have gained popularity for good reason. Explore the science behind high-intensity interval training and its benefits for fat loss, cardiovascular health, and time efficiency. Learn how to safely incorporate HIIT...",
                 author: "Dr. Emily Rodriguez",
-                date: "2023-06-30",
-                excerpt: "Your digestive system is often called your 'second brain' for good reason. Explore the fascinating connection between emotions, stress, and gut health. This article explains the science behind the gut-brain axis and how mental states influence digestive function. Learn practical strategies for supporting both mental and digestive health through diet, stress management, and lifestyle adjustments."
+                date: "2023-06-29"
             },
             {
                 id: 44,
-                title: "Healthy Alternatives to Processed Snacks",
-                author: "James Wilson",
-                date: "2023-06-28",
-                excerpt: "Processed snacks are convenient but often nutrient-poor. Discover delicious, whole-food alternatives that satisfy cravings while nourishing your body. This article provides simple recipes and ideas for replacing common processed snacks with healthier options. Learn how to prepare nutrient-dense snacks in advance for busy days, helping you avoid less healthy convenience foods when hunger strikes."
+                title: "How to Cook Healthy Meals on a Budget",
+                image: "images/002.jpg",
+                intro: "Eating healthy doesn't have to break the bank. Discover practical strategies for planning, shopping, and preparing nutritious meals on a tight budget. Learn which ingredients offer the most nutritional value for your money...",
+                author: "Lisa Thompson",
+                date: "2023-06-26"
             },
             {
                 id: 45,
-                title: "The Benefits of Cold Exposure for Health",
-                author: "Dr. Lisa Thompson",
-                date: "2023-06-25",
-                excerpt: "Intentional cold exposure is gaining attention for its potential health benefits. Explore the science behind cold therapy and how it may support metabolism, circulation, and resilience. This article provides safe guidelines for incorporating cold exposure into your routine, from cold showers to ice baths. Learn how to start slowly and build tolerance for this potentially powerful health practice."
+                title: "The Importance of Hydration for Athletic Performance",
+                image: "images/001.jpg",
+                intro: "Proper hydration is crucial for athletes and active individuals. Learn how dehydration impacts performance, how to calculate your fluid needs, and the best strategies for staying hydrated before, during, and after exercise...",
+                author: "James Wilson",
+                date: "2023-06-23"
             },
             {
                 id: 46,
-                title: "Nutrition for Energy: Foods That Fight Fatigue",
+                title: "Natural Ways to Improve Your Sleep Quality",
+                image: "images/002.jpg",
+                intro: "Struggling with restless nights? Discover natural approaches to improve your sleep without medication. Learn about sleep-friendly foods, bedtime routines, and environmental adjustments that promote deeper, more restorative sleep...",
                 author: "Dr. Sarah Johnson",
-                date: "2023-06-22",
-                excerpt: "Chronic fatigue affects millions, but dietary adjustments can make a significant difference. Discover which nutrients support energy production and which dietary patterns drain your vitality. This article explores the connection between blood sugar balance, mitochondrial function, and sustained energy. Learn how to structure meals and choose foods that provide steady energy throughout your day."
+                date: "2023-06-20"
             },
             {
                 id: 47,
-                title: "The Art of Mindful Eating",
+                title: "How to Build Strong Bones at Any Age",
+                image: "images/001.jpg",
+                intro: "Bone health is important throughout life. Discover the key nutrients and exercises that support strong bones, plus lifestyle factors that impact bone density. Learn how to protect your skeletal health as you age...",
                 author: "Michael Chen",
-                date: "2023-06-20",
-                excerpt: "Mindful eating transforms your relationship with food beyond just what you eat. Learn techniques to slow down, savor meals, and tune into hunger and fullness cues. This guide explores how mindfulness during eating can improve digestion, prevent overeating, and enhance meal satisfaction. Discover how being fully present with your food can become a powerful practice for both physical and mental wellbeing."
+                date: "2023-06-17"
             },
             {
                 id: 48,
-                title: "Understanding and Improving Metabolic Health",
+                title: "The Benefits of Omega-3 Fatty Acids for Brain Health",
+                image: "images/002.jpg",
+                intro: "Omega-3s are crucial for brain function and development. Explore the science behind these essential fats and their role in cognitive health. Learn the best food sources and how to ensure you're getting enough...",
                 author: "Dr. Emily Rodriguez",
-                date: "2023-06-18",
-                excerpt: "Metabolic health influences everything from energy levels to disease risk. Learn what metabolic health means beyond weight and how to assess and improve yours. This article explores the role of nutrition, exercise, sleep, and stress management in metabolic function. Discover practical strategies for supporting healthy metabolism through lifestyle choices that promote optimal functioning of your body's energy systems."
+                date: "2023-06-14"
             },
             {
                 id: 49,
-                title: "The Benefits of Regular Sauna Use",
-                author: "James Wilson",
-                date: "2023-06-15",
-                excerpt: "Sauna bathing offers surprising health benefits beyond relaxation. Explore the research on how regular sauna use supports cardiovascular health, detoxification, and stress resilience. This article provides guidelines for safe sauna use, including duration, frequency, and hydration considerations. Learn how to incorporate this heat therapy into your wellness routine for potential improvements in both physical and mental health."
+                title: "How to Create a Sustainable Exercise Routine",
+                image: "images/001.jpg",
+                intro: "Consistency is key for fitness results. Learn how to design an exercise routine that fits your lifestyle and preferences, making it easier to stick with long-term. Discover strategies to overcome common barriers to consistency...",
+                author: "Lisa Thompson",
+                date: "2023-06-11"
             },
             {
                 id: 50,
-                title: "Creating a Sustainable Exercise Routine",
-                author: "Dr. Lisa Thompson",
-                date: "2023-06-12",
-                excerpt: "Consistency trumps intensity when it comes to exercise benefits. Learn how to create a workout routine that you'll actually stick with long-term. This guide explores how to choose activities you enjoy, set realistic goals, and overcome common barriers to consistency. Discover strategies for maintaining motivation and adapting your routine as life circumstances change, ensuring exercise remains a sustainable part of your lifestyle."
+                title: "The Impact of Stress on Your Digestive System",
+                image: "images/002.jpg",
+                intro: "The gut-brain connection is powerful, and stress can significantly impact digestion. Learn how stress affects your gut, common stress-related digestive issues, and strategies to support your digestive health during stressful times...",
+                author: "James Wilson",
+                date: "2023-06-08"
             }
         ];
 
         // Function to display articles
-        function displayArticles(articles) {
-            const container = document.getElementById('articlesContainer');
+        function displayArticles(articlesToDisplay) {
+            const container = document.getElementById('articles-container');
             container.innerHTML = '';
             
-            articles.forEach(article => {
+            articlesToDisplay.forEach(article => {
                 const articleCard = document.createElement('div');
                 articleCard.className = 'article-card';
                 
+                // Format date for display
+                const formattedDate = new Date(article.date).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+                
                 articleCard.innerHTML = `
-                    <div class="article-image">
-                        <img src="images/a6ee2559-b2a4-46be-a0ca-e71a28189c82.png" alt="${article.title}" style="width:100%;height:100%;object-fit:cover;">
-                    </div>
+                    <img src="${article.image}" alt="${article.title}" class="article-image">
                     <div class="article-content">
-                        <h3><a href="homepage.html">${article.title}</a></h3>
                         <div class="article-meta">
                             <span>By ${article.author}</span>
-                            <span>${new Date(article.date).toLocaleDateString()}</span>
+                            <span>${formattedDate}</span>
                         </div>
-                        <p class="article-excerpt">${article.excerpt}</p>
-                        <a href="homepage.html" class="read-more">Read More...</a>
-                        <div class="share-options">
-                            <a href="#" class="share-btn" data-title="${article.title}" data-url="https://health-hubs.netlify.app/article${article.id}">
+                        <h3 class="article-title"><a href="homepage.html">${article.title}</a></h3>
+                        <p class="article-intro">${article.intro} <a href="homepage.html" class="read-more">Read more...</a></p>
+                        <div class="article-share">
+                            <button class="share-btn" onclick="shareArticle(${article.id})">
                                 <i class="fas fa-share-alt"></i> Share
-                            </a>
+                            </button>
                         </div>
                     </div>
                 `;
                 
                 container.appendChild(articleCard);
             });
-            
-            // Add share functionality
-            document.querySelectorAll('.share-btn').forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const title = this.getAttribute('data-title');
-                    const url = this.getAttribute('data-url');
-                    
-                    if (navigator.share) {
-                        navigator.share({
-                            title: title,
-                            url: url
-                        });
-                    } else {
-                        // Fallback for browsers that don't support Web Share API
-                        prompt('Copy this link to share:', url);
-                    }
-                });
-            });
         }
 
-        // Initial display of all articles
-        displayArticles(healthArticles);
+        // Function to share article
+        function shareArticle(articleId) {
+            const article = articles.find(a => a.id === articleId);
+            if (navigator.share) {
+                navigator.share({
+                    title: article.title,
+                    text: article.intro,
+                    url: `https://health-hubs.netlify.app/article-${articleId}`
+                })
+                .then(() => console.log('Successful share'))
+                .catch((error) => console.log('Error sharing', error));
+            } else {
+                // Fallback for browsers that don't support Web Share API
+                alert(`Share this article: ${article.title}\n\n${article.intro}\n\nRead more at: https://health-hubs.netlify.app/article-${articleId}`);
+            }
+        }
 
-        // Search functionality
-        document.getElementById('searchButton').addEventListener('click', performSearch);
-        document.getElementById('searchInput').addEventListener('keyup', function(e) {
-            if (e.key === 'Enter') {
-                performSearch();
+        // Function to filter articles based on search
+        function filterArticles() {
+            const searchTerm = document.getElementById('search-input').value.toLowerCase();
+            const filteredArticles = articles.filter(article => 
+                article.title.toLowerCase().includes(searchTerm) || 
+                article.intro.toLowerCase().includes(searchTerm) ||
+                article.author.toLowerCase().includes(searchTerm)
+            );
+            displayArticles(filteredArticles);
+        }
+
+        // Event listeners
+        document.getElementById('search-btn').addEventListener('click', filterArticles);
+        document.getElementById('search-input').addEventListener('keyup', function(event) {
+            if (event.key === 'Enter') {
+                filterArticles();
             }
         });
 
-        function performSearch() {
-            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-            
-            if (searchTerm.trim() === '') {
-                displayArticles(healthArticles);
-                return;
-            }
-            
-            const filteredArticles = healthArticles.filter(article => 
-                article.title.toLowerCase().includes(searchTerm) || 
-                article.excerpt.toLowerCase().includes(searchTerm) ||
-                article.author.toLowerCase().includes(searchTerm)
-            );
-            
-            displayArticles(filteredArticles);
-        }
+        // Initial display of all articles
+        displayArticles(articles);
     </script>
 </body>
 </html>
