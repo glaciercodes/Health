@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7 Effective Exercises for Weight Loss Without Equipment | Health-Hubs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --black: #1a1a1a;
+            --green: #2ecc71;
+            --yellow: #f1c40f;
+            --light-bg: #f9f9f9;
+            --text-color: #333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--black);
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--green);
+        }
+        
+        .logo i {
+            color: #ff69b4;
+            animation: heartbeat 1.5s infinite;
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--green);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            margin-top: 15px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--yellow);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/001.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .meta-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            font-style: italic;
+            opacity: 0.9;
+        }
+        
+        /* Main Content */
+        .intro {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+            border-left: 5px solid var(--green);
+        }
+        
+        .intro p {
+            margin-bottom: 15px;
+        }
+        
+        .exercises-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .exercise-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .exercise-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .card-img {
+            height: 220px;
+            overflow: hidden;
+        }
+        
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .exercise-card:hover .card-img img {
+            transform: scale(1.05);
+        }
+        
+        .card-content {
+            padding: 20px;
+        }
+        
+        .card-content h3 {
+            color: var(--black);
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+        }
+        
+        .card-content p {
+            color: var(--text-color);
+            margin-bottom: 15px;
+        }
+        
+        .benefits {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 50px;
+        }
+        
+        .benefits h2 {
+            color: var(--black);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .benefits-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .benefit-item i {
+            color: var(--green);
+            font-size: 1.5rem;
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 50px;
+        }
+        
+        .faq-section h2 {
+            color: var(--black);
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .faq-item {
+            margin-bottom: 25px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+        
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        
+        .question {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+        
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .question-text {
+            font-weight: 600;
+            color: var(--black);
+        }
+        
+        .answer {
+            margin-left: 55px;
+            color: var(--text-color);
+        }
+        
+        /* Share Section */
+        .share-section {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--black);
+            color: white;
+            border-radius: 8px;
+            margin-bottom: 50px;
+        }
+        
+        .share-section p {
+            margin-bottom: 15px;
+        }
+        
+        .share-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--green);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .share-btn:hover {
+            background-color: #27ae60;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--black);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--green);
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--yellow);
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-top {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .exercises-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <i class="fas fa-heartbeat"></i>
+                    <span>Health-Hubs</span>
+                </div>
+                <div class="social-icons">
+                    <a href="index.html"><i class="fab fa-facebook-f"></i></a>
+                    <a href="index.html"><i class="fab fa-telegram"></i></a>
+                    <a href="index.html"><i class="fab fa-whatsapp"></i></a>
+                    <a href="index.html"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="con.html">Home</a></li>
+                    <li><a href="con.html">Blog</a></li>
+                    <li><a href="con.html">Contact Us</a></li>
+                    <li><a href="con.html">FAQs</a></li>
+                    <li><a href="con.html">About Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>7 Effective Exercises for Weight Loss Without Equipment</h1>
+            <p>Transform your body and boost your metabolism with these powerful bodyweight exercises you can do anywhere, anytime.</p>
+            <div class="meta-info">
+                <span>By Mark Williams</span>
+                <span>July 5, 2023</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Introduction -->
+        <section class="intro">
+            <p>Have you ever felt frustrated by the thought that you need expensive gym equipment or a membership to lose weight? What if I told you that the most effective weight loss tool has been with you all along?</p>
+            <p>Your own body is a powerful fat-burning machine, and with the right exercises, you can torch calories, build lean muscle, and rev up your metabolism without ever stepping foot in a gym. The secret lies in bodyweight training - a form of exercise that uses your own weight as resistance to build strength and endurance.</p>
+            <p>In this comprehensive guide, we'll explore seven incredibly effective exercises that require zero equipment and minimal space. These movements are proven to burn calories efficiently while targeting multiple muscle groups simultaneously. Whether you're a beginner or a fitness enthusiast, these exercises can be adapted to your current fitness level.</p>
+        </section>
+
+        <!-- Exercises Grid -->
+        <section class="exercises-grid">
+            <!-- Exercise 1 -->
+            <div class="exercise-card">
+                <div class="card-img">
+                    <img src="images/001.jpg" alt="Burpees exercise">
+                </div>
+                <div class="card-content">
+                    <h3>1. Burpees</h3>
+                    <p>The ultimate full-body exercise that combines strength training and cardio in one powerful movement. Burpees engage your chest, arms, thighs, glutes, and core while skyrocketing your heart rate for maximum calorie burn.</p>
+                    <p><strong>How to do it:</strong> Start standing, drop into a squat with hands on the floor, kick feet back into a plank position, do a push-up, return feet to squat position, and explosively jump up. Repeat for 30-60 seconds.</p>
+                </div>
+            </div>
+
+            <!-- Exercise 2 -->
+            <div class="exercise-card">
+                <div class="card-img">
+                    <img src="images/002.png" alt="Mountain Climbers exercise">
+                </div>
+                <div class="card-content">
+                    <h3>2. Mountain Climbers</h3>
+                    <p>This dynamic exercise targets your core, shoulders, and legs while providing an excellent cardiovascular challenge. Mountain climbers improve coordination and stability while burning significant calories.</p>
+                    <p><strong>How to do it:</strong> Start in a plank position, bring one knee toward your chest, then quickly switch legs in a running motion. Keep your core tight and back flat throughout the movement.</p>
+                </div>
+            </div>
+
+            <!-- Exercise 3 -->
+            <div class="exercise-card">
+                <div class="card-img">
+                    <img src="images/003.jpg" alt="Jump Squats exercise">
+                </div>
+                <div class="card-content">
+                    <h3>3. Jump Squats</h3>
+                    <p>By adding an explosive jump to the traditional squat, you significantly increase the intensity and calorie burn. This plyometric movement builds powerful leg muscles and boosts your metabolism.</p>
+                    <p><strong>How to do it:</strong> Stand with feet shoulder-width apart, lower into a squat, then explosively jump as high as possible. Land softly and immediately lower into the next squat.</p>
+                </div>
+            </div>
+
+            <!-- Exercise 4 -->
+            <div class="exercise-card">
+                <div class="card-img">
+                    <img src="images/004.png" alt="Push-Ups exercise">
+                </div>
+                <div class="card-content">
+                    <h3>4. Push-Ups</h3>
+                    <p>A classic bodyweight exercise that strengthens your chest, shoulders, triceps, and core. Push-ups can be modified for any fitness level and are excellent for building upper body strength.</p>
+                    <p><strong>How to do it:</strong> Place hands slightly wider than shoulders, keep body in a straight line from head to heels, lower chest toward the floor, then push back up to starting position.</p>
+                </div>
+            </div>
+
+            <!-- Exercise 5 -->
+            <div class="exercise-card">
+                <div class="card-img">
+                    <img src="images/005.jpg" alt="Plank exercise">
+                </div>
+                <div class="card-content">
+                    <h3>5. Plank</h3>
+                    <p>This isometric exercise engages your entire core, including deep stabilizing muscles. Planks improve posture, reduce back pain, and increase overall core strength.</p>
+                    <p><strong>How to do it:</strong> Place forearms on the floor with elbows aligned below shoulders, extend legs back, and hold your body in a straight line from head to heels. Engage your core and glutes.</p>
+                </div>
+            </div>
+
+            <!-- Exercise 6 -->
+            <div class="exercise-card">
+                <div class="card-img">
+                    <img src="images/006.png" alt="Lunges exercise">
+                </div>
+                <div class="card-content">
+                    <h3>6. Lunges</h3>
+                    <p>Lunges target your glutes, quadriceps, and hamstrings while improving balance and coordination. Adding a jump (jumping lunges) increases the cardiovascular benefits.</p>
+                    <p><strong>How to do it:</strong> Step forward with one leg, lowering your hips until both knees are bent at 90-degree angles. Keep your front knee above your ankle and return to starting position.</p>
+                </div>
+            </div>
+
+            <!-- Exercise 7 -->
+            <div class="exercise-card">
+                <div class="card-img">
+                    <img src="images/007.jpg" alt="High Knees exercise">
+                </div>
+                <div class="card-content">
+                    <h3>7. High Knees</h3>
+                    <p>This simple but effective cardio exercise gets your heart pumping while engaging your core and leg muscles. High knees improve agility and coordination while burning calories rapidly.</p>
+                    <p><strong>How to do it:</strong> Stand tall and run in place, bringing your knees as high as possible toward your chest. Pump your arms to increase intensity and maintain a quick pace.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits Section -->
+        <section class="benefits">
+            <h2>Why Bodyweight Exercises Are Effective for Weight Loss</h2>
+            <div class="benefits-list">
+                <div class="benefit-item">
+                    <i class="fas fa-fire"></i>
+                    <div>
+                        <h3>High Calorie Burn</h3>
+                        <p>Compound movements engage multiple muscle groups, leading to greater energy expenditure.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-bolt"></i>
+                    <div>
+                        <h3>Afterburn Effect</h3>
+                        <p>High-intensity bodyweight exercises keep your metabolism elevated for hours after your workout.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-dumbbell"></i>
+                    <div>
+                        <h3>Muscle Building</h3>
+                        <p>Bodyweight resistance helps build lean muscle, which increases your resting metabolic rate.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-heart"></i>
+                    <div>
+                        <h3>Convenience</h3>
+                        <p>No equipment or gym membership required - you can exercise anywhere, anytime.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <div class="question">
+                    <div class="user-avatar">SJ</div>
+                    <div class="question-text">Sarah Johnson: "How often should I do these exercises to see weight loss results?"</div>
+                </div>
+                <div class="answer">
+                    <p>For optimal weight loss, aim to perform these exercises 4-5 times per week, combining them into a circuit training format. Start with 30-second intervals for each exercise with 15-second rests in between. Complete 3-4 rounds of the circuit. As you build endurance, increase your work intervals to 45-60 seconds. Remember to include at least one rest day per week to allow your muscles to recover and rebuild.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="question">
+                    <div class="user-avatar">MR</div>
+                    <div class="question-text">Michael Roberts: "Can beginners do these exercises, and how should they modify them?"</div>
+                </div>
+                <div class="answer">
+                    <p>Absolutely! Beginners can start with modified versions: instead of full burpees, eliminate the push-up and jump; for push-ups, perform them on your knees; for jump squats, do regular squats without the jump; and for mountain climbers, slow down the pace. Start with shorter intervals (20-30 seconds) and longer rest periods (30 seconds). Focus on proper form rather than speed, and gradually increase intensity as you build strength and endurance.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="question">
+                    <div class="user-avatar">TP</div>
+                    <div class="question-text">Tina Patel: "How long until I start seeing weight loss results from bodyweight exercises?"</div>
+                </div>
+                <div class="answer">
+                    <p>With consistent effort (4-5 times per week) and proper nutrition, most people begin to notice changes in 2-4 weeks. You might first experience increased energy, better sleep, and clothes fitting looser. Significant visible changes typically appear after 6-8 weeks. Remember that weight loss is a combination of exercise and nutrition - these exercises will help create a calorie deficit, but pairing them with a balanced diet will accelerate your results. Take progress photos and measurements, as sometimes the scale doesn't tell the whole story!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Share Section -->
+        <section class="share-section">
+            <p>Found this article helpful? Share it with others who might benefit!</p>
+            <a href="https://health-hubs.netlify.app" class="share-btn">
+                <i class="fas fa-share-alt"></i> Share This Page
+            </a>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-heartbeat"></i>
+                    <span>Health-Hubs</span>
+                </div>
+                <div class="footer-links">
+                    <a href="con.html">Home</a>
+                    <a href="con.html">Blog</a>
+                    <a href="con.html">Contact Us</a>
+                    <a href="con.html">FAQs</a>
+                    <a href="con.html">About Us</a>
+                </div>
+                <div class="copyright">
+                    &copy; 2023 Health-Hubs. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+  </html>
