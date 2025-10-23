@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5 Foods That Naturally Lower Cholesterol | Health-Hubs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-black: #121212;
+            --secondary-green: #2e7d32;
+            --accent-yellow: #ffd54f;
+            --text-light: #f5f5f5;
+            --card-bg: #1e1e1e;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--primary-black);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--primary-black);
+            padding: 20px 0;
+            border-bottom: 2px solid var(--secondary-green);
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            color: #ff4081;
+            font-size: 28px;
+            animation: heartbeat 1.5s ease-in-out infinite both;
+        }
+        
+        @keyframes heartbeat {
+            from {
+                transform: scale(1);
+                transform-origin: center center;
+                animation-timing-function: ease-out;
+            }
+            10% {
+                transform: scale(0.91);
+                animation-timing-function: ease-in;
+            }
+            17% {
+                transform: scale(0.98);
+                animation-timing-function: ease-out;
+            }
+            33% {
+                transform: scale(0.87);
+                animation-timing-function: ease-in;
+            }
+            45% {
+                transform: scale(1);
+                animation-timing-function: ease-out;
+            }
+        }
+        
+        .logo h1 {
+            color: var(--accent-yellow);
+            font-size: 28px;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icons a {
+            color: var(--text-light);
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--accent-yellow);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            justify-content: center;
+        }
+        
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        nav a:hover {
+            color: var(--accent-yellow);
+            background-color: rgba(46, 125, 50, 0.2);
+        }
+        
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 40px 0;
+            background: linear-gradient(rgba(18, 18, 18, 0.8), rgba(18, 18, 18, 0.8)), url('images/hero-bg.jpg');
+            background-size: cover;
+            margin-bottom: 40px;
+        }
+        
+        .hero h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: var(--accent-yellow);
+        }
+        
+        .hero p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .author-info {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+            font-style: italic;
+            color: #aaa;
+        }
+        
+        /* Article Content */
+        .article-content {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .intro {
+            font-size: 18px;
+            margin-bottom: 30px;
+            line-height: 1.8;
+            color: #e0e0e0;
+        }
+        
+        .food-item {
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #333;
+        }
+        
+        .food-item:last-child {
+            border-bottom: none;
+        }
+        
+        .food-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .food-icon {
+            background-color: var(--secondary-green);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: white;
+        }
+        
+        .food-title {
+            font-size: 24px;
+            color: var(--accent-yellow);
+        }
+        
+        .food-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .food-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .food-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+        
+        .food-image img:hover {
+            transform: scale(1.03);
+        }
+        
+        .food-details h3 {
+            color: var(--secondary-green);
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        
+        .food-details p {
+            margin-bottom: 15px;
+        }
+        
+        .tips {
+            background-color: rgba(46, 125, 50, 0.1);
+            padding: 15px;
+            border-left: 4px solid var(--secondary-green);
+            margin-top: 20px;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .tips h4 {
+            color: var(--accent-yellow);
+            margin-bottom: 10px;
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .faq-section h2 {
+            color: var(--accent-yellow);
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 28px;
+        }
+        
+        .faq-item {
+            margin-bottom: 25px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 20px;
+        }
+        
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        
+        .faq-question {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .user-icon {
+            color: var(--secondary-green);
+            font-size: 18px;
+        }
+        
+        .question-text {
+            font-weight: 600;
+            color: #e0e0e0;
+        }
+        
+        .user-name {
+            color: #aaa;
+            font-size: 14px;
+            margin-left: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .faq-answer {
+            margin-left: 28px;
+            color: #ccc;
+        }
+        
+        /* Share Section */
+        .share-section {
+            text-align: center;
+            padding: 30px 0;
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .share-section p {
+            margin-bottom: 20px;
+            font-size: 18px;
+            color: var(--accent-yellow);
+        }
+        
+        .share-btn {
+            background-color: var(--secondary-green);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .share-btn:hover {
+            background-color: #1b5e20;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #0a0a0a;
+            padding: 30px 0;
+            text-align: center;
+            border-top: 2px solid var(--secondary-green);
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-yellow);
+        }
+        
+        .copyright {
+            color: #aaa;
+            font-size: 14px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-top {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+            
+            .food-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h2 {
+                font-size: 28px;
+            }
+            
+            .article-content, .faq-section, .share-section {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <i class="fas fa-heartbeat logo-icon"></i>
+                    <h1>Health-Hubs</h1>
+                </div>
+                <div class="social-icons">
+                    <a href="index.html"><i class="fab fa-facebook-f"></i></a>
+                    <a href="index.html"><i class="fab fa-tiktok"></i></a>
+                    <a href="index.html"><i class="fab fa-telegram"></i></a>
+                    <a href="index.html"><i class="fab fa-whatsapp"></i></a>
+                    <a href="index.html"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="faqs.html">FAQs</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>5 Foods That Naturally Lower Cholesterol</h2>
+            <p>Discover powerful foods scientifically proven to help reduce LDL cholesterol and improve heart health</p>
+            <div class="author-info">
+                <span>By Dr. Amanda Peterson</span>
+                <span>•</span>
+                <span>October 8, 2023</span>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        <article class="article-content">
+            <p class="intro">What if I told you that managing your cholesterol levels doesn't always require medication? As a cardiologist with over 15 years of experience, I've witnessed firsthand how strategic dietary changes can dramatically improve cardiovascular health. In this article, I'll share five nutritional powerhouses that have been scientifically proven to help reduce LDL cholesterol and support heart function.</p>
+            
+            <div class="food-item">
+                <div class="food-header">
+                    <div class="food-icon">
+                        <i class="fas fa-bread-slice"></i>
+                    </div>
+                    <h2 class="food-title">Oats and Barley</h2>
+                </div>
+                <div class="food-content">
+                    <div class="food-image">
+                        <img src="images/1761210062142.jpg" alt="Oats and barley in a bowl">
+                    </div>
+                    <div class="food-details">
+                        <h3>How They Work</h3>
+                        <p>Oats and barley are rich in a type of soluble fiber called beta-glucan. This fiber forms a gel in your digestive system that binds to cholesterol-rich bile acids, carrying them out of your body instead of allowing them to be absorbed into your bloodstream.</p>
+                        <p>Studies show that consuming just 3 grams of soluble oat fiber daily can lower LDL cholesterol by 5-10%. The more consistently you consume these grains, the greater the benefits for your heart health.</p>
+                        <div class="tips">
+                            <h4>Practical Tips</h4>
+                            <p>Start your day with a bowl of oatmeal, add barley to soups and stews, or use oat flour in baking. For maximum benefit, aim for at least one serving daily.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="food-item">
+                <div class="food-header">
+                    <div class="food-icon">
+                        <i class="fas fa-fish"></i>
+                    </div>
+                    <h2 class="food-title">Fatty Fish</h2>
+                </div>
+                <div class="food-content">
+                    <div class="food-image">
+                        <img src="images/1761210114492.jpg" alt="Salmon and other fatty fish">
+                    </div>
+                    <div class="food-details">
+                        <h3>How They Work</h3>
+                        <p>Fatty fish like salmon, mackerel, and sardines are packed with omega-3 fatty acids, particularly EPA and DHA. These healthy fats help lower triglycerides, reduce inflammation throughout the body, and can modestly lower LDL cholesterol while raising HDL (the "good" cholesterol).</p>
+                        <p>Omega-3s also help prevent the formation of blood clots and maintain the elasticity of arteries, further protecting your cardiovascular system.</p>
+                        <div class="tips">
+                            <h4>Practical Tips</h4>
+                            <p>Aim for two servings of fatty fish per week. Grill, bake, or steam rather than frying to preserve the beneficial fats. If you don't eat fish, consider algae-based omega-3 supplements.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="food-item">
+                <div class="food-header">
+                    <div class="food-icon">
+                        <i class="fas fa-apple-alt"></i>
+                    </div>
+                    <h2 class="food-title">Apples and Citrus Fruits</h2>
+                </div>
+                <div class="food-content">
+                    <div class="food-image">
+                        <img src="images/1761210148874.jpg" alt="Apples and citrus fruits">
+                    </div>
+                    <div class="food-details">
+                        <h3>How They Work</h3>
+                        <p>Apples, oranges, grapefruits, and other citrus fruits are rich in pectin, a type of soluble fiber that helps lower LDL cholesterol. Pectin forms a viscous gel in your digestive tract that binds to cholesterol and prevents its absorption.</p>
+                        <p>These fruits also contain flavonoids and antioxidants that help prevent LDL cholesterol from oxidizing, which is a key step in the formation of arterial plaque.</p>
+                        <div class="tips">
+                            <h4>Practical Tips</h4>
+                            <p>Eat whole fruits rather than drinking juice to get the full fiber benefit. Add apple slices to salads, enjoy citrus segments as snacks, or incorporate them into smoothies.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="food-item">
+                <div class="food-header">
+                    <div class="food-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h2 class="food-title">Nuts and Seeds</h2>
+                </div>
+                <div class="food-content">
+                    <div class="food-image">
+                        <img src="images/1761210184185.jpg" alt="Assorted nuts and seeds">
+                    </div>
+                    <div class="food-details">
+                        <h3>How They Work</h3>
+                        <p>Walnuts, almonds, flaxseeds, and chia seeds are cholesterol-lowering powerhouses. They contain plant sterols that block cholesterol absorption, unsaturated fats that help clear LDL from the bloodstream, and fiber that aids in cholesterol excretion.</p>
+                        <p>Studies show that eating about a handful of nuts daily can lower LDL cholesterol by up to 10%. The combination of healthy fats, fiber, and plant compounds makes nuts particularly effective.</p>
+                        <div class="tips">
+                            <h4>Practical Tips</h4>
+                            <p>Enjoy a small handful of unsalted nuts as a snack, add ground flaxseed to yogurt or oatmeal, or use nut butters on whole-grain toast. Remember that nuts are calorie-dense, so portion control is important.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="food-item">
+                <div class="food-header">
+                    <div class="food-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h2 class="food-title">Legumes and Beans</h2>
+                </div>
+                <div class="food-content">
+                    <div class="food-image">
+                        <img src="images/1761210224694.jpg" alt="Various legumes and beans">
+                    </div>
+                    <div class="food-details">
+                        <h3>How They Work</h3>
+                        <p>Beans, lentils, and chickpeas are excellent sources of soluble fiber that effectively lower LDL cholesterol. They're also rich in plant-based protein and contain compounds called saponins that interfere with cholesterol absorption.</p>
+                        <p>Regular consumption of legumes has been shown to reduce total cholesterol by 5-10%. Their low glycemic index also helps stabilize blood sugar levels, which is beneficial for overall cardiovascular health.</p>
+                        <div class="tips">
+                            <h4>Practical Tips</h4>
+                            <p>Add beans to soups, salads, and stews; use hummus as a spread; or enjoy lentil-based dishes. Start with smaller portions if you're not used to eating legumes to allow your digestive system to adjust.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+        
+        <section class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <i class="fas fa-user-circle user-icon"></i>
+                    <div class="question-text">How quickly can I expect to see changes in my cholesterol levels after incorporating these foods?</div>
+                </div>
+                <div class="user-name">— Michael T., 54</div>
+                <div class="faq-answer">
+                    <p>Most people begin to see measurable improvements in their cholesterol levels within 4-6 weeks of consistently incorporating these foods into their diet. However, the exact timeline varies based on individual factors like genetics, overall diet, and the amount of these cholesterol-lowering foods consumed. For optimal results, combine these dietary changes with other heart-healthy habits like regular exercise and maintaining a healthy weight.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <i class="fas fa-user-circle user-icon"></i>
+                    <div class="question-text">Are there any potential side effects from eating too many of these cholesterol-lowering foods?</div>
+                </div>
+                <div class="user-name">— Sarah J., 41</div>
+                <div class="faq-answer">
+                    <p>While these foods are generally safe and beneficial, introducing large amounts of fiber-rich foods too quickly can cause temporary digestive discomfort like bloating or gas. It's best to gradually increase your intake of high-fiber foods and drink plenty of water. Also, nuts are calorie-dense, so portion control is important for weight management. If you have specific health conditions or take medications, it's always wise to consult with your healthcare provider before making significant dietary changes.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <i class="fas fa-user-circle user-icon"></i>
+                    <div class="question-text">Can these foods replace cholesterol medication entirely?</div>
+                </div>
+                <div class="user-name">— Robert L., 62</div>
+                <div class="faq-answer">
+                    <p>For some individuals with mildly elevated cholesterol, dietary changes alone may be sufficient. However, for those with significantly high cholesterol or other risk factors, these foods should complement—not replace—prescribed medications. Never stop taking cholesterol medication without consulting your doctor. These foods can enhance the effectiveness of medications and may allow for lower dosages under medical supervision, but they're typically most effective as part of a comprehensive approach to heart health.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="share-section">
+            <p>Found this article helpful? Share it with friends and family!</p>
+            <button class="share-btn" onclick="shareArticle()">
+                <i class="fas fa-share-alt"></i>
+                Share This Article
+            </button>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="home.html">Home</a>
+                <a href="blog.html">Blog</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="faqs.html">FAQs</a>
+                <a href="about.html">About Us</a>
+            </div>
+            <p class="copyright">&copy; 2023 Health-Hubs. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function shareArticle() {
+            if (navigator.share) {
+                navigator.share({
+                    title: '5 Foods That Naturally Lower Cholesterol',
+                    text: 'Discover powerful foods scientifically proven to help reduce LDL cholesterol and improve heart health',
+                    url: 'https://health-hubs.netlify.app'
+                })
+                .then(() => console.log('Successful share'))
+                .catch((error) => console.log('Error sharing', error));
+            } else {
+                // Fallback for browsers that don't support the Web Share API
+                alert('Share this article using the URL: https://health-hubs.netlify.app');
+            }
+        }
+    </script>
+</body>
+</html>
