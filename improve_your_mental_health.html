@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7 Daily Habits to Improve Your Mental Health | Health Hubs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-black: #1a1a1a;
+            --primary-green: #2e8b57;
+            --accent-yellow: #ffd700;
+            --light-bg: #f9f9f9;
+            --text-color: #333;
+            --pink-accent: #ff69b4;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--primary-black);
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+        
+        .logo i {
+            color: var(--pink-accent);
+            animation: heartbeat 1.5s ease-in-out infinite both;
+        }
+        
+        @keyframes heartbeat {
+            from {
+                transform: scale(1);
+                transform-origin: center center;
+                animation-timing-function: ease-out;
+            }
+            10% {
+                transform: scale(0.91);
+                animation-timing-function: ease-in;
+            }
+            17% {
+                transform: scale(0.98);
+                animation-timing-function: ease-out;
+            }
+            33% {
+                transform: scale(0.87);
+                animation-timing-function: ease-in;
+            }
+            45% {
+                transform: scale(1);
+                animation-timing-function: ease-out;
+            }
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--accent-yellow);
+        }
+        
+        nav {
+            padding-top: 15px;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-menu a:hover {
+            color: var(--accent-yellow);
+        }
+        
+        /* Article Styles */
+        .article-header {
+            text-align: center;
+            padding: 40px 0 20px;
+        }
+        
+        .article-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-black);
+        }
+        
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            color: #666;
+            font-style: italic;
+        }
+        
+        .article-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px 0 40px;
+        }
+        
+        .article-content p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .habit-section {
+            margin: 40px 0;
+            padding: 25px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            border-left: 4px solid var(--primary-green);
+        }
+        
+        .habit-section h3 {
+            color: var(--primary-green);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .share-section {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+        
+        .share-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--primary-green);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .share-btn:hover {
+            background-color: #267349;
+        }
+        
+        .faq-section {
+            margin: 40px 0;
+        }
+        
+        .faq-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+        
+        .faq-question {
+            font-weight: bold;
+            color: var(--primary-black);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .faq-question:before {
+            content: "Q:";
+            color: var(--primary-green);
+            font-weight: bold;
+        }
+        
+        .user-name {
+            font-style: italic;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .faq-answer {
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .faq-answer:before {
+            content: "A:";
+            position: absolute;
+            left: 0;
+            color: var(--primary-green);
+            font-weight: bold;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary-black);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-yellow);
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+        
+        @media (max-width: 768px) {
+            .header-top {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .article-header h1 {
+                font-size: 2rem;
+            }
+            
+            .article-image {
+                height: 250px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <i class="fas fa-heartbeat"></i>
+                    <span>Health-Hubs</span>
+                </div>
+                <div class="social-icons">
+                    <a href="index.html"><i class="fab fa-facebook-f"></i></a>
+                    <a href="index.html"><i class="fab fa-tiktok"></i></a>
+                    <a href="index.html"><i class="fab fa-telegram-plane"></i></a>
+                    <a href="index.html"><i class="fab fa-whatsapp"></i></a>
+                    <a href="index.html"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="faqs.html">FAQs</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <article>
+            <div class="article-header">
+                <h1>7 Daily Habits to Improve Your Mental Health</h1>
+                <div class="article-meta">
+                    <span>By Dr. Robert Kim</span>
+                    <span>October 22, 2023</span>
+                </div>
+            </div>
+            
+            <img src="images/1761213245353.jpg" alt="Person practicing mindfulness in nature" class="article-image">
+            
+            <div class="article-content">
+                <p>Have you ever noticed how some people seem to navigate life's challenges with remarkable grace and resilience, while others struggle with everyday stressors? The difference often lies not in their circumstances, but in their daily mental health practices. Just as we brush our teeth daily to maintain dental health, our minds require consistent care to function optimally.</p>
+                
+                <p>Mental wellness isn't a destination—it's a journey of daily practices that build psychological resilience over time. As a clinical psychologist with over 15 years of experience, I've witnessed firsthand how small, consistent habits can transform mental health outcomes. In this article, I'll share seven evidence-based daily practices that can significantly improve your mood, reduce anxiety, and enhance your overall psychological wellbeing.</p>
+                
+                <div class="habit-section">
+                    <h3>1. Gratitude Journaling</h3>
+                    <p>Starting your day with gratitude isn't just a feel-good practice—it's neuroscience in action. Research from UC Davis shows that regularly acknowledging what you're thankful for can increase dopamine and serotonin levels, the neurotransmitters responsible for happiness. I recommend keeping a small notebook by your bed and writing down three specific things you're grateful for each morning. This practice shifts your brain's attention from problems to possibilities, creating a positive framework for your entire day.</p>
+                </div>
+                
+                <div class="habit-section">
+                    <h3>2. Mindful Morning Moments</h3>
+                    <p>Before reaching for your phone, dedicate the first 10 minutes of your day to mindfulness. This could be simple breathing exercises, a short meditation, or just sipping your coffee while fully present. Studies from Johns Hopkins University found that daily meditation can reduce symptoms of anxiety and depression by nearly 30%. This practice creates a buffer between you and the day's demands, allowing you to respond thoughtfully rather than react impulsively.</p>
+                </div>
+                
+                <div class="habit-section">
+                    <h3>3. Digital Detox Periods</h3>
+                    <p>Our constant connectivity comes at a mental cost. The American Psychological Association warns that excessive screen time correlates with increased stress levels. Designate specific "digital detox" periods each day—perhaps during meals or the last hour before bed. During these times, consciously disconnect from devices and reconnect with yourself or loved ones. This habit reduces information overload and creates space for reflection and genuine connection.</p>
+                </div>
+                
+                <div class="habit-section">
+                    <h3>4. Purposeful Movement</h3>
+                    <p>Physical activity isn't just for your body—it's crucial for mental health. The Mayo Clinic confirms that exercise releases endorphins that act as natural mood elevators. You don't need intense workouts; even 20 minutes of brisk walking can significantly reduce anxiety. The key is consistency and finding movement you enjoy, whether it's dancing, yoga, or simply taking the stairs.</p>
+                </div>
+                
+                <img src="images/002.png" alt="Person journaling in a peaceful setting" class="article-image">
+                
+                <div class="habit-section">
+                    <h3>5. Social Connection Rituals</h3>
+                    <p>Harvard's 85-year study on adult development consistently shows that strong social connections are the single biggest predictor of happiness and longevity. Create daily rituals for connection—a morning text to a friend, a family dinner without devices, or a brief video call with a loved one. These small investments in relationships build a support network that buffers against life's stresses.</p>
+                </div>
+                
+                <div class="habit-section">
+                    <h3>6. Evening Reflection</h3>
+                    <p>Just as you started your day with intention, end it with reflection. Take five minutes before bed to acknowledge one thing you learned, one moment of joy, and one challenge you navigated. This practice, supported by research from the University of Texas, helps process the day's events and promotes restful sleep by providing cognitive closure.</p>
+                </div>
+                
+                <div class="habit-section">
+                    <h3>7. Compassionate Self-Talk</h3>
+                    <p>How you speak to yourself matters profoundly. Stanford research shows that self-criticism activates the same brain regions as physical pain. Practice replacing harsh self-judgments with compassionate acknowledgments. Instead of "I failed at that," try "I'm learning how to do this better." This habit rewires your brain for resilience and self-acceptance.</p>
+                </div>
+                
+                <p>Implementing these seven habits doesn't require overhauling your life. Start with one practice that resonates with you, commit to it for 21 days, then add another. Mental wellness is built through consistent, small actions—not grand gestures. Remember, progress isn't linear, and self-compassion is the foundation of all sustainable change.</p>
+                
+                <p>As you integrate these practices into your daily routine, you'll likely notice subtle shifts—more moments of presence, increased emotional regulation, and greater resilience in facing challenges. Your mental health is your greatest asset, and these daily investments yield compounding returns for your overall wellbeing.</p>
+                
+                <div class="share-section">
+                    <p>Found this article helpful? Share it with others who might benefit:</p>
+                    <a href="https://health-hubs.netlify.app" class="share-btn">
+                        <i class="fas fa-share-alt"></i> Share This Article
+                    </a>
+                </div>
+                
+                <div class="faq-section">
+                    <h2>Frequently Asked Questions</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            How long until I see results from these mental health habits?
+                            <span class="user-name">- Sarah M.</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Most people notice subtle improvements in mood and stress levels within 1-2 weeks of consistent practice. However, significant changes in overall mental resilience typically develop over 6-8 weeks. The key is consistency rather than perfection—even practicing these habits 4-5 days per week can yield substantial benefits.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            What if I don't have time for all seven habits daily?
+                            <span class="user-name">- Michael T.</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>You don't need to implement all seven habits at once! Start with just one that feels most manageable or appealing. Even 5-10 minutes dedicated to a single mental health practice can make a meaningful difference. The habits are designed to be flexible—for example, gratitude journaling takes just 2-3 minutes, and mindful moments can be incorporated into existing routines like showering or commuting.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Are these habits a substitute for therapy or medication?
+                            <span class="user-name">- Jennifer L.</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>No, these daily practices are complementary to professional mental health care, not replacements. If you're experiencing clinical depression, anxiety disorders, or other mental health conditions, please consult with a healthcare provider. These habits work well alongside therapy and medication, often enhancing their effectiveness by building daily coping skills and resilience.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-heartbeat"></i>
+                    <span>Health-Hubs</span>
+                </div>
+                <div class="footer-links">
+                    <a href="home.html">Home</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="faqs.html">FAQs</a>
+                    <a href="about.html">About</a>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 Health-Hubs. All rights reserved. | This article is for informational purposes only and is not a substitute for professional medical advice.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
