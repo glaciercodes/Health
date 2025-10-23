@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Natural Skincare: Kitchen Ingredients for Glowing Skin | Health-Hubs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2e8b57; /* Green */
+            --secondary: #ffd700; /* Yellow */
+            --dark: #121212; /* Black */
+            --light: #f8f8f8;
+            --accent: #ff69b4; /* Pink */
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            padding: 20px 0;
+            border-bottom: 2px solid var(--primary);
+        }
+        
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            color: var(--accent);
+            font-size: 28px;
+            animation: heartbeat 1.5s infinite;
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .logo h1 {
+            color: var(--secondary);
+            font-size: 28px;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icons a {
+            color: var(--light);
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--secondary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            justify-content: center;
+        }
+        
+        nav a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        nav a:hover {
+            color: var(--secondary);
+        }
+        
+        /* Article Styles */
+        .article-header {
+            text-align: center;
+            padding: 40px 0;
+            border-bottom: 1px solid #333;
+            margin-bottom: 40px;
+        }
+        
+        .article-title {
+            font-size: 36px;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+        
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+        
+        .share-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 20px auto;
+            transition: background-color 0.3s;
+        }
+        
+        .share-btn:hover {
+            background-color: #1f6e41;
+        }
+        
+        .intro {
+            font-size: 18px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-style: italic;
+            color: #ddd;
+        }
+        
+        .ingredient {
+            display: flex;
+            margin-bottom: 50px;
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .ingredient:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .ingredient-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        .ingredient-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .ingredient-content {
+            flex: 1;
+        }
+        
+        .ingredient-title {
+            color: var(--secondary);
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        .benefits {
+            background-color: rgba(46, 139, 87, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        
+        .benefits h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .benefits ul {
+            padding-left: 20px;
+        }
+        
+        .benefits li {
+            margin-bottom: 8px;
+        }
+        
+        /* FAQ Styles */
+        .faq-section {
+            margin: 50px 0;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+        }
+        
+        .faq-title {
+            text-align: center;
+            color: var(--secondary);
+            margin-bottom: 30px;
+        }
+        
+        .faq-item {
+            margin-bottom: 25px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 20px;
+        }
+        
+        .faq-question {
+            color: var(--primary);
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .faq-question:before {
+            content: "Q:";
+            color: var(--accent);
+            font-weight: bold;
+        }
+        
+        .faq-answer {
+            color: #ddd;
+        }
+        
+        .user-name {
+            color: var(--secondary);
+            font-style: italic;
+            margin-top: 5px;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            border-top: 1px solid #333;
+            margin-top: 50px;
+            color: #aaa;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .ingredient, .ingredient:nth-child(even) {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+            
+            .top-bar {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="top-bar">
+                <div class="logo">
+                    <i class="fas fa-heartbeat logo-icon"></i>
+                    <h1>Health-Hubs</h1>
+                </div>
+                <div class="social-icons">
+                    <a href="index.html"><i class="fab fa-facebook"></i></a>
+                    <a href="index.html"><i class="fab fa-tiktok"></i></a>
+                    <a href="index.html"><i class="fab fa-telegram"></i></a>
+                    <a href="index.html"><i class="fab fa-whatsapp"></i></a>
+                    <a href="index.html"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="home.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="blog.html"><i class="fas fa-blog"></i> Blog</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
+                    <li><a href="faqs.html"><i class="fas fa-question-circle"></i> FAQs</a></li>
+                    <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <article>
+            <div class="article-header">
+                <h1 class="article-title">Natural Skincare: 6 Kitchen Ingredients for Glowing Skin</h1>
+                <div class="article-meta">
+                    <span>By Dr. Emily Sanders</span>
+                    <span>November 18, 2023</span>
+                </div>
+                <button class="share-btn" onclick="sharePage()">
+                    <i class="fas fa-share-alt"></i> Share This Article
+                </button>
+            </div>
+            
+            <p class="intro">What if I told you that the secret to radiant, healthy skin isn't hiding in expensive department store products, but right there in your kitchen pantry? As a dermatologist with over 15 years of experience, I've seen firsthand how simple, natural ingredients can transform skin health.</p>
+            
+            <div class="ingredient">
+                <div class="ingredient-image">
+                    <img src="images/1761216749581.jpg" alt="Raw Honey">
+                </div>
+                <div class="ingredient-content">
+                    <h2 class="ingredient-title">1. Honey - Nature's Antibacterial</h2>
+                    <p>Honey has been used for centuries in skincare, and modern research confirms its remarkable properties. Raw, unprocessed honey is packed with antioxidants, enzymes, and nutrients that benefit the skin in multiple ways.</p>
+                    
+                    <div class="benefits">
+                        <h3>Key Benefits:</h3>
+                        <ul>
+                            <li><strong>Antibacterial properties</strong> help combat acne-causing bacteria</li>
+                            <li><strong>Humectant qualities</strong> help skin retain moisture</li>
+                            <li><strong>Anti-inflammatory effects</strong> reduce redness and swelling</li>
+                            <li><strong>Rich in antioxidants</strong> that fight free radical damage</li>
+                        </ul>
+                    </div>
+                    
+                    <p><strong>DIY Treatment:</strong> Create a simple honey mask by applying raw honey directly to clean skin. Leave on for 15-20 minutes before rinsing with warm water. For acne-prone skin, add a teaspoon of cinnamon which has additional antimicrobial properties.</p>
+                </div>
+            </div>
+            
+            <div class="ingredient">
+                <div class="ingredient-image">
+                    <img src="images/1761216782234.jpg" alt="Oatmeal">
+                </div>
+                <div class="ingredient-content">
+                    <h2 class="ingredient-title">2. Oatmeal - The Soothing Solution</h2>
+                    <p>Oatmeal isn't just a breakfast staple—it's a skincare powerhouse, particularly for sensitive or irritated skin. Colloidal oatmeal, finely ground oats that suspend in liquid, has been approved by the FDA as a skin protectant.</p>
+                    
+                    <div class="benefits">
+                        <h3>Key Benefits:</h3>
+                        <ul>
+                            <li><strong>Anti-inflammatory properties</strong> calm irritated skin</li>
+                            <li><strong>Natural cleanser</strong> that removes dirt and oil without stripping</li>
+                            <li><strong>Soothes itching</strong> from conditions like eczema</li>
+                            <li><strong>Contains saponins</strong> that gently cleanse the skin</li>
+                        </ul>
+                    </div>
+                    
+                    <p><strong>DIY Treatment:</strong> For a calming oatmeal bath, grind one cup of plain oats in a blender until fine. Add to warm bathwater and soak for 15-20 minutes. For a face mask, mix ground oatmeal with honey and a little water to form a paste.</p>
+                </div>
+            </div>
+            
+            <div class="ingredient">
+                <div class="ingredient-image">
+                    <img src="images/1761216812014.jpg" alt="Coconut Oil">
+                </div>
+                <div class="ingredient-content">
+                    <h2 class="ingredient-title">3. Coconut Oil - Ultimate Moisturizer</h2>
+                    <p>Coconut oil has gained immense popularity in skincare, and for good reason. Its unique fatty acid composition makes it an excellent moisturizer for many skin types, though those with very oily or acne-prone skin should use it cautiously.</p>
+                    
+                    <div class="benefits">
+                        <h3>Key Benefits:</h3>
+                        <ul>
+                            <li><strong>Rich in fatty acids</strong> that nourish and moisturize skin</li>
+                            <li><strong>Antimicrobial properties</strong> help protect against harmful microorganisms</li>
+                            <li><strong>Anti-inflammatory effects</strong> can reduce skin irritation</li>
+                            <li><strong>Contains vitamin E</strong>, a powerful antioxidant for skin health</li>
+                        </ul>
+                    </div>
+                    
+                    <p><strong>DIY Treatment:</strong> Use virgin coconut oil as a night cream or intensive moisturizer. Warm a small amount between your palms and gently press into damp skin. It can also be used as a gentle makeup remover or as a base for sugar scrubs.</p>
+                </div>
+            </div>
+            
+            <div class="ingredient">
+                <div class="ingredient-image">
+                    <img src="images/1761216850247.jpg" alt="Turmeric">
+                </div>
+                <div class="ingredient-content">
+                    <h2 class="ingredient-title">4. Turmeric - The Golden Spice for Skin</h2>
+                    <p>This vibrant yellow spice has been a cornerstone of Ayurvedic medicine for thousands of years. Curcumin, the active compound in turmeric, possesses powerful anti-inflammatory and antioxidant properties that benefit the skin.</p>
+                    
+                    <div class="benefits">
+                        <h3>Key Benefits:</h3>
+                        <ul>
+                            <li><strong>Powerful anti-inflammatory</strong> that reduces redness and swelling</li>
+                            <li><strong>Antioxidant properties</strong> help combat signs of aging</li>
+                            <li><strong>May help with hyperpigmentation</strong> and even out skin tone</li>
+                            <li><strong>Antimicrobial effects</strong> can benefit acne-prone skin</li>
+                        </ul>
+                    </div>
+                    
+                    <p><strong>DIY Treatment:</strong> Create a brightening mask by mixing 1 teaspoon turmeric with 2 tablespoons plain yogurt and 1 teaspoon honey. Apply to clean skin and leave for 10-15 minutes. Be cautious as turmeric can temporarily stain light skin.</p>
+                </div>
+            </div>
+            
+            <div class="ingredient">
+                <div class="ingredient-image">
+                    <img src="images/1761216874127.jpg" alt="Green Tea">
+                </div>
+                <div class="ingredient-content">
+                    <h2 class="ingredient-title">5. Green Tea - Antioxidant Powerhouse</h2>
+                    <p>While most of us drink green tea for its health benefits, it's equally impressive when applied topically. Green tea is rich in polyphenols, particularly EGCG, which has been shown to protect against UV damage and improve skin health.</p>
+                    
+                    <div class="benefits">
+                        <h3>Key Benefits:</h3>
+                        <ul>
+                            <li><strong>High in antioxidants</strong> that protect against environmental damage</li>
+                            <li><strong>Anti-inflammatory properties</strong> calm irritated skin</li>
+                            <li><strong>May reduce sebum production</strong> in oily skin types</li>
+                            <li><strong>Contains tannins</strong> that can temporarily tighten pores</li>
+                        </ul>
+                    </div>
+                    
+                    <p><strong>DIY Treatment:</strong> Brew a strong cup of green tea, allow it to cool completely, and use it as a facial toner with a cotton pad. For a refreshing mask, mix used green tea leaves with aloe vera gel and apply to skin for 15 minutes.</p>
+                </div>
+            </div>
+            
+            <div class="ingredient">
+                <div class="ingredient-image">
+                    <img src="images/1761216895474.jpg" alt="Aloe Vera">
+                </div>
+                <div class="ingredient-content">
+                    <h2 class="ingredient-title">6. Aloe Vera - The Soothing Healer</h2>
+                    <p>Known as the "burn plant," aloe vera has a long history of medicinal use for skin conditions. The clear gel inside aloe leaves contains compounds that reduce inflammation, fight bacteria, and promote skin repair.</p>
+                    
+                    <div class="benefits">
+                        <h3>Key Benefits:</h3>
+                        <ul>
+                            <li><strong>Powerful soothing properties</strong> for irritated or sunburned skin</li>
+                            <li><strong>Accelerates wound healing</strong> and reduces scarring</li>
+                            <li><strong>Hydrates without feeling greasy</strong>, suitable for all skin types</li>
+                            <li><strong>Contains antioxidants</strong> that fight premature aging</li>
+                        </ul>
+                    </div>
+                    
+                    <p><strong>DIY Treatment:</strong> Extract fresh gel from an aloe leaf and apply directly to skin as a moisturizer or after-sun treatment. For a hydrating mask, mix aloe gel with a few drops of rosewater and a teaspoon of honey.</p>
+                </div>
+            </div>
+            
+            <div class="faq-section">
+                <h2 class="faq-title">Frequently Asked Questions</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">How often should I use these natural treatments?</div>
+                    <div class="faq-answer">
+                        <p>Frequency depends on your skin type and the specific ingredient. Gentle ingredients like honey and oatmeal can be used daily, while more potent ones like turmeric might be better limited to 1-2 times per week. Always start slowly and observe how your skin responds.</p>
+                        <div class="user-name">- Sarah Johnson</div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Can these ingredients replace my entire skincare routine?</div>
+                    <div class="faq-answer">
+                        <p>While these natural ingredients offer wonderful benefits, they may not provide complete sun protection or address all skin concerns. I recommend incorporating them as supplements to a balanced routine that includes sunscreen—the most crucial skincare product for preventing aging and skin cancer.</p>
+                        <div class="user-name">- Michael Torres</div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Are there any risks with DIY skincare?</div>
+                    <div class="faq-answer">
+                        <p>While generally safe, natural ingredients can cause reactions in sensitive individuals. Always patch test new treatments on a small area of skin first. Also, be mindful of allergies—for example, those with bee pollen allergies should avoid honey. If you have specific skin conditions, consult a dermatologist before making significant changes to your routine.</p>
+                        <div class="user-name">- Priya Sharma</div>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="share-btn" onclick="sharePage()">
+                <i class="fas fa-share-alt"></i> Share This Article
+            </button>
+        </article>
+        
+        <footer>
+            <p>&copy; 2023 Health-Hubs. All rights reserved. | Written by Dr. Emily Sanders</p>
+            <p>Disclaimer: This article is for informational purposes only. Consult a healthcare professional for personalized medical advice.</p>
+        </footer>
+    </div>
+    
+    <script>
+        function sharePage() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Natural Skincare: 6 Kitchen Ingredients for Glowing Skin',
+                    text: 'Discover how to achieve radiant skin with common kitchen ingredients',
+                    url: 'https://health-hubs.netlify.app'
+                })
+                .then(() => console.log('Successful share'))
+                .catch((error) => console.log('Error sharing:', error));
+            } else {
+                // Fallback for browsers that don't support the Web Share API
+                alert('Share this article at: https://health-hubs.netlify.app');
+            }
+        }
+    </script>
+</body>
+</html>
