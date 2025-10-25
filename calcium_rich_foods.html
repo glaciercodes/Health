@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building Strong Bones: Calcium-Rich Foods Beyond Dairy | Health-Hubs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --black: #1a1a1a;
+            --green: #2e8b57;
+            --yellow: #ffd700;
+            --light-bg: #f9f9f9;
+            --text-color: #333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--black);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            color: #ff69b4;
+            font-size: 28px;
+            margin-right: 10px;
+            animation: heartbeat 1.5s ease-in-out infinite both;
+        }
+        
+        @keyframes heartbeat {
+            from { transform: scale(1); }
+            10% { transform: scale(1.1); }
+            20% { transform: scale(1); }
+            30% { transform: scale(1.1); }
+            40% { transform: scale(1); }
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--yellow);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--yellow);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            margin-top: 15px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--yellow);
+        }
+        
+        /* Article Styles */
+        .article-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            padding: 40px;
+            margin: 30px 0;
+        }
+        
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .article-title {
+            color: var(--black);
+            font-size: 36px;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+        
+        .article-meta {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        
+        .article-author {
+            color: var(--green);
+            font-weight: 600;
+        }
+        
+        .article-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin: 25px 0;
+        }
+        
+        .article-content h2 {
+            color: var(--green);
+            margin: 30px 0 15px;
+            font-size: 28px;
+        }
+        
+        .article-content h3 {
+            color: var(--black);
+            margin: 25px 0 12px;
+            font-size: 22px;
+        }
+        
+        .article-content p {
+            margin-bottom: 20px;
+            font-size: 17px;
+        }
+        
+        .article-content ul, .article-content ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+        
+        .article-content li {
+            margin-bottom: 10px;
+        }
+        
+        .highlight-box {
+            background-color: rgba(46, 139, 87, 0.1);
+            border-left: 4px solid var(--green);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .faq-section {
+            margin: 40px 0;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+        }
+        
+        .faq-item {
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .faq-question {
+            font-weight: 600;
+            color: var(--black);
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        
+        .faq-user {
+            color: var(--green);
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .share-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        
+        .share-text {
+            font-weight: 600;
+            color: var(--black);
+        }
+        
+        .share-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .share-icons a {
+            color: var(--green);
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+        
+        .share-icons a:hover {
+            color: var(--black);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--black);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--yellow);
+        }
+        
+        .copyright {
+            color: #aaa;
+            font-size: 14px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-top {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+            
+            .article-title {
+                font-size: 28px;
+            }
+            
+            .article-image {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <a href="index.html" class="logo">
+                    <i class="fas fa-heartbeat logo-icon"></i>
+                    <span class="logo-text">Health-Hubs</span>
+                </a>
+                <div class="social-icons">
+                    <a href="index.html"><i class="fab fa-facebook-f"></i></a>
+                    <a href="index.html"><i class="fab fa-tiktok"></i></a>
+                    <a href="index.html"><i class="fab fa-telegram"></i></a>
+                    <a href="index.html"><i class="fab fa-whatsapp"></i></a>
+                    <a href="index.html"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="faqs.html">FAQs</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="container">
+        <article class="article-container">
+            <div class="article-header">
+                <h1 class="article-title">Building Strong Bones: Calcium-Rich Foods Beyond Dairy</h1>
+                <div class="article-meta">
+                    By <span class="article-author">Dr. Olivia Martin</span> | June 1, 2024
+                </div>
+            </div>
+            
+            <img src="images/1761386566631.jpg" alt="Various calcium-rich foods arranged artistically" class="article-image">
+            
+            <div class="article-content">
+                <p>Did you know that your skeleton completely regenerates itself about every 10 years? That's right—the bones you have today aren't the same ones you had a decade ago. This remarkable process requires a constant supply of key nutrients, and while dairy often gets the spotlight, it's far from the only player in bone health.</p>
+                
+                <p>As a nutrition specialist with over 15 years of clinical experience, I've seen countless patients surprised to learn that strong bones require more than just calcium, and that dairy isn't the only—or even the best—source for everyone. Let's explore the comprehensive world of bone-building foods that can support your skeletal health throughout life.</p>
+                
+                <h2>The Bone Health Trinity: Calcium, Vitamin D, and Magnesium</h2>
+                
+                <p>While calcium often steals the show in bone health conversations, it's actually part of a crucial trio. Vitamin D is essential for calcium absorption, and magnesium helps convert vitamin D into its active form while also contributing to bone crystal formation. Without these partners, calcium can't do its job effectively.</p>
+                
+                <div class="highlight-box">
+                    <p><strong>Key Insight:</strong> Research shows that getting calcium from food sources is generally more effective for bone health than supplements, as the nutrients work synergistically when consumed together.</p>
+                </div>
+                
+                <h2>Plant-Based Calcium Powerhouses</h2>
+                
+                <p>For those who are lactose intolerant, vegan, or simply looking to diversify their nutrient sources, these plant foods offer impressive calcium content:</p>
+                
+                <h3>Leafy Greens</h3>
+                <p>Dark leafy greens are calcium superstars. Collard greens lead the pack with a remarkable 268 mg of calcium per cooked cup—that's more calcium than a glass of milk! Kale, bok choy, and turnip greens are also excellent choices. The calcium in these greens is highly bioavailable, meaning your body can easily absorb and use it.</p>
+                
+                <h3>Fortified Foods</h3>
+                <p>Many plant-based milks (almond, soy, oat) and juices are fortified with calcium and vitamin D, making them convenient alternatives to dairy. Always check labels, as fortification levels vary. Tofu processed with calcium sulfate is another fantastic option, providing about 434 mg per half-cup.</p>
+                
+                <h3>Nuts and Seeds</h3>
+                <p>Almonds and sesame seeds are particularly rich in calcium. Just one ounce of almonds (about 23 nuts) provides 76 mg of calcium, along with magnesium and protein. Chia seeds and flaxseeds also contribute to your daily calcium intake while offering omega-3 fatty acids that may help reduce inflammation.</p>
+                
+                <img src="images/1761335562529.jpg" alt="Assortment of nuts, seeds, and leafy greens rich in calcium" class="article-image">
+                
+                <h2>Vitamin D: The Calcium Absorber</h2>
+                
+                <p>Without adequate vitamin D, your body can't properly absorb calcium, regardless of how much you consume. While sunlight is the primary source, these foods can help boost your levels:</p>
+                
+                <ul>
+                    <li><strong>Fatty fish:</strong> Salmon, mackerel, and tuna are excellent sources. A 3-ounce serving of cooked salmon provides about 70% of the daily vitamin D requirement.</li>
+                    <li><strong>Egg yolks:</strong> Specifically from pastured chickens, which tend to have higher vitamin D content.</li>
+                    <li><strong>Mushrooms:</strong> When exposed to UV light, mushrooms can synthesize vitamin D just like human skin. Look for varieties labeled as "UV-treated" or "high in vitamin D."</li>
+                </ul>
+                
+                <h2>Magnesium-Rich Foods for Bone Crystallization</h2>
+                
+                <p>Magnesium plays a critical role in bone health by helping to regulate calcium and vitamin D levels in the body. Excellent sources include:</p>
+                
+                <ol>
+                    <li><strong>Pumpkin seeds:</strong> Just one ounce provides 37% of your daily magnesium needs.</li>
+                    <li><strong>Spinach:</strong> One cup of cooked spinach contains 37% of the recommended daily intake.</li>
+                    <li><strong>Black beans:</strong> A versatile legume that provides 30% of your daily magnesium per cooked cup.</li>
+                    <li><strong>Avocado:</strong> A medium avocado offers about 15% of your daily magnesium requirement.</li>
+                </ol>
+                
+                <h2>Creating Bone-Healthy Meals</h2>
+                
+                <p>Building meals that support bone density is easier than you might think. Here's a sample day of bone-nourishing eating:</p>
+                
+                <p><strong>Breakfast:</strong> Fortified oatmeal with almonds, chia seeds, and sliced strawberries.</p>
+                <p><strong>Lunch:</strong> Large salad with kale, chickpeas, avocado, and sesame seed dressing.</p>
+                <p><strong>Dinner:</strong> Grilled salmon with steamed broccoli and quinoa.</p>
+                <p><strong>Snack:</strong> Fortified plant-based yogurt with a handful of almonds.</p>
+                
+                <div class="highlight-box">
+                    <p><strong>Pro Tip:</strong> Spread your calcium intake throughout the day rather than consuming it all at once. Your body can only absorb about 500 mg of calcium at a time, so smaller, regular doses are more effective.</p>
+                </div>
+                
+                <h2>Lifelong Bone Health Strategies</h2>
+                
+                <p>Bone health isn't just about what you eat—it's also about lifestyle factors. Weight-bearing exercises like walking, dancing, and strength training stimulate bone formation. Additionally, limiting alcohol and avoiding smoking are crucial, as both can interfere with calcium absorption and bone remodeling.</p>
+                
+                <p>Remember, it's never too early or too late to focus on bone health. Whether you're in your 20s building peak bone mass or in your 60s maintaining what you have, these nutritional strategies can help reduce fracture risk and support mobility throughout your life.</p>
+                
+                <div class="faq-section">
+                    <h2>Frequently Asked Questions</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-user">Asked by: Michael T.</div>
+                        <div class="faq-question">I'm lactose intolerant. Can I really get enough calcium without dairy products?</div>
+                        <p>Absolutely, Michael. Many plant foods are rich in highly absorbable calcium. Focus on dark leafy greens like collard greens and kale, fortified plant milks, calcium-set tofu, almonds, and sesame seeds. A varied diet containing these foods can easily meet your calcium needs without any dairy.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-user">Asked by: Sarah J.</div>
+                        <div class="faq-question">At what age should someone start being concerned about bone density?</div>
+                        <p>That's an excellent question, Sarah. Bone density peaks around age 30, so the earlier you start building strong bones, the better. However, it's never too late to implement bone-healthy habits. Even post-menopausal women can slow bone loss with proper nutrition and exercise. I recommend everyone focus on bone health throughout their lifespan.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-user">Asked by: David R.</div>
+                        <div class="faq-question">Are calcium supplements as effective as getting calcium from food?</div>
+                        <p>Great question, David. While supplements can be helpful for those who can't meet their needs through diet alone, food sources are generally preferred. The calcium in foods comes packaged with other nutrients that enhance its absorption and utilization. If you do need supplements, take them in divided doses (no more than 500 mg at a time) and with food for better absorption.</p>
+                    </div>
+                </div>
+                
+                <div class="share-section">
+                    <div class="share-text">Share this article:</div>
+                    <div class="share-icons">
+                        <a href="https://health-hubs.netlify.app" title="Share on Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://health-hubs.netlify.app" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://health-hubs.netlify.app" title="Share on LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://health-hubs.netlify.app" title="Share via Email"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="home.html">Home</a>
+                <a href="blog.html">Blog</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="faqs.html">FAQs</a>
+                <a href="about.html">About Us</a>
+            </div>
+            <div class="copyright">
+                &copy; 2024 Health-Hubs. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
