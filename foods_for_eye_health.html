@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protect Your Vision: 8 Foods for Eye Health | Health-Hubs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --black: #1a1a1a;
+            --green: #2ecc71;
+            --yellow: #f1c40f;
+            --pink: #e84393;
+            --light-bg: #2d2d2d;
+            --text: #f5f5f5;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--black);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            padding: 20px 0;
+            border-bottom: 2px solid var(--green);
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            color: var(--pink);
+            font-size: 28px;
+            animation: heartbeat 1.5s ease-in-out infinite both;
+        }
+        
+        @keyframes heartbeat {
+            from { transform: scale(1); }
+            10% { transform: scale(1.1); }
+            20% { transform: scale(1); }
+            30% { transform: scale(1.1); }
+            40% { transform: scale(1); }
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--green);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icons a {
+            color: var(--yellow);
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--green);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            justify-content: center;
+        }
+        
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        nav a:hover {
+            color: var(--yellow);
+        }
+        
+        /* Article Styles */
+        .article-header {
+            text-align: center;
+            padding: 40px 0;
+            border-bottom: 1px solid var(--light-bg);
+        }
+        
+        .article-title {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: var(--yellow);
+        }
+        
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            color: #aaa;
+        }
+        
+        .article-content {
+            padding: 40px 0;
+        }
+        
+        .intro {
+            font-size: 18px;
+            margin-bottom: 30px;
+            background-color: var(--light-bg);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--green);
+        }
+        
+        .food-item {
+            margin-bottom: 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .food-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+        
+        .food-number {
+            background-color: var(--green);
+            color: var(--black);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .food-title {
+            font-size: 24px;
+            color: var(--yellow);
+        }
+        
+        .food-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+            align-items: start;
+        }
+        
+        .food-image {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+        
+        .food-description {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .nutrients {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 10px 0;
+        }
+        
+        .nutrient-tag {
+            background-color: var(--light-bg);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 14px;
+            color: var(--green);
+        }
+        
+        .benefits-list {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .tip-box {
+            background-color: var(--light-bg);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--yellow);
+            margin-top: 10px;
+        }
+        
+        /* FAQ Styles */
+        .faq-section {
+            margin: 50px 0;
+            background-color: var(--light-bg);
+            padding: 30px;
+            border-radius: 8px;
+        }
+        
+        .faq-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--yellow);
+        }
+        
+        .faq-item {
+            margin-bottom: 25px;
+            border-bottom: 1px solid #444;
+            padding-bottom: 20px;
+        }
+        
+        .faq-question {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .user-icon {
+            color: var(--green);
+            font-size: 18px;
+        }
+        
+        .user-name {
+            font-weight: bold;
+            color: var(--yellow);
+        }
+        
+        .faq-answer {
+            margin-left: 28px;
+            color: #ddd;
+        }
+        
+        /* Share Section */
+        .share-section {
+            text-align: center;
+            margin: 40px 0;
+            padding: 20px;
+            background-color: var(--light-bg);
+            border-radius: 8px;
+        }
+        
+        .share-text {
+            margin-bottom: 15px;
+            color: var(--yellow);
+        }
+        
+        .share-link {
+            color: var(--green);
+            word-break: break-all;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            border-top: 1px solid var(--light-bg);
+            margin-top: 50px;
+            color: #aaa;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .food-content {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+            
+            .header-top {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-top">
+                <div class="logo">
+                    <i class="fas fa-heartbeat logo-icon"></i>
+                    <div class="logo-text">Health-Hubs</div>
+                </div>
+                <div class="social-icons">
+                    <a href="index.html"><i class="fab fa-facebook"></i></a>
+                    <a href="index.html"><i class="fab fa-tiktok"></i></a>
+                    <a href="index.html"><i class="fab fa-telegram"></i></a>
+                    <a href="index.html"><i class="fab fa-whatsapp"></i></a>
+                    <a href="index.html"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="home.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="blog.html"><i class="fas fa-blog"></i> Blog</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
+                    <li><a href="faqs.html"><i class="fas fa-question-circle"></i> FAQs</a></li>
+                    <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <article>
+            <div class="article-header">
+                <h1 class="article-title">Protect Your Vision: 8 Foods for Eye Health</h1>
+                <div class="article-meta">
+                    <span>By Dr. Anthony Green</span>
+                    <span>June 14, 2024</span>
+                </div>
+            </div>
+
+            <div class="article-content">
+                <p class="intro">
+                    Did you know that the food on your plate could be the most powerful prescription for preserving your eyesight? As an ophthalmologist with over 15 years of experience, I've witnessed firsthand how simple dietary changes can dramatically impact long-term eye health. In this article, I'll share eight specific foods that are scientifically proven to protect your vision against age-related conditions.
+                </p>
+
+                <!-- Food Item 1 -->
+                <div class="food-item">
+                    <div class="food-header">
+                        <div class="food-number">1</div>
+                        <h2 class="food-title">Leafy Greens (Spinach, Kale, Collards)</h2>
+                    </div>
+                    <div class="food-content">
+                        <img src="images/1761429132717.jpg" alt="Leafy Greens" class="food-image">
+                        <div class="food-description">
+                            <p>These dark leafy vegetables are packed with lutein and zeaxanthin, two powerful antioxidants that accumulate in the retina, particularly in the macula.</p>
+                            <div class="nutrients">
+                                <span class="nutrient-tag">Lutein</span>
+                                <span class="nutrient-tag">Zeaxanthin</span>
+                                <span class="nutrient-tag">Vitamin C</span>
+                            </div>
+                            <p><strong>Eye Benefits:</strong></p>
+                            <ul class="benefits-list">
+                                <li>Filter harmful high-energy blue wavelengths of light</li>
+                                <li>Reduce risk of chronic eye diseases, including age-related macular degeneration and cataracts</li>
+                                <li>Protect retinal cells from oxidative damage</li>
+                            </ul>
+                            <div class="tip-box">
+                                <strong>Diet Tip:</strong> Add a handful of spinach to your morning smoothie or sauté kale with garlic as a side dish. Cooking these greens actually enhances their bioavailability.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Food Item 2 -->
+                <div class="food-item">
+                    <div class="food-header">
+                        <div class="food-number">2</div>
+                        <h2 class="food-title">Fatty Fish (Salmon, Tuna, Sardines)</h2>
+                    </div>
+                    <div class="food-content">
+                        <img src="images/1761429177091.jpg" alt="Fatty Fish" class="food-image">
+                        <div class="food-description">
+                            <p>Cold-water fish are rich in omega-3 fatty acids, particularly DHA, which is a major structural component of the retina.</p>
+                            <div class="nutrients">
+                                <span class="nutrient-tag">Omega-3s</span>
+                                <span class="nutrient-tag">DHA</span>
+                                <span class="nutrient-tag">Vitamin D</span>
+                            </div>
+                            <p><strong>Eye Benefits:</strong></p>
+                            <ul class="benefits-list">
+                                <li>Help prevent dry eyes by supporting healthy tear production</li>
+                                <li>Reduce inflammation that can contribute to macular degeneration</li>
+                                <li>Support retinal function and visual development</li>
+                            </ul>
+                            <div class="tip-box">
+                                <strong>Diet Tip:</strong> Aim for two servings of fatty fish per week. If you're vegetarian, consider algae-based omega-3 supplements.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Food Item 3 -->
+                <div class="food-item">
+                    <div class="food-header">
+                        <div class="food-number">3</div>
+                        <h2 class="food-title">Eggs</h2>
+                    </div>
+                    <div class="food-content">
+                        <img src="images/1761429235588.jpg" alt="Eggs" class="food-image">
+                        <div class="food-description">
+                            <p>Egg yolks are excellent sources of lutein, zeaxanthin, vitamin E, and zinc, making them a powerhouse for eye health.</p>
+                            <div class="nutrients">
+                                <span class="nutrient-tag">Lutein</span>
+                                <span class="nutrient-tag">Zeaxanthin</span>
+                                <span class="nutrient-tag">Zinc</span>
+                                <span class="nutrient-tag">Vitamin E</span>
+                            </div>
+                            <p><strong>Eye Benefits:</strong></p>
+                            <ul class="benefits-list">
+                                <li>Increase macular pigment density, protecting against blue light damage</li>
+                                <li>Zinc helps vitamin A create melanin, a protective pigment in the eyes</li>
+                                <li>Reduce risk of night blindness and age-related macular degeneration</li>
+                            </ul>
+                            <div class="tip-box">
+                                <strong>Diet Tip:</strong> Don't skip the yolk—that's where most of the eye-protecting nutrients are! Enjoy eggs scrambled, boiled, or as an omelet with vegetables.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Food Item 4 -->
+                <div class="food-item">
+                    <div class="food-header">
+                        <div class="food-number">4</div>
+                        <h2 class="food-title">Citrus Fruits and Berries</h2>
+                    </div>
+                    <div class="food-content">
+                        <img src="images/1761210148874.jpg" alt="Citrus Fruits and Berries" class="food-image">
+                        <div class="food-description">
+                            <p>Oranges, lemons, strawberries, and blueberries are packed with vitamin C, a powerful antioxidant critical for eye health.</p>
+                            <div class="nutrients">
+                                <span class="nutrient-tag">Vitamin C</span>
+                                <span class="nutrient-tag">Antioxidants</span>
+                                <span class="nutrient-tag">Flavonoids</span>
+                            </div>
+                            <p><strong>Eye Benefits:</strong></p>
+                            <ul class="benefits-list">
+                                <li>Fight age-related ocular damage by neutralizing free radicals</li>
+                                <li>Support blood vessels in the eyes, reducing risk of cataracts</li>
+                                <li>Combine with other nutrients to slow progression of macular degeneration</li>
+                            </ul>
+                            <div class="tip-box">
+                                <strong>Diet Tip:</strong> Start your day with a glass of orange juice or add berries to your breakfast cereal or yogurt.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Food Item 5 -->
+                <div class="food-item">
+                    <div class="food-header">
+                        <div class="food-number">5</div>
+                        <h2 class="food-title">Nuts and Seeds</h2>
+                    </div>
+                    <div class="food-content">
+                        <img src="images/1761429296751.jpg" alt="Nuts and Seeds" class="food-image">
+                        <div class="food-description">
+                            <p>Almonds, walnuts, flaxseeds, and chia seeds are rich in vitamin E and omega-3 fatty acids.</p>
+                            <div class="nutrients">
+                                <span class="nutrient-tag">Vitamin E</span>
+                                <span class="nutrient-tag">Omega-3s</span>
+                                <span class="nutrient-tag">Zinc</span>
+                            </div>
+                            <p><strong>Eye Benefits:</strong></p>
+                            <ul class="benefits-list">
+                                <li>Vitamin E protects eye cells from free radical damage</li>
+                                <li>Help prevent age-related macular degeneration and cataracts</li>
+                                <li>Support overall eye tissue health</li>
+                            </ul>
+                            <div class="tip-box">
+                                <strong>Diet Tip:</strong> Keep a small container of mixed nuts at your desk for a healthy snack, or sprinkle ground flaxseed on oatmeal or salads.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Food Item 6 -->
+                <div class="food-item">
+                    <div class="food-header">
+                        <div class="food-number">6</div>
+                        <h2 class="food-title">Carrots and Sweet Potatoes</h2>
+                    </div>
+                    <div class="food-content">
+                        <img src="images/1761429345213.jpg" alt="Carrots and Sweet Potatoes" class="food-image">
+                        <div class="food-description">
+                            <p>These orange-colored vegetables are famous for their high beta-carotene content, which the body converts to vitamin A.</p>
+                            <div class="nutrients">
+                                <span class="nutrient-tag">Beta-carotene</span>
+                                <span class="nutrient-tag">Vitamin A</span>
+                                <span class="nutrient-tag">Antioxidants</span>
+                            </div>
+                            <p><strong>Eye Benefits:</strong></p>
+                            <ul class="benefits-list">
+                                <li>Essential for good night vision</li>
+                                <li>Help the retina absorb light effectively</li>
+                                <li>Reduce risk of cataracts and macular degeneration</li>
+                            </ul>
+                            <div class="tip-box">
+                                <strong>Diet Tip:</strong> Roast sweet potatoes with a drizzle of olive oil, or enjoy carrot sticks with hummus as a snack.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Food Item 7 -->
+                <div class="food-item">
+                    <div class="food-header">
+                        <div class="food-number">7</div>
+                        <h2 class="food-title">Bell Peppers</h2>
+                    </div>
+                    <div class="food-content">
+                        <img src="images/1761429381559.jpg" alt="Bell Peppers" class="food-image">
+                        <div class="food-description">
+                            <p>Brightly colored bell peppers, especially the red and yellow varieties, are packed with vitamins C and A.</p>
+                            <div class="nutrients">
+                                <span class="nutrient-tag">Vitamin C</span>
+                                <span class="nutrient-tag">Vitamin A</span>
+                                <span class="nutrient-tag">Antioxidants</span>
+                            </div>
+                            <p><strong>Eye Benefits:</strong></p>
+                            <ul class="benefits-list">
+                                <li>Protect against cataracts</li>
+                                <li>Support blood vessels in the eyes, reducing risk of vision problems</li>
+                                <li>Provide antioxidant protection against UV light damage</li>
+                            </ul>
+                            <div class="tip-box">
+                                <strong>Diet Tip:</strong> Add sliced bell peppers to stir-fries, salads, or enjoy them raw with dip. Cooking actually increases their vitamin A availability.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Food Item 8 -->
+                <div class="food-item">
+                    <div class="food-header">
+                        <div class="food-number">8</div>
+                        <h2 class="food-title">Legumes (Beans and Lentils)</h2>
+                    </div>
+                    <div class="food-content">
+                        <img src="images/008.png" alt="Legumes" class="food-image">
+                        <div class="food-description">
+                            <p>Kidney beans, black-eyed peas, and lentils are excellent plant-based sources of bioflavonoids and zinc.</p>
+                            <div class="nutrients">
+                                <span class="nutrient-tag">Zinc</span>
+                                <span class="nutrient-tag">Bioflavonoids</span>
+                                <span class="nutrient-tag">Omega-3s</span>
+                            </div>
+                            <p><strong>Eye Benefits:</strong></p>
+                            <ul class="benefits-list">
+                                <li>Zinc helps transport vitamin A from the liver to the retina</li>
+                                <li>Protect the retina and lower risk of developing advanced macular degeneration</li>
+                                <li>Help prevent cataracts and support night vision</li>
+                            </ul>
+                            <div class="tip-box">
+                                <strong>Diet Tip:</strong> Add beans to soups, salads, or make a hearty lentil stew. Soaking dried beans before cooking can improve nutrient absorption.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Section -->
+                <div class="faq-section">
+                    <h2 class="faq-title">Frequently Asked Questions</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <i class="fas fa-user-circle user-icon"></i>
+                            <div>
+                                <span class="user-name">Michael T.:</span> "How quickly will I see improvements in my vision after changing my diet?"
+                            </div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>That's an excellent question, Michael. While some people report minor improvements in symptoms like dry eyes within a few weeks, the primary benefits of these dietary changes are long-term protection. The nutrients build up in your eye tissues over time, creating a protective barrier against age-related damage. Most significant studies showing reduced risk of macular degeneration and cataracts tracked participants' diets over many years. Think of it as a retirement plan for your eyes—the earlier you start, the better protected you'll be later in life.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <i class="fas fa-user-circle user-icon"></i>
+                            <div>
+                                <span class="user-name">Sarah J.:</span> "I already have macular degeneration. Can these foods help reverse the condition?"
+                            </div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Sarah, while these foods can't reverse existing macular degeneration, they can significantly slow its progression. The AREDS2 study, a major clinical trial, found that specific combinations of these nutrients (lutein, zeaxanthin, vitamin C, vitamin E, zinc, and omega-3s) can reduce the risk of progression to advanced macular degeneration by about 25%. I always tell my patients that it's never too late to benefit from a healthier diet. Along with regular eye exams and any prescribed treatments, nutritional approaches play a crucial role in managing the condition.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <i class="fas fa-user-circle user-icon"></i>
+                            <div>
+                                <span class="user-name">David R.:</span> "Are supplements as effective as getting these nutrients from food?"
+                            </div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Great question, David. Whole foods generally provide nutrients in their most bioavailable form, along with complementary compounds that enhance absorption. However, for people at high risk of advanced macular degeneration, the AREDS2 formula supplements have proven effective. I typically recommend a food-first approach for prevention, with supplements considered for those with established intermediate macular degeneration or significant risk factors. If you choose supplements, look for ones that contain the AREDS2 formula without beta-carotene (which was removed from the original formula due to increased lung cancer risk in smokers).</p>
+                        </div>
+                    </div>
+                </div>
+
+                
+            </div>
+        </article>
+
+        <footer>
+            <p>&copy; 2024 Health-Hubs. All rights reserved. This article is for informational purposes only and is not a substitute for professional medical advice.</p>
+        </footer>
+    </div>
+</body>
+</html>
