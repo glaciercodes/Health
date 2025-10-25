@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain-Boosting Foods | Health-Hubs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4CAF50; /* Green */
+            --secondary: #FFEB3B; /* Yellow */
+            --dark: #121212; /* Black */
+            --light: #f5f5f5;
+            --accent: #ff4081; /* Pink for heartbeat */
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            padding: 20px 0;
+            border-bottom: 1px solid #333;
+        }
+        
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            color: var(--accent);
+            font-size: 28px;
+            animation: heartbeat 1.5s ease-in-out infinite both;
+        }
+        
+        @keyframes heartbeat {
+            from {
+                transform: scale(1);
+                transform-origin: center center;
+                animation-timing-function: ease-out;
+            }
+            10% {
+                transform: scale(0.91);
+                animation-timing-function: ease-in;
+            }
+            17% {
+                transform: scale(0.98);
+                animation-timing-function: ease-out;
+            }
+            33% {
+                transform: scale(0.87);
+                animation-timing-function: ease-in;
+            }
+            45% {
+                transform: scale(1);
+                animation-timing-function: ease-out;
+            }
+        }
+        
+        .logo h1 {
+            color: var(--primary);
+            font-size: 28px;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icons a {
+            color: var(--secondary);
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--primary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            justify-content: center;
+        }
+        
+        nav a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--primary);
+        }
+        
+        /* Main Content Styles */
+        .main-content {
+            padding: 40px 0;
+        }
+        
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .article-header h2 {
+            font-size: 36px;
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+        
+        .article-meta {
+            color: #aaa;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .featured-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .article-content p {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        
+        .article-content h3 {
+            color: var(--primary);
+            margin: 30px 0 15px;
+            font-size: 24px;
+        }
+        
+        .highlight {
+            background-color: rgba(76, 175, 80, 0.1);
+            border-left: 4px solid var(--primary);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .food-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .food-item {
+            background-color: #1e1e1e;
+            padding: 20px;
+            border-radius: 8px;
+            border-top: 3px solid var(--secondary);
+        }
+        
+        .food-item h4 {
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+        
+        /* FAQ Styles */
+        .faq-section {
+            margin-top: 50px;
+            background-color: #1e1e1e;
+            padding: 30px;
+            border-radius: 8px;
+        }
+        
+        .faq-section h3 {
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+        
+        .faq-item {
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #333;
+        }
+        
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        
+        .faq-question {
+            font-weight: bold;
+            color: var(--secondary);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .faq-question:before {
+            content: "Q:";
+            color: var(--primary);
+            font-weight: bold;
+        }
+        
+        .user-name {
+            color: #aaa;
+            font-size: 14px;
+            font-style: italic;
+        }
+        
+        .faq-answer {
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .faq-answer:before {
+            content: "A:";
+            color: var(--primary);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Share Section */
+        .share-section {
+            margin-top: 40px;
+            text-align: center;
+            padding: 20px;
+            background-color: #1e1e1e;
+            border-radius: 8px;
+        }
+        
+        .share-section p {
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+        
+        .share-link {
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+        
+        .share-link:hover {
+            background-color: #3d8b40;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+            border-top: 1px solid #333;
+            color: #aaa;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .top-bar {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+            
+            .featured-image {
+                height: 250px;
+            }
+            
+            .article-header h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="top-bar">
+                <div class="logo">
+                    <i class="fas fa-heartbeat logo-icon"></i>
+                    <h1>Health-Hubs</h1>
+                </div>
+                <div class="social-icons">
+                    <a href="index.html"><i class="fab fa-facebook"></i></a>
+                    <a href="index.html"><i class="fab fa-tiktok"></i></a>
+                    <a href="index.html"><i class="fab fa-telegram"></i></a>
+                    <a href="index.html"><i class="fab fa-whatsapp"></i></a>
+                    <a href="index.html"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="faqs.html">FAQs</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="main-content">
+        <div class="container">
+            <article>
+                <div class="article-header">
+                    <h2>Foods That Boost Brain Function and Memory</h2>
+                    <div class="article-meta">By Dr. Christopher Lee | March 3, 2024</div>
+                </div>
+                
+                <img src="images/1761377753098.jpg" alt="Brain-boosting foods" class="featured-image">
+                
+                <div class="article-content">
+                    <p>Have you ever walked into a room and completely forgotten why you went there? Or struggled to recall a name that was on the tip of your tongue? These frustrating moments aren't just normal signs of a busy life—they're clues about what's happening inside your brain. The good news is that the solution might be waiting in your kitchen.</p>
+                    
+                    <p>As a neurologist with over 15 years of clinical experience, I've witnessed firsthand how nutrition directly impacts cognitive performance. What you eat doesn't just affect your waistline—it fundamentally shapes your brain's structure and function. The latest research reveals that specific foods can enhance memory, sharpen focus, and even protect against age-related cognitive decline.</p>
+                    
+                    <div class="highlight">
+                        <p>Your brain is only 2% of your body weight, but it consumes 20% of your daily calories. This energy-hungry organ needs the right fuel to perform at its best.</p>
+                    </div>
+                    
+                    <h3>The Science Behind Brain Nutrition</h3>
+                    
+                    <p>Before we dive into specific foods, let's understand how nutrition affects your brain. Your brain is composed of nearly 60% fat, making healthy fats essential for its structure. The communication between brain cells depends on neurotransmitters, which are built from the amino acids in protein. Antioxidants protect brain cells from damage caused by free radicals, while vitamins and minerals facilitate countless biochemical reactions.</p>
+                    
+                    <p>When you consistently provide your brain with the right nutrients, you're essentially building a cognitive reserve—a buffer that helps maintain function even as you age. This isn't just theoretical; multiple longitudinal studies have shown that people with healthier diets have slower rates of cognitive decline.</p>
+                    
+                    <h3>Top Brain-Boosting Foods</h3>
+                    
+                    <div class="food-list">
+                        <div class="food-item">
+                            <h4>Fatty Fish</h4>
+                            <p>Rich in omega-3 fatty acids (DHA and EPA), which are essential for brain structure and function. Studies show regular consumption can slow age-related mental decline.</p>
+                        </div>
+                        
+                        <div class="food-item">
+                            <h4>Blueberries</h4>
+                            <p>Packed with antioxidants that protect brain cells from oxidative stress. Research suggests they may improve communication between brain cells.</p>
+                        </div>
+                        
+                        <div class="food-item">
+                            <h4>Turmeric</h4>
+                            <p>Contains curcumin, which can cross the blood-brain barrier and has been shown to reduce inflammation and amyloid plaques associated with Alzheimer's.</p>
+                        </div>
+                        
+                        <div class="food-item">
+                            <h4>Broccoli</h4>
+                            <p>High in antioxidants and vitamin K, which is believed to support brain health and cognitive function.</p>
+                        </div>
+                        
+                        <div class="food-item">
+                            <h4>Pumpkin Seeds</h4>
+                            <p>Rich in magnesium, iron, zinc, and copper—all crucial minerals for nerve signaling, learning, and memory.</p>
+                        </div>
+                        
+                        <div class="food-item">
+                            <h4>Dark Chocolate</h4>
+                            <p>Contains flavonoids, caffeine, and antioxidants that may enhance memory and slow age-related mental decline.</p>
+                        </div>
+                    </div>
+                    
+                    <h3>Building a Brain-Healthy Diet</h3>
+                    
+                    <p>Incorporating these foods into your regular diet doesn't require a complete overhaul. Start by making simple swaps: choose fatty fish like salmon instead of red meat once or twice a week, snack on a handful of nuts and berries instead of processed snacks, and consider adding turmeric to your cooking.</p>
+                    
+                    <p>The Mediterranean diet, which emphasizes fruits, vegetables, fish, and healthy fats, has been extensively studied and consistently linked to better cognitive function in older adults. This pattern of eating provides a wide spectrum of brain-protective nutrients.</p>
+                    
+                    <div class="highlight">
+                        <p>Consistency matters more than perfection. Adding just one or two brain-healthy foods to your daily routine can make a significant difference over time.</p>
+                    </div>
+                    
+                    <h3>The Gut-Brain Connection</h3>
+                    
+                    <p>Emerging research highlights the importance of the gut-brain axis—the bidirectional communication between your digestive system and your brain. A healthy gut microbiome, supported by fermented foods and fiber, may positively influence brain function and even mood. This explains why probiotic-rich foods like yogurt and kefir might indirectly support cognitive health.</p>
+                    
+                    <p>What we eat today directly impacts how our brains will function tomorrow, next month, and decades from now. By making intentional food choices, we're not just feeding our bodies—we're nourishing our most valuable asset: our minds.</p>
+                    
+                    <div class="faq-section">
+                        <h3>Frequently Asked Questions</h3>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                How long does it take to notice improvements in brain function after changing your diet?
+                                <span class="user-name">- Sarah J.</span>
+                            </div>
+                            <div class="faq-answer">
+                                Most people report noticing subtle improvements in focus and mental clarity within 2-4 weeks of consistently eating brain-healthy foods. However, the protective benefits against cognitive decline accumulate over years of healthy eating. For significant, measurable changes in memory and cognitive performance, research suggests 3-6 months of consistent dietary patterns.
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                Are supplements as effective as whole foods for brain health?
+                                <span class="user-name">- Michael T.</span>
+                            </div>
+                            <div class="faq-answer">
+                                While specific supplements can be beneficial in certain cases, whole foods provide a complex matrix of nutrients, fiber, and phytochemicals that work synergistically—something that isolated supplements can't fully replicate. For example, eating a blueberry provides antioxidants along with fiber and other compounds that may enhance their absorption and effectiveness. That said, some people may benefit from supplements like omega-3s or vitamin B12, especially if they have deficiencies or dietary restrictions.
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                Can these foods help with conditions like ADHD or brain fog?
+                                <span class="user-name">- Jennifer L.</span>
+                            </div>
+                            <div class="faq-answer">
+                                While nutrition alone isn't a substitute for medical treatment, research suggests that a brain-healthy diet can complement other approaches for managing ADHD symptoms and reducing brain fog. Omega-3 fatty acids, in particular, have shown promise in some studies for improving attention. For brain fog, ensuring stable blood sugar through balanced meals and including anti-inflammatory foods can make a noticeable difference. Always consult with a healthcare provider for personalized advice regarding specific conditions.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="share-section">
+                        <p>Found this article helpful? Share it with others!</p>
+                        <a href="https://health-hubs.netlify.app" class="share-link">Share This Article</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Health-Hubs. All rights reserved. | The information provided is for educational purposes only and should not be considered medical advice.</p>
+        </div>
+    </footer>
+</body>
+</html>
