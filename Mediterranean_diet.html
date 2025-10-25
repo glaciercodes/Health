@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Mediterranean Diet: Complete Guide and Benefits | Health-Hubs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --black: #1a1a1a;
+            --green: #2e8b57;
+            --yellow: #ffd700;
+            --light-bg: #f9f9f9;
+            --text-color: #333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--black);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            color: white;
+        }
+        
+        .logo i {
+            color: #ff69b4;
+            font-size: 28px;
+            margin-right: 10px;
+            animation: heartbeat 1.5s ease-in-out infinite both;
+        }
+        
+        @keyframes heartbeat {
+            from {
+                transform: scale(1);
+                transform-origin: center center;
+                animation-timing-function: ease-out;
+            }
+            10% {
+                transform: scale(0.91);
+                animation-timing-function: ease-in;
+            }
+            17% {
+                transform: scale(0.98);
+                animation-timing-function: ease-out;
+            }
+            33% {
+                transform: scale(0.87);
+                animation-timing-function: ease-in;
+            }
+            45% {
+                transform: scale(1);
+                animation-timing-function: ease-out;
+            }
+        }
+        
+        .logo h1 {
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--yellow);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--yellow);
+        }
+        
+        /* Article Styles */
+        .article-header {
+            text-align: center;
+            padding: 40px 0 20px;
+        }
+        
+        .article-header h1 {
+            font-size: 2.5rem;
+            color: var(--black);
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+        
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            color: #666;
+        }
+        
+        .author {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .author img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .share-btn {
+            background-color: var(--green);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .share-btn:hover {
+            background-color: #267048;
+        }
+        
+        .article-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px 0 40px;
+        }
+        
+        .article-content h2 {
+            color: var(--green);
+            margin: 30px 0 15px;
+            font-size: 1.8rem;
+        }
+        
+        .article-content h3 {
+            color: var(--black);
+            margin: 25px 0 10px;
+            font-size: 1.4rem;
+        }
+        
+        .article-content p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .highlight-box {
+            background-color: #fff9e6;
+            border-left: 4px solid var(--yellow);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .highlight-box h3 {
+            color: var(--black);
+            margin-top: 0;
+        }
+        
+        .faq-section {
+            margin: 40px 0;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+        
+        .faq-section h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--green);
+        }
+        
+        .faq-item {
+            margin-bottom: 25px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+        
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        
+        .faq-question {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--black);
+        }
+        
+        .faq-user {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .faq-answer {
+            color: #555;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--black);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 40px;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--yellow);
+        }
+        
+        @media (max-width: 768px) {
+            .header-top {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+            
+            .article-header h1 {
+                font-size: 2rem;
+            }
+            
+            .article-image {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <i class="fas fa-heartbeat"></i>
+                    <h1>Health-Hubs</h1>
+                </div>
+                <div class="social-icons">
+                    <a href="index.html"><i class="fab fa-facebook-f"></i></a>
+                    <a href="index.html"><i class="fab fa-tiktok"></i></a>
+                    <a href="index.html"><i class="fab fa-telegram"></i></a>
+                    <a href="index.html"><i class="fab fa-whatsapp"></i></a>
+                    <a href="index.html"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="faqs.html">FAQs</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <article>
+            <div class="article-header">
+                <h1>The Mediterranean Diet: Your Complete Guide to a Healthier, Longer Life</h1>
+                <div class="article-meta">
+                    <div class="author">
+                        <img src="images/001.jpg" alt="Dr. Nancy White">
+                        <span>By Dr. Nancy White</span>
+                    </div>
+                    <span>July 2, 2024</span>
+                    <button class="share-btn" onclick="shareArticle()">
+                        <i class="fas fa-share-alt"></i> Share
+                    </button>
+                </div>
+            </div>
+            
+            <img src="images/1761431432843.jpg" alt="Mediterranean Diet Food" class="article-image">
+            
+            <div class="article-content">
+                <p>Imagine an eating pattern so effective that it consistently ranks as one of the world's healthiest diets—not because it's restrictive or complicated, but because it's delicious, satisfying, and naturally aligns with how our bodies are meant to be nourished. This isn't a fad diet; it's a centuries-old approach to eating that people around the Mediterranean Sea have enjoyed for generations, and science now confirms its remarkable benefits.</p>
+                
+                <p>The Mediterranean diet isn't just about food—it's a lifestyle that emphasizes fresh, whole foods, shared meals, and physical activity. In my practice as a nutrition specialist, I've seen firsthand how adopting this eating pattern can transform health outcomes, from reducing cardiovascular risk factors to improving mental clarity and supporting sustainable weight management.</p>
+                
+                <h2>The Science-Backed Benefits</h2>
+                
+                <p>Research spanning decades has consistently demonstrated the Mediterranean diet's profound impact on health. The PREDIMED study, one of the largest clinical trials examining this eating pattern, found that it can reduce the risk of major cardiovascular events by approximately 30% compared to a low-fat diet. But the benefits extend far beyond heart health.</p>
+                
+                <div class="highlight-box">
+                    <h3>Key Health Benefits:</h3>
+                    <p><strong>Heart Health:</strong> Rich in monounsaturated fats from olive oil and omega-3 fatty acids from fish, this diet helps reduce LDL cholesterol, lower blood pressure, and decrease inflammation.</p>
+                    <p><strong>Brain Function:</strong> The combination of antioxidants, healthy fats, and anti-inflammatory compounds may protect against cognitive decline and reduce the risk of neurodegenerative diseases.</p>
+                    <p><strong>Weight Management:</strong> Focusing on nutrient-dense, high-fiber foods promotes satiety and helps maintain a healthy weight without calorie counting.</p>
+                    <p><strong>Longevity:</strong> Studies of Blue Zones—regions with exceptional longevity—often reveal eating patterns remarkably similar to the Mediterranean diet.</p>
+                </div>
+                
+                <h2>Core Principles of the Mediterranean Diet</h2>
+                
+                <p>At its heart, the Mediterranean diet emphasizes plant-based foods, healthy fats, and moderate consumption of animal products. Here are the fundamental components:</p>
+                
+                <h3>Plant-Based Foundation</h3>
+                <p>Fruits, vegetables, whole grains, legumes, nuts, and seeds form the basis of most meals. These foods provide essential vitamins, minerals, fiber, and antioxidants. Aim to fill at least half your plate with vegetables at lunch and dinner.</p>
+                
+                <h3>Healthy Fats as Primary Fat Source</h3>
+                <p>Extra virgin olive oil is the principal source of added fat in the Mediterranean diet. Rich in monounsaturated fatty acids and antioxidants, it's used for cooking, dressing salads, and even dipping bread. Nuts, seeds, and avocados provide additional healthy fats.</p>
+                
+                <h3>Fish and Seafood Twice Weekly</h3>
+                <p>Fatty fish like salmon, mackerel, sardines, and tuna are rich in omega-3 fatty acids, which support heart and brain health. The Mediterranean approach includes fish and seafood at least twice per week.</p>
+                
+                <h3>Moderate Dairy, Poultry, and Eggs</h3>
+                <p>Yogurt, cheese, poultry, and eggs are consumed in moderate portions. Traditional Mediterranean diets often feature yogurt and cheese (especially feta and Parmesan) rather than milk.</p>
+                
+                <h3>Limited Red Meat and Sweets</h3>
+                <p>Red meat is enjoyed occasionally, typically in small amounts as a flavoring rather than the main event. Sweets are reserved for special occasions, with fruit serving as the everyday dessert.</p>
+                
+                <h3>Red Wine in Moderation</h3>
+                <p>If you consume alcohol, the Mediterranean diet typically includes a glass of red wine with meals. The antioxidants in red wine may offer some health benefits, but this is optional and should be discussed with your healthcare provider.</p>
+                
+                <img src="images/1761431512073.jpg" alt="Mediterranean Diet Plate" class="article-image">
+                
+                <h2>Adapting the Mediterranean Diet to Your Lifestyle</h2>
+                
+                <p>One of the greatest strengths of the Mediterranean diet is its flexibility. You don't need to be of Mediterranean heritage to benefit from this approach. Here's how to incorporate its principles regardless of your cultural background or food preferences:</p>
+                
+                <p><strong>Start with small changes:</strong> Begin by adding one vegetable to each meal or switching to olive oil for cooking. Gradually increase plant-based meals throughout the week.</p>
+                
+                <p><strong>Focus on flavor:</strong> Use herbs and spices generously to create delicious meals without excessive salt. Basil, oregano, rosemary, garlic, and lemon are staples in Mediterranean cooking.</p>
+                
+                <p><strong>Make it social:</strong> In Mediterranean cultures, meals are often shared with family and friends. This social connection enhances the eating experience and promotes mindful consumption.</p>
+                
+                <p><strong>Stay active:</strong> Physical activity is an integral part of the Mediterranean lifestyle. Find activities you enjoy, whether it's walking, swimming, gardening, or dancing.</p>
+                
+                <div class="highlight-box">
+                    <h3>Simple Mediterranean Diet Swaps</h3>
+                    <p>• Instead of butter → Use extra virgin olive oil</p>
+                    <p>• Instead of red meat → Choose fish or legumes</p>
+                    <p>• Instead of white bread → Opt for whole grain</p>
+                    <p>• Instead of salty snacks → Enjoy a handful of nuts</p>
+                    <p>• Instead of sugary desserts → Have fresh fruit</p>
+                </div>
+                
+                <h2>Sample Mediterranean Meal Ideas</h2>
+                
+                <p>Breakfast: Greek yogurt with berries, walnuts, and a drizzle of honey</p>
+                <p>Lunch: Large salad with mixed greens, chickpeas, cucumbers, tomatoes, feta cheese, olives, and olive oil vinaigrette</p>
+                <p>Dinner: Grilled salmon with quinoa and roasted vegetables (bell peppers, zucchini, eggplant)</p>
+                <p>Snacks: Apple slices with almond butter, carrot sticks with hummus</p>
+                
+                <div class="faq-section">
+                    <h2>Frequently Asked Questions</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Is the Mediterranean diet expensive to follow?</div>
+                        <div class="faq-user">Asked by: Michael T.</div>
+                        <div class="faq-answer">
+                            <p>Not necessarily. While some ingredients like extra virgin olive oil and fresh fish can be pricey, the diet emphasizes affordable staples like beans, lentils, seasonal vegetables, and whole grains. Buying in-season produce, frozen vegetables and fish, and purchasing olive oil in larger containers can help manage costs. The savings from reducing consumption of processed foods and red meat often offset any additional expenses.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Can I follow the Mediterranean diet if I'm vegetarian or vegan?</div>
+                        <div class="faq-user">Asked by: Sarah J.</div>
+                        <div class="faq-answer">
+                            <p>Absolutely. The Mediterranean diet is naturally plant-forward, making it easily adaptable for vegetarians and vegans. Simply focus on the plant-based components—plenty of vegetables, fruits, whole grains, legumes, nuts, and seeds. For protein, emphasize beans, lentils, chickpeas, and soy products like tofu. The healthy fats from olive oil, nuts, and avocados remain central to the approach.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">How quickly will I see health benefits after starting this diet?</div>
+                        <div class="faq-user">Asked by: Robert K.</div>
+                        <div class="faq-answer">
+                            <p>Some benefits can appear within weeks. Many people report improved digestion, more energy, and better sleep within the first month. Measurable changes like improved cholesterol levels and blood pressure often become apparent within 2-3 months. The long-term protective benefits against chronic diseases accumulate over years of consistent adherence. Remember, this is a lifestyle, not a short-term fix.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h2>Conclusion: A Sustainable Path to Better Health</h2>
+                
+                <p>The Mediterranean diet offers more than just nutritional benefits—it provides a sustainable, enjoyable approach to eating that can last a lifetime. Unlike restrictive diets that focus on elimination, this pattern emphasizes abundance and variety, making it easier to maintain long-term.</p>
+                
+                <p>As with any significant dietary change, I recommend consulting with a healthcare provider or registered dietitian, especially if you have existing health conditions. But for most people, adopting even a few principles of the Mediterranean diet can be a powerful step toward better health and greater enjoyment of food.</p>
+                
+                <p>Here's to your health—Mediterranean style!</p>
+                
+                <p><em>Dr. Nancy White is a board-certified nutrition specialist with over 15 years of clinical experience. She specializes in preventive nutrition and lifestyle medicine.</em></p>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i>
+                <h1>Health-Hubs</h1>
+            </div>
+            <div class="footer-links">
+                <a href="home.html">Home</a>
+                <a href="blog.html">Blog</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="faqs.html">FAQs</a>
+                <a href="about.html">About Us</a>
+            </div>
+            <p>&copy; 2024 Health-Hubs. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function shareArticle() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'The Mediterranean Diet: Complete Guide and Benefits',
+                    text: 'Discover the science-backed benefits of the Mediterranean diet for heart health, brain function, and longevity.',
+                    url: 'https://health-hubs.netlify.app'
+                })
+                .then(() => console.log('Successful share'))
+                .catch((error) => console.log('Error sharing', error));
+            } else {
+                // Fallback for browsers that don't support the Web Share API
+                alert('Share this article: https://health-hubs.netlify.app');
+            }
+        }
+    </script>
+</body>
+</html>
