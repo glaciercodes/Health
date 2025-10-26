@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15 Healthy Snack Ideas for Weight Loss and Energy | Health-Hubs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-black: #1a1a1a;
+            --primary-green: #2e8b57;
+            --accent-yellow: #ffd700;
+            --text-light: #f5f5f5;
+            --pink-accent: #ff69b4;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--primary-black);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            padding: 20px 0;
+            border-bottom: 2px solid var(--primary-green);
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            color: var(--pink-accent);
+            font-size: 2rem;
+            animation: heartbeat 1.5s ease-in-out infinite both;
+        }
+        
+        @keyframes heartbeat {
+            from {
+                transform: scale(1);
+                transform-origin: center center;
+                animation-timing-function: ease-out;
+            }
+            10% {
+                transform: scale(0.91);
+                animation-timing-function: ease-in;
+            }
+            17% {
+                transform: scale(0.98);
+                animation-timing-function: ease-out;
+            }
+            33% {
+                transform: scale(0.87);
+                animation-timing-function: ease-in;
+            }
+            45% {
+                transform: scale(1);
+                animation-timing-function: ease-out;
+            }
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent-yellow);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icons a {
+            color: var(--text-light);
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--accent-yellow);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            justify-content: center;
+        }
+        
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        nav a:hover {
+            color: var(--accent-yellow);
+            background-color: rgba(46, 139, 87, 0.2);
+        }
+        
+        /* Article Styles */
+        .article-header {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .article-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--accent-yellow);
+            line-height: 1.3;
+        }
+        
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            color: #ccc;
+        }
+        
+        .featured-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border: 2px solid var(--primary-green);
+        }
+        
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto 50px;
+        }
+        
+        .intro {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: rgba(46, 139, 87, 0.1);
+            border-left: 4px solid var(--primary-green);
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            margin: 40px 0 20px;
+            color: var(--primary-green);
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--primary-green);
+        }
+        
+        .snack-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .snack-item {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid rgba(46, 139, 87, 0.3);
+        }
+        
+        .snack-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .snack-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--accent-yellow);
+        }
+        
+        .snack-description {
+            color: #ddd;
+        }
+        
+        .benefits-section {
+            background-color: rgba(46, 139, 87, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            margin: 40px 0;
+        }
+        
+        .benefits-title {
+            color: var(--primary-green);
+            margin-bottom: 20px;
+        }
+        
+        .benefits-list {
+            list-style-type: none;
+        }
+        
+        .benefits-list li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .benefits-list li:before {
+            content: "✓";
+            color: var(--primary-green);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .faq-section {
+            margin: 50px 0;
+        }
+        
+        .faq-item {
+            margin-bottom: 30px;
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .faq-question {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--accent-yellow);
+        }
+        
+        .faq-user {
+            font-style: italic;
+            color: #aaa;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .share-section {
+            text-align: center;
+            margin: 40px 0;
+            padding: 20px;
+            background-color: rgba(46, 139, 87, 0.1);
+            border-radius: 10px;
+        }
+        
+        .share-text {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        .share-link {
+            color: var(--accent-yellow);
+            word-break: break-all;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+            border-top: 1px solid var(--primary-green);
+            color: #aaa;
+        }
+        
+        @media (max-width: 768px) {
+            .header-top {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+            
+            .article-title {
+                font-size: 2rem;
+            }
+            
+            .snack-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-top">
+                <div class="logo">
+                    <i class="fas fa-heartbeat logo-icon"></i>
+                    <div class="logo-text">Health-Hubs</div>
+                </div>
+                <div class="social-icons">
+                    <a href="index.html"><i class="fab fa-facebook"></i></a>
+                    <a href="index.html"><i class="fab fa-tiktok"></i></a>
+                    <a href="index.html"><i class="fab fa-telegram"></i></a>
+                    <a href="index.html"><i class="fab fa-whatsapp"></i></a>
+                    <a href="index.html"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="faqs.html">FAQs</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <article>
+            <div class="article-header">
+                <h1 class="article-title">15 Healthy Snack Ideas for Weight Loss and Energy</h1>
+                <div class="article-meta">
+                    <span>By Dr. Brian Cooper</span>
+                    <span>August 5, 2024</span>
+                </div>
+            </div>
+            
+            <img src="images/1761470177870.jpg" alt="Healthy snacks arranged beautifully" class="featured-image">
+            
+            <div class="article-content">
+                <p class="intro">Ever find yourself reaching for that sugary treat at 3 PM, only to crash an hour later? What if I told you there's a smarter way to snack—one that actually supports your weight goals while keeping your energy levels stable throughout the day?</p>
+                
+                <p>As a nutrition specialist with over 15 years of clinical experience, I've seen firsthand how strategic snacking can transform my patients' relationship with food. The secret isn't eating less—it's eating smarter. When you choose snacks with the right balance of nutrients, you're not just satisfying hunger; you're fueling your body for optimal performance.</p>
+                
+                <p>Smart snacking bridges the gap between meals, preventing the extreme hunger that leads to poor food choices. More importantly, the right snacks provide sustained energy, mental clarity, and essential nutrients that support your overall health while helping you manage your weight effectively.</p>
+                
+                <h2 class="section-title">The Science Behind Smart Snacking</h2>
+                
+                <p>Before we dive into the snack ideas, let's understand why this approach works. Nutrient-dense snacks that combine protein, healthy fats, and fiber create a powerful trifecta for weight management and energy:</p>
+                
+                <div class="benefits-section">
+                    <h3 class="benefits-title">Why This Combination Works:</h3>
+                    <ul class="benefits-list">
+                        <li><strong>Protein</strong> promotes satiety, reduces cravings, and helps maintain muscle mass during weight loss</li>
+                        <li><strong>Healthy Fats</strong> provide sustained energy and help absorb fat-soluble vitamins</li>
+                        <li><strong>Fiber</strong> slows digestion, stabilizes blood sugar, and supports gut health</li>
+                    </ul>
+                </div>
+                
+                <p>This nutritional combination prevents the rapid spikes and crashes in blood sugar that leave you feeling tired and hungry soon after eating. Instead, you'll experience steady energy that carries you through to your next meal without desperate cravings.</p>
+                
+                <h2 class="section-title">15 Nutrient-Dense Snack Ideas</h2>
+                
+                <p>Here are my top recommendations for snacks that deliver on both nutrition and taste. These options are portable, easy to prepare, and designed to keep you satisfied between meals:</p>
+                
+                <div class="snack-list">
+                    <div class="snack-item">
+                        <h3 class="snack-title">1. Greek Yogurt with Berries and Almonds</h3>
+                        <p class="snack-description">Creamy Greek yogurt provides high-quality protein, while berries offer antioxidants and fiber. A sprinkle of almonds adds healthy fats and crunch.</p>
+                    </div>
+                    
+                    <div class="snack-item">
+                        <h3 class="snack-title">2. Apple Slices with Peanut Butter</h3>
+                        <p class="snack-description">The ultimate classic. Apples deliver fiber and nutrients, while natural peanut butter provides protein and healthy fats to keep you full.</p>
+                    </div>
+                    
+                    <div class="snack-item">
+                        <h3 class="snack-title">3. Veggie Sticks with Hummus</h3>
+                        <p class="snack-description">Colorful vegetables like carrots, bell peppers, and cucumbers paired with protein-rich hummus create a satisfying, low-calorie snack.</p>
+                    </div>
+                    
+                    <div class="snack-item">
+                        <h3 class="snack-title">4. Hard-Boiled Eggs</h3>
+                        <p class="snack-description">Portable, packed with protein, and rich in nutrients. Eggs are one of the most complete snacks for sustained energy.</p>
+                    </div>
+                    
+                    <div class="snack-item">
+                        <h3 class="snack-title">5. Mixed Nuts and Seeds</h3>
+                        <p class="snack-description">A handful of unsalted nuts and seeds provides healthy fats, protein, and fiber. Pre-portion them to avoid overeating.</p>
+                    </div>
+                    
+                    <div class="snack-item">
+                        <h3 class="snack-title">6. Cottage Cheese with Pineapple</h3>
+                        <p class="snack-description">High-protein cottage cheese paired with sweet pineapple creates a balanced snack that satisfies sweet and savory cravings.</p>
+                    </div>
+                    
+                    <div class="snack-item">
+                        <h3 class="snack-title">7. Turkey Roll-Ups</h3>
+                        <p class="snack-description">Lean turkey slices wrapped around avocado or cucumber spears provide protein and healthy fats without carbohydrates.</p>
+                    </div>
+                    
+                    <div class="snack-item">
+                        <h3 class="snack-title">8. Edamame</h3>
+                        <p class="snack-description">Steamed soybeans are rich in plant-based protein and fiber. Sprinkle with sea salt for a simple, satisfying snack.</p>
+                    </div>
+                    
+                    <div class="snack-item">
+                        <h3 class="snack-title">9. Chia Seed Pudding</h3>
+                        <p class="snack-description">Prepare ahead with almond milk—chia seeds expand in liquid, creating a pudding rich in fiber, protein, and omega-3s.</p>
+                    </div>
+                    
+                    <div class="snack-item">
+                        <h3 class="snack-title">10. Roasted Chickpeas</h3>
+                        <p class="snack-description">Crispy, flavorful, and packed with protein and fiber. Season with paprika or cumin for extra flavor without empty calories.</p>
+                    </div>
+                    
+                    <div class="snack-item">
+                        <h3 class="snack-title">11. Tuna on Whole-Grain Crackers</h3>
+                        <p class="snack-description">Canned tuna mixed with Greek yogurt instead of mayo provides lean protein on fiber-rich crackers.</p>
+                    </div>
+                    
+                    <div class="snack-item">
+                        <h3 class="snack-title">12. Pear with Cheese Cubes</h3>
+                        <p class="snack-description">The sweetness of pear complements the savory notes of cheese, creating a balanced snack with protein, fat, and fiber.</p>
+                    </div>
+                    
+                    <div class="snack-item">
+                        <h3 class="snack-title">13. Avocado on Rice Cakes</h3>
+                        <p class="snack-description">Mashed avocado on whole-grain rice cakes provides healthy fats and fiber with a satisfying crunch.</p>
+                    </div>
+                    
+                    <div class="snack-item">
+                        <h3 class="snack-title">14. Protein Smoothie</h3>
+                        <p class="snack-description">Blend protein powder with spinach, banana, and almond milk for a nutrient-dense drink that keeps you full for hours.</p>
+                    </div>
+                    
+                    <div class="snack-item">
+                        <h3 class="snack-title">15. Dark Chocolate and Almonds</h3>
+                        <p class="snack-description">A square of dark chocolate (70% cocoa or higher) with a few almonds satisfies sweet cravings while providing antioxidants and healthy fats.</p>
+                    </div>
+                </div>
+                
+                <h2 class="section-title">Making Smart Snacking Work for You</h2>
+                
+                <p>Implementing these snack ideas into your routine doesn't require drastic changes. Start by preparing 2-3 options at the beginning of the week, so you have healthy choices readily available when hunger strikes. Remember that portion control still matters—even with healthy foods.</p>
+                
+                <p>Pay attention to your body's hunger signals. Snacking should occur when you feel genuine hunger, not out of boredom or habit. The goal is to prevent extreme hunger, not to constantly eat throughout the day.</p>
+                
+                <div class="faq-section">
+                    <h2 class="section-title">Frequently Asked Questions</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">How many snacks should I eat per day?</div>
+                        <span class="faq-user">- Asked by Sarah J.</span>
+                        <p>Most people benefit from 1-2 snacks daily, depending on their activity level and meal timing. Listen to your body—if you're genuinely hungry between meals, a nutrient-dense snack can prevent overeating later. If you're not hungry, don't feel obligated to snack.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Are these snacks suitable for people with diabetes?</div>
+                        <span class="faq-user">- Asked by Michael T.</span>
+                        <p>Yes, most of these snacks are excellent choices for blood sugar management because they combine protein, healthy fats, and fiber, which slow carbohydrate absorption. However, individuals with diabetes should still monitor portion sizes and consult with their healthcare provider for personalized advice.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Can I eat these snacks if I'm trying to build muscle?</div>
+                        <span class="faq-user">- Asked by David R.</span>
+                        <p>Absolutely. These snacks support muscle building by providing quality protein and sustained energy. For muscle growth, you might need larger portions or additional protein sources. Consider adding a protein shake or increasing portions of Greek yogurt, cottage cheese, or hard-boiled eggs.</p>
+                    </div>
+                </div>
+                
+                
+                
+                <p>Remember, the journey to better health isn't about perfection—it's about progress. Start by incorporating one or two of these snack ideas into your routine this week, and notice how your energy levels and hunger patterns change. Small, consistent changes often lead to the most sustainable results.</p>
+                
+                <p>Here's to your health,</p>
+                <p><strong>Dr. Brian Cooper</strong></p>
+            </div>
+        </article>
+        
+        <footer>
+            <p>&copy; 2024 Health-Hubs. All rights reserved.</p>
+            <p>Disclaimer: This article is for informational purposes only and does not constitute medical advice. Consult with a healthcare professional before making significant changes to your diet.</p>
+        </footer>
+    </div>
+</body>
+</html>
