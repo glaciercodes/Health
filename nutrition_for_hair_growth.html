@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutrition for Hair Growth | Health-Hubs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --black: #1a1a1a;
+            --green: #2e8b57;
+            --yellow: #ffd700;
+            --light-bg: #f9f9f9;
+            --text-color: #333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--black);
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            color: #ff69b4;
+            font-size: 28px;
+            margin-right: 10px;
+            animation: heartbeat 1.5s infinite;
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .logo h1 {
+            font-size: 24px;
+            color: var(--green);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--yellow);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            justify-content: center;
+            margin-top: 15px;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        nav a:hover {
+            color: var(--yellow);
+        }
+        
+        /* Main Content Styles */
+        .main-content {
+            padding: 40px 0;
+        }
+        
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .article-header h1 {
+            font-size: 2.5rem;
+            color: var(--black);
+            margin-bottom: 15px;
+        }
+        
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+        
+        .author {
+            font-weight: 600;
+            color: var(--green);
+        }
+        
+        .intro {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            text-align: center;
+            color: #555;
+            font-style: italic;
+        }
+        
+        .article-content {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 40px;
+        }
+        
+        .article-body {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .article-body h2 {
+            color: var(--green);
+            margin: 25px 0 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .article-body p {
+            margin-bottom: 20px;
+        }
+        
+        .article-body ul, .article-body ol {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .article-body li {
+            margin-bottom: 10px;
+        }
+        
+        .highlight-box {
+            background-color: rgba(46, 139, 87, 0.1);
+            border-left: 4px solid var(--green);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .article-image {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .article-image img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .image-caption {
+            font-style: italic;
+            color: #666;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+        
+        /* Sidebar Styles */
+        .sidebar {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            height: fit-content;
+        }
+        
+        .sidebar h3 {
+            color: var(--green);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .faq-item {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed #eee;
+        }
+        
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        
+        .faq-question {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--black);
+        }
+        
+        .faq-user {
+            font-size: 0.85rem;
+            color: #777;
+            margin-bottom: 10px;
+        }
+        
+        .faq-user i {
+            margin-right: 5px;
+            color: var(--green);
+        }
+        
+        .faq-answer {
+            color: #555;
+            font-size: 0.95rem;
+        }
+        
+        /* Share Button */
+        .share-section {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .share-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: var(--green);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(46, 139, 87, 0.3);
+        }
+        
+        .share-btn:hover {
+            background-color: #267349;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(46, 139, 87, 0.4);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--black);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-section h3 {
+            color: var(--yellow);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--yellow);
+        }
+        
+        .copyright {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 900px) {
+            .article-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                order: -1;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .header-top {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .article-header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <i class="fas fa-heartbeat"></i>
+                    <h1>Health-Hubs</h1>
+                </div>
+                <div class="social-icons">
+                    <a href="index.html"><i class="fab fa-facebook-f"></i></a>
+                    <a href="index.html"><i class="fab fa-tiktok"></i></a>
+                    <a href="index.html"><i class="fab fa-telegram"></i></a>
+                    <a href="index.html"><i class="fab fa-whatsapp"></i></a>
+                    <a href="index.html"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="home.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="blog.html"><i class="fas fa-blog"></i> Blog</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
+                    <li><a href="faqs.html"><i class="fas fa-question-circle"></i> FAQs</a></li>
+                    <li><a href="about.html"><i class="fas fa-users"></i> About Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <article>
+                <div class="article-header">
+                    <h1>Nutrition for Hair Growth: What to Eat for Thicker Hair</h1>
+                    <div class="article-meta">
+                        <span class="author">By Dr. Brandon Lee</span>
+                        <span class="date">January 18, 2025</span>
+                    </div>
+                    <p class="intro">Ever noticed how your hair seems to have a mind of its own? On some days it's shiny and bouncy, while on others it's dull and lifeless. The secret might not be in your shampoo bottle, but on your dinner plate.</p>
+                </div>
+                
+                <div class="article-content">
+                    <div class="article-body">
+                        <p>Your hair is often the first place nutritional deficiencies show up. As a dermatologist with over 15 years of experience, I've seen countless patients transform their hair health simply by adjusting their diets. The connection between what you eat and how your hair looks and feels is undeniable.</p>
+                        
+                        <h2>The Hair Growth Cycle and Nutrition</h2>
+                        <p>Hair grows in cycles, with each strand going through growth (anagen), transition (catagen), and resting (telogen) phases. Nutritional deficiencies can shorten the growth phase and prolong the resting phase, leading to thinner hair and increased shedding. The good news? Proper nutrition can reverse this process.</p>
+                        
+                        <div class="highlight-box">
+                            <p><strong>Key Insight:</strong> Hair follicles are among the most metabolically active structures in your body, which means they require a constant supply of nutrients to function optimally.</p>
+                        </div>
+                        
+                        <h2>Essential Nutrients for Hair Health</h2>
+                        <p>Based on current research from top health institutions, here are the most critical nutrients for promoting hair growth and thickness:</p>
+                        
+                        <h3>Protein: The Building Block of Hair</h3>
+                        <p>Hair is primarily made of keratin, a protein. Without adequate protein intake, your body can't produce strong hair strands. Aim for 1.2-1.6 grams of protein per kilogram of body weight daily from sources like:</p>
+                        <ul>
+                            <li>Eggs (especially the yolks, rich in biotin)</li>
+                            <li>Lean meats and poultry</li>
+                            <li>Fish, particularly fatty fish like salmon</li>
+                            <li>Legumes and lentils</li>
+                            <li>Greek yogurt and cottage cheese</li>
+                        </ul>
+                        
+                        <h3>Iron: Oxygen Delivery for Follicles</h3>
+                        <p>Iron helps red blood cells carry oxygen to your hair follicles. Low iron levels (even without anemia) are strongly linked to hair loss, especially in women. Include these iron-rich foods:</p>
+                        <ul>
+                            <li>Red meat (most bioavailable form)</li>
+                            <li>Spinach and other leafy greens</li>
+                            <li>Lentils and beans</li>
+                            <li>Pumpkin seeds</li>
+                            <li>Pair with vitamin C sources to enhance absorption</li>
+                        </ul>
+                        
+                        <div class="article-image">
+                            <img src="images/1761501037444.jpg" alt="Healthy foods for hair growth">
+                            <p class="image-caption">A variety of nutrient-dense foods that support hair health</p>
+                        </div>
+                        
+                        <h3>Omega-3 Fatty Acids: Scalp Health and Shine</h3>
+                        <p>These essential fats keep your scalp hydrated and reduce inflammation that can inhibit hair growth. They also add shine to your hair. Best sources include:</p>
+                        <ul>
+                            <li>Fatty fish (salmon, mackerel, sardines)</li>
+                            <li>Flaxseeds and chia seeds</li>
+                            <li>Walnuts</li>
+                            <li>Algae and seaweed</li>
+                        </ul>
+                        
+                        <h3>Zinc: Follicle Protection and Repair</h3>
+                        <p>Zinc plays a crucial role in hair tissue growth and repair. It also helps keep the oil glands around follicles working properly. Find zinc in:</p>
+                        <ul>
+                            <li>Oysters (the highest source)</li>
+                            <li>Beef and lamb</li>
+                            <li>Pumpkin seeds</li>
+                            <li>Lentils and chickpeas</li>
+                        </ul>
+                        
+                        <h3>Biotin and Other B Vitamins</h3>
+                        <p>Biotin (B7) is famous for hair health, but all B vitamins play roles in creating red blood cells that carry oxygen and nutrients to the scalp and hair follicles. Include:</p>
+                        <ul>
+                            <li>Whole grains (B vitamins)</li>
+                            <li>Eggs (biotin)</li>
+                            <li>Nuts and seeds (biotin)</li>
+                            <li>Leafy greens (folate)</li>
+                            <li>Legumes (multiple B vitamins)</li>
+                        </ul>
+                        
+                        <h2>Creating a Hair-Healthy Eating Pattern</h2>
+                        <p>Rather than focusing on individual nutrients, aim for a balanced diet rich in whole foods. The Mediterranean diet, with its emphasis on vegetables, fruits, healthy fats, and lean proteins, is particularly beneficial for hair health.</p>
+                        
+                        <div class="highlight-box">
+                            <p><strong>Pro Tip:</strong> It takes about 3-6 months of consistent nutritional improvements to see noticeable changes in your hair, as that's how long it takes for new hair to grow through the follicle and become visible.</p>
+                        </div>
+                        
+                        <h2>Common Hair Issues and Nutritional Solutions</h2>
+                        
+                        <h3>For Thinning Hair</h3>
+                        <p>Focus on adequate protein, iron, zinc, and biotin. Consider adding a tablespoon of ground flaxseed to your morning smoothie or oatmeal for an extra boost of hair-healthy nutrients.</p>
+                        
+                        <h3>For Dry, Brittle Hair</h3>
+                        <p>Increase your intake of omega-3 fatty acids and vitamin E. A handful of walnuts or almonds makes an excellent snack for addressing dryness.</p>
+                        
+                        <h3>For Slow Growth</h3>
+                        <p>Ensure you're getting enough calories overall. Hair growth is not a priority function for your body, so when you're undernourished, it's one of the first processes to slow down.</p>
+                        
+                        <h2>Foods to Limit for Better Hair Health</h2>
+                        <p>While adding nutrient-dense foods is important, it's also helpful to reduce:</p>
+                        <ul>
+                            <li><strong>Sugar and refined carbs:</strong> Can increase inflammation and potentially affect hair growth</li>
+                            <li><strong>High-mercury fish:</strong> Mercury exposure is linked to hair loss</li>
+                            <li><strong>Excessive vitamin A:</strong> While important, too much can actually contribute to hair loss</li>
+                        </ul>
+                        
+                        <p>Remember, your hair reflects your internal health. By nourishing your body with the right nutrients, you're not just promoting hair growth—you're supporting your overall wellbeing. Start with small, sustainable changes to your diet, and be patient as your hair responds to your improved nutritional status.</p>
+                    </div>
+                    
+                    <aside class="sidebar">
+                        <h3>Frequently Asked Questions</h3>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">How long does it take to see results from dietary changes?</div>
+                            <div class="faq-user"><i class="fas fa-user"></i> Asked by Sarah J.</div>
+                            <div class="faq-answer">Since hair grows about half an inch per month, it typically takes 3-6 months to notice significant changes. The hair currently on your head was formed months ago, so patience is key when making nutritional improvements.</div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">Are hair supplements necessary if I eat a balanced diet?</div>
+                            <div class="faq-user"><i class="fas fa-user"></i> Asked by Michael T.</div>
+                            <div class="faq-answer">For most people with a varied, nutrient-dense diet, supplements aren't necessary. However, if you have specific deficiencies (like iron or vitamin D) confirmed by blood tests, targeted supplementation under medical guidance can be beneficial. More isn't always better—excess of certain nutrients can actually cause hair loss.</div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">Can drinking more water improve hair health?</div>
+                            <div class="faq-user"><i class="fas fa-user"></i> Asked by Jessica L.</div>
+                            <div class="faq-answer">Hydration is crucial for overall health, including that of your hair cells. While dehydration won't directly cause hair loss, it can make existing hair dry and brittle. Aim for about 8 glasses of water daily, more if you're active or live in a hot climate.</div>
+                        </div>
+                    </aside>
+                </div>
+                
+                <div class="share-section">
+                    <a href="https://health-hubs.netlify.app" class="share-btn">
+                        <i class="fas fa-share-alt"></i> Share This Article
+                    </a>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Health-Hubs</h3>
+                    <p>Your trusted source for evidence-based health and wellness information.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Health Topics</h3>
+                    <ul class="footer-links">
+                        <li><a href="home.html">Nutrition</a></li>
+                        <li><a href="con.html">Fitness</a></li>
+                        <li><a href="con.html">Mental Health</a></li>
+                        <li><a href="con.html">Preventive Care</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Health-Hubs. All rights reserved. | Medical information reviewed by healthcare professionals.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
