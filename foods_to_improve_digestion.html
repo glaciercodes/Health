@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Improve Your Digestion: 10 Foods That Help | Health-Hubs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --black: #1a1a1a;
+            --green: #2e8b57;
+            --yellow: #ffd700;
+            --light-bg: #f9f9f9;
+            --text-color: #333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--black);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            color: white;
+        }
+        
+        .logo i {
+            color: #ff69b4;
+            font-size: 28px;
+            margin-right: 10px;
+            animation: heartbeat 1.5s ease-in-out infinite both;
+        }
+        
+        @keyframes heartbeat {
+            from {
+                transform: scale(1);
+                transform-origin: center center;
+                animation-timing-function: ease-out;
+            }
+            10% {
+                transform: scale(0.91);
+                animation-timing-function: ease-in;
+            }
+            17% {
+                transform: scale(0.98);
+                animation-timing-function: ease-out;
+            }
+            33% {
+                transform: scale(0.87);
+                animation-timing-function: ease-in;
+            }
+            45% {
+                transform: scale(1);
+                animation-timing-function: ease-out;
+            }
+        }
+        
+        .logo h1 {
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--yellow);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        nav a:hover {
+            color: var(--yellow);
+        }
+        
+        /* Main Content Styles */
+        .main-content {
+            padding: 40px 0;
+        }
+        
+        .article-header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .article-header i {
+            color: #ff69b4;
+            font-size: 36px;
+            margin-bottom: 20px;
+            animation: heartbeat 1.5s ease-in-out infinite both;
+        }
+        
+        .article-header h1 {
+            font-size: 36px;
+            color: var(--black);
+            margin-bottom: 15px;
+        }
+        
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        
+        .share-button {
+            background-color: var(--green);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .share-button:hover {
+            background-color: #267349;
+        }
+        
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .intro {
+            font-size: 18px;
+            margin-bottom: 30px;
+            font-style: italic;
+            color: #444;
+            border-left: 4px solid var(--green);
+            padding-left: 15px;
+        }
+        
+        .food-list {
+            margin: 30px 0;
+        }
+        
+        .food-item {
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .food-item:last-child {
+            border-bottom: none;
+        }
+        
+        .food-item h3 {
+            color: var(--green);
+            margin-bottom: 10px;
+            font-size: 22px;
+        }
+        
+        .article-image {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .article-image img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .image-caption {
+            font-style: italic;
+            color: #666;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        
+        .faq-section {
+            margin-top: 40px;
+            background-color: #f5f5f5;
+            padding: 30px;
+            border-radius: 8px;
+        }
+        
+        .faq-section h2 {
+            color: var(--black);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        
+        .faq-question {
+            font-weight: 600;
+            color: var(--green);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .user-name {
+            color: #666;
+            font-size: 14px;
+            font-weight: normal;
+            margin-left: 5px;
+        }
+        
+        .faq-answer {
+            color: #444;
+        }
+        
+        .conclusion {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f0f8f0;
+            border-radius: 8px;
+            border-left: 4px solid var(--green);
+        }
+        
+        /* Footer Styles */
+        footer {
+            background-color: var(--black);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            color: white;
+        }
+        
+        .footer-logo i {
+            color: #ff69b4;
+            font-size: 24px;
+            margin-right: 10px;
+        }
+        
+        .copyright {
+            color: #aaa;
+            font-size: 14px;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .header-top {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .article-header h1 {
+                font-size: 28px;
+            }
+            
+            .article-content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <i class="fas fa-heartbeat"></i>
+                    <h1>Health-Hubs</h1>
+                </div>
+                <div class="social-icons">
+                    <a href="index.html"><i class="fab fa-facebook-f"></i></a>
+                    <a href="index.html"><i class="fab fa-tiktok"></i></a>
+                    <a href="index.html"><i class="fab fa-telegram"></i></a>
+                    <a href="index.html"><i class="fab fa-whatsapp"></i></a>
+                    <a href="index.html"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="home.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="blog.html"><i class="fas fa-blog"></i> Blog</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
+                    <li><a href="faqs.html"><i class="fas fa-question-circle"></i> FAQs</a></li>
+                    <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main class="main-content">
+        <div class="container">
+            <article>
+                <div class="article-header">
+                    <i class="fas fa-heartbeat"></i>
+                    <h1>Improve Your Digestion: 10 Foods That Help</h1>
+                    <div class="article-meta">
+                        <span>By Dr. Gregory Hill</span>
+                        <span>February 16, 2025</span>
+                    </div>
+                    <button class="share-button" onclick="shareArticle()">
+                        <i class="fas fa-share-alt"></i> Share This Article
+                    </button>
+                </div>
+                
+                <div class="article-content">
+                    <p class="intro">Have you ever considered that the solution to your digestive discomfort might be waiting in your kitchen? The foods we eat play a crucial role in how our digestive system functions, and making strategic choices can transform your gut health.</p>
+                    
+                    <p>Optimal digestion is fundamental to nutrient absorption and overall health. When your digestive system isn't working properly, it can lead to a host of issues including bloating, gas, constipation, and even impact your energy levels and immune function. The good news is that by incorporating specific foods into your diet, you can support different aspects of digestive function, from promoting beneficial gut bacteria to enhancing enzyme production and soothing inflammation.</p>
+                    
+                    <p>As a gastroenterologist with over 15 years of experience, I've seen firsthand how dietary changes can dramatically improve digestive health. In this article, I'll share ten specific foods that can help address common digestive complaints and improve your gut health.</p>
+                    
+                    <div class="food-list">
+                        <div class="food-item">
+                            <h3>1. Yogurt & Kefir</h3>
+                            <p>Fermented dairy products like yogurt and kefir are rich in probiotics—live beneficial bacteria that help maintain a healthy gut microbiome. These probiotics can improve digestion by breaking down lactose, reducing symptoms of lactose intolerance, and preventing diarrhea associated with antibiotics. Look for products with "live and active cultures" to ensure you're getting the maximum benefit.</p>
+                        </div>
+                        
+                        <div class="food-item">
+                            <h3>2. Ginger</h3>
+                            <p>This aromatic root has been used for centuries to soothe digestive discomfort. Ginger contains compounds called gingerols and shogaols that help speed up gastric emptying, reducing feelings of bloating and fullness. It's particularly effective for relieving nausea, whether from pregnancy, chemotherapy, or motion sickness.</p>
+                        </div>
+                        
+                        <div class="food-item">
+                            <h3>3. Papaya</h3>
+                            <p>Papaya contains an enzyme called papain that helps break down protein fibers, making it easier for your body to digest meat and other protein-rich foods. The fruit is also rich in antioxidants, vitamins, and fiber, all of which support digestive health. Some studies suggest papaya may also help relieve symptoms of IBS.</p>
+                        </div>
+                        
+                        <div class="article-image">
+                            <img src="images/1761334117712.jpg" alt="Digestive health foods">
+                            <p class="image-caption">A variety of foods that support digestive health</p>
+                        </div>
+                        
+                        <div class="food-item">
+                            <h3>4. Whole Grains</h3>
+                            <p>Foods like oats, quinoa, and brown rice are excellent sources of insoluble fiber, which adds bulk to stool and helps it pass more quickly through the digestive system. They also contain soluble fiber, which can help regulate blood sugar and lower cholesterol. The key is to introduce them gradually if you're not used to high-fiber foods.</p>
+                        </div>
+                        
+                        <div class="food-item">
+                            <h3>5. Bananas</h3>
+                            <p>Bananas are rich in pectin, a type of soluble fiber that helps normalize bowel function. They're also a good source of electrolytes like potassium, which can be lost during digestive upset. Ripe bananas are particularly easy to digest, while slightly green bananas contain resistant starch that acts as a prebiotic, feeding your good gut bacteria.</p>
+                        </div>
+                        
+                        <div class="food-item">
+                            <h3>6. Leafy Greens</h3>
+                            <p>Vegetables like spinach, kale, and Swiss chard are packed with fiber, magnesium, and various phytonutrients that support digestive health. The magnesium helps relax the muscles in your digestive tract, promoting regular bowel movements, while the fiber adds bulk to stool.</p>
+                        </div>
+                        
+                        <div class="food-item">
+                            <h3>7. Chia Seeds</h3>
+                            <p>These tiny seeds are fiber powerhouses, with nearly 11 grams of fiber per ounce. When mixed with liquid, they form a gel that can help soften stool and promote regularity. They're also rich in omega-3 fatty acids, which have anti-inflammatory properties that may benefit those with inflammatory bowel conditions.</p>
+                        </div>
+                        
+                        <div class="food-item">
+                            <h3>8. Fennel</h3>
+                            <p>Fennel has been used traditionally to treat various digestive ailments. It contains anethole, a compound that can help relax smooth muscles in the digestive tract, reducing gas, bloating, and stomach cramps. Chewing fennel seeds after meals is a common practice in many cultures to aid digestion.</p>
+                        </div>
+                        
+                        <div class="food-item">
+                            <h3>9. Apples</h3>
+                            <p>The saying "an apple a day keeps the doctor away" might have some merit when it comes to digestive health. Apples are rich in pectin, a type of soluble fiber that acts as a prebiotic, feeding the good bacteria in your gut. They also contain malic acid, which some believe helps stimulate digestive juices.</p>
+                        </div>
+                        
+                        <div class="food-item">
+                            <h3>10. Bone Broth</h3>
+                            <p>Bone broth contains gelatin and amino acids like glutamine that can help heal and seal the gut lining, potentially reducing intestinal permeability (often called "leaky gut"). The gelatin also helps attract and hold digestive fluids, supporting proper digestion.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="article-image">
+                        <img src="images/002.png" alt="Healthy gut diagram">
+                        <p class="image-caption">Understanding how your digestive system works</p>
+                    </div>
+                    
+                    <p>Incorporating these foods into your diet doesn't have to be complicated. Start by adding one or two to your meals each day and notice how your body responds. Remember that everyone's digestive system is unique, so what works for one person might not work for another.</p>
+                    
+                    <p>It's also important to note that while these foods can support digestive health, they're not a substitute for medical treatment if you have a serious digestive condition. If you're experiencing persistent digestive issues, it's always best to consult with a healthcare professional.</p>
+                    
+                    <div class="faq-section">
+                        <h2>Frequently Asked Questions</h2>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                How quickly will I notice improvements after adding these foods to my diet?
+                                <span class="user-name">- Sarah J.</span>
+                            </div>
+                            <div class="faq-answer">
+                                Most people begin to notice some improvements within a few days to a week, particularly with issues like bloating and regularity. However, significant changes to your gut microbiome can take several weeks of consistent dietary changes. I recommend keeping a food and symptom diary to track your progress.
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                Can I eat these foods if I have IBS?
+                                <span class="user-name">- Michael T.</span>
+                            </div>
+                            <div class="faq-answer">
+                                Many of these foods are beneficial for IBS, but some high-FODMAP options like apples, chia seeds, and certain whole grains might trigger symptoms in sensitive individuals. I recommend working with a dietitian who specializes in digestive health to create an individualized plan that works for your specific needs.
+                            </div>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                Are there any foods I should avoid for better digestion?
+                                <span class="user-name">- Priya K.</span>
+                            </div>
+                            <div class="faq-answer">
+                                While individual tolerances vary, common digestive irritants include highly processed foods, artificial sweeteners, excessive alcohol, and for some people, high-fat foods, spicy foods, or dairy. Pay attention to how your body responds to different foods, and consider an elimination diet if you suspect specific triggers.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="conclusion">
+                        <p><strong>Final Thoughts:</strong> Improving your digestion through dietary choices is one of the most effective and sustainable approaches to better gut health. By regularly incorporating these ten foods into your diet, you can support different aspects of your digestive function and potentially reduce common complaints like bloating, irregularity, and discomfort. Remember that consistency is key, and small changes over time can lead to significant improvements in how you feel every day.</p>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-heartbeat"></i>
+                    <h2>Health-Hubs</h2>
+                </div>
+                <p>Your trusted source for evidence-based health information</p>
+                <p class="copyright">&copy; 2025 Health-Hubs. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        function shareArticle() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Improve Your Digestion: 10 Foods That Help',
+                    text: 'Check out this article from Health-Hubs about foods that can improve your digestion.',
+                    url: 'https://health-hubs.netlify.app'
+                })
+                .then(() => console.log('Successful share'))
+                .catch((error) => console.log('Error sharing', error));
+            } else {
+                // Fallback for browsers that don't support the Web Share API
+                const shareUrl = 'https://health-hubs.netlify.app';
+                navigator.clipboard.writeText(shareUrl).then(() => {
+                    alert('Article link copied to clipboard!');
+                });
+            }
+        }
+    </script>
+</body>
+</html>
