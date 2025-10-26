@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What Your Nails Reveal About Your Health | Health-Hubs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-black: #1a1a1a;
+            --secondary-green: #2e8b57;
+            --accent-yellow: #ffd700;
+            --text-light: #f5f5f5;
+            --pink-accent: #ff69b4;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--primary-black);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            padding: 20px 0;
+            border-bottom: 1px solid #333;
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            color: var(--pink-accent);
+            font-size: 28px;
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .logo h1 {
+            color: var(--secondary-green);
+            font-size: 28px;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icons a {
+            color: var(--text-light);
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--accent-yellow);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            justify-content: center;
+        }
+        
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--accent-yellow);
+        }
+        
+        /* Article Styles */
+        .article-header {
+            text-align: center;
+            padding: 40px 0;
+        }
+        
+        .article-header h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: var(--accent-yellow);
+        }
+        
+        .meta-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            color: #aaa;
+        }
+        
+        .article-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+        
+        .article-content h3 {
+            color: var(--secondary-green);
+            margin: 30px 0 15px;
+            font-size: 24px;
+        }
+        
+        .article-content p {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        
+        .article-content ul {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .article-content li {
+            margin-bottom: 10px;
+        }
+        
+        .share-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 40px 0;
+            padding: 20px;
+            background-color: #2a2a2a;
+            border-radius: 8px;
+        }
+        
+        .share-btn {
+            background-color: var(--secondary-green);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .share-btn:hover {
+            background-color: #3cb371;
+        }
+        
+        .faq-section {
+            margin: 50px 0;
+            padding: 30px;
+            background-color: #2a2a2a;
+            border-radius: 8px;
+        }
+        
+        .faq-section h3 {
+            color: var(--accent-yellow);
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 28px;
+        }
+        
+        .faq-item {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #444;
+        }
+        
+        .faq-question {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--secondary-green);
+        }
+        
+        .faq-answer {
+            margin-bottom: 10px;
+        }
+        
+        .faq-user {
+            font-style: italic;
+            color: #aaa;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+            border-top: 1px solid #333;
+            color: #aaa;
+        }
+        
+        @media (max-width: 768px) {
+            .header-top {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+            
+            .article-header h2 {
+                font-size: 28px;
+            }
+            
+            .article-image {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-top">
+                <div class="logo">
+                    <i class="fas fa-heartbeat logo-icon"></i>
+                    <h1>Health-Hubs</h1>
+                </div>
+                <div class="social-icons">
+                    <a href="index.html"><i class="fab fa-facebook"></i></a>
+                    <a href="index.html"><i class="fab fa-tiktok"></i></a>
+                    <a href="index.html"><i class="fab fa-telegram"></i></a>
+                    <a href="index.html"><i class="fab fa-whatsapp"></i></a>
+                    <a href="index.html"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="faqs.html">FAQs</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <main>
+            <article>
+                <div class="article-header">
+                    <h2>What Your Nails Reveal About Your Health</h2>
+                    <div class="meta-info">
+                        <span>By Dr. Ashley Turner</span>
+                        <span>January 3, 2025</span>
+                    </div>
+                </div>
+                
+                <img src="images/1761516182293.jpg" alt="Healthy nails showing various conditions" class="article-image">
+                
+                <div class="article-content">
+                    <p>Have you ever looked closely at your nails and noticed subtle changes? Those ridges, spots, or discolorations might seem insignificant, but they could be your body's way of sending important signals about your overall health. As a dermatologist with over 15 years of experience, I've seen countless patients whose nail changes provided the first clue to underlying health issues.</p>
+                    
+                    <p>Your nails are more than just fashion accessories—they're windows into your body's internal workings. From nutritional deficiencies to systemic conditions, your nails can reveal what's happening beneath the surface long before other symptoms appear.</p>
+                    
+                    <h3>Understanding Common Nail Changes</h3>
+                    
+                    <p>Let's explore some of the most common nail changes and what they might indicate:</p>
+                    
+                    <h3>Ridges: Vertical vs. Horizontal</h3>
+                    
+                    <p>Vertical ridges running from cuticle to tip are usually a normal part of aging, much like wrinkles on your skin. However, if they become pronounced suddenly, it might indicate nutrient malabsorption.</p>
+                    
+                    <p>Horizontal ridges, also known as Beau's lines, are more concerning. These depressions across the nail can appear after serious illness, injury, or chemotherapy when nail growth temporarily slows. If you notice these without an obvious cause, it could signal uncontrolled diabetes, peripheral vascular disease, or zinc deficiency.</p>
+                    
+                    <h3>Discoloration: What Those Colors Mean</h3>
+                    
+                    <p>Nail discoloration can range from harmless to serious:</p>
+                    
+                    <ul>
+                        <li><strong>Yellow nails</strong> are often associated with fungal infections but can also indicate psoriasis, thyroid conditions, or respiratory diseases like chronic bronchitis.</li>
+                        <li><strong>White spots</strong> are typically harmless and result from minor injuries to the nail matrix. However, if most of the nail turns white, it could indicate liver disease, kidney failure, or heart problems.</li>
+                        <li><strong>Blue or purple nails</strong> suggest poor circulation or low oxygen levels in the blood, potentially signaling heart or lung conditions.</li>
+                        <li><strong>Dark streaks</strong> should never be ignored, especially if they appear suddenly, widen, or affect a single nail. These could be benign moles but might also indicate melanoma, the most dangerous form of skin cancer.</li>
+                    </ul>
+                    
+                    <img src="images/1761516261875.jpg" alt="Nail conditions and what they indicate" class="article-image">
+                    
+                    <h3>Brittleness and Splitting</h3>
+                    
+                    <p>If your nails chip, peel, or split easily, you're not alone. This common issue often results from frequent hand washing, chemical exposure, or aging. However, persistent brittleness might indicate:</p>
+                    
+                    <ul>
+                        <li><strong>Iron deficiency anemia</strong> - One of the most common nutritional causes of brittle nails</li>
+                        <li><strong>Thyroid disorders</strong> - Both hypothyroidism and hyperthyroidism can affect nail health</li>
+                        <li><strong>Fungal infections</strong> - Which make nails crumbly and distorted</li>
+                    </ul>
+                    
+                    <h3>Shape Abnormalities</h3>
+                    
+                    <p>Changes in nail shape can provide important diagnostic clues:</p>
+                    
+                    <ul>
+                        <li><strong>Spoon nails (koilonychia)</strong> - Nails that curve upward at the edges, often indicating iron deficiency anemia or hemochromatosis (iron overload)</li>
+                        <li><strong>Clubbing</strong> - When nails curve downward around enlarged fingertips, potentially signaling lung disease, heart conditions, or inflammatory bowel disease</li>
+                        <li><strong>Pitting</strong> - Small dents in the nail surface, commonly associated with psoriasis</li>
+                    </ul>
+                    
+                    <h3>Nutritional Connections</h3>
+                    
+                    <p>Your nails require specific nutrients to grow strong and healthy. Common deficiencies that manifest in nails include:</p>
+                    
+                    <ul>
+                        <li><strong>Biotin</strong> - Deficiency can cause brittle nails; supplementation has been shown to improve thickness</li>
+                        <li><strong>Iron</strong> - Essential for oxygen transport to nail cells; deficiency causes brittleness and spoon-shaped nails</li>
+                        <li><strong>Zinc</strong> - Important for cell division and growth; deficiency can cause white spots and slow growth</li>
+                        <li><strong>Protein</strong> - Nails are made of keratin, a protein; insufficient intake leads to weak, slow-growing nails</li>
+                        <li><strong>Vitamin C</strong> - Necessary for collagen production; deficiency causes hangnails and inflamed cuticles</li>
+                    </ul>
+                    
+                    <h3>When to Seek Medical Attention</h3>
+                    
+                    <p>While many nail changes are harmless, consult a healthcare provider if you notice:</p>
+                    
+                    <ul>
+                        <li>Sudden changes in nail color or texture</li>
+                        <li>Dark streaks that develop quickly</li>
+                        <li>Nail separation from the bed</li>
+                        <li>Swelling or pain around nails</li>
+                        <li>Changes in nail shape accompanied by other symptoms</li>
+                        <li>Nail changes that persist despite improved self-care</li>
+                    </ul>
+                    
+                    <h3>Supporting Nail Health</h3>
+                    
+                    <p>To maintain healthy nails:</p>
+                    
+                    <ul>
+                        <li>Eat a balanced diet rich in protein, vitamins, and minerals</li>
+                        <li>Keep nails clean and dry to prevent infections</li>
+                        <li>Moisturize nails and cuticles regularly</li>
+                        <li>Avoid harsh chemicals and excessive manicures</li>
+                        <li>Wear gloves when cleaning or gardening</li>
+                        <li>Don't bite nails or pick at cuticles</li>
+                    </ul>
+                    
+                    <p>Remember, your nails are a reflection of your overall health. Paying attention to their changes can help you catch potential health issues early. While this information is educational, always consult with a healthcare professional for proper diagnosis and treatment of concerning nail changes.</p>
+                    
+                    <div class="share-section">
+                        <button class="share-btn" onclick="shareArticle()">
+                            <i class="fas fa-share-alt"></i> Share This Article
+                        </button>
+                        <span>Share on: health-hubs.netlify.app</span>
+                    </div>
+                </div>
+                
+                <div class="faq-section">
+                    <h3>Frequently Asked Questions</h3>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Can vitamin deficiencies really cause nail problems?</div>
+                        <div class="faq-answer">Yes, absolutely. Nutritional deficiencies are among the most common causes of nail abnormalities. For instance, iron deficiency can lead to spoon-shaped nails, while biotin deficiency often causes brittleness. B vitamin deficiencies may result in dark streaks or hyperpigmentation. A balanced diet with adequate protein, vitamins, and minerals is essential for maintaining healthy nails.</div>
+                        <div class="faq-user">- Sarah J., 34</div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">How long does it take for nails to show improvement after addressing a deficiency?</div>
+                        <div class="faq-answer">Nails grow slowly—about 3-4 millimeters per month—so it takes time to see improvements. After correcting a nutritional deficiency or addressing an underlying health issue, you might notice changes at the nail base (where new growth occurs) within 4-6 weeks. However, it typically takes 3-6 months for a completely new nail to grow out, so patience is important when expecting visible results.</div>
+                        <div class="faq-user">- Michael T., 42</div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Are there any specific tests I should ask my doctor for if I'm concerned about my nail health?</div>
+                        <div class="faq-answer">If you're experiencing persistent nail changes, your doctor might recommend several tests depending on your symptoms. These could include a complete blood count to check for anemia, thyroid function tests, tests for vitamin and mineral levels (especially iron, zinc, and B vitamins), and possibly tests for fungal infections. In cases of suspicious dark streaks, a dermatologist might perform a nail biopsy to rule out melanoma.</div>
+                        <div class="faq-user">- Jennifer L., 51</div>
+                    </div>
+                </div>
+            </article>
+        </main>
+        
+        <footer>
+            <p>&copy; 2025 Health-Hubs. All rights reserved. | This article is for informational purposes only and is not a substitute for professional medical advice.</p>
+        </footer>
+    </div>
+    
+    <script>
+        function shareArticle() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'What Your Nails Reveal About Your Health',
+                    text: 'Discover how your nails can provide important clues about your overall health and nutritional status.',
+                    url: 'https://health-hubs.netlify.app'
+                })
+                .then(() => console.log('Successful share'))
+                .catch((error) => console.log('Error sharing:', error));
+            } else {
+                // Fallback for browsers that don't support the Web Share API
+                alert('Share this article at: health-hubs.netlify.app');
+            }
+        }
+    </script>
+</body>
+</html>
