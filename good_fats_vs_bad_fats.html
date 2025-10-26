@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Good Fats vs Bad Fats | Health-Hubs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --black: #1a1a1a;
+            --green: #2e8b57;
+            --yellow: #ffd700;
+            --light-bg: #f9f9f9;
+            --text-color: #333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--black);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            color: white;
+        }
+        
+        .logo i {
+            color: #ff69b4;
+            font-size: 28px;
+            margin-right: 10px;
+            animation: heartbeat 1.5s ease-in-out infinite both;
+        }
+        
+        @keyframes heartbeat {
+            from { transform: scale(1); }
+            10% { transform: scale(1.1); }
+            20% { transform: scale(1); }
+            30% { transform: scale(1.1); }
+            40% { transform: scale(1); }
+        }
+        
+        .logo h1 {
+            font-size: 24px;
+            color: var(--yellow);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--yellow);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        nav a:hover {
+            color: var(--yellow);
+        }
+        
+        /* Main Content Styles */
+        .article-header {
+            text-align: center;
+            padding: 40px 0;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/001.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+        
+        .article-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--yellow);
+        }
+        
+        .meta-info {
+            font-style: italic;
+            color: #ddd;
+        }
+        
+        .content-section {
+            margin-bottom: 50px;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .content-section h2 {
+            color: var(--green);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--yellow);
+        }
+        
+        .fat-type {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 40px;
+            align-items: center;
+        }
+        
+        .fat-type.reverse {
+            flex-direction: row-reverse;
+        }
+        
+        .fat-image {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .fat-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .fat-content {
+            flex: 2;
+            min-width: 300px;
+        }
+        
+        .fat-content h3 {
+            color: var(--black);
+            margin-bottom: 15px;
+        }
+        
+        .good-fat {
+            border-left: 5px solid var(--green);
+            padding-left: 15px;
+        }
+        
+        .bad-fat {
+            border-left: 5px solid #c0392b;
+            padding-left: 15px;
+        }
+        
+        .controversial-fat {
+            border-left: 5px solid var(--yellow);
+            padding-left: 15px;
+        }
+        
+        .practical-tips {
+            background-color: #f0f8f0;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        
+        .practical-tips h3 {
+            color: var(--green);
+            margin-bottom: 15px;
+        }
+        
+        .practical-tips ul {
+            margin-left: 20px;
+        }
+        
+        .practical-tips li {
+            margin-bottom: 10px;
+        }
+        
+        /* FAQ Styles */
+        .faq-section {
+            margin-top: 50px;
+        }
+        
+        .faq-item {
+            margin-bottom: 25px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+        
+        .faq-question {
+            font-weight: bold;
+            color: var(--black);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .faq-question:before {
+            content: "Q:";
+            font-weight: bold;
+            color: var(--green);
+            margin-right: 10px;
+        }
+        
+        .user-name {
+            font-style: italic;
+            color: #666;
+            font-size: 0.9rem;
+            margin-left: 10px;
+        }
+        
+        .faq-answer {
+            color: #444;
+            padding-left: 25px;
+        }
+        
+        .faq-answer:before {
+            content: "A:";
+            font-weight: bold;
+            color: var(--green);
+            margin-right: 10px;
+        }
+        
+        /* Share Section */
+        .share-section {
+            text-align: center;
+            margin: 40px 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+        }
+        
+        .share-section p {
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        .share-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .share-btn {
+            padding: 10px 20px;
+            background-color: var(--green);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .share-btn:hover {
+            background-color: #267349;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--black);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .fat-type, .fat-type.reverse {
+                flex-direction: column;
+            }
+            
+            .article-header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <i class="fas fa-heartbeat"></i>
+                    <h1>Health-Hubs</h1>
+                </div>
+                <div class="social-icons">
+                    <a href="index.html"><i class="fab fa-facebook-f"></i></a>
+                    <a href="index.html"><i class="fab fa-tiktok"></i></a>
+                    <a href="index.html"><i class="fab fa-telegram"></i></a>
+                    <a href="index.html"><i class="fab fa-whatsapp"></i></a>
+                    <a href="index.html"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="home.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="blog.html"><i class="fas fa-blog"></i> Blog</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
+                    <li><a href="faqs.html"><i class="fas fa-question-circle"></i> FAQs</a></li>
+                    <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="article-header">
+            <h1>Good Fats vs Bad Fats: How to Choose Healthy Fats</h1>
+            <p class="meta-info">By Dr. Brian Cooper | July 19, 2024</p>
+        </section>
+
+        <section class="content-section">
+            <h2>The Fat Paradox: Why Your Body Needs the Right Kind</h2>
+            <p>For decades, we've been told that fat is the enemy—the culprit behind expanding waistlines and clogged arteries. But what if I told you that the right kinds of fat are actually essential for vibrant health, sharp mental focus, and even weight management? The truth is, not all fats are created equal, and understanding this distinction could transform your health journey.</p>
+            
+            <p>As a nutrition specialist with over 15 years of clinical experience, I've seen firsthand how shifting from harmful fats to beneficial ones can dramatically improve patients' cardiovascular markers, cognitive function, and overall wellbeing. In this comprehensive guide, we'll cut through the confusion and give you practical strategies for making smart fat choices every day.</p>
+        </section>
+
+        <section class="content-section">
+            <h2>Understanding the Three Types of Dietary Fats</h2>
+            
+            <div class="fat-type">
+                <div class="fat-image">
+                    <img src="images/1761469138443.jpg" alt="Healthy unsaturated fats from avocados, nuts and olive oil">
+                </div>
+                <div class="fat-content good-fat">
+                    <h3>The Champions: Unsaturated Fats</h3>
+                    <p>Unsaturated fats are the undisputed health heroes in the fat family. These beneficial fats come in two forms: monounsaturated and polyunsaturated. Found primarily in plant-based foods, they remain liquid at room temperature and offer remarkable health benefits.</p>
+                    <p>Research consistently shows that unsaturated fats support heart health by improving cholesterol levels, reducing inflammation, and stabilizing heart rhythms. They're also crucial for brain function, helping to maintain the integrity of cell membranes and supporting cognitive processes. Furthermore, these fats aid in the absorption of fat-soluble vitamins (A, D, E, and K) and support hormone production.</p>
+                    <p><strong>Excellent sources include:</strong> Olive oil, avocados, nuts (especially almonds and walnuts), seeds (flaxseeds, chia seeds), and fatty fish like salmon and mackerel.</p>
+                </div>
+            </div>
+            
+            <div class="fat-type reverse">
+                <div class="fat-image">
+                    <img src="images/1761469266243.jpg" alt="Foods containing harmful trans fats">
+                </div>
+                <div class="fat-content bad-fat">
+                    <h3>The Villains: Trans Fats</h3>
+                    <p>If unsaturated fats are the heroes, trans fats are undoubtedly the villains in our dietary story. These artificial fats are created through an industrial process called hydrogenation, which adds hydrogen to liquid vegetable oils to make them more solid and stable at room temperature.</p>
+                    <p>Trans fats are particularly dangerous because they not only raise your "bad" LDL cholesterol but also lower your "good" HDL cholesterol. This double whammy significantly increases your risk of heart disease, stroke, and type 2 diabetes. The World Health Organization has called for the global elimination of industrially produced trans fats from food supplies by 2023, highlighting their serious health risks.</p>
+                    <p><strong>Common sources include:</strong> Fried foods, shortening, margarine, commercially baked goods, and many processed snack foods. Always check labels for "partially hydrogenated oils."</p>
+                </div>
+            </div>
+            
+            <div class="fat-type">
+                <div class="fat-image">
+                    <img src="images/003.jpg" alt="Foods containing saturated fats like coconut and red meat">
+                </div>
+                <div class="fat-content controversial-fat">
+                    <h3>The Controversial Middle Ground: Saturated Fats</h3>
+                    <p>Saturated fats have been at the center of nutritional debates for decades. Found primarily in animal products and some plant sources, these fats are solid at room temperature and have traditionally been linked to increased heart disease risk.</p>
+                    <p>However, recent research has complicated this picture. While it's still wise to limit certain sources of saturated fat (particularly processed meats and high-fat dairy), some saturated fats from whole food sources might not be as harmful as once thought. For instance, the medium-chain triglycerides in coconut oil are metabolized differently than long-chain saturated fats from animal sources.</p>
+                    <p><strong>The current consensus:</strong> Moderation is key. Replace some saturated fats with unsaturated ones, but don't fear all saturated fat sources equally. Focus on the overall quality of your diet rather than fixating on this single nutrient.</p>
+                    <p><strong>Common sources include:</strong> Red meat, butter, cheese, coconut oil, and palm oil.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Practical Guidance for Smart Fat Choices</h2>
+            
+            <div class="practical-tips">
+                <h3>How to Read Labels Like a Pro</h3>
+                <ul>
+                    <li><strong>Check for trans fats:</strong> Look for "0g trans fat" but also scan the ingredients list for "partially hydrogenated oils" - even if the nutrition label claims 0g trans fat, small amounts can still be present.</li>
+                    <li><strong>Evaluate saturated fat:</strong> As a general guideline, choose foods with less than 5g of saturated fat per serving.</li>
+                    <li><strong>Prioritize unsaturated fats:</strong> Look for foods that specifically mention sources of unsaturated fats like olive oil, avocado oil, or nuts.</li>
+                    <li><strong>Beware of "low-fat" traps:</strong> Many low-fat products compensate with added sugars or refined carbohydrates, which can be equally problematic.</li>
+                </ul>
+            </div>
+            
+            <div class="practical-tips">
+                <h3>Simple Swaps for Healthier Fat Choices</h3>
+                <ul>
+                    <li>Replace butter with olive or avocado oil in cooking</li>
+                    <li>Swap processed snack foods with a handful of nuts or seeds</li>
+                    <li>Choose fatty fish like salmon instead of red meat 2-3 times per week</li>
+                    <li>Use avocado as a spread instead of mayonnaise or cream cheese</li>
+                    <li>Opt for baked or grilled foods instead of fried options</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="content-section faq-section">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">Is coconut oil really a "superfood" as some claim? <span class="user-name">- Sarah T.</span></div>
+                <div class="faq-answer">While coconut oil has gained popularity as a health food, the science is more nuanced. Coconut oil contains medium-chain triglycerides (MCTs) that are metabolized differently than other saturated fats. Some studies suggest it may slightly raise "good" HDL cholesterol, but it also raises "bad" LDL cholesterol. My recommendation is to use coconut oil in moderation as part of a balanced diet, rather than treating it as a miracle food. It's better than trans fats but not as beneficial as unsaturated oils like olive oil.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">How much fat should I be eating daily? <span class="user-name">- Mark R.</span></div>
+                <div class="faq-answer">The Dietary Guidelines for Americans recommend that 20-35% of your total daily calories come from fats. For someone eating 2000 calories per day, that's about 44-78 grams of fat. However, the quality of fats matters more than the quantity. Focus on getting most of your fat from unsaturated sources, limit saturated fats, and avoid trans fats completely. Individual needs may vary based on activity level, health status, and specific goals, so consulting with a nutrition professional can provide personalized guidance.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Are there any "good fats" that can help with weight loss? <span class="user-name">- Jessica L.</span></div>
+                <div class="faq-answer">Yes, certain fats can support weight management when consumed in appropriate amounts. Unsaturated fats, particularly those rich in omega-3s like those found in fatty fish, walnuts, and flaxseeds, can help reduce inflammation that contributes to weight gain. Additionally, fats help you feel fuller longer, which can prevent overeating. MCT oil (derived from coconut oil) has been shown in some studies to slightly increase metabolism and promote feelings of fullness. Remember that all fats are calorie-dense (9 calories per gram), so portion control remains important even with healthy fats.</div>
+            </div>
+        </section>
+
+        <section class="share-section">
+            <p>Found this article helpful? Share it with others!</p>
+            <div class="share-buttons">
+                <button class="share-btn" onclick="sharePage()"><i class="fas fa-share-alt"></i> Share This Article</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Health-Hubs. All rights reserved.</p>
+            <p>Disclaimer: This article is for informational purposes only and does not constitute medical advice. Consult with a healthcare professional before making any changes to your diet.</p>
+        </div>
+    </footer>
+
+    <script>
+        function sharePage() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Good Fats vs Bad Fats: How to Choose Healthy Fats',
+                    text: 'Learn to distinguish between beneficial unsaturated fats, harmful trans fats, and controversial saturated fats.',
+                    url: 'https://health-hubs.netlify.app'
+                })
+                .then(() => console.log('Successful share'))
+                .catch((error) => console.log('Error sharing:', error));
+            } else {
+                // Fallback for browsers that don't support the Web Share API
+                alert('Share this URL: https://health-hubs.netlify.app');
+            }
+        }
+    </script>
+</body>
+</html>
