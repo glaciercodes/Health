@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Hubs - Check out some blogs from health-hubs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --black: #121212;
+            --green: #2ecc71;
+            --yellow: #f1c40f;
+            --pink: #e84393;
+            --light-bg: #1e1e1e;
+            --text-color: #f5f5f5;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--black);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(to right, var(--black), var(--green));
+            padding: 20px 0;
+            text-align: center;
+            border-bottom: 3px solid var(--yellow);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+        
+        .logo-icon {
+            font-size: 2.5rem;
+            color: var(--pink);
+            margin-right: 15px;
+            animation: heartbeat 1.5s infinite;
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .logo-text {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: var(--text-color);
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 15px;
+        }
+        
+        .social-icons a {
+            color: var(--text-color);
+            font-size: 1.5rem;
+            transition: transform 0.3s, color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            transform: translateY(-5px);
+            color: var(--yellow);
+        }
+        
+        /* Posts Grid */
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            padding: 30px 0;
+        }
+        
+        .post {
+            background-color: var(--light-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+        
+        .post:hover {
+            transform: translateY(-5px);
+        }
+        
+        .post-header {
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .platform-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-size: 0.9rem;
+        }
+        
+        .facebook { background-color: #3b5998; }
+        .tiktok { background-color: #000000; }
+        .telegram { background-color: #0088cc; }
+        .twitter { background-color: #1da1f2; }
+        .whatsapp { background-color: #25d366; }
+        
+        .username {
+            font-weight: bold;
+            color: var(--yellow);
+        }
+        
+        .post-content {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .post-text {
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+        
+        .post-stats {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
+        
+        .post-actions {
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 15px;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+        
+        .action-btn {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background: none;
+            border: none;
+            color: var(--text-color);
+            cursor: pointer;
+            transition: color 0.3s;
+            font-size: 0.9rem;
+        }
+        
+        .action-btn:hover {
+            color: var(--yellow);
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(to right, var(--green), var(--black));
+            padding: 30px 0;
+            margin-top: 40px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .footer-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--yellow);
+        }
+        
+        .copyright {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .posts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-heartbeat logo-icon"></i>
+                <div class="logo-text">Health Hubs</div>
+            </div>
+            <p>Blogs from Health-hubs over the socials.</p>
+            <div class="social-icons">
+                <a href="index.html"><i class="fab fa-facebook"></i></a>
+                <a href="index.html"><i class="fab fa-tiktok"></i></a>
+                <a href="index.html"><i class="fab fa-telegram"></i></a>
+                <a href="index.html"><i class="fab fa-whatsapp"></i></a>
+                <a href="index.html"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </header>
+    
+    <main class="container">
+        <div class="posts-grid" id="postsContainer">
+            <!-- Posts will be generated by JavaScript -->
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-heartbeat"></i>
+                    <span>Health Hubs</span>
+                </div>
+                <div class="footer-links">
+                    <a href="about.html">About Us</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                    
+                    <a href="contact.html">Contact</a>
+                    
+                    <a href="#">Health Resources</a>
+                </div>
+                <div class="copyright">
+                    &copy; 2023 Health Hubs. All rights reserved. | Promoting wellness one post at a time.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Post data
+        const posts = [
+            {
+                platform: "facebook",
+                text: "Did you know that laughing for 15 minutes can burn up to 40 calories? Your daily dose of humor is actually a mini workout! 😂 #HealthHumor #FitnessFacts",
+                views: 204,
+                likes: 48,
+                comments: 13,
+                shares: 23
+            },
+            {
+                platform: "facebook",
+                text: "Water is life! Staying hydrated helps with everything from clear skin to better digestion. Cheers to drinking more H2O today! 💧 #Hydration #Wellness",
+                views: 204,
+                likes: 48,
+                comments: 13,
+                shares: 23
+            },
+            {
+                platform: "tiktok",
+                text: "Quick desk stretches to save your back from the 9-5 slump! 🧘‍♀️ #OfficeWellness #Deskercise",
+                views: 204,
+                likes: 48,
+                comments: 13,
+                shares: 23
+            },
+            {
+                platform: "tiktok",
+                text: "5-minute meditation to reset your mind during a stressful day. Breathe in, breathe out. You've got this! 🌬️ #MentalHealth #Mindfulness",
+                views: 204,
+                likes: 48,
+                comments: 13,
+                shares: 23
+            },
+            {
+                platform: "telegram",
+                text: "Sleep is not a luxury, it's a necessity! Quality rest boosts immunity, improves memory, and helps maintain a healthy weight. Prioritize your ZZZs! 😴 #SleepHealth",
+                views: 204,
+                likes: 48,
+                comments: 13,
+                shares: 23
+            },
+            {
+                platform: "telegram",
+                text: "The gut-brain connection is real! Fermented foods like yogurt and kimchi can improve both digestion and mood. Your stomach might be the key to happiness! 🦠 #GutHealth",
+                views: 204,
+                likes: 48,
+                comments: 13,
+                shares: 23
+            },
+            {
+                platform: "twitter",
+                text: "Walking is the most underrated exercise. 30 minutes a day can reduce risk of heart disease by 40%. Your daily steps matter more than you think! 🚶‍♀️ #WalkingWorkout",
+                views: 204,
+                likes: 48,
+                comments: 13,
+                shares: 23
+            },
+            {
+                platform: "twitter",
+                text: "Blue light from screens messes with your sleep cycle. Try the 20-20-20 rule: every 20 minutes, look at something 20 feet away for 20 seconds. Your eyes will thank you! 👀 #EyeHealth",
+                views: 204,
+                likes: 48,
+                comments: 13,
+                shares: 23
+            },
+            {
+                platform: "whatsapp",
+                text: "Did you know that dark chocolate (70%+ cocoa) is packed with antioxidants and can lower blood pressure? Finally, some good news! 🍫 #HealthyIndulgence",
+                views: 204,
+                likes: 48,
+                comments: 13,
+                shares: 23
+            },
+            {
+                platform: "whatsapp",
+                text: "Your posture says a lot about your health. Stand tall, sit straight, and walk with confidence. Your spine will reward you later! 🚶‍♂️ #PostureMatters",
+                views: 204,
+                likes: 48,
+                comments: 13,
+                shares: 23
+            },
+            {
+                platform: "facebook",
+                text: "The 10-minute morning stretch that will change your entire day. No equipment needed, just willingness to feel better! 🌅 #MorningRoutine",
+                views: 204,
+                likes: 48,
+                comments: 13,
+                shares: 23
+            },
+            {
+                platform: "tiktok",
+                text: "Meal prep hacks for busy people who still want to eat healthy! 🥗 #MealPrep #HealthyEating",
+                views: 204,
+                likes: 48,
+                comments: 13,
+                shares: 23
+            },
+            {
+                platform: "telegram",
+                text: "Stress management isn't a luxury, it's a survival skill. Find what works for you - meditation, exercise, journaling, or simply taking breaks. Your mental health matters! 🧠 #StressManagement",
+                views: 204,
+                likes: 48,
+                comments: 13,
+                shares: 23
+            },
+            {
+                platform: "twitter",
+                text: "The power of positive thinking isn't just motivational jargon - it actually boosts your immune system and can add years to your life. Choose optimism! 🌟 #PositiveMindset",
+                views: 204,
+                likes: 48,
+                comments: 13,
+                shares: 23
+            },
+            {
+                platform: "whatsapp",
+                text: "Did you drink enough water today? Dehydration can cause headaches, fatigue, and poor concentration. Keep that water bottle handy! 💦 #HydrationReminder",
+                views: 204,
+                likes: 48,
+                comments: 13,
+                shares: 23
+            },
+            {
+                platform: "facebook",
+                text: "The benefits of outdoor time: improved mood, better sleep, and increased vitamin D. Your prescription? A daily dose of sunshine! ☀️ #NatureTherapy",
+                views: 204,
+                likes: 48,
+                comments: 13,
+                shares: 23
+            },
+            {
+                platform: "tiktok",
+                text: "5 foods that naturally boost your energy levels without the caffeine crash! ⚡ #NaturalEnergy #HealthyFoods",
+                views: 204,
+                likes: 48,
+                comments: 13,
+                shares: 23
+            },
+            {
+                platform: "telegram",
+                text: "Your smartphone might be the reason for your neck pain. 'Text neck' is a real condition! Try holding your phone at eye level to save your cervical spine. 📱 #DigitalHealth",
+                views: 204,
+                likes: 48,
+                comments: 13,
+                shares: 23
+            },
+            {
+                platform: "twitter",
+                text: "The connection between physical activity and mental clarity is undeniable. A 20-minute walk can be more effective than caffeine for focus. Move to improve! 🏃‍♂️ #ExerciseBenefits",
+                views: 204,
+                likes: 48,
+                comments: 13,
+                shares: 23
+            },
+            {
+                platform: "whatsapp",
+                text: "Deep breathing isn't just for yoga class. Taking 5 deep breaths can lower cortisol levels and reduce stress instantly. Try it now! 🌬️ #BreathingExercise",
+                views: 204,
+                likes: 48,
+                comments: 13,
+                shares: 23
+            }
+        ];
+
+        // Platform icons mapping
+        const platformIcons = {
+            facebook: "fab fa-facebook-f",
+            tiktok: "fab fa-tiktok",
+            telegram: "fab fa-telegram",
+            twitter: "fab fa-twitter",
+            whatsapp: "fab fa-whatsapp"
+        };
+
+        // Generate posts
+        function generatePosts() {
+            const postsContainer = document.getElementById('postsContainer');
+            
+            posts.forEach((post, index) => {
+                const postElement = document.createElement('div');
+                postElement.className = 'post';
+                postElement.innerHTML = `
+                    <div class="post-header">
+                        <div class="platform-icon ${post.platform}">
+                            <i class="${platformIcons[post.platform]}"></i>
+                        </div>
+                        <div class="username">health-hubs</div>
+                    </div>
+                    <div class="post-content">
+                        <p class="post-text">${post.text}</p>
+                    </div>
+                    <div class="post-stats">
+                        <span class="views"><i class="far fa-eye"></i> <span id="views-${index}">${post.views}</span> views</span>
+                        <span class="timestamp">2 hrs ago</span>
+                    </div>
+                    <div class="post-actions">
+                        <button class="action-btn" onclick="window.location.href='index.html'">
+                            <i class="far fa-heart"></i> <span id="likes-${index}">${post.likes}</span>
+                        </button>
+                        <button class="action-btn" onclick="window.location.href='index.html'">
+                            <i class="far fa-comment"></i> <span id="comments-${index}">${post.comments}</span>
+                        </button>
+                        <button class="action-btn" onclick="window.location.href='index.html'">
+                            <i class="far fa-share-square"></i> <span id="shares-${index}">${post.shares}</span>
+                        </button>
+                    </div>
+                `;
+                
+                postsContainer.appendChild(postElement);
+            });
+        }
+
+        // Initialize counters
+        function initializeCounters() {
+            // Views counter - increases by 204 every 5 seconds
+            setInterval(() => {
+                posts.forEach((post, index) => {
+                    const viewsElement = document.getElementById(`views-${index}`);
+                    if (viewsElement) {
+                        let currentViews = parseInt(viewsElement.textContent);
+                        viewsElement.textContent = currentViews + 204;
+                    }
+                });
+            }, 5000);
+
+            // Likes counter - increases by 48 every 4 seconds
+            setInterval(() => {
+                posts.forEach((post, index) => {
+                    const likesElement = document.getElementById(`likes-${index}`);
+                    if (likesElement) {
+                        let currentLikes = parseInt(likesElement.textContent);
+                        likesElement.textContent = currentLikes + 48;
+                    }
+                });
+            }, 4000);
+
+            // Comments counter - increases by 13 every 5 seconds
+            setInterval(() => {
+                posts.forEach((post, index) => {
+                    const commentsElement = document.getElementById(`comments-${index}`);
+                    if (commentsElement) {
+                        let currentComments = parseInt(commentsElement.textContent);
+                        commentsElement.textContent = currentComments + 13;
+                    }
+                });
+            }, 5000);
+
+            // Shares counter - increases by 23 every 7 seconds
+            setInterval(() => {
+                posts.forEach((post, index) => {
+                    const sharesElement = document.getElementById(`shares-${index}`);
+                    if (sharesElement) {
+                        let currentShares = parseInt(sharesElement.textContent);
+                        sharesElement.textContent = currentShares + 23;
+                    }
+                });
+            }, 7000);
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', () => {
+            generatePosts();
+            initializeCounters();
+        });
+    </script>
+</body>
+                  </html>
