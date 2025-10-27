@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Office Ergonomics: Setting Up a Healthy Workspace | Health-Hubs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4CAF50; /* Green */
+            --secondary: #FFEB3B; /* Yellow */
+            --dark: #121212; /* Black */
+            --light: #f5f5f5;
+            --accent: #E91E63; /* Pink */
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            padding: 20px 0;
+            border-bottom: 2px solid var(--primary);
+        }
+        
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            color: var(--accent);
+            font-size: 2rem;
+            animation: heartbeat 1.5s ease-in-out infinite both;
+        }
+        
+        @keyframes heartbeat {
+            from {
+                transform: scale(1);
+                transform-origin: center center;
+                animation-timing-function: ease-out;
+            }
+            10% {
+                transform: scale(0.91);
+                animation-timing-function: ease-in;
+            }
+            17% {
+                transform: scale(0.98);
+                animation-timing-function: ease-out;
+            }
+            33% {
+                transform: scale(0.87);
+                animation-timing-function: ease-in;
+            }
+            45% {
+                transform: scale(1);
+                animation-timing-function: ease-out;
+            }
+        }
+        
+        .logo h1 {
+            color: var(--primary);
+            font-size: 1.8rem;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icons a {
+            color: var(--secondary);
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--primary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            justify-content: center;
+        }
+        
+        nav a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        nav a:hover {
+            color: var(--secondary);
+        }
+        
+        /* Main Content Styles */
+        .article-header {
+            text-align: center;
+            padding: 40px 0;
+            border-bottom: 1px solid #333;
+        }
+        
+        .article-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+        
+        .meta-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+        
+        .article-content {
+            padding: 40px 0;
+        }
+        
+        .intro {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            background-color: rgba(76, 175, 80, 0.1);
+            padding: 20px;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .section {
+            margin-bottom: 50px;
+        }
+        
+        .section h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+        
+        .section p {
+            margin-bottom: 20px;
+        }
+        
+        .image-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .image-container img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        .image-caption {
+            color: #aaa;
+            font-style: italic;
+            margin-top: 10px;
+        }
+        
+        .tips-list {
+            background-color: rgba(255, 235, 59, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .tips-list li {
+            margin-bottom: 10px;
+            padding-left: 10px;
+        }
+        
+        .faq-section {
+            background-color: rgba(233, 30, 99, 0.1);
+            padding: 30px;
+            border-radius: 8px;
+            margin: 40px 0;
+        }
+        
+        .faq-section h3 {
+            color: var(--accent);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .faq-item {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #333;
+        }
+        
+        .faq-question {
+            font-weight: bold;
+            color: var(--secondary);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .faq-answer {
+            color: #ddd;
+        }
+        
+        .user-name {
+            color: var(--primary);
+            font-weight: normal;
+        }
+        
+        .share-section {
+            text-align: center;
+            margin: 40px 0;
+            padding: 20px;
+            background-color: rgba(76, 175, 80, 0.1);
+            border-radius: 8px;
+        }
+        
+        .share-btn {
+            background-color: var(--primary);
+            color: var(--dark);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+            margin-top: 15px;
+        }
+        
+        .share-btn:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        /* Footer Styles */
+        footer {
+            background-color: #111;
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 50px;
+            border-top: 2px solid var(--primary);
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-section h4 {
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: var(--primary);
+        }
+        
+        .copyright {
+            margin-top: 30px;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .top-bar {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .article-header h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="top-bar">
+                <div class="logo">
+                    <i class="fas fa-heartbeat logo-icon"></i>
+                    <h1>Health-Hubs</h1>
+                </div>
+                <div class="social-icons">
+                    <a href="index.html"><i class="fab fa-facebook-f"></i></a>
+                    <a href="index.html"><i class="fab fa-tiktok"></i></a>
+                    <a href="index.html"><i class="fab fa-telegram"></i></a>
+                    <a href="index.html"><i class="fab fa-whatsapp"></i></a>
+                    <a href="index.html"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="home.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="blog.html"><i class="fas fa-blog"></i> Blog</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
+                    <li><a href="faqs.html"><i class="fas fa-question-circle"></i> FAQs</a></li>
+                    <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <article>
+            <div class="article-header">
+                <h2>Office Ergonomics: Setting Up a Healthy Workspace</h2>
+                <div class="meta-info">
+                    <span><i class="fas fa-user-md"></i> Dr. Nathan Brooks</span>
+                    <span><i class="far fa-calendar-alt"></i> August 15, 2025</span>
+                </div>
+            </div>
+            
+            <div class="article-content">
+                <div class="image-container">
+                    <img src="images/1761556633657.jpg" alt="Proper office ergonomics setup">
+                    <div class="image-caption">An ergonomically optimized workspace reduces strain and improves productivity</div>
+                </div>
+                
+                <p class="intro">Did you know that the average office worker spends approximately 1,700 hours per year at their desk? That's a significant portion of your life spent in one position. If your workspace isn't optimized for your body, you could be setting yourself up for chronic pain, reduced productivity, and long-term health issues. The good news is that with evidence-based ergonomic adjustments, you can transform your workspace into a haven of comfort and efficiency.</p>
+                
+                <div class="section">
+                    <h3>The High Cost of Poor Ergonomics</h3>
+                    <p>Before we dive into solutions, let's understand the problem. Research from the Occupational Safety and Health Administration (OSHA) indicates that work-related musculoskeletal disorders account for over 30% of all worker injury and illness cases. These aren't just minor inconveniences—they can lead to chronic conditions that affect your quality of life long after you've left the office.</p>
+                    
+                    <p>Common issues include:</p>
+                    <ul class="tips-list">
+                        <li><strong>Neck and shoulder pain</strong> from monitors positioned too high or too low</li>
+                        <li><strong>Back problems</strong> from improper chair support and sitting posture</li>
+                        <li><strong>Carpal tunnel syndrome</strong> and other repetitive strain injuries from keyboard and mouse use</li>
+                        <li><strong>Eye strain</strong> from improper lighting and screen positioning</li>
+                        <li><strong>Reduced circulation</strong> from prolonged sitting without movement breaks</li>
+                    </ul>
+                    
+                    <p>The financial impact is staggering too. According to the Bureau of Labor Statistics, employers spend over $15 billion annually on direct costs for musculoskeletal disorders. But beyond the numbers, it's about your wellbeing and ability to perform at your best.</p>
+                </div>
+                
+                <div class="section">
+                    <h3>Monitor Positioning: Your Window to Digital Work</h3>
+                    <p>Your monitor is your primary interface with digital work, and its positioning can make or break your comfort. The Human Factors and Ergonomics Society recommends positioning the top of your screen at or slightly below eye level. This allows you to view the middle of the screen with a slight downward gaze, which is the most natural position for your eyes and neck.</p>
+                    
+                    <p>Here's how to achieve the perfect monitor setup:</p>
+                    <ul class="tips-list">
+                        <li>Position the monitor directly in front of you, about an arm's length away</li>
+                        <li>The top of the screen should be at or slightly below eye level</li>
+                        <li>Tilt the screen back about 10-20 degrees for optimal viewing</li>
+                        <li>Ensure the monitor is perpendicular to windows to minimize glare</li>
+                        <li>Adjust brightness and contrast to match the ambient lighting</li>
+                        <li>Consider using the 20-20-20 rule: every 20 minutes, look at something 20 feet away for 20 seconds</li>
+                    </ul>
+                    
+                    <p>If you use a laptop as your primary computer, consider investing in a laptop stand and external keyboard and mouse. This allows you to position the screen at the correct height while maintaining proper typing posture.</p>
+                </div>
+                
+                <div class="image-container">
+                    <img src="images/1761556701216.jpg" alt="Proper chair adjustment for office ergonomics">
+                    <div class="image-caption">Proper chair adjustment supports spinal health and reduces back strain</div>
+                </div>
+                
+                <div class="section">
+                    <h3>The Chair: Your Throne of Productivity</h3>
+                    <p>Your office chair is perhaps the most important piece of ergonomic equipment. A 2024 study published in the Journal of Occupational Rehabilitation found that proper chair adjustment reduced lower back pain in office workers by 47% over a six-month period.</p>
+                    
+                    <p>Follow these steps to optimize your chair:</p>
+                    <ul class="tips-list">
+                        <li><strong>Seat height:</strong> Adjust so your feet rest flat on the floor with knees at about a 90-degree angle</li>
+                        <li><strong>Seat depth:</strong> Leave 2-4 inches between the back of your knees and the seat edge</li>
+                        <li><strong>Backrest:</strong> Position to support the natural curve of your spine, particularly the lumbar region</li>
+                        <li><strong>Armrests:</strong> Adjust so your elbows form a 90-120 degree angle when typing</li>
+                        <li><strong>Seat pan tilt:</strong> Slight forward tilt can help maintain the natural spinal curve</li>
+                    </ul>
+                    
+                    <p>Remember that even the best chair won't protect you from the dangers of prolonged sitting. The key is movement—changing positions frequently throughout the day.</p>
+                </div>
+                
+                <div class="section">
+                    <h3>Keyboard and Mouse Placement: Your Tools of Creation</h3>
+                    <p>Improper keyboard and mouse positioning is a primary contributor to repetitive strain injuries. The American Academy of Orthopaedic Surgeons recommends keeping your wrists in a neutral position—not bent up, down, or to either side.</p>
+                    
+                    <p>Optimal keyboard and mouse setup includes:</p>
+                    <ul class="tips-list">
+                        <li>Position the keyboard directly in front of you with the mouse close by</li>
+                        <li>Keep your elbows close to your body at a 90-120 degree angle</li>
+                        <li>Maintain straight, neutral wrists—consider a wrist rest for support during pauses</li>
+                        <li>The keyboard should be at or slightly below elbow height</li>
+                        <li>Use a light touch when typing—no unnecessary force</li>
+                        <li>Consider ergonomic keyboards and mice if you experience discomfort</li>
+                    </ul>
+                    
+                    <p>Research from the Cornell University Ergonomics Laboratory shows that proper input device positioning can reduce muscle strain in the shoulders, neck, and arms by up to 21%.</p>
+                </div>
+                
+                <div class="section">
+                    <h3>Movement Strategies: The Antidote to Prolonged Sitting</h3>
+                    <p>Perhaps the most important ergonomic principle is movement. A 2025 meta-analysis in the British Journal of Sports Medicine concluded that for every 30 minutes of sitting, 3-5 minutes of light activity can counteract most negative metabolic effects.</p>
+                    
+                    <p>Effective movement strategies include:</p>
+                    <ul class="tips-list">
+                        <li>Take a 2-minute break every 30 minutes to stand and stretch</li>
+                        <li>Use a standing desk or adjustable workstation to alternate between sitting and standing</li>
+                        <li>Incorporate "deskercise" routines—simple stretches you can do at your desk</li>
+                        <li>Walk during phone calls or meetings when possible</li>
+                        <li>Use apps or timers to remind you to move regularly</li>
+                        <li>Consider an under-desk pedal exerciser for light activity while working</li>
+                    </ul>
+                    
+                    <p>Remember that variety is key. The human body is designed for movement, not static positions, no matter how ergonomically perfect they may be.</p>
+                </div>
+                
+                <div class="faq-section">
+                    <h3><i class="fas fa-question-circle"></i> Frequently Asked Questions</h3>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <i class="fas fa-question"></i>
+                            How long does it take to see benefits from ergonomic adjustments?
+                            <span class="user-name">- Sarah J.</span>
+                        </div>
+                        <div class="faq-answer">
+                            Most people notice some improvement within a few days to a week, but full adaptation and maximum benefit typically take 2-4 weeks. Your body needs time to adjust to new positions and supports. Consistency is key—stick with your ergonomic setup even if it feels slightly unfamiliar at first.
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <i class="fas fa-question"></i>
+                            Are standing desks really better than sitting desks?
+                            <span class="user-name">- Michael T.</span>
+                        </div>
+                        <div class="faq-answer">
+                            Standing desks aren't inherently "better"—the key is variation. Prolonged standing can cause its own issues like varicose veins and foot pain. The ideal approach is to alternate between sitting and standing throughout the day. Aim for a ratio that works for you, such as 30 minutes sitting followed by 15 minutes standing.
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <i class="fas fa-question"></i>
+                            What's the single most important ergonomic adjustment I can make?
+                            <span class="user-name">- Jennifer L.</span>
+                        </div>
+                        <div class="faq-answer">
+                            If I had to choose one, it would be proper monitor height. So many neck and shoulder issues stem from looking up or down at screens for hours. Getting your monitor at the correct eye level provides immediate relief for many people and forms a foundation for other adjustments. Combine this with regular movement breaks for the best results.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="share-section">
+                    <p>Found this article helpful? Share it with colleagues and friends to help them create healthier workspaces!</p>
+                    <button class="share-btn" onclick="shareArticle()">
+                        <i class="fas fa-share-alt"></i> Share This Article
+                    </button>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="blog.html">Health Topics</a></li>
+                        <li><a href="blog.html">Wellness Resources</a></li>
+                    </ul>
+                </div>
+                
+                
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Health-Hubs. All rights reserved. | Medical information reviewed by our health advisory board.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function shareArticle() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Office Ergonomics: Setting Up a Healthy Workspace',
+                    text: 'Check out this comprehensive guide to office ergonomics by Dr. Nathan Brooks',
+                    url: 'https://health-hubs.netlify.app'
+                })
+                .then(() => console.log('Successful share'))
+                .catch((error) => console.log('Error sharing', error));
+            } else {
+                // Fallback for browsers that don't support the Web Share API
+                const url = 'https://health-hubs.netlify.app';
+                navigator.clipboard.writeText(url).then(() => {
+                    alert('Article link copied to clipboard!');
+                });
+            }
+        }
+    </script>
+</body>
+</html>
