@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | Health-Hubs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-black: #121212;
+            --secondary-black: #1e1e1e;
+            --accent-green: #4CAF50;
+            --accent-yellow: #FFC107;
+            --highlight-pink: #ff4081;
+            --text-light: #f5f5f5;
+            --text-gray: #b0b0b0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--primary-black);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--secondary-black);
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-icon {
+            color: var(--highlight-pink);
+            font-size: 2.5rem;
+            animation: heartbeat 2s infinite;
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            5% { transform: scale(1.2); }
+            10% { transform: scale(1); }
+            15% { transform: scale(1.2); }
+            20% { transform: scale(1); }
+            100% { transform: scale(1); }
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            background: linear-gradient(to right, var(--accent-green), var(--accent-yellow));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icons a {
+            color: var(--text-gray);
+            font-size: 1.4rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            color: var(--highlight-pink);
+            transform: translateY(-3px);
+        }
+        
+        /* Main Content Styles */
+        main {
+            padding: 60px 0;
+        }
+        
+        .privacy-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .privacy-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--accent-green);
+        }
+        
+        .privacy-header p {
+            color: var(--text-gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .privacy-content {
+            background-color: var(--secondary-black);
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--accent-yellow);
+            border-left: 4px solid var(--highlight-pink);
+            padding-left: 15px;
+        }
+        
+        .section p {
+            margin-bottom: 15px;
+            color: var(--text-gray);
+        }
+        
+        .section ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .section li {
+            margin-bottom: 10px;
+            color: var(--text-gray);
+        }
+        
+        .highlight {
+            background-color: rgba(76, 175, 80, 0.1);
+            border-left: 4px solid var(--accent-green);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .contact-info {
+            background-color: rgba(255, 193, 7, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        
+        .contact-info h4 {
+            color: var(--accent-yellow);
+            margin-bottom: 10px;
+        }
+        
+        /* Footer Styles */
+        footer {
+            background-color: var(--secondary-black);
+            padding: 30px 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .footer-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-green);
+        }
+        
+        .copyright {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .privacy-content {
+                padding: 25px;
+            }
+            
+            .privacy-header h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-heartbeat logo-icon"></i>
+                    <h1>Health-Hubs</h1>
+                </div>
+                <div class="social-icons">
+                    <a href="index.html" title="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="index.html" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="index.html" title="Telegram"><i class="fab fa-telegram"></i></a>
+                    <a href="index.html" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="index.html" title="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <div class="container">
+            <div class="privacy-header">
+                <h2>Privacy Policy</h2>
+                <p>Your privacy is our priority. Learn how Health-Hubs protects your information and respects your rights.</p>
+            </div>
+            
+            <div class="privacy-content">
+                <div class="section">
+                    <h3>Introduction</h3>
+                    <p>Welcome to Health-Hubs, your trusted platform for health and wellness information. We are committed to protecting your privacy and ensuring that your personal information remains secure. This Privacy Policy explains how we handle information when you visit our website.</p>
+                    <p>At Health-Hubs, we believe that privacy is a fundamental right. We've designed our platform with privacy at its core, implementing measures that minimize data collection while maximizing your experience. Unlike many websites today, we consciously avoid collecting personal data whenever possible.</p>
+                    <p>This policy outlines our approach to privacy, detailing what information we don't collect, how we use cookies, and how we protect any minimal information that might be processed during your visit. We encourage you to read this policy carefully to understand our practices.</p>
+                </div>
+                
+                <div class="section">
+                    <h3>Our Privacy-First Approach</h3>
+                    <p>Health-Hubs operates on a privacy-first principle. We believe that you should be able to access valuable health information without compromising your personal data. Our approach is simple: we don't collect what we don't need.</p>
+                    
+                    <div class="highlight">
+                        <p><strong>What We Don't Collect:</strong></p>
+                        <ul>
+                            <li>Personal identification information (name, email, phone number)</li>
+                            <li>Health records or medical history</li>
+                            <li>Location data or IP addresses (beyond basic analytics)</li>
+                            <li>Financial information or payment details</li>
+                            <li>Social media profiles or contacts</li>
+                        </ul>
+                    </div>
+                    
+                    <p>By design, our website functions without requiring you to create an account or provide personal details. You can access all our content anonymously, ensuring that your health-related queries remain private.</p>
+                </div>
+                
+                <div class="section">
+                    <h3>Information We May Process</h3>
+                    <p>While we intentionally avoid collecting personal data, some technical information may be processed to ensure the website functions properly:</p>
+                    
+                    <ul>
+                        <li><strong>Anonymous Usage Data:</strong> We may collect aggregated, non-identifiable information about how visitors use our website. This helps us understand which content is most valuable and improve user experience.</li>
+                        <li><strong>Technical Information:</strong> Basic technical details such as browser type, device type, and screen resolution may be processed to optimize website performance.</li>
+                        <li><strong>Cookies:</strong> We use a minimal number of cookies, as detailed in the section below.</li>
+                    </ul>
+                    
+                    <p>It's important to note that none of this information can be used to identify you personally. We don't create user profiles, track your browsing behavior across other websites, or share any data with third parties for marketing purposes.</p>
+                </div>
+                
+                <div class="section">
+                    <h3>Our Cookie Policy</h3>
+                    <p>Cookies are small text files that websites place on your device. We use cookies sparingly and only when necessary for the website to function properly.</p>
+                    
+                    <p><strong>Essential Cookies:</strong> These cookies are necessary for the website to function and cannot be switched off. They are usually only set in response to actions made by you, such as setting your privacy preferences or accessing secure areas of the website.</p>
+                    
+                    <p><strong>Performance Cookies:</strong> These cookies allow us to count visits and traffic sources so we can measure and improve the performance of our site. They help us know which pages are the most and least popular and see how visitors move around the site. All information these cookies collect is aggregated and therefore anonymous.</p>
+                    
+                    <p><strong>How to Manage Cookies:</strong> You can set your browser to refuse all or some browser cookies, or to alert you when websites set or access cookies. If you disable or refuse cookies, please note that some parts of this website may become inaccessible or not function properly.</p>
+                </div>
+                
+                <div class="section">
+                    <h3>Third-Party Services</h3>
+                    <p>Health-Hubs may use limited third-party services to enhance your experience:</p>
+                    
+                    <ul>
+                        <li><strong>Content Delivery Networks (CDNs):</strong> We may use CDNs to deliver website content efficiently. These services may process your IP address to serve content from servers closest to your location.</li>
+                        <li><strong>Analytics Services:</strong> We use privacy-focused analytics tools that respect user privacy and don't collect personal data.</li>
+                        <li><strong>Font Services:</strong> We may use services like Google Fonts to display typography correctly. These services may collect limited technical information.</li>
+                    </ul>
+                    
+                    <p>We carefully select third-party providers who share our commitment to privacy and data protection. We review their privacy policies regularly to ensure they align with our standards.</p>
+                </div>
+                
+                <div class="section">
+                    <h3>Data Security</h3>
+                    <p>Although we collect minimal data, we take the security of any information seriously. We implement appropriate technical and organizational measures to protect against unauthorized access, alteration, disclosure, or destruction of any information we may process.</p>
+                    
+                    <p>Our security measures include:</p>
+                    
+                    <ul>
+                        <li>Regular security assessments and updates</li>
+                        <li>Secure server infrastructure</li>
+                        <li>Encryption of data in transit using HTTPS</li>
+                        <li>Limited access to any processed information</li>
+                    </ul>
+                    
+                    <p>We continuously review and enhance our security practices to maintain the integrity and confidentiality of any information processed through our website.</p>
+                </div>
+                
+                <div class="section">
+                    <h3>Your Privacy Rights</h3>
+                    <p>We believe in transparency and your right to control your personal information. Even though we collect minimal data, we want you to understand your rights:</p>
+                    
+                    <ul>
+                        <li><strong>Right to Access:</strong> You have the right to know what information we process about you.</li>
+                        <li><strong>Right to Correction:</strong> You can request correction of any inaccurate information.</li>
+                        <li><strong>Right to Deletion:</strong> You can request deletion of any information we may have about you.</li>
+                        <li><strong>Right to Object:</strong> You can object to certain types of processing.</li>
+                        <li><strong>Right to Data Portability:</strong> You can request a copy of your data in a structured format.</li>
+                    </ul>
+                    
+                    <p>To exercise any of these rights, please contact us using the information provided at the end of this policy. We will respond to your request within a reasonable timeframe.</p>
+                </div>
+                
+                <div class="section">
+                    <h3>Children's Privacy</h3>
+                    <p>Health-Hubs is committed to protecting the privacy of children. Our website is not directed at children under the age of 13, and we do not knowingly collect any personal information from children.</p>
+                    
+                    <p>If you are a parent or guardian and believe that your child has provided us with personal information, please contact us immediately. We will take steps to delete such information from our systems.</p>
+                </div>
+                
+                <div class="section">
+                    <h3>International Data Transfers</h3>
+                    <p>As a global health platform, Health-Hubs may process and store information in various locations around the world. We ensure that any transfers of information comply with applicable data protection laws and that your information remains protected to the standards described in this policy.</p>
+                    
+                    <p>When information is transferred outside your country of residence, we implement appropriate safeguards to ensure that your privacy rights continue to be protected.</p>
+                </div>
+                
+                <div class="section">
+                    <h3>Changes to This Privacy Policy</h3>
+                    <p>We may update this Privacy Policy from time to time to reflect changes in our practices, technology, legal requirements, or other factors. We will notify you of any material changes by posting the updated policy on this page with a new effective date.</p>
+                    
+                    <p>We encourage you to periodically review this page for the latest information on our privacy practices. Your continued use of our website after any changes to this Privacy Policy will constitute your acceptance of such changes.</p>
+                </div>
+                
+                <div class="section">
+                    <h3>Contact Us</h3>
+                    <p>If you have any questions, concerns, or requests regarding this Privacy Policy or our privacy practices, please don't hesitate to contact us:</p>
+                    
+                    <div class="contact-info">
+                        <h4>Health-Hubs Privacy Team</h4>
+                        <p>Email: healthhubscontact@gmail.com </p>
+                        <p>Please note: We do not collect phone numbers or physical addresses to protect both your privacy and ours.</p>
+                    </div>
+                    
+                    <p>We are committed to working with you to obtain a fair resolution of any complaint or concern about privacy. If, however, you believe that we have not been able to assist with your complaint or concern, you have the right to make a complaint to your local data protection authority.</p>
+                </div>
+                
+                <div class="section">
+                    <h3>Conclusion</h3>
+                    <p>At Health-Hubs, we believe that privacy and quality health information should go hand in hand. Our commitment to protecting your privacy is fundamental to our mission of providing accessible, reliable health information to everyone.</p>
+                    
+                    <p>By designing our platform with privacy as a core principle, we ensure that you can focus on what matters most - your health and wellbeing - without worrying about your personal data.</p>
+                    
+                    <p>Thank you for trusting Health-Hubs with your health information needs. We are honored to be part of your wellness journey and remain committed to protecting your privacy every step of the way.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="blog.html">Our Blogs</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2023 Health-Hubs. All rights reserved. | Last updated: October 15, 2023</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+                                                                          </html>
