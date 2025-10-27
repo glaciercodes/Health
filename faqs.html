@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Hubs - 2025 Health FAQs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --black: #121212;
+            --dark-black: #0a0a0a;
+            --green: #4CAF50;
+            --light-green: #8BC34A;
+            --yellow: #FFC107;
+            --light-yellow: #FFEB3B;
+            --pink: #E91E63;
+            --light-pink: #F8BBD0;
+            --white: #f5f5f5;
+            --gray: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(to right, var(--dark-black), var(--gray));
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-icon {
+            color: var(--pink);
+            font-size: 2.5rem;
+            animation: heartbeat 1.5s infinite;
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            5% { transform: scale(1.1); }
+            10% { transform: scale(1); }
+            15% { transform: scale(1.1); }
+            20% { transform: scale(1); }
+            100% { transform: scale(1); }
+        }
+        
+        .logo h1 {
+            font-size: 2rem;
+            background: linear-gradient(to right, var(--green), var(--yellow));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--gray);
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .social-icons .fa-facebook-f:hover {
+            background-color: #3b5998;
+        }
+        
+        .social-icons .fa-tiktok:hover {
+            background-color: #000000;
+        }
+        
+        .social-icons .fa-telegram:hover {
+            background-color: #0088cc;
+        }
+        
+        .social-icons .fa-whatsapp:hover {
+            background-color: #25D366;
+        }
+        
+        .social-icons .fa-twitter:hover {
+            background-color: #1DA1F2;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 80px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .hero h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--green), var(--yellow));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            color: var(--light-yellow);
+        }
+        
+        .search-box {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 15px 20px;
+            border-radius: 50px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+            color: var(--black);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .search-box button {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            background-color: var(--green);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .search-box button:hover {
+            background-color: var(--light-green);
+        }
+        
+        /* FAQ Section */
+        .faq-section {
+            padding: 40px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            display: inline-block;
+            background: linear-gradient(to right, var(--green), var(--yellow));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            padding-bottom: 10px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(to right, var(--green), var(--yellow));
+        }
+        
+        .faq-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+        }
+        
+        .faq-category {
+            background-color: var(--gray);
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-category:hover {
+            transform: translateY(-5px);
+        }
+        
+        .category-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--green);
+        }
+        
+        .category-title i {
+            color: var(--yellow);
+            font-size: 1.5rem;
+        }
+        
+        .category-title h3 {
+            font-size: 1.5rem;
+            color: var(--light-yellow);
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 15px;
+        }
+        
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            color: var(--light-yellow);
+        }
+        
+        .faq-question h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-right: 15px;
+            flex: 1;
+        }
+        
+        .faq-toggle {
+            color: var(--green);
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            margin-top: 10px;
+            color: var(--light-pink);
+        }
+        
+        .faq-answer p {
+            padding: 10px 0;
+        }
+        
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-black);
+            padding: 40px 0 20px;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--light-yellow);
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--green);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--light-green);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid var(--gray);
+            color: var(--light-yellow);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            
+            .faq-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-heartbeat logo-icon"></i>
+                    <h1>Health Hubs</h1>
+                </div>
+                <div class="social-icons">
+                    <a href="index.html"><i class="fab fa-facebook-f"></i></a>
+                    <a href="index.html"><i class="fab fa-tiktok"></i></a>
+                    <a href="index.html"><i class="fab fa-telegram"></i></a>
+                    <a href="index.html"><i class="fab fa-whatsapp"></i></a>
+                    <a href="index.html"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>Your Health Questions Answered</h2>
+            <p>Here Are Comprehensive Frequently Asked Questions Of Our Articles. Find evidence-based answers to your health concerns from nutrition and fitness to mental wellness and preventive care.</p>
+            
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Health Questions</h2>
+            </div>
+            
+            <div class="faq-container">
+                <!-- Nutrition Category -->
+                <div class="faq-category">
+                    <div class="category-title">
+                        <i class="fas fa-apple-alt"></i>
+                        <h3>Nutrition & Diet</h3>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>What is the best diet for weight loss in 2025?</h4>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>According to recent studies, the most effective approach combines intermittent fasting with a Mediterranean-style diet. This method helps regulate insulin levels while providing essential nutrients. Focus on whole foods, lean proteins, healthy fats, and plenty of vegetables. Individual needs vary, so consulting with a nutritionist is recommended for personalized plans.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>Are plant-based diets really healthier than omnivorous diets?</h4>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Well-planned plant-based diets have shown significant health benefits, including reduced risk of heart disease, diabetes, and certain cancers. However, both diets can be healthy when properly balanced. The key is focusing on whole foods regardless of dietary pattern. Plant-based diets require careful planning to ensure adequate protein, iron, calcium, vitamin B12, and omega-3 fatty acids.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>How much water should I drink daily for optimal health?</h4>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>The standard recommendation of 8 glasses (about 2 liters) daily is a good starting point, but individual needs vary based on age, activity level, climate, and health status. A more accurate approach is to drink when thirsty and monitor urine color (pale yellow indicates proper hydration). Foods with high water content like fruits and vegetables also contribute to hydration.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>What are the best sources of protein for vegetarians?</h4>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Excellent vegetarian protein sources include legumes (lentils, chickpeas, beans), tofu, tempeh, edamame, quinoa, nuts, seeds, and dairy products. Combining different plant proteins throughout the day ensures you get all essential amino acids. For example, rice with beans or hummus with whole-grain pita creates complete proteins.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>Are artificial sweeteners safe for long-term use?</h4>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Most regulatory agencies consider artificial sweeteners safe when consumed within acceptable daily intake limits. However, recent research suggests potential impacts on gut microbiota and metabolic health with excessive consumption. Moderation is key, and natural alternatives like stevia or monk fruit may be preferable for some individuals.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Fitness Category -->
+                <div class="faq-category">
+                    <div class="category-title">
+                        <i class="fas fa-running"></i>
+                        <h3>Fitness & Exercise</h3>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>How often should I exercise for optimal health?</h4>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Current guidelines recommend at least 150 minutes of moderate-intensity or 75 minutes of vigorous-intensity aerobic activity weekly, plus strength training twice weekly. However, recent research emphasizes the importance of daily movement beyond structured exercise. Aim for a combination of cardio, strength, flexibility, and balance exercises throughout the week.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>Is high-intensity interval training (HIIT) better than steady-state cardio?</h4>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Both have unique benefits. HIIT is time-efficient and improves cardiovascular fitness and metabolic health effectively. Steady-state cardio is better for endurance building and may be more suitable for beginners or those with certain health conditions. A combination of both in your weekly routine provides comprehensive fitness benefits.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>How important is strength training as we age?</h4>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Extremely important. After age 30, we naturally lose muscle mass (sarcopenia). Strength training helps combat this loss, maintains bone density, improves balance, and reduces injury risk. It also boosts metabolism and supports functional independence. Adults of all ages should include resistance exercises at least twice weekly.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>What's the best time of day to exercise?</h4>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>The best time is when you can consistently fit it into your schedule. Morning workouts may help establish consistency and boost metabolism throughout the day. Afternoon/evening exercise might leverage higher body temperature and hormone levels for potentially better performance. Listen to your body's natural rhythms and choose what works sustainably for you.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>How long does it take to see results from a new exercise routine?</h4>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Initial improvements in mood and energy can occur within days to weeks. Noticeable physical changes typically take 4-8 weeks of consistent effort. Significant transformations require 3-6 months. Remember that non-scale victories like improved stamina, better sleep, and increased strength are important markers of progress too.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mental Health Category -->
+                <div class="faq-category">
+                    <div class="category-title">
+                        <i class="fas fa-brain"></i>
+                        <h3>Mental Wellness</h3>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>What are effective ways to manage daily stress?</h4>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Effective stress management techniques include mindfulness meditation, deep breathing exercises, regular physical activity, adequate sleep, and maintaining social connections. Time management strategies and setting healthy boundaries also help. Recent research highlights the benefits of nature exposure and digital detoxes for reducing stress levels.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>How much sleep do adults really need?</h4>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Most adults need 7-9 hours of quality sleep per night for optimal health. Consistency matters as much as duration—going to bed and waking at similar times daily helps regulate your circadian rhythm. Sleep needs can vary individually, so pay attention to how you feel with different amounts of sleep rather than strictly adhering to general recommendations.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>Can diet affect mental health?</h4>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Absolutely. The gut-brain connection is well-established. Diets rich in whole foods, omega-3 fatty acids, antioxidants, and probiotics support brain health and mood regulation. Conversely, highly processed foods, sugar, and unhealthy fats may increase inflammation and negatively impact mental health. The Mediterranean diet has shown particular promise for supporting mental wellness.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>What's the difference between normal anxiety and an anxiety disorder?</h4>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Normal anxiety is a temporary response to stressors and doesn't significantly impair daily functioning. Anxiety disorders involve persistent, excessive worry that's difficult to control and interferes with work, relationships, or other activities. If anxiety causes significant distress or avoidance of situations, it's advisable to consult a mental health professional for proper assessment.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>How can I improve my focus and concentration?</h4>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Strategies to improve focus include minimizing distractions (especially digital), practicing mindfulness, breaking tasks into smaller chunks, using the Pomodoro technique (25-minute focused work sessions), ensuring adequate sleep, regular exercise, and proper nutrition. Some people find background white noise or specific music helpful for concentration.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Preventive Care Category -->
+                <div class="faq-category">
+                    <div class="category-title">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Preventive Health</h3>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>What health screenings should adults get regularly?</h4>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Recommended screenings vary by age, gender, and risk factors. Generally, adults should regularly check blood pressure, cholesterol, blood sugar, and BMI. Cancer screenings (colon, breast, cervical, prostate) have specific age guidelines. Bone density tests, vision and dental checkups are also important. Consult your healthcare provider for personalized screening recommendations based on your health profile.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>How can I boost my immune system naturally?</h4>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Key strategies include: adequate sleep (7-9 hours nightly), managing stress, regular moderate exercise, a balanced diet rich in fruits and vegetables, maintaining healthy gut microbiota through probiotics and fiber, adequate vitamin D (through sunlight or supplements), and avoiding smoking and excessive alcohol. No single supplement dramatically boosts immunity—focus on overall healthy lifestyle habits.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>What are the most important vaccinations for adults?</h4>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Important adult vaccinations include annual flu shots, COVID-19 vaccines and boosters, Tdap (tetanus, diphtheria, pertussis) every 10 years, shingles vaccine (for adults 50+), pneumococcal vaccines (for adults 65+ or with certain conditions), and HPV vaccine (for adults up to age 45 if not previously vaccinated). Travel-specific vaccines may also be needed based on destination.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>How often should I get a physical exam?</h4>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Healthy adults under 50 with no chronic conditions typically benefit from a physical every 2-3 years. Those over 50 or with health issues should have annual checkups. However, frequency should be personalized based on individual health status, family history, and risk factors. Regular dental cleanings (every 6 months) and eye exams (every 1-2 years) are also important components of preventive care.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>What are the best ways to prevent heart disease?</h4>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Key prevention strategies include: not smoking, maintaining healthy blood pressure and cholesterol levels, regular physical activity, healthy weight management, balanced diet (Mediterranean-style), managing stress, limiting alcohol, and controlling blood sugar if diabetic. Knowing your family history and regular health screenings help identify risks early when they're most manageable.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Skin & Beauty Category -->
+                <div class="faq-category">
+                    <div class="category-title">
+                        <i class="fas fa-spa"></i>
+                        <h3>Skin & Beauty Health</h3>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>What's the most important skincare step for anti-aging?</h4>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Daily sun protection is the single most effective anti-aging skincare step. UV radiation causes up to 80% of visible skin aging. Use broad-spectrum sunscreen with SPF 30+ every day, even when cloudy or indoors near windows. Other important steps include gentle cleansing, moisturizing, antioxidants (like vitamin C), and retinoids (for cell turnover).</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>How does diet affect skin health?</h4>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Diet significantly impacts skin through inflammation, hydration, and nutrient availability. Foods rich in antioxidants (berries, leafy greens), omega-3s (fatty fish, walnuts), and vitamins C and E support skin health. High-glycemic foods and dairy may exacerbate acne in some individuals. Adequate hydration and limiting alcohol and processed foods also contribute to clearer, healthier skin.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>What's the difference between chemical and physical sunscreens?</h4>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Chemical sunscreens absorb UV radiation and convert it to heat, while physical (mineral) sunscreens sit on skin surface and reflect UV rays. Physical sunscreens (containing zinc oxide or titanium dioxide) are generally better for sensitive skin and provide immediate protection. Chemical sunscreens tend to be lighter and more cosmetically elegant. Both are effective when applied correctly and reapplied regularly.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>How can I improve my hair health naturally?</h4>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Improve hair health through: balanced nutrition (especially protein, iron, zinc, biotin), scalp massage to increase circulation, limiting heat styling and chemical treatments, using gentle hair care products, protecting hair from sun exposure, managing stress (which can contribute to hair loss), and ensuring adequate sleep. Some people benefit from supplements like collagen or omega-3s, but consult a professional first.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>What causes adult acne and how can it be treated?</h4>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Adult acne can result from hormonal fluctuations, stress, certain medications, cosmetics, or underlying health conditions. Treatment approaches include topical retinoids, salicylic acid, or benzoyl peroxide; oral medications for more severe cases; lifestyle modifications (stress management, dietary changes); and professional treatments like chemical peels or laser therapy. Consistency with skincare routine is crucial for results.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Chronic Conditions Category -->
+                <div class="faq-category">
+                    <div class="category-title">
+                        <i class="fas fa-stethoscope"></i>
+                        <h3>Chronic Conditions</h3>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>What lifestyle changes can help manage type 2 diabetes?</h4>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Key lifestyle modifications include: adopting a balanced diet focused on whole foods with controlled carbohydrates, regular physical activity (both aerobic and resistance training), weight management, stress reduction, adequate sleep, and avoiding tobacco. Monitoring blood sugar levels helps understand how different foods and activities affect your glucose. Some people can achieve remission through significant lifestyle changes, especially early in diagnosis.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>How can I lower my blood pressure naturally?</h4>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Effective natural approaches include: reducing sodium intake, increasing potassium-rich foods (fruits, vegetables), regular aerobic exercise, maintaining healthy weight, limiting alcohol, managing stress through techniques like meditation, and potentially supplements like magnesium or omega-3s (under medical guidance). The DASH (Dietary Approaches to Stop Hypertension) diet has proven particularly effective for blood pressure management.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>What are the early warning signs of thyroid problems?</h4>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Hypothyroidism (underactive thyroid) may cause fatigue, weight gain, cold intolerance, dry skin, hair loss, and depression. Hyperthyroidism (overactive thyroid) may manifest as weight loss, rapid heartbeat, anxiety, heat intolerance, and tremors. Other symptoms can include changes in menstrual patterns, bowel habits, or cholesterol levels. Thyroid issues often develop gradually, so persistent symptoms warrant thyroid function testing.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>Can arthritis be prevented or its progression slowed?</h4>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>While some arthritis forms have genetic components, lifestyle measures can reduce risk and slow progression: maintaining healthy weight (reduces joint stress), regular low-impact exercise (strengthens supporting muscles), balanced anti-inflammatory diet (rich in omega-3s, antioxidants), proper posture and body mechanics, avoiding joint injuries, and managing other health conditions that can affect joints like diabetes.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h4>What's the connection between gut health and overall wellness?</h4>
+                            <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>The gut microbiome influences numerous aspects of health beyond digestion, including immune function (70% of immune system resides in gut), mental health (via gut-brain axis), inflammation levels, nutrient absorption, and even skin conditions. Supporting gut health through diverse plant foods, fermented foods, adequate fiber, and probiotics can have far-reaching benefits for overall wellness and chronic disease prevention.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Health Hubs</h3>
+                    <p>Your trusted source for evidence-based health information and wellness guidance. Empowering you to make informed decisions about your health journey.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="contact.html">Contact-Us</a></li>
+                        <li><a href="blog.html">Our Blogs</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                
+                
+                <div class="footer-column">
+                    <h3>Connect With Us</h3>
+                    <div class="social-icons">
+                        <a href="index.html"><i class="fab fa-facebook-f"></i></a>
+                        <a href="index.html"><i class="fab fa-tiktok"></i></a>
+                        <a href="index.html"><i class="fab fa-telegram"></i></a>
+                        <a href="index.html"><i class="fab fa-whatsapp"></i></a>
+                        <a href="index.html"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Health Hubs. All rights reserved. | This content is for informational purposes only and is not a substitute for professional medical advice.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ toggle functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                faqItem.classList.toggle('active');
+            });
+        });
+        
+        // Search functionality
+        const searchInput = document.querySelector('.search-box input');
+        const searchButton = document.querySelector('.search-box button');
+        
+        searchButton.addEventListener('click', performSearch);
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+        
+        function performSearch() {
+            const searchTerm = searchInput.value.toLowerCase();
+            if (searchTerm.trim() === '') return;
+            
+            // In a real implementation, this would search through the FAQ content
+            // For this demo, we'll just show an alert
+            alert(`Searching for: ${searchTerm}\n\nIn a complete implementation, this would filter the FAQ items based on your search term.`);
+        }
+    </script>
+</body>
+</html>
