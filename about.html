@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Health-Hubs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary-black: #121212;
+            --secondary-black: #1e1e1e;
+            --accent-green: #4CAF50;
+            --accent-yellow: #FFC107;
+            --text-white: #f5f5f5;
+            --text-gray: #b0b0b0;
+        }
+        
+        body {
+            background-color: var(--primary-black);
+            color: var(--text-white);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--secondary-black);
+            padding: 20px 0;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-icon {
+            color: #ff4081;
+            font-size: 2.5rem;
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            5% { transform: scale(1.1); }
+            10% { transform: scale(1); }
+            15% { transform: scale(1.1); }
+            20% { transform: scale(1); }
+            100% { transform: scale(1); }
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--accent-green), var(--accent-yellow));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icons a {
+            color: var(--text-gray);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            color: var(--accent-green);
+            transform: translateY(-3px);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--text-white);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            color: var(--text-gray);
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--accent-green);
+            color: var(--primary-black);
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-button:hover {
+            background-color: var(--accent-yellow);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding: 80px 0;
+        }
+        
+        .section {
+            margin-bottom: 80px;
+        }
+        
+        .section-title {
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--accent-green), var(--accent-yellow));
+            border-radius: 2px;
+        }
+        
+        .section p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: var(--text-gray);
+        }
+        
+        .highlight {
+            color: var(--accent-yellow);
+            font-weight: 600;
+        }
+        
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .card {
+            background-color: var(--secondary-black);
+            border-radius: 10px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--accent-green);
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--text-white);
+        }
+        
+        .card p {
+            color: var(--text-gray);
+        }
+        
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--accent-green);
+        }
+        
+        /* Specialist Section */
+        .specialists {
+            background-color: var(--secondary-black);
+            padding: 80px 0;
+        }
+        
+        .specialist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .specialist-card {
+            background-color: var(--primary-black);
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .specialist-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .specialist-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            background-color: var(--accent-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: var(--primary-black);
+        }
+        
+        .specialist-name {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+        
+        .specialist-field {
+            color: var(--accent-yellow);
+            margin-bottom: 15px;
+        }
+        
+        /* App Themes Section */
+        .theme-showcase {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .theme-card {
+            flex: 1;
+            min-width: 300px;
+            background-color: var(--secondary-black);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .theme-card.black {
+            border-top: 5px solid var(--primary-black);
+        }
+        
+        .theme-card.green {
+            border-top: 5px solid var(--accent-green);
+        }
+        
+        .theme-card.yellow {
+            border-top: 5px solid var(--accent-yellow);
+        }
+        
+        .theme-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .theme-card.black .theme-icon {
+            color: var(--primary-black);
+        }
+        
+        .theme-card.green .theme-icon {
+            color: var(--accent-green);
+        }
+        
+        .theme-card.yellow .theme-icon {
+            color: var(--accent-yellow);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--secondary-black);
+            padding: 50px 0 20px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--text-white);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--accent-green);
+        }
+        
+        .copyright {
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .theme-showcase {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-heartbeat logo-icon"></i>
+                    <span class="logo-text">Health-Hubs</span>
+                </div>
+                <div class="social-icons">
+                    <a href="index.html"><i class="fab fa-facebook"></i></a>
+                    <a href="index.html"><i class="fab fa-tiktok"></i></a>
+                    <a href="index.html"><i class="fab fa-telegram"></i></a>
+                    <a href="index.html"><i class="fab fa-whatsapp"></i></a>
+                    <a href="index.html"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Your Trusted Health Companion</h1>
+            <p>Health-Hubs is dedicated to providing verified health information from a network of 40-50 medical specialists, ensuring you receive accurate, up-to-date guidance for your wellness journey.</p>
+            <a href="privacy.html" class="cta-button">See Our Privacy policy</a>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Our Mission Section -->
+            <section class="section">
+                <h2 class="section-title">Our Mission</h2>
+                <p>At Health-Hubs, our mission is to bridge the gap between medical expertise and everyday health awareness. In an era of information overload, where unverified health advice proliferates across digital platforms, we recognized the urgent need for a trusted source of medically sound guidance.</p>
+                
+                <p>We've assembled a diverse network of <span class="highlight">40 to 50 medical specialists</span> across various disciplines including cardiology, nutrition, mental health, pediatrics, geriatrics, and more. These professionals work collaboratively to create, review, and verify all content published on our platform, ensuring that every piece of advice, tip, or information meets the highest standards of medical accuracy.</p>
+                
+                <p>Our commitment extends beyond simply providing information. We aim to contextualize health guidance for individual needs, offering personalized insights that consider different lifestyles, age groups, and health conditions. Through continuous updates and regular contributions from our specialist network, we maintain a dynamic repository of health knowledge that evolves with the latest medical research and discoveries.</p>
+            </section>
+
+            <!-- How We Work Section -->
+            <section class="section">
+                <h2 class="section-title">How We Deliver Verified Health Information</h2>
+                <p>The core of Health-Hubs lies in our meticulous content verification process. Every health tip, article, or guidance published on our platform undergoes a rigorous multi-step review:</p>
+                
+                <div class="card-container">
+                    <div class="card">
+                        <i class="fas fa-user-md card-icon"></i>
+                        <h3>Specialist Creation</h3>
+                        <p>Content is initially created by specialists in their respective fields, ensuring foundational accuracy and relevance.</p>
+                    </div>
+                    
+                    <div class="card">
+                        <i class="fas fa-clipboard-check card-icon"></i>
+                        <h3>Peer Review</h3>
+                        <p>Each piece undergoes review by at least two other specialists to validate claims and recommendations.</p>
+                    </div>
+                    
+                    <div class="card">
+                        <i class="fas fa-sync-alt card-icon"></i>
+                        <h3>Regular Updates</h3>
+                        <p>Content is regularly reviewed and updated to reflect the latest medical research and guidelines.</p>
+                    </div>
+                </div>
+                
+                <p>This collaborative approach ensures that our users receive information that is not only accurate but also balanced and comprehensive. Our specialists come from various medical institutions and bring diverse perspectives, preventing any single viewpoint from dominating our health recommendations.</p>
+                
+                <p>Furthermore, we maintain transparency about the sources of our information, citing relevant studies and providing context for medical recommendations. This empowers our users to understand not just what health actions to take, but why these actions are beneficial based on current medical understanding.</p>
+            </section>
+
+            <!-- Personalized Health Tracking Section -->
+            <section class="section">
+                <h2 class="section-title">Personalized Health Tracking & Concerns</h2>
+                <p>Understanding that health is not one-size-fits-all, Health-Hubs goes beyond generic advice to provide personalized health tracking and concern monitoring. Our platform allows users to:</p>
+                
+                <div class="card-container">
+                    <div class="card">
+                        <i class="fas fa-chart-line card-icon"></i>
+                        <h3>Track Health Metrics</h3>
+                        <p>Monitor vital health indicators over time with intuitive tracking tools and visualization.</p>
+                    </div>
+                    
+                    <div class="card">
+                        <i class="fas fa-bell card-icon"></i>
+                        <h3>Personalized Alerts</h3>
+                        <p>Receive customized notifications about health trends and potential concerns based on your data.</p>
+                    </div>
+                    
+                    <div class="card">
+                        <i class="fas fa-hand-holding-heart card-icon"></i>
+                        <h3>Targeted Recommendations</h3>
+                        <p>Get health tips specifically tailored to your profile, conditions, and wellness goals.</p>
+                    </div>
+                </div>
+                
+                <p>Our concern monitoring system is designed to identify patterns that might indicate emerging health issues. By analyzing user-provided data alongside general health indicators, we can flag potential concerns early and provide guidance on when to seek professional medical attention.</p>
+                
+                <p>This proactive approach to health management empowers individuals to take control of their wellbeing, with the reassurance that our platform is backed by medical expertise. We emphasize that our tools complement, rather than replace, professional medical care, and we always encourage consultation with healthcare providers for specific medical concerns.</p>
+            </section>
+
+            <!-- Our Specialist Network Section -->
+            <section class="section specialists">
+                <h2 class="section-title">Our Specialist Network</h2>
+                <p>The credibility of Health-Hubs stems from our extensive network of medical professionals. Our 40-50 specialists represent a wide spectrum of medical fields, ensuring comprehensive coverage of health topics.</p>
+                
+                <div class="specialist-grid">
+                    <div class="specialist-card">
+                        <div class="specialist-avatar">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <h3 class="specialist-name">Dr. Sarah Johnson</h3>
+                        <p class="specialist-field">Cardiology</p>
+                        <p>15+ years experience in preventive cardiology</p>
+                    </div>
+                    
+                    <div class="specialist-card">
+                        <div class="specialist-avatar">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <h3 class="specialist-name">Dr. Michael Chen</h3>
+                        <p class="specialist-field">Nutrition</p>
+                        <p>Specialist in evidence-based nutritional guidance</p>
+                    </div>
+                    
+                    <div class="specialist-card">
+                        <div class="specialist-avatar">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <h3 class="specialist-name">Dr. Emily Rodriguez</h3>
+                        <p class="specialist-field">Mental Health</p>
+                        <p>Expert in mindfulness and psychological wellbeing</p>
+                    </div>
+                    
+                    <div class="specialist-card">
+                        <div class="specialist-avatar">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <h3 class="specialist-name">Dr. James Wilson</h3>
+                        <p class="specialist-field">Pediatrics</p>
+                        <p>Focused on child development and preventive care</p>
+                    </div>
+                </div>
+                
+                <p>Our specialists are not just contributors but active participants in our mission. They engage in regular discussions, review emerging research, and collaborate on complex health topics to provide the most balanced and current advice possible. This collaborative model ensures that our content reflects the consensus of medical professionals rather than individual opinions.</p>
+                
+                <p>We maintain a rigorous selection process for our specialists, verifying credentials, experience, and commitment to evidence-based medicine. This ensures that our network represents the highest standards of medical expertise across various healthcare domains.</p>
+            </section>
+
+            <!-- App Themes Section -->
+            <section class="section">
+                <h2 class="section-title">Customizable Experience</h2>
+                <p>To enhance user experience and accommodate personal preferences, Health-Hubs offers three distinct theme options: Black, Green, and Yellow. Each theme is designed with specific user needs in mind:</p>
+                
+                <div class="theme-showcase">
+                    <div class="theme-card black">
+                        <i class="fas fa-moon theme-icon"></i>
+                        <h3>Black Theme</h3>
+                        <p>Ideal for low-light reading with reduced eye strain, perfect for nighttime browsing and users with light sensitivity.</p>
+                    </div>
+                    
+                    <div class="theme-card green">
+                        <i class="fas fa-leaf theme-icon"></i>
+                        <h3>Green Theme</h3>
+                        <p>Promotes a calming, natural environment associated with wellness and healing, reducing stress during health information consumption.</p>
+                    </div>
+                    
+                    <div class="theme-card yellow">
+                        <i class="fas fa-sun theme-icon"></i>
+                        <h3>Yellow Theme</h3>
+                        <p>Provides an energizing, optimistic interface that can help boost mood while engaging with health content.</p>
+                    </div>
+                </div>
+                
+                <p>These themes are applied consistently across our platform, including our mobile application, creating a cohesive visual experience regardless of how users access our content. The theme selection also extends to our content presentation, with specialized formatting for different types of health information to maximize readability and comprehension.</p>
+                
+                <p>Beyond aesthetics, our interface design prioritizes accessibility, with considerations for color contrast, font size options, and navigation simplicity. This ensures that Health-Hubs remains usable and valuable for people of all ages and abilities.</p>
+            </section>
+
+            <!-- Our Commitment Section -->
+            <section class="section">
+                <h2 class="section-title">Our Commitment to You</h2>
+                <p>At Health-Hubs, we recognize the profound responsibility that comes with providing health guidance. Our commitment to our users is built on several foundational principles:</p>
+                
+                <div class="card-container">
+                    <div class="card">
+                        <i class="fas fa-shield-alt card-icon"></i>
+                        <h3>Accuracy First</h3>
+                        <p>We prioritize medical accuracy over all other considerations, ensuring our content is reliable and trustworthy.</p>
+                    </div>
+                    
+                    <div class="card">
+                        <i class="fas fa-transparency card-icon"></i>
+                        <h3>Transparency</h3>
+                        <p>We're open about our sources, methodologies, and the limitations of general health advice.</p>
+                    </div>
+                    
+                    <div class="card">
+                        <i class="fas fa-user-shield card-icon"></i>
+                        <h3>Privacy Protection</h3>
+                        <p>We implement robust security measures to protect your personal health information.</p>
+                    </div>
+                </div>
+                
+                <p>We continuously evaluate and improve our platform based on user feedback, emerging medical research, and technological advancements. Our goal is not just to be a source of health information but to be a true partner in your wellness journey, providing support, guidance, and reliable information when you need it most.</p>
+                
+                <p>As we look to the future, we're committed to expanding our specialist network, enhancing our personalization capabilities, and exploring new ways to make quality health guidance accessible to everyone. We believe that informed health decisions lead to better outcomes, and we're dedicated to empowering individuals with the knowledge they need to take control of their wellbeing.</p>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Health-Hubs</h3>
+                    <p>Your trusted source for verified health information from medical specialists.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="blog.html">Our Blogs</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Connect With Us</h3>
+                    <div class="social-icons">
+                        <a href="index.html"><i class="fab fa-facebook"></i></a>
+                        <a href="index.html"><i class="fab fa-tiktok"></i></a>
+                        <a href="index.html"><i class="fab fa-telegram"></i></a>
+                        <a href="index.html"><i class="fab fa-whatsapp"></i></a>
+                        <a href="index.html"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Health-Hubs. All rights reserved. | Verified health information from 40-50 medical specialists</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
