@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Detox: How Unplugging Improves Health | Health-Hubs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --black: #121212;
+            --green: #4CAF50;
+            --yellow: #FFC107;
+            --pink: #E91E63;
+            --light-bg: #1E1E1E;
+            --text-color: #E0E0E0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--black);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            padding: 20px 0;
+            border-bottom: 1px solid #333;
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            color: var(--pink);
+            font-size: 28px;
+            animation: heartbeat 1.5s ease-in-out infinite both;
+        }
+        
+        @keyframes heartbeat {
+            from {
+                transform: scale(1);
+                transform-origin: center center;
+                animation-timing-function: ease-out;
+            }
+            10% {
+                transform: scale(0.91);
+                animation-timing-function: ease-in;
+            }
+            17% {
+                transform: scale(0.98);
+                animation-timing-function: ease-out;
+            }
+            33% {
+                transform: scale(0.87);
+                animation-timing-function: ease-in;
+            }
+            45% {
+                transform: scale(1);
+                animation-timing-function: ease-out;
+            }
+        }
+        
+        .logo h1 {
+            color: var(--green);
+            font-size: 28px;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icons a {
+            color: var(--text-color);
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--yellow);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        nav a:hover {
+            color: var(--yellow);
+        }
+        
+        /* Article Styles */
+        .article-header {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .article-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--yellow);
+            line-height: 1.3;
+        }
+        
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            color: #999;
+        }
+        
+        .featured-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto 50px;
+        }
+        
+        .article-content h2 {
+            color: var(--green);
+            margin: 30px 0 15px;
+            font-size: 1.8rem;
+        }
+        
+        .article-content p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .highlight-box {
+            background-color: var(--light-bg);
+            border-left: 4px solid var(--pink);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .share-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 40px 0;
+            padding: 20px;
+            background-color: var(--light-bg);
+            border-radius: 8px;
+        }
+        
+        .share-button {
+            background-color: var(--green);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background-color 0.3s;
+        }
+        
+        .share-button:hover {
+            background-color: #3d8b40;
+        }
+        
+        /* FAQ Styles */
+        .faq-section {
+            margin: 50px 0;
+        }
+        
+        .faq-section h2 {
+            color: var(--yellow);
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+        
+        .faq-item {
+            background-color: var(--light-bg);
+            border-radius: 8px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-question h3 {
+            color: var(--text-color);
+            font-size: 1.2rem;
+        }
+        
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+        }
+        
+        .faq-answer.active {
+            padding: 0 20px 20px;
+            max-height: 500px;
+        }
+        
+        .user-name {
+            color: var(--green);
+            font-weight: bold;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--light-bg);
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 50px;
+            border-top: 1px solid #333;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .copyright {
+            color: #999;
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .header-top {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .article-header h1 {
+                font-size: 2rem;
+            }
+            
+            .featured-image {
+                height: 250px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-top">
+                <div class="logo">
+                    <i class="fas fa-heartbeat logo-icon"></i>
+                    <h1>Health-Hubs</h1>
+                </div>
+                <div class="social-icons">
+                    <a href="index.html"><i class="fab fa-facebook"></i></a>
+                    <a href="index.html"><i class="fab fa-tiktok"></i></a>
+                    <a href="index.html"><i class="fab fa-telegram"></i></a>
+                    <a href="index.html"><i class="fab fa-whatsapp"></i></a>
+                    <a href="index.html"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="home.html"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="blog.html"><i class="fas fa-blog"></i> Blog</a></li>
+                    <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact Us</a></li>
+                    <li><a href="faqs.html"><i class="fas fa-question-circle"></i> FAQs</a></li>
+                    <li><a href="about.html"><i class="fas fa-users"></i> About Us</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <article>
+                <div class="article-header">
+                    <h1>Digital Detox: How Unplugging Improves Health</h1>
+                    <div class="article-meta">
+                        <span>By Dr. Aaron Phillips</span>
+                        <span>May 2, 2025</span>
+                    </div>
+                </div>
+
+                <img src="images/1761549310841.jpg" alt="Person disconnecting from digital devices" class="featured-image">
+
+                <div class="article-content">
+                    <p>Have you ever found yourself reaching for your phone first thing in the morning, scrolling mindlessly through social media feeds, or checking emails during family dinner? If so, you're not alone. In our hyper-connected world, digital devices have become extensions of ourselves—but at what cost to our health and wellbeing?</p>
+                    
+                    <p>As a physician specializing in lifestyle medicine, I've observed a troubling trend: patients presenting with symptoms directly linked to their digital consumption. From chronic sleep issues to heightened anxiety, the evidence is mounting that our constant connectivity is taking a significant toll on both mental and physical health.</p>
+                    
+                    <h2>The Science Behind Digital Overload</h2>
+                    
+                    <p>Research from leading institutions like Harvard Medical School and the American Psychological Association reveals that our brains weren't designed for the constant stimulation of digital devices. The blue light emitted by screens suppresses melatonin production, disrupting our natural sleep-wake cycles. A 2024 study published in Sleep Medicine found that participants who used electronic devices before bed took an average of 30 minutes longer to fall asleep and experienced reduced REM sleep.</p>
+                    
+                    <div class="highlight-box">
+                        <p>"The average person checks their phone 96 times a day—that's once every 10 minutes during waking hours. This constant interruption fragments our attention and prevents deep focus."</p>
+                    </div>
+                    
+                    <p>Our attention spans are suffering too. Neuroscientists at Stanford University have documented that heavy media multitaskers perform worse on cognitive control tasks. The constant switching between apps, notifications, and tasks trains our brains to seek novelty, making sustained attention increasingly difficult.</p>
+                    
+                    <h2>The Impact on Stress and Relationships</h2>
+                    
+                    <p>The connection between digital device usage and stress is well-documented. The constant barrage of information, comparison culture on social media, and the pressure to be always available create a perfect storm for chronic stress. Cortisol levels—our primary stress hormone—can remain elevated with frequent phone use, contributing to inflammation, weight gain, and cardiovascular issues.</p>
+                    
+                    <p>Perhaps most concerning is how digital connectivity affects our real-world relationships. A study from the University of Pennsylvania found that reducing social media use to 30 minutes per day resulted in significant decreases in loneliness and depression. When we're constantly connected to our devices, we're often disconnected from the people right in front of us.</p>
+                    
+                    <h2>Practical Strategies for Digital Detox</h2>
+                    
+                    <p>The good news is that we can reclaim control. Implementing regular digital detoxes doesn't mean abandoning technology entirely, but rather creating healthier boundaries. Here are evidence-based strategies I recommend to my patients:</p>
+                    
+                    <p><strong>1. Designate Tech-Free Zones:</strong> Make your bedroom a device-free sanctuary. Charge phones in another room overnight to improve sleep quality and reduce the temptation for late-night scrolling.</p>
+                    
+                    <p><strong>2. Implement the 20-20-20 Rule:</strong> For every 20 minutes of screen time, look at something 20 feet away for 20 seconds. This simple practice reduces digital eye strain and gives your brain a micro-break.</p>
+                    
+                    <p><strong>3. Schedule Digital Sabbaths:</strong> Designate one day per week—or even a few hours each day—as screen-free time. Use this time for hobbies, outdoor activities, or connecting with loved ones without digital interruptions.</p>
+                    
+                    <p><strong>4. Curate Your Notifications:</strong> Turn off non-essential notifications. Research shows that even when we don't check our phones, the mere anticipation of notifications can reduce cognitive capacity.</p>
+                    
+                    <p><strong>5. Practice Mindful Tech Use:</strong> Before reaching for your device, pause and ask yourself: "What is my intention here?" This simple question can break the cycle of automatic, unconscious scrolling.</p>
+                    
+                    <div class="share-section">
+                        <p>Share this article:</p>
+                        <button class="share-button" onclick="shareArticle()">
+                            <i class="fas fa-share-alt"></i> Share
+                        </button>
+                        <span id="share-url">health-hubs.netlify.app</span>
+                    </div>
+                </div>
+            </article>
+
+            <section class="faq-section">
+                <h2>Frequently Asked Questions</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(0)">
+                        <h3><span class="user-name">Sarah M.</span> asks: How long does it take to see benefits from a digital detox?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Many people report feeling benefits within just 24-48 hours of reducing screen time. Improved sleep quality is often the first noticeable change, followed by reduced anxiety and improved focus. A 2023 study in the Journal of Behavioral Addictions found that participants who engaged in a 7-day digital detox reported significant improvements in wellbeing, concentration, and sleep quality. For lasting changes, consistency is key—aim for regular short detoxes rather than occasional extended breaks.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(1)">
+                        <h3><span class="user-name">James T.</span> asks: Is it realistic to completely disconnect in today's world?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>For most people, complete disconnection isn't practical or necessary. The goal isn't to eliminate technology but to use it more intentionally. Focus on creating boundaries that work for your lifestyle. This might mean designating specific times for checking emails and social media, turning off notifications during focused work or family time, or implementing device-free meals. The key is mindful usage—being in control of your technology rather than letting it control you.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(2)">
+                        <h3><span class="user-name">Priya K.</span> asks: What about work requirements that demand constant connectivity?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>This is a common challenge. If your job requires digital connectivity, focus on creating micro-detoxes throughout your day. Try the Pomodoro Technique—25 minutes of focused work followed by a 5-minute break away from screens. Use lunch breaks as screen-free time, and establish clear boundaries between work and personal time by not checking work communications after hours. Communicate your digital wellness goals with your team—you might be surprised how many colleagues feel the same way and would support implementing healthier digital practices in the workplace.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <div class="logo">
+                    <i class="fas fa-heartbeat logo-icon"></i>
+                    <h1>Health-Hubs</h1>
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2025 Health-Hubs. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Toggle FAQ answers
+        function toggleFAQ(index) {
+            const answers = document.querySelectorAll('.faq-answer');
+            const questionIcons = document.querySelectorAll('.faq-question i');
+            
+            if (answers[index].classList.contains('active')) {
+                answers[index].classList.remove('active');
+                questionIcons[index].classList.remove('fa-chevron-up');
+                questionIcons[index].classList.add('fa-chevron-down');
+            } else {
+                answers[index].classList.add('active');
+                questionIcons[index].classList.remove('fa-chevron-down');
+                questionIcons[index].classList.add('fa-chevron-up');
+            }
+        }
+        
+        // Share functionality
+        function shareArticle() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Digital Detox: How Unplugging Improves Health',
+                    text: 'Check out this article on digital detox and health improvement',
+                    url: 'https://health-hubs.netlify.app'
+                })
+                .then(() => console.log('Successful share'))
+                .catch((error) => console.log('Error sharing', error));
+            } else {
+                // Fallback for browsers that don't support the Web Share API
+                const shareUrl = document.getElementById('share-url');
+                shareUrl.style.display = 'inline';
+                shareUrl.style.backgroundColor = 'var(--light-bg)';
+                shareUrl.style.padding = '5px 10px';
+                shareUrl.style.borderRadius = '4px';
+                
+                // Copy to clipboard
+                navigator.clipboard.writeText('https://health-hubs.netlify.app')
+                    .then(() => {
+                        const originalText = shareUrl.textContent;
+                        shareUrl.textContent = 'Copied to clipboard!';
+                        setTimeout(() => {
+                            shareUrl.textContent = originalText;
+                        }, 2000);
+                    });
+            }
+        }
+        
+        // Initialize first FAQ as open
+        document.addEventListener('DOMContentLoaded', function() {
+            toggleFAQ(0);
+        });
+    </script>
+</body>
+</html>
