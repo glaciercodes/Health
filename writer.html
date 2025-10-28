@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Hubs - Expert Writers</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-black: #1a1a1a;
+            --primary-green: #2e7d32;
+            --primary-yellow: #ffc107;
+            --accent-pink: #e91e63;
+            --light-bg: #f5f5f5;
+            --text-light: #ffffff;
+            --text-dark: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-black), var(--primary-green));
+            color: var(--text-light);
+            padding: 1.5rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo-icon {
+            color: var(--accent-pink);
+            font-size: 2.5rem;
+            animation: heartbeat 1.5s infinite;
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            5% { transform: scale(1.2); }
+            10% { transform: scale(1); }
+            15% { transform: scale(1.2); }
+            20% { transform: scale(1); }
+            100% { transform: scale(1); }
+        }
+        
+        .logo h1 {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icons a {
+            color: var(--text-light);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            color: var(--accent-pink);
+            transform: translateY(-3px);
+        }
+        
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .page-title {
+            text-align: center;
+            margin: 2rem 0;
+            color: var(--primary-black);
+        }
+        
+        .page-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .page-title p {
+            font-size: 1.2rem;
+            color: #666;
+        }
+        
+        .experts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .expert-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .expert-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-header {
+            padding: 1.5rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--primary-green);
+            margin: 0 auto 1rem;
+            display: block;
+        }
+        
+        .expert-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--primary-black);
+        }
+        
+        .expert-title {
+            color: var(--primary-green);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .expert-specialty {
+            background-color: var(--primary-yellow);
+            color: var(--primary-black);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+        
+        .card-body {
+            padding: 0 1.5rem 1.5rem;
+        }
+        
+        .expert-bio {
+            color: #555;
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+        
+        .expert-credentials {
+            background-color: #f9f9f9;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        
+        .credentials-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary-black);
+        }
+        
+        .credentials-list {
+            list-style-type: none;
+        }
+        
+        .credentials-list li {
+            padding: 0.3rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .credentials-list li:before {
+            content: "•";
+            color: var(--primary-green);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .disclaimer {
+            background-color: #fff8e1;
+            border-left: 5px solid var(--primary-yellow);
+            padding: 1.5rem;
+            margin: 3rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .disclaimer h3 {
+            color: var(--primary-black);
+            margin-bottom: 1rem;
+        }
+        
+        .disclaimer p {
+            color: #666;
+            line-height: 1.7;
+        }
+        
+        footer {
+            background-color: var(--primary-black);
+            color: var(--text-light);
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-logo .logo-icon {
+            font-size: 2rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-pink);
+        }
+        
+        .copyright {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .header-top {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+            }
+            
+            .experts-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <i class="fas fa-heartbeat logo-icon"></i>
+                    <h1>Health Hubs</h1>
+                </div>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/profile.php?id=61582762929958"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.tiktok.com/@healthhubss?_t=ZM-90uXILoCNyq&_r=1"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://t.me/+hYwQzzsbk5RjNjBk"><i class="fab fa-telegram"></i></a>
+                    <a href="https://whatsapp.com/channel/0029VaSor7M0LKZHGVh8872O"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://x.com/health_hubss?t=j4f-0vi0Sp5hLeecZlxraQ&s=09"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="experts.html" class="active">Our Experts</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="page-title">
+            <h2>Meet Our Health Experts</h2>
+            <p>Leading specialists dedicated to your wellness journey</p>
+        </section>
+
+        <section class="experts-grid">
+            <!-- Expert 1 -->
+            <div class="expert-card">
+                <div class="card-header">
+                    <img src="images/1761650014752.jpg" alt="Dr. Sarah Johnson" class="profile-img">
+                    <h3 class="expert-name">Dr. Sarah Johnson</h3>
+                    <p class="expert-title">Cardiologist & Heart Health Specialist</p>
+                    <span class="expert-specialty">Cardiology</span>
+                </div>
+                <div class="card-body">
+                    <p class="expert-bio">With over 15 years of experience in cardiovascular medicine, Dr. Johnson specializes in preventive cardiology and advanced heart failure treatments. She has published numerous research papers in prestigious medical journals.</p>
+                    <div class="expert-credentials">
+                        <h4 class="credentials-title">Credentials & Achievements</h4>
+                        <ul class="credentials-list">
+                            <li>MD from Johns Hopkins University</li>
+                            <li>Board Certified in Cardiovascular Disease</li>
+                            <li>Fellow of American College of Cardiology</li>
+                            <li>Author of "Heart Health for Life"</li>
+                            <li>Recipient of the 2020 Excellence in Cardiology Award</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Expert 2 -->
+            <div class="expert-card">
+                <div class="card-header">
+                    <img src="images/1761649947439.jpg" alt="Dr. Michael Chen" class="profile-img">
+                    <h3 class="expert-name">Dr. Michael Chen</h3>
+                    <p class="expert-title">Neurologist & Brain Health Researcher</p>
+                    <span class="expert-specialty">Neurology</span>
+                </div>
+                <div class="card-body">
+                    <p class="expert-bio">Dr. Chen is a leading neurologist with expertise in neurodegenerative diseases and cognitive health. His research on early Alzheimer's detection has been recognized internationally, and he regularly contributes to medical education programs.</p>
+                    <div class="expert-credentials">
+                        <h4 class="credentials-title">Credentials & Achievements</h4>
+                        <ul class="credentials-list">
+                            <li>MD, PhD in Neuroscience from Stanford</li>
+                            <li>Director of Memory Disorders Clinic</li>
+                            <li>Published over 50 peer-reviewed papers</li>
+                            <li>Principal Investigator in 3 NIH-funded studies</li>
+                            <li>Medical Advisor to Alzheimer's Association</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Expert 3 -->
+            <div class="expert-card">
+                <div class="card-header">
+                    <img src="images/1761650006036.jpg" alt="Dr. Elena Rodriguez" class="profile-img">
+                    <h3 class="expert-name">Dr. Elena Rodriguez</h3>
+                    <p class="expert-title">Pediatrician & Child Development Expert</p>
+                    <span class="expert-specialty">Pediatrics</span>
+                </div>
+                <div class="card-body">
+                    <p class="expert-bio">Dr. Rodriguez has dedicated her career to children's health, with special focus on developmental pediatrics and preventive care. She is known for her compassionate approach and expertise in childhood nutrition and immunization.</p>
+                    <div class="expert-credentials">
+                        <h4 class="credentials-title">Credentials & Achievements</h4>
+                        <ul class="credentials-list">
+                            <li>MD from Harvard Medical School</li>
+                            <li>Board Certified in Pediatrics</li>
+                            <li>Fellow of American Academy of Pediatrics</li>
+                            <li>Author of "Growing Healthy Kids" parenting guide</li>
+                            <li>Recipient of Pediatric Excellence Award 2021</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Expert 4 -->
+            <div class="expert-card">
+                <div class="card-header">
+                    <img src="images/1761649941695.jpg" alt="Dr. James Wilson" class="profile-img">
+                    <h3 class="expert-name">Dr. James Wilson</h3>
+                    <p class="expert-title">Orthopedic Surgeon & Sports Medicine</p>
+                    <span class="expert-specialty">Orthopedics</span>
+                </div>
+                <div class="card-body">
+                    <p class="expert-bio">With expertise in sports injuries and joint replacement, Dr. Wilson has treated professional athletes and active individuals for over 20 years. He specializes in minimally invasive procedures and rehabilitation protocols.</p>
+                    <div class="expert-credentials">
+                        <h4 class="credentials-title">Credentials & Achievements</h4>
+                        <ul class="credentials-list">
+                            <li>MD from Mayo Medical School</li>
+                            <li>Fellowship in Sports Medicine</li>
+                            <li>Team Physician for professional sports teams</li>
+                            <li>Inventor of patented surgical techniques</li>
+                            <li>Professor of Orthopedic Surgery</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Expert 5 -->
+            <div class="expert-card">
+                <div class="card-header">
+                    <img src="images/1761648617325.jg" alt="Dr. Priya Sharma" class="profile-img">
+                    <h3 class="expert-name">Dr. Priya Sharma</h3>
+                    <p class="expert-title">Endocrinologist & Diabetes Specialist</p>
+                    <span class="expert-specialty">Endocrinology</span>
+                </div>
+                <div class="card-body">
+                    <p class="expert-bio">Dr. Sharma is renowned for her work in diabetes management and metabolic disorders. She has developed innovative treatment protocols that have improved patient outcomes significantly and regularly speaks at international conferences.</p>
+                    <div class="expert-credentials">
+                        <h4 class="credentials-title">Credentials & Achievements</h4>
+                        <ul class="credentials-list">
+                            <li>MD from University of California, San Francisco</li>
+                            <li>Board Certified in Endocrinology</li>
+                            <li>Director of Diabetes Center of Excellence</li>
+                            <li>Author of "Metabolic Health Revolution"</li>
+                            <li>Principal Investigator for diabetes clinical trials</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Expert 6 -->
+            <div class="expert-card">
+                <div class="card-header">
+                    <img src="images/1761649936836.jpg" alt="Dr. Robert Kim" class="profile-img">
+                    <h3 class="expert-name">Dr. Robert Kim</h3>
+                    <p class="expert-title">Psychiatrist & Mental Health Advocate</p>
+                    <span class="expert-specialty">Psychiatry</span>
+                </div>
+                <div class="card-body">
+                    <p class="expert-bio">Dr. Kim specializes in anxiety disorders, depression, and integrative approaches to mental wellness. He combines traditional psychiatry with mindfulness techniques and has helped thousands regain mental health.</p>
+                    <div class="expert-credentials">
+                        <h4 class="credentials-title">Credentials & Achievements</h4>
+                        <ul class="credentials-list">
+                            <li>MD from Yale School of Medicine</li>
+                            <li>Board Certified in Psychiatry</li>
+                            <li>Fellow of American Psychiatric Association</li>
+                            <li>Author of "Mindful Living for Mental Wellness"</li>
+                            <li>Founder of Mental Health Awareness Foundation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Expert 7 -->
+            <div class="expert-card">
+                <div class="card-header">
+                    <img src="images/1761648605637.jpg" alt="Dr. Amanda Foster" class="profile-img">
+                    <h3 class="expert-name">Dr. Amanda Foster</h3>
+                    <p class="expert-title">Oncologist & Cancer Researcher</p>
+                    <span class="expert-specialty">Oncology</span>
+                </div>
+                <div class="card-body">
+                    <p class="expert-bio">Dr. Foster is at the forefront of cancer research, specializing in immunotherapy and personalized cancer treatments. Her work has contributed to breakthrough treatments for several cancer types.</p>
+                    <div class="expert-credentials">
+                        <h4 class="credentials-title">Credentials & Achievements</h4>
+                        <ul class="credentials-list">
+                            <li>MD, PhD from University of Pennsylvania</li>
+                            <li>Board Certified in Medical Oncology</li>
+                            <li>Director of Cancer Immunotherapy Program</li>
+                            <li>Published in Nature, Science, and Cell</li>
+                            <li>Recipient of National Cancer Institute Award</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Expert 8 -->
+            <div class="expert-card">
+                <div class="card-header">
+                    <img src="images/1761649932232 jpg" alt="Dr. David Thompson" class="profile-img">
+                    <h3 class="expert-name">Dr. David Thompson</h3>
+                    <p class="expert-title">Gastroenterologist & Digestive Health</p>
+                    <span class="expert-specialty">Gastroenterology</span>
+                </div>
+                <div class="card-body">
+                    <p class="expert-bio">Dr. Thompson is an expert in digestive disorders and endoscopic procedures. He has pioneered several minimally invasive techniques for treating complex gastrointestinal conditions.</p>
+                    <div class="expert-credentials">
+                        <h4 class="credentials-title">Credentials & Achievements</h4>
+                        <ul class="credentials-list">
+                            <li>MD from University of Michigan</li>
+                            <li>Board Certified in Gastroenterology</li>
+                            <li>Fellow of American College of Gastroenterology</li>
+                            <li>Developed new endoscopic screening protocol</li>
+                            <li>Professor of Medicine</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Expert 9 -->
+            <div class="expert-card">
+                <div class="card-header">
+                    <img src="images/17616485928 10.jpg" alt="Dr. Lisa Morgan" class="profile-img">
+                    <h3 class="expert-name">Dr. Lisa Morgan</h3>
+                    <p class="expert-title">Dermatologist & Skin Health Expert</p>
+                    <span class="expert-specialty">Dermatology</span>
+                </div>
+                <div class="card-body">
+                    <p class="expert-bio">Dr. Morgan specializes in medical and cosmetic dermatology with expertise in skin cancer prevention and treatment. She is known for her research on sun damage and innovative approaches to skin rejuvenation.</p>
+                    <div class="expert-credentials">
+                        <h4 class="credentials-title">Credentials & Achievements</h4>
+                        <ul class="credentials-list">
+                            <li>MD from Northwestern University</li>
+                            <li>Board Certified in Dermatology</li>
+                            <li>Fellow of American Academy of Dermatology</li>
+                            <li>Author of "Skin Health for Life"</li>
+                            <li>Developer of patented skincare formulations</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Expert 10 -->
+            <div class="expert-card">
+                <div class="card-header">
+                    <img src="images/1761649927820.jpg" alt="Dr. Benjamin Carter" class="profile-img">
+                    <h3 class="expert-name">Dr. Benjamin Carter</h3>
+                    <p class="expert-title">Nutritionist & Preventive Medicine</p>
+                    <span class="expert-specialty">Nutrition</span>
+                </div>
+                <div class="card-body">
+                    <p class="expert-bio">Dr. Carter is a leading nutrition scientist with expertise in the role of diet in disease prevention. His research on Mediterranean and plant-based diets has influenced dietary guidelines worldwide.</p>
+                    <div class="expert-credentials">
+                        <h4 class="credentials-title">Credentials & Achievements</h4>
+                        <ul class="credentials-list">
+                            <li>PhD in Nutritional Sciences from Cornell</li>
+                            <li>Registered Dietitian Nutritionist</li>
+                            <li>Author of "The Science of Eating Well"</li>
+                            <li>Nutrition Advisor to World Health Organization</li>
+                            <li>Host of "Nutrition Facts" podcast</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="disclaimer">
+            <h3>Medical Disclaimer</h3>
+            <p>The information provided on Health Hubs is for educational and informational purposes only and is not intended as medical advice. The content should not be used as a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition. Never disregard professional medical advice or delay in seeking it because of something you have read on this website. The experts featured on this page are for informational purposes and do not constitute an endorsement. If you think you may have a medical emergency, call your doctor or emergency services immediately.</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-heartbeat logo-icon"></i>
+                    <h2>Health Hubs</h2>
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About Us</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="blog.html">Our Blog</a>
+                </div>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/profile.php?id=61582762929958"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.tiktok.com/@healthhubss?_t=ZM-90uXILoCNyq&_r=1"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://t.me/+hYwQzzsbk5RjNjBk"><i class="fab fa-telegram"></i></a>
+                    <a href="https://whatsapp.com/channel/0029VaSor7M0LKZHGVh8872O"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://x.com/health_hubss?t=j4f-0vi0Sp5hLeecZlxraQ&s=09"><i class="fab fa-twitter"></i></a>
+                </div>
+                <p class="copyright">&copy; 2023 Health Hubs. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
